@@ -59,8 +59,8 @@ const Navbar = () => {
                                     Who we are
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <Link className="dropdown-item" to="/about-us">About Us</Link>
-                                    <Link className="dropdown-item" to="/prismatic-activity">Life At Prismatic</Link>
+                                    <Link className="dropdown-item" to="/about-us" onClick={() => window.scrollTo(0, 0)}>About Us</Link>
+                                    <Link className="dropdown-item" to="/prismatic-activity" onClick={() => window.scrollTo(0, 0)}>Life At Prismatic</Link>
                                 </div>
                             </li>
                             <li className="nav-item dropdown">
@@ -76,10 +76,10 @@ const Navbar = () => {
                                     Services
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <Link className="dropdown-item" to="/services/premier-advertising-agency-chicago">Premier Advertising Agency Chicago</Link>
-                                    <Link className="dropdown-item" to="/services/mobile-app-development">Mobile App</Link>
-                                    <Link className="dropdown-item" to="services/e-commerce-service">E-Commerce Website</Link>
-                                    <Link className="dropdown-item" to="https://prismatrix.co/" target='_blank'>Digital Marketing</Link>
+                                    <Link className="dropdown-item" to="/services/premier-advertising-agency-chicago" onClick={() => window.scrollTo(0, 0)}>Premier Advertising Agency Chicago</Link>
+                                    <Link className="dropdown-item" to="/services/mobile-app-development" onClick={() => window.scrollTo(0, 0)}>Mobile App</Link>
+                                    <Link className="dropdown-item" to="services/e-commerce-service" onClick={() => window.scrollTo(0, 0)}>E-Commerce Website</Link>
+                                    <Link className="dropdown-item" to="https://prismatrix.co/" target='_blank' onClick={() => window.scrollTo(0, 0)}>Digital Marketing</Link>
                                 </div>
                             </li>
                             <li className="nav-item dropdown">
@@ -95,7 +95,7 @@ const Navbar = () => {
                                     Products
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <Link className="dropdown-item" to="/products/erp-software-in-pakistan">ERP Software</Link>
+                                    <Link className="dropdown-item" to="/products/erp-software-in-pakistan" onClick={() => window.scrollTo(0, 0)}>ERP Software</Link>
                                     <a className="dropdown-item" href="https://crmprismatic.com/">Real Estate CRM</a>
                                     <a className="dropdown-item" href="/learning-management-system">LMS Software</a>
                                     <a className="dropdown-item" href="/pos-software-services">POS System</a>
