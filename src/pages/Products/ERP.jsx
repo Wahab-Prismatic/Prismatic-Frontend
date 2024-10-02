@@ -4,9 +4,51 @@ import PolgoneImg from '../../assets/images/erp/polgone.png';
 import PrisHeroImg from '../../assets/images/erp/pris-hero-img.png';
 import PolygoneImg from '../../assets/images/erp/polygon.png';
 import EllipseImg from '../../assets/images/erp/Ellipse 2.png'
+import CardImg from '../../assets/images/erp/card-img-1.png';
 import '../../assets/css/ERP.css';
+import { useEffect } from 'react';
+import Aos from 'aos';
 
 const ERP = () => {
+  useEffect(() => {
+    Aos.init();
+  }, [])
+
+  const featuresData = [
+    {
+      image: CardImg,
+      title: 'Productive Collaboration',
+      description:
+        'Our ERP software provides an effortless workflow, so data can be shared across departments. Better Communication = Better Decisions',
+      aosDuration: 1000,
+      customMarginClass: '',
+    },
+    {
+      image: CardImg,
+      title: 'Handles Costs and Finances',
+      description:
+        'Our ERP platform does all the financial work for you. From data automation to richly detailed financial reports, your business finances will be in check!',
+      aosDuration: 2000,
+      customMarginClass: 'mt-70',
+    },
+    {
+      image: CardImg,
+      title: 'Best Customer Experience',
+      description:
+        'Our software simplifies interaction with customers by monitoring their data and buying trends, so you can ALWAYS stay in the loop.',
+      aosDuration: 3000,
+      customMarginClass: 'mt-140',
+    },
+    {
+      image: CardImg,
+      title: 'Inventory Management',
+      description:
+        'Our ERP system tracks stock levels, automates reorders, and ensures you never run out of essential items. Keep your supply chain smooth and efficient!',
+      aosDuration: 3000,
+      customMarginClass: 'mt-210',
+    },
+  ];
+
   return (
     <>
       {/* // <!-- Hero Section Start --> */}
@@ -103,6 +145,66 @@ const ERP = () => {
         </div>
       </div>
       {/* // <!-- About Prismatic-ERP End --> */}
+
+      {/* <!-- ERP Features Start--> */}
+      <div className="pris-features text-center section" id="features">
+        <div className="container">
+          <div className="row g-4">
+            <div className="col-md-12 mb-5">
+              <h1>
+                Transform Your Operations with <br /> Cutting-Edge{' '}
+                <span className="pri-accent">ERP Features</span>
+              </h1>
+              <p>
+                Instead of addressing ERP development as just a technical project, our consulting team sees
+                it as a business transformation process, where ERP technology adoption starts the flywheel of positive
+                changes for your business.
+              </p>
+            </div>
+
+            {featuresData.map((feature, index) => (
+              <div
+                key={index}
+                className={`col-md-6 col-lg-3 mb-3 ${feature.customMarginClass}`}
+                data-aos="flip-down"
+                data-aos-duration={feature.aosDuration}
+              >
+                <div className="cards-container">
+                  <div className="cards">
+                    <div className="pris-cards text-center">
+                      <img src={feature.image} alt={feature.title} className="img-fluid mb-4" />
+                      <h3>{feature.title}</h3>
+                      <p>{feature.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </div>
+      {/* <!-- ERP Features End--> */}
+
+      {/* <!-- Connect with Expert Start --> */}
+      <div className="pris-connect-us section" id="">
+        <div className="container">
+          <div className="col-md-12 text-center">
+            <h1>
+              Get Started!
+            </h1>
+            <p>
+              Connect with our experienced and proficient Tech Experts today to explore how Prismatic can take your
+              technology, business, and operations to subsequent levels.
+            </p>
+            <Link to="/contact-us" className="btn pris-inquire-btn">
+              Inquire Now
+              <img src="/assets/images/erp/demo-2.png" alt="" className="demo-img" />
+            </Link>
+          </div>
+        </div>
+      </div>
+      {/* <!-- Connect with Expert End --> */}
     </>
   )
 }

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import HeroSectionMain from '../components/HeroSectionMain';
 import BusinessProbCard from '../components/BusinessProbCard';
 import BusinessSolsSection from '../components/BusinessSolsSection';
@@ -10,8 +10,12 @@ import TestimonialSection from '../components/TestimonialSection';
 import OurLocations from '../components/OurLocations';
 import StrategicPartner from '../components/StrategicPartner';
 import BlogsSection from '../components/BlogsSection';
+import Aos from 'aos';
 
 const Home = () => {
+    useEffect(() => {
+        Aos.init();
+    }, []);
     return (
         <div>
             <HeroSectionMain />

@@ -1,14 +1,19 @@
 import './HeroSectionMain.css'
+import Aos from 'aos';
 import servicesData from '../services/HeroSectionService';
 // Import Swiper modules
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/modules';
 // Import Swiper CSS modules
 import 'swiper/css';
+import { useEffect } from 'react';
 
 
 
 const HeroSectionMain = () => {
+    useEffect(() => {
+        Aos.init();
+    }, );
 
     return (
         <div className="HeroSEc-main">
