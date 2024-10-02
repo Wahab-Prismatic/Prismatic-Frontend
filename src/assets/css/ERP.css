@@ -425,3 +425,104 @@ h1, h2, h3, h4, h6 {
     }
 }
 /* Connect with Expert End */
+
+.pris-industries h3 {
+    color: var(--pris-primary-color);
+    font-weight: 400;
+    font-size: 1.472rem;
+    line-height: 1.794rem;
+}
+
+.pris-industries h1 {
+    color: var(--pris-primary-color);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3.657rem;
+    text-align: center;
+}
+
+.pris-industries p {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.25rem;
+    text-align: center;
+    line-height: 1.875rem;
+}
+
+.img-fluid {
+    max-width: 100%;
+    height: auto;
+  }
+
+@media (max-width: 576px) {
+    .pris-industries h3 {
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .pris-industries h1 {
+        font-size: 1.625rem;
+        line-height: 2.2rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pri-accent {
+        color: var(--accent-color);
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.657rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .pris-industries p {
+        font-size: 1rem;
+        line-height: 1.875rem;
+        margin-top: 10px;
+    }
+}
+
+.pris-industries {
+    padding: 50px 0; /* Optional: add some padding */
+  }
+  
+  .slide-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+    text-align: center; /* Center text */
+  }
+  
+  .img-fluid {
+    max-width: 100%;
+    height: auto;
+    /* You can add more styles for the images if needed */
+  }
+  
+  /* Optional: Responsive adjustments */
+  @media (min-width: 576px) {
+    .slide-content {
+      margin: 0 15px; /* Add margin for small devices */
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .slide-content {
+      margin: 0 20px; /* Add margin for medium devices */
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .slide-content {
+      margin: 0 25px; /* Add margin for large devices */
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .slide-content {
+      margin: 0 30px; /* Add margin for extra-large devices */
+    }
+  }

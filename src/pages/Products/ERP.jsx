@@ -5,9 +5,15 @@ import PrisHeroImg from '../../assets/images/erp/pris-hero-img.png';
 import PolygoneImg from '../../assets/images/erp/polygon.png';
 import EllipseImg from '../../assets/images/erp/Ellipse 2.png'
 import CardImg from '../../assets/images/erp/card-img-1.png';
+import HealthCareImg from '../../assets/images/erp/Healthcare.png';
+import ManufacturingImg from '../../assets/images/erp/Manufacturing-industry.png';
+import BankingImg from '../../assets/images/erp/Banking.png';
+import RetailImg from '../../assets/images/erp/Retail.png';
 import '../../assets/css/ERP.css';
 import { useEffect } from 'react';
 import Aos from 'aos';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay } from 'swiper/modules';
 
 const ERP = () => {
   useEffect(() => {
@@ -205,6 +211,83 @@ const ERP = () => {
         </div>
       </div>
       {/* <!-- Connect with Expert End --> */}
+
+      {/* <!-- Our Industries Start --> */}
+      <div className="pris-industries section" id="industries">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12 mt-4">
+              <div className="d-flex justify-content-center flex-wrap flex-column align-items-center">
+                <h3>Industries</h3>
+                <h1 data-aos="fade-right" data-aos-duration="2000" className="aos-init aos-animate">
+                  Let’s <span className="pri-accent connect-us-1">Our Industry Expertise and Solutions</span>
+                </h1>
+                <p>
+                  Creating business value at the intersection of your industry transformation <br />
+                  and today's latest technology innovation.
+                </p>
+              </div>
+            </div>
+            <div className="col-md-12">
+              <Swiper
+                modules={[Autoplay]}
+                slidesPerView={4}
+                loop={true}
+                autoplay={{ delay: 3000 }}
+                breakpoints={{
+                  350: {
+                    slidesPerView: 1,
+                  },
+                  400: {
+                    slidesPerView: 1,
+                  },
+                  576: {
+                    slidesPerView: 2, // 1 slide on small devices (mobile)
+                  },
+                  768: {
+                    slidesPerView: 2, // 2 slides on medium devices (tablets)
+                  },
+                  992: {
+                    slidesPerView: 3, // 3 slides on large devices (small desktops)
+                  },
+                  1200: {
+                    slidesPerView: 4, // 4 slides on extra-large devices (large desktops)
+                  },
+                }}
+                className="mySwiper justify-content-center"
+              >
+                <SwiperSlide>
+                  <div className="slide-content">
+                    <img src={HealthCareImg} alt="Healthcare" className="img-fluid" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide >
+                  <div className="slide-content">
+                    <img src={ManufacturingImg} alt="Manufacturing" className="img-fluid" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="slide-content">
+                    <img src={BankingImg} alt="Banking" className="img-fluid" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="slide-content">
+                    <img src={RetailImg} alt="Retail" className="img-fluid" />
+                  </div>
+                </SwiperSlide>
+                <SwiperSlide>
+                  <div className="slide-content">
+                    <img src={ManufacturingImg} alt="Manufacturing" className="img-fluid" />
+                  </div>
+                </SwiperSlide>
+              </Swiper>
+              <div className="swiper-pagination"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <!-- Our Industries End --> */}
     </>
   )
 }
