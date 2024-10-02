@@ -1,0 +1,99 @@
+.technology{
+    background-color: #111731;
+    color: #F3F4F4;
+}
+
+.tech-Heading h3{
+    margin: 0 auto;
+    font-size: 22px;
+    font-weight: 600;
+    /* text-align: center; */
+    /* text-decoration: underline; */
+}
+.technology h5{
+    font-size: 16px;
+}
+.technology p{
+    font-size: 14px;
+}
+
+.line-vertical{
+    border-right: 1px solid #757474;
+    /* height: 90%; */
+}
+
+.cms-line-vertical{
+    border-right: 1px solid #757474;
+}
+
+.ecommerceVertical{
+    border-right: none;
+}
+
+.mobDev-vertical{
+    border-right: 1px solid #757474;
+}
+
+.line-horizontal{
+    border-bottom: 1px solid #757474;
+    width: 90%;
+    margin-top: 10px;
+}
+.mobDev-horizontal{
+    display: none;
+}
+
+@media screen and (max-width: 1199px)
+{
+    .cms-line-vertical{
+        border-right: none;
+    }
+
+    .ecommerceVertical{
+        border-right: 1px solid #757474;
+    }
+
+    .mobDev-horizontal{
+        display: block;
+        border-bottom: 1px solid #757474;
+        width: 90%;
+        margin-top: 10px;
+    }
+    .mobDev-vertical{
+        border-right: none;
+    }
+}
+
+@media screen and (max-width: 767px){
+    .line-vertical{
+        border-right: none;
+    }
+    .ecommerceVertical{
+        border-right: none;
+    }
+    .design-horizontal{
+        border-bottom: 1px solid #757474;
+        width: 90%;
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 575px){
+    .technology h5{
+        font-size: 18px;
+        text-align: center;
+    }
+    .technology p{
+        margin-top: 5px;
+        text-align: center;
+    }
+    .line-horizontal{
+        width: 100%;
+    }
+    .design-horizontal{
+        width: 100%;
+    }
+    .mobDev-horizontal{
+        width: 100%;
+    }
+}

@@ -1,0 +1,417 @@
+#myModalDef {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background-color: rgba(0, 0, 0, 0.5);
+    /*opacity: 0;*/
+    transition: opacity 0.3s ease-in-out;
+    /* Smooth transition effect */
+}
+
+.modal-content {
+    background-color: #fff;
+    padding: 20px;
+}
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.flags-wrap {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    z-index: 1;
+}
+
+.flags-wrap ul {
+    padding: 0px;
+}
+
+.flags-wrap ul li img {
+    width: 55px;
+    height: auto;
+    border: 2px solid #fff;
+}
+
+@media (min-width: 767px) {
+    #contact-form {
+        padding: 60px !important;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+
+    .header__logo {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    }
+}
+
+@media only screen and (max-width: 988px) {
+    .header__logo {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    }
+}
+
+.jxPOhn a {
+    position: absolute !important;
+    top: -125px !important;
+    left: -59px !important;
+}
+
+.book-bg:hover {
+    color: #fff !important;
+}
+
+.phone-num {
+    color: #fff;
+}
+
+.phone-num:hover {
+    color: #ffbf34 !important;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 999;
+    background: #0076B8;
+    border-radius: 0.25rem;
+    width: 120px;
+    font-size: 14px;
+    top: 38px;
+    padding: 0px !important;
+    transition: 1s all ease;
+    border: 1px solid rgba(0, 0, 0, .15);
+    margin: 0 !important;
+}
+
+.dropdown-content a {
+    color: #fff;
+    width: 100%;
+    display: block;
+    white-space: nowrap;
+    padding: 5px 10px;
+}
+
+.dropdown-content:hover {
+    background-color: #f8f9fa;
+}
+
+.dropdown-content:hover a {
+    color: #333 !important;
+}
+
+.nav-item:hover .dropdown-content {
+    display: block;
+}
+
+/*facebook chat button start*/
+div#fb-root {
+    display: none;
+}
+
+/*facebook chat button end*/
+.input-group-addon {
+    background: #0274B8;
+    color: #fff;
+    border-top-right-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 45px;
+}
+
+.popup-input-form:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #ccc !important;
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.btn-signin {
+    background: #0274B8;
+    color: #fff;
+    border-radius: 30px;
+    padding: 8px 25px;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-signin:focus {
+    outline: 0;
+    box-shadow: none !important;
+}
+
+.left-info {
+    display: flex;
+    width: 100%;
+    padding: 16px;
+}
+
+.wraper a {
+    display: block;
+    color: #fff;
+    font-size: 18px;
+    font-family: sans-serif;
+    text-decoration: none;
+    text-align: center;
+    position: relative;
+    transition: all .35s;
+    border-radius: 6px;
+}
+
+.wraper span {
+    position: relative;
+    z-index: 2;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.wraper a:after {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: #ffbf34;
+    transition: all .45s;
+    border-radius: 6px;
+}
+
+.wraper a span:hover {
+    color: #333;
+}
+
+.wraper a:hover:after {
+    width: 100%;
+    color: #333 !important;
+}
+
+/*-------------------------------------------------
+ * Modal Style 1 CSS start
+ *-----------------------------------------------*/
+
+#myModal {
+    display: none;
+}
+
+.modal-style-1 .modal-login {
+    width: 350px;
+    font-size: 13px;
+}
+
+.modal-style-1 .modal-login .modal-header {
+    border-bottom: none;
+    position: relative;
+    justify-content: center;
+}
+
+.modal-style-1 .modal-login h4 {
+    color: #0e76a8;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 20px;
+    border-bottom: 0;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 3px;
+    font-weight: 900;
+    width: 100%;
+}
+
+.modal-style-1 .modal-header .close {
+    position: absolute;
+    right: 12px;
+    top: 5px;
+}
+
+.modal-style-1 .close:focus,
+.modal-style-1 .close:active {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.modal-style-1 .modal-login a {
+    text-decoration: none;
+}
+
+.modal-style-1 .modal-login form {
+    width: 280px;
+    margin: 0 auto;
+}
+
+.modal-style-1 .modal-login span.input-group-addon {
+    width: 60px;
+    text-align: center;
+    border-radius: 25px 0 0 25px;
+    border: 1px solid var(--style-1-color);
+    padding: 8px;
+    margin-right: 5px;
+    background: var(--style-1-color);
+    color: #fff;
+}
+
+.modal-style-1 .modal-login span.input-group-addon i {
+    font-size: 16px;
+}
+
+.modal-style-1 input.form-control {
+    /* border-radius: 0 10px 10px 0; */
+    font-size: 13px;
+    /* border: 1px solid var(--style-1-color); */
+}
+
+.modal-style-1 select.form-control {
+
+    font-size: 13px;
+
+}
+
+.modal-style-1 .btn-signin {
+    border-radius: 25px;
+    width: 25%;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background-color: #0e76a8;
+    border: 1px solid #0e76a8;
+}
+
+.modal-style-1 p.hint-text {
+    text-align: center;
+}
+
+.modal-style-1 .register {
+    color: #0e76a8;
+    font-weight: 600px;
+}
+
+.modal-style-1 .social-login a {
+    text-decoration: none;
+    color: #fff;
+    margin: 2px;
+    height: 30px;
+    display: inline-block;
+    width: 30px;
+    padding: 5px 0;
+    text-align: center;
+    cursor: pointer;
+}
+
+.dark.modal-style-1 .modal-content {
+    color: #333;
+}
+
+.dark.modal-style-1 .close,
+.modal-style-1.dark .modal-login h4 {
+    color: #333;
+}
+
+.dark .text-danger {
+    color: #777 !important;
+}
+
+@media only screen and (max-width: 360px) {
+    .modal-style-1 .modal-login {
+        width: 100%;
+        margin: 5px;
+    }
+
+    .modal-style-1 .modal-login form {
+        width: 100%;
+    }
+
+    .modal-style-1 .btn-signin {
+        width: 40%;
+    }
+}
+
+.modal-style-1 input.form-control select.form-control {
+    font-size: 13px;
+}
+
+.modal-style-1 .btn-signin {
+    border-radius: 25px;
+    width: 25%;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background-color: #0e76a8;
+    border: 1px solid #0e76a8;
+}
+
+/*-------------------------------------------------
+ * Modal Style 1 CSS End
+ *-----------------------------------------------*/
+
+h4 {
+    margin: 0px;
+}
+
+.close {
+    position: absolute;
+    right: 12px;
+    top: 5px;
+}
+
+.input-group-addon {
+    padding: .5rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #464a4c;
+    text-align: center;
+    background-color: #eceeef;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+}
+
+.input-group-addon {
+    padding: .5rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.25;
+    color: #464a4c;
+    text-align: center;
+    background-color: #eceeef;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: .25rem;
+}
+
+.input-group .form-control,
+.input-group-addon,
+.input-group-btn {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+/* Topbar styling */
+.topbar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 1000; /* Ensure topbar is above other elements */
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    /* padding-top: 40px; */
+}
+
+
+

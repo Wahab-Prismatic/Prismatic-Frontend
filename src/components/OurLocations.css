@@ -1,0 +1,130 @@
+.headingedit {
+    margin-bottom: 25px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-heading span {
+    display: block;
+    margin-top: 15px;
+    text-transform: capitalize;
+    font-size: 15px;
+    color: rgb(102, 101, 101);
+    letter-spacing: 1px;
+}
+
+h2, h4 {
+    margin: 0px;
+}
+
+.section-heading h2 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.section-heading em {
+    font-style: normal;
+    color: #0274B8;
+}
+
+.Locations-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.location-box {
+    width: 32%;
+}
+
+/* .location-box:hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease-in-out;
+} */
+
+.location-box .img-box {
+    background-color: #eaf9ff;
+    height: 180px;
+    border-radius: 12px 60px 12px 12px;
+    position: relative;
+    display: block;
+}
+
+.location-box .img-box img {
+    max-height: 100%;
+    max-width: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding: 15px 10px 20px;
+}
+
+.location-detail {
+    margin-top: 10px;
+}
+
+.location-detail h4 {
+    font-size: 18px;
+    margin: 4px 0px;
+}
+
+.location-detail p {
+    font-size: 15px;
+}
+
+ul {
+    margin: 0;
+    list-style: none;
+}
+
+.location-detail ul {
+    display: flex;
+    padding: 0px;
+    gap: 8px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.location-detail ul li a {
+    width: 45px;
+    height: 45px;
+    display: block;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 45px;
+    font-size: 14px;
+    color: #0274B8;
+}
+
+.location-detail ul li a:hover {
+    background-color: #0274B8;
+    color: #fff;
+}
+
+@media screen and (max-width: 1100px) {
+    .Locations-wrap {
+        flex-wrap: wrap;
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .Locations-wrap .location-box {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+}

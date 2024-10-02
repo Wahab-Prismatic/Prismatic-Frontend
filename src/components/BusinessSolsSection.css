@@ -1,0 +1,142 @@
+.more-info {
+    margin-top: 7px;
+}
+
+.embed-responsive {
+    position: relative;
+    display: contents;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+}
+
+.embed-responsive-16by9::before {
+    padding-top: 0%;
+}
+
+/* More Info */
+
+.more-info {
+    margin-top: 7px;
+}
+
+.more-info .left-image img {
+    width: 100%;
+    overflow: hidden;
+}
+
+.more-info .more-info-content {
+    /*background-color: #f7f7f7;*/
+}
+
+.about-info .more-info-content {
+    background-color: transparent;
+}
+
+.about-info .right-content {
+    padding: 0px !important;
+    margin-right: 30px;
+
+}
+
+.more-info .right-content {
+    padding: 41px 45px 41px 30px;
+    /*padding: 45px 45px 45px 30px;*/
+    background-color: #f7f7f7;
+}
+
+.more-info .right-content span {
+    text-transform: uppercase;
+    font-size: 15px;
+    color: #666;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    display: block;
+}
+
+.more-info .right-content h2 {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+.more-info .right-content em {
+    font-style: normal;
+    color: #0274b8;
+}
+
+.more-info .right-content p {
+    margin-bottom: 30px;
+}
+
+h2 {
+    margin: 0px;
+}
+
+ul {
+    /* padding: 0; */
+    margin: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a.p-read-more button {
+    padding: 8px 20px;
+    /* border: 2px solid #0274b8; */
+    position: relative;
+    overflow: hidden;
+    background-color: #0274b8;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: #fff;
+    border-radius: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+a.p-read-more button::before {
+    content: '';
+    width: 0;
+    height: 317%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(35deg);
+    background: #ffbf34;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.embed-responsive .embed-responsive-item,
+.embed-responsive embed,
+.embed-responsive iframe,
+.embed-responsive object,
+.embed-responsive video {
+    /* position: absolute; */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 991px) {
+
+    .embed-responsive .embed-responsive-item,
+    .embed-responsive embed,
+    .embed-responsive iframe,
+    .embed-responsive object,
+    .embed-responsive video {
+        position: relative;
+        height: 360px;
+    }
+}

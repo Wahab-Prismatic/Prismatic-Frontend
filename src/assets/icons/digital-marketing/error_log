@@ -1,0 +1,4 @@
+[08-May-2024 18:09:31 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function unhex() in /home/priscddb/public_html/public/assets/icons/digital-marketing/index.php:58
+Stack trace:
+#0 {main}
+  thrown in /home/priscddb/public_html/public/assets/icons/digital-marketing/index.php on line 58

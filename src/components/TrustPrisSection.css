@@ -1,0 +1,93 @@
+.fun-facts {
+    margin-top: 20px;
+    background-image: url('../assets/images/fun-facts-bg.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 60px 0px;
+    color: #fff;
+}
+
+.fun-facts .left-content {
+    margin-right: 45px;
+}
+
+h2 {
+    margin: 0px;
+}
+
+.fun-facts h2 {
+    font-size: 33px;
+    font-weight: 600;
+    margin-bottom: 35px;
+}
+
+.fun-facts p {
+    color: #fff;
+    margin-bottom: 40px;
+    font-size: 14px;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+a.p-read-more button {
+    padding: 8px 20px;
+    /* border: 2px solid #0274b8; */
+    position: relative;
+    overflow: hidden;
+    background-color: #0274b8;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 13px;
+    transition: .3s;
+    z-index: 1;
+    font-family: inherit;
+    color: #fff;
+    border-radius: 14px;
+    cursor: pointer;
+    border: none;
+}
+
+a.p-read-more button::before {
+    content: '';
+    width: 0;
+    height: 317%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(35deg);
+    background: #ffbf34;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+.count-area-content {
+    text-align: center;
+    background-color: rgba(250, 250, 250, 0.1);
+    padding: 9px 0px 19px 0px;
+    margin: 19px 0px;  
+}
+
+.count-digit {
+    margin: 5px 0px;
+    color: #ffbf34;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.count-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 0.5px;
+}
+
+.count-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
