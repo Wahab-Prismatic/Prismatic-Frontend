@@ -9,16 +9,57 @@ import HealthCareImg from '../../assets/images/erp/Healthcare.png';
 import ManufacturingImg from '../../assets/images/erp/Manufacturing-industry.png';
 import BankingImg from '../../assets/images/erp/Banking.png';
 import RetailImg from '../../assets/images/erp/Retail.png';
+import Logo24Img from '../../assets/images/erp/our-clients/Logos-24.png';
+import Logo13Img from '../../assets/images/erp/our-clients/Logos-13.png';
+import Logo20Img from '../../assets/images/erp/our-clients/Logos-20.png';
+import Logo18Img from '../../assets/images/erp/our-clients/Logos-18.png';
+import Logo08Img from '../../assets/images/erp/our-clients/Logos-08.png';
+import Logo10Img from '../../assets/images/erp/our-clients/Logos-10.png';
+import Logo05Img from '../../assets/images/erp/our-clients/Logos-05.png';
+import Logo07Img from '../../assets/images/erp/our-clients/Logos-07.png';
+import Logo11Img from '../../assets/images/erp/our-clients/Logos-11.png';
+import Logo12Img from '../../assets/images/erp/our-clients/Logos-12.png';
+import Logo19Img from '../../assets/images/erp/our-clients/Logos-19.png';
+import Logo03Img from '../../assets/images/erp/our-clients/Logos-03.png';
+import Logo01Img from '../../assets/images/erp/our-clients/Logos-01.png';
+import Logo02Img from '../../assets/images/erp/our-clients/Logos-02.png';
+import Logo14Img from '../../assets/images/erp/our-clients/Logos-14.png';
+import Logo15Img from '../../assets/images/erp/our-clients/Logos-15.png';
+import Logo16Img from '../../assets/images/erp/our-clients/Logos-16.png';
+import Logo22Img from '../../assets/images/erp/our-clients/Logos-22.png';
+import Logo23Img from '../../assets/images/erp/our-clients/Logos-23.png';
 import '../../assets/css/ERP.css';
 import { useEffect } from 'react';
 import Aos from 'aos';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
+const clientLogos = [
+  { src: Logo24Img,  alt: "client-logo-24" },
+  { src: Logo13Img, alt: "client-logo-13" },
+  { src: Logo20Img, alt: "client-logo-20" },
+  { src: Logo18Img, alt: "client-logo-18" },
+  { src: Logo08Img, alt: "client-logo-8" },
+  { src: Logo10Img, alt: "client-logo-10" },
+  { src: Logo05Img, alt: "client-logo-5" },
+  { src: Logo07Img, alt: "client-logo-7" },
+  { src: Logo11Img, alt: "client-logo-11" },
+  { src: Logo12Img, alt: "client-logo-12" },
+  { src: Logo19Img, alt: "client-logo-19" },
+  { src: Logo03Img, alt: "client-logo-3" },
+  { src: Logo01Img, alt: "client-logo-1" },
+  { src: Logo02Img, alt: "client-logo-2" },
+  { src: Logo14Img, alt: "client-logo-14" },
+  { src: Logo15Img, alt: "client-logo-15" },
+  { src: Logo16Img, alt: "client-logo-16" },
+  { src: Logo22Img, alt: "client-logo-22" },
+  { src: Logo23Img, alt: "client-logo-23" },
+];
+
 const ERP = () => {
   useEffect(() => {
     Aos.init();
-  }, [])
+  }, []);
 
   const featuresData = [
     {
@@ -205,7 +246,7 @@ const ERP = () => {
             </p>
             <Link to="/contact-us" className="btn pris-inquire-btn">
               Inquire Now
-              <img src="/assets/images/erp/demo-2.png" alt="" className="demo-img" />
+              <img src={DemoImg} alt="" className="demo-img" />
             </Link>
           </div>
         </div>
@@ -288,6 +329,51 @@ const ERP = () => {
         </div>
       </div>
       {/* <!-- Our Industries End --> */}
+
+      {/* <!-- ERP Adoption start--> */}
+      <div className="pris-connect-us section">
+        <div className="container">
+          <div className="col-md-12 text-center">
+            <h1 className="mb-2">Make ERP adoption a lever driving your unstoppable business growth</h1>
+            <a href="/contact-us" className="btn pris-inquire-btn">Inquire Now
+              <img src={DemoImg} alt="" className="demo-img" />
+            </a>
+          </div>
+        </div>
+      </div>
+      {/* <!-- ERP Adoption end --> */}
+
+      {/* <!-- Our Clients Start --> */}
+      <div className="pris-clients section" id="clients">
+        <div className="container">
+          <div className="col-md-12 text-center">
+            <h1>Our Clients</h1>
+            <h2>A true Partnership is a two-way street</h2>
+            <p className="mb-5 mt-3">
+              Ideas and information flow openly and regularly, based on a foundation of mutual trust and
+              respect for another's expertise. The best and most productive relationships are synergistic
+              and goal-oriented, and a long-term relationship has the added value of deep-rooted industry
+              and company knowledge. A true partnership is a two-way street.
+            </p>
+          </div>
+
+          <div className="row gy-4">
+            <div className="col-lg-12">
+              <div className="d-flex justify-content-center flex-wrap">
+                {clientLogos.map((logo, index) => (
+                  <div
+                    key={index}
+                    className={`logo-wrapper ${index % 2 === 1 ? "logo-wrapper-2" : ""}`}
+                  >
+                    <img src={logo.src} alt={logo.alt} className="img-fluid" />
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <!-- Our Clients End --> */}
     </>
   )
 }

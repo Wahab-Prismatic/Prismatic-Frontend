@@ -383,10 +383,12 @@ h1, h2, h3, h4, h6 {
     margin: 0 auto;
 }
 
-.pris-inquire-btn:hover {
+.pris-inquire-btn:hover
+ {
     background-color: var(--accent-color) !important; 
-    color: #fff !important;
+    color: var(--pris-primary-color) !important;
 }
+
 
 @media (max-width: 576px) {
     .pris-connect-us h1 {
@@ -526,3 +528,80 @@ h1, h2, h3, h4, h6 {
       margin: 0 30px; /* Add margin for extra-large devices */
     }
   }
+
+  .pris-clients h1 {
+    color: var(--pris-primary-color);
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 3rem;
+}
+
+.pris-clients h2 {
+    color: #000;
+    font-size: 2.3rem;
+    font-weight: 700;
+    line-height: 3rem;
+}
+
+.pris-clients p {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.875rem;
+    padding: 0px 50px;
+}
+
+.pris-clients .logo-wrapper {
+    width: 140px;
+    padding: 15px;
+    height: 120px;
+    align-content: center;
+    border-radius: 35px;
+    border: 3px solid var(--pris-primary-color);
+    margin-right: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pris-clients .logo-wrapper-2 {
+    border: 3px solid var(--accent-color) !important;
+}
+
+@media (max-width: 576px) {
+    .pris-connect-us h1 {
+        font-size: 1.4rem;
+        line-height: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .pris-clients h1 {
+        font-size: 1.625rem;
+        line-height: 2.2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .pris-clients h2 {
+        font-size: 1.4rem;
+        line-height: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .pris-clients p {
+        font-size: 1rem;
+        line-height: 1.875rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .pris-clients p {
+        font-size: 1.1rem;
+        text-align: justify;
+        padding: 0px;
+    }
+}
