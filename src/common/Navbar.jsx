@@ -96,8 +96,8 @@ const Navbar = () => {
                                 </a>
                                 <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <Link className="dropdown-item" to="/products/erp-software-in-pakistan" onClick={() => window.scrollTo(0, 0)}>ERP Software</Link>
-                                    <Link className="dropdown-item" to="https://crmprismatic.com/" target='_blank'>Real Estate CRM</Link>
-                                    <Link className="dropdown-item" to="/products/learning-management-system">LMS Software</Link>
+                                    <Link className="dropdown-item" to="https://crmprismatic.com/" target='_blank' onClick={() => window.scrollTo(0, 0)}>Real Estate CRM</Link>
+                                    <Link className="dropdown-item" to="/products/learning-management-system" onClick={() => window.scrollTo(0, 0)}>LMS Software</Link>
                                     <a className="dropdown-item" href="/pos-software-services">POS System</a>
                                     <a className="dropdown-item" href="/hrm-software-services">HRM Software</a>
                                 </div>

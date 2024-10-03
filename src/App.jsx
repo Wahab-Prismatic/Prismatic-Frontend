@@ -26,20 +26,20 @@ function App() {
         <Header />
         <ErrorBoundary>
           <Suspense fallback={<div>Loading...</div>}>
-          <Routes>
-            <Route path='/' element={<Home />} />
-            {/* <Route path="/blogs" element={<BlogsSection />} /> */}
-            <Route path='/blogs/:slug' element={<BlogsDetail />} />
-            <Route path='/about-us' element={<About />} />
-            <Route path='/prismatic-activity' element={<PrismaticLife />}/>
-            <Route path='/services/premier-advertising-agency-chicago' element={<PremierAgency />} />
-            <Route path='/services/mobile-app-development' element={<MobAppDev />} />
-            <Route path='/services/e-commerce-service' element={<E_Commerce />} />
-            <Route path='/products/erp-software-in-pakistan' element={<ERP />}/>
-            <Route path='/products/learning-management-system'  element={<LMS />}/>
-            <Route path='*' element={<NotFound />} />
-            <Route />
-        </Routes>
+            <Routes>
+              <Route path='/' element={<Home />} />
+              {/* <Route path="/blogs" element={<BlogsSection />} /> */}
+              <Route path='/blogs/:slug' element={<BlogsDetail />} />
+              <Route path='/about-us' element={<About />} />
+              <Route path='/prismatic-activity' element={<PrismaticLife />} />
+              <Route path='/services/premier-advertising-agency-chicago' element={<PremierAgency />} />
+              <Route path='/services/mobile-app-development' element={<MobAppDev />} />
+              <Route path='/services/e-commerce-service' element={<E_Commerce />} />
+              <Route path='/products/erp-software-in-pakistan' element={<ERP />} />
+              <Route path='/products/learning-management-system' element={<LMS />} />
+              <Route path='*' element={<NotFound />} />
+              <Route />
+            </Routes>
           </Suspense>
         </ErrorBoundary>
         <Footer />

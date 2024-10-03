@@ -1,0 +1,85 @@
+:root {
+    --pris-primary-color: #175884;
+    --pris-secondary-color: #DBE9FF;
+    --accent-color: #F5A700;
+    --background-color: #FFFFFF;
+    --text-color: #2B2B2B;
+    --hover-state: #FFCB5C;
+    --button-bg: #A0A0A0;
+    --testimonial-bg: #F4FBFD;
+}
+
+body {
+    font-family: "Proxima Nova", sans-serif;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.lms-hero {
+    background-color: var(--pris-secondary-color);
+    margin: 0px 48px 0px 48px;
+    border-radius: 50px;
+    margin-top: 20px;
+}
+
+.custom-margin-lg {
+    margin-left: 28px;
+}
+
+.lms-hero h1 {
+    font-size: 50px;
+    line-height: 65px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--pris-primary-color);
+}
+
+.lms-h-clr {
+    color: var(--accent-color);
+}
+
+.lms-hero p {
+    font-size: 22px;
+    line-height: 35px;
+    color: var(--text-color);
+    font-weight: 400;
+}
+
+.lms-register {
+    background-color: #F5A700;
+    color: #ffff;
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 23px;
+    text-align: center;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lms-register:hover {
+    background-color: var(--pris-primary-color);
+    color: var(--background-color) !important;
+}
+
+.btn-check:focus+.btn, .btn:focus {
+    outline: 0;
+    box-shadow: unset !important;
+}
+
+.lms-hero img {
+    width: 983px;
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
