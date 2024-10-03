@@ -28,14 +28,17 @@ import Logo15Img from '../../assets/images/erp/our-clients/Logos-15.png';
 import Logo16Img from '../../assets/images/erp/our-clients/Logos-16.png';
 import Logo22Img from '../../assets/images/erp/our-clients/Logos-22.png';
 import Logo23Img from '../../assets/images/erp/our-clients/Logos-23.png';
+import VideoPlayBtn from '../../assets/images/erp/video-ply-btn.webp';
+import VideoPostureImg from '../../assets/images/erp/ERP-video-posture.png';
+import ClientVideo from '../../assets/images/erp/ERP-Testimonial-video.mp4';
 import '../../assets/css/ERP.css';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import Aos from 'aos';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from 'swiper/modules';
 
 const clientLogos = [
-  { src: Logo24Img,  alt: "client-logo-24" },
+  { src: Logo24Img, alt: "client-logo-24" },
   { src: Logo13Img, alt: "client-logo-13" },
   { src: Logo20Img, alt: "client-logo-20" },
   { src: Logo18Img, alt: "client-logo-18" },
@@ -57,6 +60,19 @@ const clientLogos = [
 ];
 
 const ERP = () => {
+  const videoRef = useRef(null);
+  const playIconRef = useRef(null);
+
+  const handlePlay = () => {
+    if (videoRef.current.paused) {
+      videoRef.current.play();
+      playIconRef.current.style.display = 'none';
+    } else {
+      videoRef.current.pause();
+      playIconRef.current.style.display = 'block';
+    }
+  };
+
   useEffect(() => {
     Aos.init();
   }, []);
@@ -374,6 +390,39 @@ const ERP = () => {
         </div>
       </div>
       {/* <!-- Our Clients End --> */}
+
+      {/* <!-- client's views start --> */}
+      <div className="client-view section" id="testimonial">
+        <div className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <h1 className="text-center mb-lg-4">
+                what our Happy <span className="pri-accent">client says</span>
+              </h1>
+              <p className="mb-lg-5">
+                ERP software is an integrated system used by businesses to manage and automate key processes, including
+                finance, supply chain, manufacturing, procurement, and human resources. By centralizing data and workflows
+                across departments, ERP systems enhance efficiency, improve decision-making, and provide real-time
+                insights, helping organizations streamline operations and scale effectively.
+              </p>
+              <div className="pris-clients-vid text-center position-relative">
+                <video
+                  ref={videoRef}
+                  id="aboutVideo"
+                  src={ClientVideo}
+                  playsInline
+                  poster={VideoPostureImg}
+                  onClick={handlePlay}
+                />
+                <div className="play-icon-about" ref={playIconRef} id="playIcon" onClick={handlePlay}>
+                  <img src={VideoPlayBtn} alt="video-play-button" className="test-vid-btn" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* <!-- client's views end --> */}
     </>
   )
 }
