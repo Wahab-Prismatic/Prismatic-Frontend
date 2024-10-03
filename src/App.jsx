@@ -1,18 +1,21 @@
 
 import './App.css'
 // import BlogsSection from './components/BlogsSection';
-import BlogsDetail from './components/BlogsDetail';
+import { Suspense, lazy } from 'react';
+import ErrorBoundary from './services/ErrorBoundry.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import About from './pages/about';
-import Home from './pages/Home';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import PrismaticLife from './pages/PrismaticLife';
-import PremierAgency from './pages/Services/PremierAgency';
-import MobAppDev from './pages/Services/MobAppDev';
-import E_Commerce from './pages/Services/E_Commerce';
-import NotFound from './pages/NotFound';
-import ERP from './pages/Products/ERP';
+const BlogsDetail = lazy(() => import('./components/BlogsDetail'));
+const About = lazy(() => import('./pages/About'));
+const Home = lazy(() => import('./pages/Home'));
+const Header = lazy(() => import('./components/Header'));
+const Footer = lazy(() => import('./components/Footer'));
+const PrismaticLife = lazy(() => import('./pages/PrismaticLife'));
+const PremierAgency = lazy(() => import('./pages/Services/PremierAgency'));
+const MobAppDev = lazy(() => import('./pages/Services/MobAppDev'));
+const E_Commerce = lazy(() => import('./pages/Services/E_Commerce'));
+const ERP = lazy(() => import('./pages/Products/ERP'));
+const LMS = lazy(() => import('./pages/Products/LMS'));
+const NotFound = lazy(() => import('./pages/NotFound'));
 
 
 function App() {
@@ -21,7 +24,9 @@ function App() {
     <>
       <div>
         <Header />
-        <Routes>
+        <ErrorBoundary>
+          <Suspense fallback={<div>Loading...</div>}>
+          <Routes>
             <Route path='/' element={<Home />} />
             {/* <Route path="/blogs" element={<BlogsSection />} /> */}
             <Route path='/blogs/:slug' element={<BlogsDetail />} />
@@ -31,9 +36,12 @@ function App() {
             <Route path='/services/mobile-app-development' element={<MobAppDev />} />
             <Route path='/services/e-commerce-service' element={<E_Commerce />} />
             <Route path='/products/erp-software-in-pakistan' element={<ERP />}/>
+            <Route path='/products/learning-management-system'  element={<LMS />}/>
             <Route path='*' element={<NotFound />} />
             <Route />
         </Routes>
+          </Suspense>
+        </ErrorBoundary>
         <Footer />
       </div>
     </>
