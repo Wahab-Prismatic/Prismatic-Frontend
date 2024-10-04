@@ -314,6 +314,120 @@ div#clients {
     font-weight: 400;
 }
 
+.how-it-works {
+    background-color: var(--pris-secondary-color);
+    margin-top: 50px;
+}
+
+.data-wrapper {
+    width: 247px;
+    height: 100%;
+}
+
+.data-wrapper img {
+    width: 90px;
+    align-self: center;
+}
+
+.data-wrapper h4 {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 50px;
+    color: var(--pris-primary-color);
+}
+
+.data-wrapper p {
+    font-size: 19px;
+    font-weight: 400;
+    line-height: 30px;
+    color: var(--pris-primary-color);
+}
+
+.FAQs-sec {
+    background-color: #F1F0F1;
+    padding: 50px 0;
+}
+  
+  .FAQs-h {
+    font-size: 36px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 40px;
+  }
+  
+  .custom-acordian-card {
+    border: 1px solid #ddd;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .custom-acordian-card:hover {
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05);
+  }
+  
+  .card-header {
+    background-color: #f7f7f7;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .accordian-button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    text-align: left;
+    outline: none;
+    width: 100%;
+    flex-grow: 1;
+    padding-left: 0;
+    text-decoration: none;
+  }
+  
+  .accordian-button:focus {
+    outline: none;
+  }
+
+  .accordian__button:hover {
+    color: black; 
+    text-decoration: none; 
+  }
+  
+  .accordian-arrow {
+    font-size: 20px;
+    transition: 0.4s all ease-in-out;
+    margin-left: auto;
+    color: #333;
+  }
+  
+  .rotate-arrow {
+    transform: rotate(180deg);
+  }
+  
+  .collapse.show {
+    display: block;
+  }
+  
+  .collapse {
+    display: none;
+  }
+  
+  .card-body {
+    padding: 20px;
+    font-size: 16px;
+    color: #555;
+    background-color: #fff;
+    margin-left: 20px;
+    transition: 0.4s ease-in-out;
+  }
+  
+  /* Responsiveness for Smaller Devices */
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
@@ -327,6 +441,10 @@ div#clients {
     .lms-hero p {
         font-size: 19px;
         line-height: 30px;
+    }
+    .test-vid-btn {
+        right: 46%;
+        top: 47%;
     }
 }
 
@@ -369,11 +487,21 @@ div#clients {
         font-size: 18px;
         line-height: 30px;
     }
+    .test-vid-btn {
+        right: 44%;
+        top: 47%;
+    }
 }
+
 
 @media (max-width: 920px) {
     .hexagon {
         margin-top: 25px !important;
+    }
+
+    .test-vid-btn {
+        right: 46%;
+        top: 47%;
     }
 }
 
@@ -422,6 +550,35 @@ div#clients {
         line-height: 35px;
         text-align: center;
     }
+
+    .test-vid-btn {
+        right: 45%;
+        top: 47%;
+    }
+
+    .FAQs-h {
+        font-size: 28px;
+      }
+    
+      .custom-acordian-card {
+        border-radius: 6px;
+      }
+    
+      .card-header {
+        padding: 12px 15px;
+      }
+    
+      .accordian-button {
+        font-size: 16px;
+      }
+    
+      .accordian-arrow {
+        font-size: 18px;
+      }
+    
+      .card-body {
+        font-size: 14px;
+      }
 }
 
 @media (max-width: 576px) {
@@ -504,7 +661,7 @@ div#clients {
     .testimonial-data img {
         margin-bottom: 14px !important;
         margin-top: 20px;
-        
+
     }
 
     .testimonial-data h5 {
@@ -514,6 +671,12 @@ div#clients {
     .testimonial-data p {
         font-size: 14px;
         line-height: 30px;
+    }
+
+
+    .test-vid-btn {
+        right: 40%;
+        top: 47%;
     }
 
 }

@@ -7,14 +7,52 @@ import 'swiper/css/pagination';
 import TestimonialVideo from '../../assets/video/testimonial-video.mp4';
 import PlayBtn from '../../assets/images/images/video-ply-btn.webp';
 import AleemLogo from '../../assets/images/images/al-aleem-logo.webp';
+import setupImg from '../../assets/images/images/Setup.webp';
+import OnBoardingImg from '../../assets/images/images/Onboarding.webp';
+import TechnicalImg from '../../assets/images/images/Technical Support.webp';
 import { useRef, useState } from 'react';
+
+const faqsData = [
+    {
+        question: "Does Prismatic LMS manage the student portal perfectly?",
+        answer:
+            "Prismatic LMS effectively manages the student portal, providing a seamless and efficient user experience.",
+    },
+    {
+        question: "Does it manage manual/biometric attendance?",
+        answer:
+            "It handles both manual and biometric attendance efficiently.",
+    },
+    {
+        question: "Is its cost one-time or recurring?",
+        answer:
+            "The cost is recurring, with ongoing payments required to maintain access and updates.",
+    },
+    {
+        question: "Is it suitable for all educational institutions?",
+        answer:
+            "It is designed to be flexible and adaptable, making it suitable for a wide range of educational institutions.",
+    },
+    {
+        question: "Does it have mobile availability?",
+        answer:
+            "It is available on mobile platforms, allowing users to access it conveniently from their smartphones or tablets.",
+    },
+    {
+        question: "Does it link all branches?",
+        answer:
+            "It is designed to connect and synchronize data across all branches, ensuring seamless management and communication.",
+    },
+];
 
 const LMS = () => {
     const [isPlaying, setIsPlaying] = useState(false); // State to track whether the video is playing
+    const [activeIndex, setActiveIndex] = useState(null);
+
     const videoRef = useRef(null); // create a reference for the video element
 
     const handlePlayPause = () => {
-        if(isPlaying) {
+        if (isPlaying) {
             videoRef.current.pause(); // pause the video
         } else {
             videoRef.current.play(); // play the video
@@ -22,7 +60,16 @@ const LMS = () => {
 
         setIsPlaying(!isPlaying); // For toggle the state
     }
-    
+
+    // Toggle the accordion item based on index
+    const handleToggle = (index) => {
+        if (activeIndex === index) {
+            setActiveIndex(null); // Close the active accordion item if clicked again
+        } else {
+            setActiveIndex(index); // Open the clicked accordion item
+        }
+    };
+
     return (
         <>
             {/* <!-- LMS Hero Section --> */}
@@ -277,45 +324,121 @@ const LMS = () => {
                         </div>
                         <div className="col-lg-5">
                             <div className="testimonial-vid about-us-video position-relative">
-                                <video 
-                                    id="aboutVideo" 
-                                    src={TestimonialVideo} 
+                                <video
+                                    id="aboutVideo"
+                                    src={TestimonialVideo}
                                     playsInline
                                     ref={videoRef}
                                     onClick={handlePlayPause}
-                                    ></video>
-                               {
-                                !isPlaying && (
-                                    <div className="play-icon-about" id="playIcon" onClick={handlePlayPause}>
-                                    <img 
-                                        src={PlayBtn} 
-                                        loading="lazy" 
-                                        alt="video-play-button" 
-                                        className="test-vid-btn" 
-                                    />
-                                </div>
-                                )
-                               }
+                                ></video>
+                                {
+                                    !isPlaying && (
+                                        <div className="play-icon-about" id="playIcon" onClick={handlePlayPause}>
+                                            <img
+                                                src={PlayBtn}
+                                                loading="lazy"
+                                                alt="video-play-button"
+                                                className="test-vid-btn"
+                                            />
+                                        </div>
+                                    )
+                                }
                             </div>
                         </div>
                         <div className="col-lg-7">
                             <div className="testimonial-data d-flex flex-column h-100 justify-content-center">
                                 <img src={AleemLogo} loading="lazy" alt="al-aleem-logo" className="img-fluid" />
-                                    <h5>Al Aleem Medical College</h5>
-                                    <p>
-                                        Al-Aleem Medical College Shall produce highly professional and committed doctors by focusing on Student
-                                        centered quality education using
-                                        advance teaching strategies supported by innovative research to meet the highest standards of patient and
-                                        community healthcare.To evolve as
-                                        a leading medical college that advances global models of standardized education,
-                                        innovative research and community health care.
-                                    </p>
+                                <h5>Al Aleem Medical College</h5>
+                                <p>
+                                    Al-Aleem Medical College Shall produce highly professional and committed doctors by focusing on Student
+                                    centered quality education using
+                                    advance teaching strategies supported by innovative research to meet the highest standards of patient and
+                                    community healthcare.To evolve as
+                                    a leading medical college that advances global models of standardized education,
+                                    innovative research and community health care.
+                                </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             {/* <!-- testimonials end --> */}
+
+            {/* <!-- how it works start --> */}
+            <div className="how-it-works section" id="how-it-works">
+                <div className="container">
+                    <div className="row justify-content-center">
+                        <div className="col-lg-12 text-center">
+                            <h1 className=" lms-h mb-lg-5">How it works</h1>
+                        </div>
+                        <div className="col-lg-4 d-flex justify-content-center">
+                            <div className="data-wrapper d-flex flex-column text-center">
+                                <img src={setupImg} alt="setup-img" loading="lazy" className="img-fluid mb-lg-3" />
+                                <h4 className="mb-lg-2">Setup</h4>
+                                <p>Customize the LMS to fit your institution's needs.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 d-flex justify-content-center">
+                            <div className="data-wrapper d-flex flex-column text-center">
+                                <img src={OnBoardingImg} loading="lazy" alt="training-img" className="img-fluid mb-lg-3" />
+                                <h4 className="mb-lg-2">Training</h4>
+                                <p>We provide training to ensure your staff can make the most of the system.</p>
+                            </div>
+                        </div>
+                        <div className="col-lg-4 d-flex justify-content-center">
+                            <div className="data-wrapper d-flex flex-column text-center">
+                                <div className="data-wrapper">
+                                    <img src={TechnicalImg} loading="lazy" alt="tecnical-support-img" className="img-fluid mb-lg-3" />
+                                    <h4 className="mb-lg-2">Support</h4>
+                                    <p>Ongoing support to help you optimize your eLearning experience.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- how it works End --> */}
+            <div className="FAQs-sec section mb-5">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12 mb-4">
+                            <h1 className="FAQs-h text-center">Frequently asked Questions</h1>
+                        </div>
+                        <div className="col-lg-12">
+                            <div id="accordion">
+                                {faqsData.map((faq, index) => (
+                                    <div className="card custom-acordian-card" style={{cursor:'pointer'}} key={index} onClick={() => handleToggle(index)}>
+                                        <div className="card-header" id={`heading${index}`}>
+                                            <h5 className="mb-0 p-0 d-flex justify-content-between align-items-center">
+                                                <button
+                                                    className="btn btn-link accordian-button"
+                                                    aria-expanded={activeIndex === index}
+                                                >
+                                                    {faq.question}
+                                                </button>
+                                                <i
+                                                    className={`fa fa-angle-down accordian-arrow ${activeIndex === index ? "rotate-arrow" : ""
+                                                        }`}
+                                                    aria-hidden="true"
+                                                ></i>
+                                            </h5>
+                                        </div>
+                                        <div
+                                            id={`collapse${index}`}
+                                            className={`collapse ${activeIndex === index ? "show" : ""}`}
+                                            aria-labelledby={`heading${index}`}
+                                            data-parent="#accordion"
+                                        >
+                                            <div className="card-body">{faq.answer}</div>
+                                        </div>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </>
     )
 }
