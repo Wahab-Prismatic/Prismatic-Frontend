@@ -9,6 +9,11 @@ import TourActivityImg from '../assets/activity-images/tour-activity-new.jpeg';
 import UpdatedBannerImg from '../assets/prismatic-activity-images/updated-banner.jpeg';
 import PictureTourImg from '../assets/prismatic-activity-images/Picture-tour.jpg';
 import PictureTourImg2 from '../assets/prismatic-activity-images/Picture-tour-2.jpg';
+import questLogo from '../assets/images/clients/quest-logo.webp';
+import gulabdeviLogo from '../assets/images/clients/gulabdevi.webp';
+import PNYLogo from '../assets/images/clients/PNY Trainings.webp';
+import MukabbirLogo from '../assets/images/clients/Mukabbir.webp';
+import Logo20 from '../assets/images/clients/Logos-20.webp';
 
  export const teamData = [
     {
@@ -90,4 +95,13 @@ import PictureTourImg2 from '../assets/prismatic-activity-images/Picture-tour-2.
       alt: "Fourth slide",
       style: { height: "400px", objectFit: "cover" },
     },
+  ];
+
+  export const clientData = [
+    { logo: questLogo, alt: 'Quest for Exams' },
+    { logo: gulabdeviLogo, alt: 'gulabdevi' },
+    { logo: PNYLogo, alt: 'PNY' },
+    { logo: MukabbirLogo, alt: 'Muqabar-logo' },
+    { logo: Logo20, alt: 'Al-aleem' },
+    { logo: PNYLogo, alt: 'PNY' },
   ];

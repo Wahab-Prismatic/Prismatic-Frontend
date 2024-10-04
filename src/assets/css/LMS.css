@@ -27,7 +27,7 @@ body {
 }
 
 .custom-margin-lg {
-    margin-left: 28px;
+    /* margin-left: 28px; */
 }
 
 .lms-hero h1 {
@@ -69,7 +69,8 @@ body {
     color: var(--background-color) !important;
 }
 
-.btn-check:focus+.btn, .btn:focus {
+.btn-check:focus+.btn,
+.btn:focus {
     outline: 0;
     box-shadow: unset !important;
 }
@@ -78,8 +79,441 @@ body {
     width: 983px;
 }
 
+
+.hrm-clients-section {
+    padding: 15px 50px;
+    box-shadow: 8px 4px 14.1px 0px #00000040;
+    background-color: #ffffff;
+    margin-top: -40px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.swiper-slide-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.05); */
+    transition: transform 0.3s ease;
+    width: 100%;
+    height: 150px;
+}
+
+.client-logo {
+    width: 100%;
+    max-width: 150px;
+    height: 100%;
+    max-height: 100px;
+    object-fit: contain;
+}
+
+.section {
+    padding: 50px 0px 50px 0px;
+}
+
+.lms-h {
+    font-size: 42px;
+    line-height: 60px;
+    font-weight: 700;
+    color: var(--pris-primary-color);
+    text-transform: uppercase;
+}
+
+.lms-h-clr {
+    color: var(--accent-color);
+}
+
+.adm-portal h3 {
+    font-size: 34px;
+    font-weight: 700;
+    line-height: 56px;
+    color: var(--pris-primary-color);
+    text-align: left;
+}
+
+.adm-portal p {
+    font-size: 19px;
+    line-height: 30px;
+    font-weight: 400;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.adm-img-2 {
+    width: 418px;
+    margin-top: -27%;
+    margin-left: 40%;
+}
+
+.learn-mg {
+    position: relative;
+    background-color: #1A3F68;
+    overflow: hidden;
+    border-radius: 50px;
+    margin: 0px 48px 0px 48px;
+}
+
+.learn-mg::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('../learn-mg-bg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    opacity: 0.3;
+    z-index: 1;
+    pointer-events: none;
+    background-position: top;
+}
+
+.learn-mg h1 {
+    font-size: 42px;
+    line-height: 50px;
+    font-weight: 700;
+    color: var(--pris-secondary-color);
+}
+
+.learn-mg p {
+    color: #ffff;
+    padding: 0px 100px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.hexa-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.hexagon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px;
+    transition: .2s all ease;
+    position: relative;
+    height: 170px;
+    width: 150px;
+    background: #1f1763;
+    -webkit-clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+}
+
+.hexagon.purple {
+    background-color: #7334B1 !important;
+}
+
+.inner-data {
+    color: #fff;
+    text-decoration: none;
+}
+
+.inner-data h2 {
+    margin: 0;
+    font-size: 16px;
+    text-align: center;
+    font-family: arial;
+    line-height: 1.5;
+}
+
+.inner-data:hover {
+    color: #F5A700 !important;
+}
+
+.hexagon.light-purple {
+    background-color: #A670DB !important;
+}
+
+.hexagon.pink {
+    background-color: #DA70C8 !important;
+}
+
+.hexagon.sea-green {
+    background-color: #1F96AD !important;
+}
+
+.hexagon.light-sea-green {
+    background-color: #48BAD1 !important;
+}
+
+.lms-explore-btn {
+    width: 100% !important;
+    font-size: 22px !important;
+    line-height: 26px !important;
+    max-width: 200px !important;
+    align-self: center;
+    margin-top: 20px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+div#clients {
+    background-color: #F1F0F1;
+    margin: 0px 48px 0px 48px;
+    border-radius: 50px;
+    margin-top: 50px;
+    position: relative;
+}
+
+.testimonial-vid {
+    height: 500px;
+}
+
+.testimonial-vid video {
+    height: 100%;
+    object-fit: contain;
+    width: 100%;
+}
+
+.test-vid-btn {
+    width: 50px;
+    background: linear-gradient(0deg, rgb(211 159 121) 0%, rgba(87, 84, 87, 0.6811099439775911) 50%);
+    border: 2px solid #fff;
+    border-radius: 15px;
+    position: absolute;
+    padding: 14px;
+    bottom: 5%;
+    right: 30%;
+    cursor: pointer;
+}
+
+.testimonial-data {
+    padding-right: 75px;
+}
+
+.testimonial-data img {
+    width: 96px;
+    margin-bottom: 14px;
+}
+
+.testimonial-data h5 {
+    margin-bottom: 16px;
+    font-size: 30px;
+    color: #175884;
+    line-height: 32px;
+    font-weight: 700;
+}
+
+.testimonial-data p {
+    font-size: 18px;
+    line-height: 35px;
+    font-weight: 400;
+}
+
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
     }
+
+    .lms-hero h1 {
+        font-size: 40px;
+        line-height: 60px;
+    }
+
+    .lms-hero p {
+        font-size: 19px;
+        line-height: 30px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .lms-hero h1 {
+        font-size: 33px;
+        line-height: 48px;
+    }
+
+    .lms-hero p {
+        font-size: 16px;
+        line-height: 29px;
+    }
+
+    .lms-h {
+        font-size: 30px;
+        line-height: 45px;
+    }
+
+    .learn-mg h1 {
+        font-size: 30px;
+        line-height: 48px;
+    }
+
+    .learn-mg p {
+        font-size: 18px;
+        line-height: 30px;
+    }
+
+    .testimonial-data img {
+        width: 75px;
+    }
+
+    .testimonial-data h5 {
+        font-size: 26px;
+        line-height: 28px;
+    }
+
+    .testimonial-data p {
+        font-size: 18px;
+        line-height: 30px;
+    }
+}
+
+@media (max-width: 920px) {
+    .hexagon {
+        margin-top: 25px !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .lms-hero h1 {
+        font-size: 30px;
+        line-height: 45px;
+    }
+
+    .hrm-clients-section {
+        padding: 10px 45px;
+        margin-top: 30px;
+        box-shadow: 0px 0px 5px 0px #00000040;
+    }
+
+    .lms-h {
+        font-size: 28px;
+        line-height: 40px;
+        margin-bottom: 20px;
+    }
+
+    .swiper-slide-content {
+        padding: 15px;
+        height: 120px;
+    }
+
+    .client-logo {
+        max-width: 100px;
+        max-height: 80px;
+    }
+
+    .testimonial-data img {
+        margin-bottom: 14px !important;
+        margin: auto;
+        margin-top: 20px;
+    }
+
+    .testimonial-data h5 {
+        font-size: 24px;
+        line-height: 25px;
+        text-align: center;
+    }
+
+    .testimonial-data p {
+        font-size: 16px;
+        line-height: 35px;
+        text-align: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .lms-hero h1 {
+        font-size: 18px;
+        line-height: 32px;
+    }
+
+    .lms-hero p {
+        font-size: 14px;
+        line-height: 28px;
+    }
+
+    .lms-register {
+        font-size: 18px;
+        line-height: 22px;
+        width: 160px;
+    }
+
+    .lms-h {
+        font-size: 24px;
+        line-height: 36px;
+    }
+
+    .learn-mg h1 {
+        font-size: 24px;
+        line-height: 35px;
+    }
+
+    .learn-mg p {
+        padding: 0px 10px;
+        font-size: 14px;
+        line-height: 30px;
+    }
+
+    .hexagon {
+        height: 170px;
+        width: 50%;
+        margin: 0px;
+        margin-top: -20px !important;
+        border-right: 5px solid #2F5076;
+        border-left: 5px solid #2F5076;
+    }
+
+    .hexagon:first-child {
+        margin-left: 0.1rem;
+        margin-top: 20px !important;
+    }
+
+    .hexagon:nth-child(4),
+    .hexagon:nth-child(7) {
+        margin-left: 0.1rem;
+    }
+
+    .hexa-wrap {
+        margin-bottom: 20px;
+    }
+
+    .swiper-slide-content {
+        padding: 10px;
+        height: 100px;
+    }
+
+    .client-logo {
+        max-width: 80px;
+        max-height: 60px;
+    }
+
+    .hrm-clients-section {
+        padding: 10px 45px;
+        margin: 40px;
+        box-shadow: 0px 0px 5px 0px #00000040;
+    }
+
+    .testimonial-data {
+        margin-left: 50px;
+        padding-right: 70px;
+    }
+
+    .testimonial-data img {
+        margin-bottom: 14px !important;
+        margin-top: 20px;
+        
+    }
+
+    .testimonial-data h5 {
+        font-size: 20px;
+    }
+
+    .testimonial-data p {
+        font-size: 14px;
+        line-height: 30px;
+    }
+
 }

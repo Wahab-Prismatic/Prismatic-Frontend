@@ -24,6 +24,7 @@ const OurClientsSection = () => {
                                 autoplay={{ delay: 3000, disableOnInteraction: false }}
                                 spaceBetween={40}
                                 slidesPerView={6}
+                                loop={true}
                                 effect="fade"
                                 speed={700}
                             >
