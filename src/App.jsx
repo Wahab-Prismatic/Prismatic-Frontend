@@ -15,6 +15,7 @@ const MobAppDev = lazy(() => import('./pages/Services/MobAppDev'));
 const E_Commerce = lazy(() => import('./pages/Services/E_Commerce'));
 const ERP = lazy(() => import('./pages/Products/ERP'));
 const LMS = lazy(() => import('./pages/Products/LMS'));
+const POS = lazy(() => import('./pages/Products/POS.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 
@@ -37,6 +38,7 @@ function App() {
               <Route path='/services/e-commerce-service' element={<E_Commerce />} />
               <Route path='/products/erp-software-in-pakistan' element={<ERP />} />
               <Route path='/products/learning-management-system' element={<LMS />} />
+              <Route path='/products/pos-software-services' element={<POS />} />
               <Route path='*' element={<NotFound />} />
               <Route />
             </Routes>
