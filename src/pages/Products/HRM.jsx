@@ -9,11 +9,15 @@ import greenWoodLogo from '../../assets/images/HRMS/clients/green-wood-logo.webp
 import aamcLogo from '../../assets/images/HRMS/clients/aamc-logo.webp';
 import fastLogo from '../../assets/images/HRMS/clients/fast-logo.webp';
 import growingBusinessImg from '../../assets/images/HRMS/growing-business.webp';
+import checkBtn from '../../assets/images/HRMS/check-btn.png';
+import HRBgimg from '../../assets/images/HRMS/hr-bg-img.png';
+import HRImg from '../../assets/images/HRMS/hr-img.webp';
 import '../../assets/css/HRM.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import 'swiper/css/free-mode';
 import 'swiper/css';
+import { logoData } from '../../services';
 
 const HRM = () => {
     const clientLogos = [
@@ -36,7 +40,15 @@ const HRM = () => {
         { title: "Seamless Integration", description: "Easily integrate with your existing tools and platforms, ensuring a smooth transition." },
         { title: "Data-Driven Decisions", description: "Leverage real-time analytics to make informed decisions that drive business growth." },
         { title: "User-Centric Design", description: "Intuitive and easy to navigate, our software is designed with your team in mind." },
-    ]
+    ];
+
+    const hrInfoData = [
+        { text: 'Store and manage detailed employee information.' },
+        { text: 'Keep all HR information up-to-date with real-time syncing across your entire organization.' },
+        { text: 'Quickly locate employee records and generate reports with powerful search and filtering tool.' },
+        { text: 'Protect sensitive HR data with role-based access controls.' },
+    ];
+
     return (
         <>
             {/* <!-- hero-section Start --> */}
@@ -167,8 +179,88 @@ const HRM = () => {
                 </div>
             </div>
             {/* <!-- Why Prismatic End --> */}
+            {/* <!-- One Software section start --> */}
+            <div className="features" id="features">
+                <div className="container">
+                    <div className="row m-0">
+                        <div className="col-md-12">
+                            <h1 className="pri-main-h text-center">
+                                All your HR Needs, in <span className="pri-h pri-h-border">One Software</span>
+                            </h1>
+                        </div>
+                        <div className="col-md-12">
+                            <div className="d-flex flex-wrap align-content-center justify-content-md-center justify-content-center mt-sm-4 mt-lg-5">
+                                {logoData.map((logo, index) => (
+                                    <div key={index} className="logo-wrapper">
+                                        <img
+                                            src={logo.src}
+                                            alt={logo.alt}
+                                            className="img-fluid"
+                                            width="100"
+                                            height="30"
+                                            loading="lazy"
+                                            draggable={false}
+                                        />
+                                        <p>{logo.label}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                        <div className="row mt-5 m-0">
+                            <div className="col-lg-6 col-md-12">
+                                <div className="align-content-center h-100">
+                                    <h4>Manage Your HR Information</h4>
+                                    <h1 className="pri-main-h text-left features-h">
+                                        Centralized HR Data for Streamlined Management
+                                    </h1>
+                                    {hrInfoData.map((info, index) => (
+                                        <div key={index} className="hr-info d-flex mt-3 gap-md-4 gap-lg-5">
+                                            <img
+                                                src={checkBtn}
+                                                alt="check-btn-img"
+                                                className="img-fluid check-btn-img"
+                                                draggable={false}
+                                            />
+                                            <p className="hrm-para ms-2">{info.text}</p>
+                                        </div>
+                                    ))}
+                                    <Link
+                                        to="https://prismatic-technologies.com/contact-us?service=hrm-software"
+                                        className="btn hrm-register"
+                                    >
+                                        Request a demo
+                                    </Link>
+                                </div>
+                            </div>
+                            <div className="col-lg-6 col-md-12">
+                                <div className="position-relative">
+                                    <img
+                                        src={HRBgimg}
+                                        alt="hr-bg-img"
+                                        className="img-fluid hr-bg"
+                                        width="584"
+                                        height="634"
+                                        loading="lazy"
+                                        draggable={false}
+                                    />
+                                    <img
+                                        src={HRImg}
+                                        alt="hr-img"
+                                        className="img-fluid hr-img"
+                                        loading="lazy"
+                                        width="508"
+                                        height="588"
+                                        draggable={false}
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- One Software section end --> */}
         </>
     )
 }
 
-export default HRM
+export default HRM;

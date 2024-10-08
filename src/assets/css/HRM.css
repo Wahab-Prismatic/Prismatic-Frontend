@@ -136,6 +136,113 @@ h1, h2, h3, h4, h6 {
     font-size: 18px;
 }
 
+.features {
+    background-color: #fbfbfb;
+    padding: 70px 0 20px;
+}
+
+.features-h {
+    padding: 0 !important;
+}
+
+.features h4 {
+    font-size: 20px;
+    line-height: 30px;
+    padding-bottom: 4px;
+}
+
+.features h4, .hrm-para {
+    font-weight: 600;
+}
+
+.features h4, .hr-bg, .pri-border {
+    position: relative;
+}
+
+.features h4::after {
+    position: absolute;
+    width: 25%;
+    height: 2px;
+    left: 22%;
+}
+
+.pri-bt-border, .pri-h-border {
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.pri-h-border::after {
+    position: absolute;
+    width: 98%;
+    height: 5px;
+    left: 2%;
+}
+
+.logo-wrapper {
+    width: 174px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+    border-bottom: 5px solid #fff;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 5px 17px;
+}
+
+.data-wrapper-2, .logo-wrapper {
+    align-content: center;
+    box-shadow: 1px 1px 14.1px 0 #70707040;
+    display: flex;
+    background-color: var(--background-color);
+}
+
+.logo-wrapper:hover {
+    border-bottom: 5px solid var(--pris-primary-color);
+}
+
+.logo-wrapper img {
+    height: 30px;
+    width: auto;
+}
+
+.logo-wrapper p {
+    font-size: 16px;
+    margin: 0;
+}
+
+.hrm-pri-data p, .logo-wrapper p {
+    line-height: 27px;
+    font-weight: 500;
+}
+
+.check-btn-img {
+    height: 24px !important;
+    width: auto !important;
+}
+
+.hrm-para {
+    line-height: 26px;
+    color: #2b2b2b;
+}
+
+.hr-bg, .hr-img {
+    height: auto;
+}
+
+.features h4, .hr-bg, .pri-border, .slick-list {
+    position: relative;
+}
+
+.hr-bg, .hr-img {
+    max-width: 100%;
+}
+
+.hr-img {
+    position: absolute;
+    left: 7%;
+    top: 4%;
+}
+
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
@@ -188,6 +295,11 @@ h1, h2, h3, h4, h6 {
         font-size: 24px;
         line-height: 30px;
     }
+
+    .mt-5 {
+        margin-top: 2rem !important;
+        font-size: 13px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -229,6 +341,41 @@ h1, h2, h3, h4, h6 {
     .hrm-growing-business {
         max-width: 100%;
         height: auto;
+    }
+
+    .pri-main-h {
+        font-size: 28px;
+        line-height: 38px;
+        text-align: center !important;
+    }
+
+    .features h4, .hrm-works p {
+        text-align: center;
+    }
+
+    .features h4::after {
+        width: 21%;
+        left: 40%;
+    }
+
+    .pri-main-h {
+        font-size: 28px;
+        line-height: 38px;
+        text-align: center !important;
+    }
+
+    .hrm-para {
+        font-size: 16px;
+        line-height: 22px;
+    }
+
+    .hr-bg {
+        width: 689px !important;
+    }
+
+    .hr-img {
+        width: 540px !important;
+        left: 15%;
     }
 }
 
@@ -272,14 +419,6 @@ h1, h2, h3, h4, h6 {
         padding-top: 35px;
     }
 
-    .pri-main-h {
-        font-size: 20px !important;
-        text-align: left !important;
-        line-height: 28px;
-        margin-bottom: 30px;
-        padding: 0 !important;
-    }
-
     .hrm-pri-data h2 {
         font-family: Montserrat, sans-serif;
         font-size: 20px;
@@ -292,5 +431,50 @@ h1, h2, h3, h4, h6 {
         font-size: 14px;
         line-height: 25px;
         text-align: left;
+    }
+
+    .features {
+        background-color: #fbfbfb;
+        padding: 35px 0 18px;
+    }
+
+    .pri-main-h {
+        font-size: 20px !important;
+        text-align: left !important;
+        line-height: 28px;
+        margin-bottom: 30px;
+        padding: 0 !important;
+    }
+
+    .logo-wrapper {
+        width: 134px;
+    }
+
+    .logo-wrapper p {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    .pri-main-h {
+        font-size: 20px !important;
+        text-align: left !important;
+        line-height: 28px;
+        margin-bottom: 30px;
+        padding: 0 !important;
+    }
+
+    .hrm-para, .hrm-works p {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .hr-bg {
+        width: 500px !important;
+        height: 376px !important;
+    }
+
+    .hr-img {
+        width: 244px !important;
+        height: 306px !important;
     }
 }
