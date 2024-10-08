@@ -74,6 +74,68 @@ h1, h2, h3, h4, h6 {
     left: 40%;
 }
 
+.hrm-clients-section {
+    padding: 15px 30px;
+    box-shadow: 8px 4px 14.1px 0 #00000040;
+    margin-top: -40px;
+    border-radius: 10px;
+    z-index: 1;
+}
+
+.client-slide {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    perspective: 1000px; /* Perspective for 3D effect */
+  }
+
+  .hrm-why-pri {
+    padding-top: 70px;
+}
+
+.pri-border {
+    padding-bottom: 15px;
+    position: relative;
+}
+
+.pri-border::after {
+    position: absolute;
+    width: 56%;
+    height: 5px;
+    left: 1%;
+}
+
+.features h4::after, .pri-border::after, .pri-bt-border::after, .pri-h-border::after {
+    content: " ";
+    background-color: var(--accent-color);
+    bottom: 0;
+}
+
+.features h4, .pri-h {
+    color: var(--accent-color);
+}
+  
+.pri-main-h {
+    font-weight: 700;
+    font-size: 42px;
+    padding: 0 30px;
+    line-height: 57px;
+    color: var(--pris-primary-color);
+}
+
+.hrm-pri-data h2 {
+    font-size: 26px;
+    line-height: 40px;
+    font-weight: 600;
+}
+
+.hrm-pri-data p, .logo-wrapper p {
+    line-height: 27px;
+    font-weight: 500;
+}
+
+.hrm-para, .hrm-pri-data p {
+    font-size: 18px;
+}
+
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
@@ -95,6 +157,11 @@ h1, h2, h3, h4, h6 {
     .timesheet-img {
         display: none;
     }
+
+    .pri-main-h {
+        font-size: 32px;
+        line-height: 40px;
+    }
 }
 
 @media (max-width: 991px) {
@@ -111,6 +178,16 @@ h1, h2, h3, h4, h6 {
         margin-top: 2rem !important;
         font-size: 13px;
     }
+
+    .client-view h1, .pri-main-h {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .hrm-pri-data h2 {
+        font-size: 24px;
+        line-height: 30px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -126,6 +203,32 @@ h1, h2, h3, h4, h6 {
     .hrm-hero p {
         font-size: 18px;
         line-height: 25px;
+    }
+
+    .pri-main-h {
+        font-size: 28px;
+        line-height: 38px;
+        text-align: center !important;
+    }
+
+    .row > .col-lg-6 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .hrm-pri-data h2 {
+        font-size: 22px;
+        line-height: 33px;
+    }
+
+    .hrm-pri-data p {
+        font-size: 16px;
+        line-height: 25px;
+    }
+
+    .hrm-growing-business {
+        max-width: 100%;
+        height: auto;
     }
 }
 
@@ -158,5 +261,36 @@ h1, h2, h3, h4, h6 {
 
     .timesheet-img {
         display: none;
+    }
+
+    .hrm-clients-section {
+        padding: 5px 18px !important;
+        margin-top: -16px;
+    }
+
+    .hrm-why-pri {
+        padding-top: 35px;
+    }
+
+    .pri-main-h {
+        font-size: 20px !important;
+        text-align: left !important;
+        line-height: 28px;
+        margin-bottom: 30px;
+        padding: 0 !important;
+    }
+
+    .hrm-pri-data h2 {
+        font-family: Montserrat, sans-serif;
+        font-size: 20px;
+        line-height: 24px;
+        font-weight: 600;
+        margin-top: 20px;
+    }
+
+    .hrm-pri-data p {
+        font-size: 14px;
+        line-height: 25px;
+        text-align: left;
     }
 }
