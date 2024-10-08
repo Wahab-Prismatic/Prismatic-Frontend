@@ -22,6 +22,7 @@ a {
 .navbar.sticky {
     background-color: #0274B8;
     top: 0;
+    width: 100%; /* make sure with is 100% */
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     position: fixed;
     z-index: 1000;
@@ -69,6 +70,11 @@ a {
     /* Optional: lighter color on hover when scrolled */
 }
 
+/* Default hamburger icon hidden on large screens */
+.navbar-toggler {
+    display: none;
+}
+
 .navbar .navbar-toggler {
     border-color: #fff;
     background-color: #fff;
@@ -80,16 +86,13 @@ a {
     top: 20px;
 }
 
-.navbar .navbar-toggler-icon {
-    background-image: none;
-}
-
 #navbarResponsive {
     z-index: 999;
 }
 
 .navbar-collapse {
     text-align: center;
+    transition: all 0.3s ease;
 }
 
 .navbar-expand-lg .navbar-collapse {
@@ -167,5 +170,21 @@ ul {
     color: #fff !important;
 }
 
+.navbar .navbar-toggler-icon:after {
+    content: '\f0c9';
+    color: #0274b8;
+    font-size: 18px;
+    line-height: 26px;
+    font-family: 'FontAwesome';
+}
 
+.navbar .navbar-toggler-icon {
+    background-image: none;
+}
+
+@media (max-width: 991px) {
+    .navbar .navbar-toggler-icon::after {
+        color: #0274b8;
+    }
+}
 /* Navbar Section End */

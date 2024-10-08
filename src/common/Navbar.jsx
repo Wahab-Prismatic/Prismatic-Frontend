@@ -34,7 +34,7 @@ const Navbar = () => {
                         data-bs-toggle="collapse"
                         data-target="#navbarResponsive"
                         aria-controls="navbarResponsive"
-                        aria-expanded="false"
+                        aria-expanded="true"
                         aria-label="Toggle navigation"
                     >
                         <span className="navbar-toggler-icon"></span>
@@ -98,8 +98,8 @@ const Navbar = () => {
                                     <Link className="dropdown-item" to="/products/erp-software-in-pakistan" onClick={() => window.scrollTo(0, 0)}>ERP Software</Link>
                                     <Link className="dropdown-item" to="https://crmprismatic.com/" target='_blank' onClick={() => window.scrollTo(0, 0)}>Real Estate CRM</Link>
                                     <Link className="dropdown-item" to="/products/learning-management-system" onClick={() => window.scrollTo(0, 0)}>LMS Software</Link>
-                                    <Link className="dropdown-item" to="products/pos-software-services" onClick={() => window.scrollTo(0, 0)}>POS System</Link>
-                                    <a className="dropdown-item" href="/hrm-software-services">HRM Software</a>
+                                    <Link className="dropdown-item" to="/products/pos-software-services" onClick={() => window.scrollTo(0, 0)}>POS System</Link>
+                                    <Link className="dropdown-item" to="/products/hrm-software-services" onClick={() => window.scrollTo(0, 0)}>HRM Software</Link>
                                 </div>
                             </li>
                             <li className="nav-item">

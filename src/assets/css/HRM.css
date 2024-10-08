@@ -1,0 +1,162 @@
+:root {
+    --pris-primary-color: #175884;
+    --pris-secondary-color: #FFBF34;
+    --accent-color: #F5A700;
+    --background-color: #FFFFFF;
+    --text-color: #2B2B2B;
+    --hover-state: #FFCB5C;
+    --button-bg: #A0A0A0;
+    --testimonial-bg: #F4FBFD;
+}
+
+.section {
+    padding: 80px 0px;
+}
+
+h1, h2, h3, h4, h6 {
+    margin: 0px;
+}
+
+.hrm-hero h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 60px;
+    line-height: 71px;
+    color: var(--pris-primary-color);
+}
+
+.hrm-hero p {
+    font-family: "Inter", sans-serif;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 30px;
+}
+
+.request__btn {
+    gap: 1.5rem !important;
+}
+
+.hrm-register {
+    background-color: var(--pris-primary-color);
+    font-size: 1rem;
+    line-height: 1.813rem;
+    text-decoration: none;
+    border-radius: 25.02px;
+    width: 185px;
+    display: flex;
+    height: 50px;
+    flex-wrap: wrap;
+    color: #fff;
+    font-weight: 400;
+    align-content: center;
+    justify-content: center;
+}
+
+.hrm-register:hover {
+    background-color: var(--accent-color);
+    color: var(--pris-primary-color) !important;
+    transition: 0.3s all ease-in-out;
+}
+
+.hrm-expert-btn {
+    background-color: var(--button-bg);
+}
+
+.hero-sec-img {
+    width: 546px;
+}
+
+.timesheet-img {
+    width: 480px;
+    height: 100px;
+    position: absolute;
+    top: 71%;
+    left: 40%;
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
+
+@media (max-width: 1200px) {
+    .hrm-hero p {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .hrm-register {
+        width: 155px;
+        font-size: 15px;
+        line-height: 13px;
+    }
+
+    .timesheet-img {
+        display: none;
+    }
+}
+
+@media (max-width: 991px) {
+    .section {
+        padding: 80px 20px;
+    }
+
+    .hrm-hero h1 {
+        font-size: 36px;
+        line-height: 41px;
+    }
+
+    .mt-5 {
+        margin-top: 2rem !important;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 80px 0px;
+    }
+
+    .hrm-hero h1 {
+        font-size: 34px;
+        line-height: 45px;
+    }
+
+    .hrm-hero p {
+        font-size: 18px;
+        line-height: 25px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .hrm-hero {
+        padding-top: 75px !important;
+    }
+
+    .hrm-hero h1 {
+        font-size: 22px;
+        margin-top: 10px;
+        line-height: 29px;
+    }
+
+    .hrm-hero p {
+        font-size: 16px;
+        line-height: 20px;
+    }
+
+    .section {
+        padding: 35px 16px;
+    }
+
+    .hrm-register {
+        font-size: 14px;
+        line-height: 10px;
+        width: 150px;
+        height: 40px;
+    }
+
+    .timesheet-img {
+        display: none;
+    }
+}
