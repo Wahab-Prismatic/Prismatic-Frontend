@@ -101,20 +101,192 @@ h1, h2, h3, h4, h6 {
     width: 60px !important;
 }
 
-.service-item img {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 15px;
-}
-
 .matters-icon img {
     height: 60px;
     width: 60px;
 }
 
+.pos-style img {
+    width: 40px;
+    height: 40px;
+}
+
+.section-heading-sub {
+    margin-bottom: 15px;
+}
+
+.title-heading {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+h5 {
+    margin: 0px;
+    padding-top: 14px;
+    font-weight: 600;
+    padding-bottom: 13px;
+}
+
+.make-unique p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.make-unique p {
+    font-size: 14px;
+    margin: 0;
+}
+
+.make-unique h3 {
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 0px;
+}
+
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
+    }
+}
+
+@media (max-width: 991px) {
+    .P-header-text h6 {
+        margin-bottom: 11px !important;
+        font-size: 17px !important;
+    }
+
+    .P-header-text h4 {
+        font-size: 21px !important;
+        margin-bottom: 0px !important;
+    }
+    .flexsys {
+        gap: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .P-header-text h6 {
+        font-size: 13px !important;
+    }
+
+    .P-header-text h4 {
+        font-size: 13px !important;
+    }
+
+    .matters-icon img {
+        height: 60px;
+        width: 60px;
+    }
+    .flexsys {
+        gap: 20px;
+    }
+
+    .service-item .down-content-sub {
+        text-align: left;
+    }
+
+    .matters-desc {
+        width: 85% !important;
+        text-align: left;
+    }
+
+    .service-item .down-content-sub {
+        text-align: left;
+    }
+}
+
+@media (max-width: 576px) {
+    .erp-detail p {
+        font-size: 12px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .P-header-text h6 {
+        margin-bottom: 4px !important;
+    }
+
+    .P-header-text h4 {
+        margin-bottom: 10px !important;
+        letter-spacing: 0px !important;
+    }
+
+    .section-heading {
+        padding-top: 1rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .section-heading h2 {
+        font-size: 16px;
+    }
+
+    .pos-order-2 {
+        order: 1;
+    }
+
+    .pos-style {
+        text-align: center;
+    }
+
+    .pos-style img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .flexsys {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service-item .down-content-sub h6 {
+        padding-bottom: 10px;
+        text-align: center !important;
+    }
+
+    .col-md-10.matters-desc {
+        width: 100% !important;
+        text-align: center;
+    }
+
+    .service-item .down-content-sub p {
+        text-align: center;
+    }
+
+    .erp.pt-5 {
+        padding-top: 10px !important;
+    }
+
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .section-heading-sub h4 {
+        font-size: 16px;
+    }
+
+    .service-item .down-content {
+        padding-top: 30px;
+        padding-bottom: 0 !important;
+    }
+
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .title-heading {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .erp-detail p {
+        font-size: 12px !important;
+    }
+
+    .list-resp li {
+        font-size: 14px;
     }
 }
 
