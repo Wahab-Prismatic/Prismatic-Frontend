@@ -1,0 +1,40 @@
+.products-header-wrapper {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.products-header-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+.sec-buttons {
+    margin-top: 30px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.pg-button {
+    text-decoration: none;
+    text-align: center;
+    background-color: rgb(229, 229, 229);
+    transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+    border-radius: 30px;
+    color: #333;
+    border: none;
+    padding: 6px 6px;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 1.75;
+    width: 170px;
+    max-width: 100%;
+    cursor: pointer;
+    text-transform: capitalize;
+}
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}

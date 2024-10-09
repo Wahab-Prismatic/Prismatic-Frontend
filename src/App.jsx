@@ -4,6 +4,7 @@ import './App.css'
 import { Suspense, lazy } from 'react';
 import ErrorBoundary from './services/ErrorBoundry.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Spinner from './common/Spinner.jsx';
 const BlogsDetail = lazy(() => import('./components/BlogsDetail'));
 const About = lazy(() => import('./pages/About'));
 const Home = lazy(() => import('./pages/Home'));
@@ -23,12 +24,14 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 
 function App() {
 
+  const Loader = () => <Spinner isCentered={true} />
+
   return (
     <>
       <div>
         <Header />
         <ErrorBoundary>
-          <Suspense fallback={<div>Loading...</div>}>
+          <Suspense fallback={<Loader />}>
             <Routes>
               <Route path='/' element={<Home />} />
               {/* <Route path="/blogs" element={<BlogsSection />} /> */}
