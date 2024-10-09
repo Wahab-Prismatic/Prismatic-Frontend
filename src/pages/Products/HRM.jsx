@@ -17,7 +17,7 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import 'swiper/css/free-mode';
 import 'swiper/css';
-import { logoData } from '../../services';
+import { logoData, stepsData } from '../../services';
 
 const HRM = () => {
     const clientLogos = [
@@ -259,6 +259,31 @@ const HRM = () => {
                 </div>
             </div>
             {/* <!-- One Software section end --> */}
+
+            <div className="hrm-works section" id="how-it-works">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <h1 className="pri-main-h text-center pri-bt-border">How it Works</h1>
+                        </div>
+                        <div className="col-md-12 mb-lg-5">
+                            <div className="d-flex flex-wrap align-content-center justify-content-center mt-sm-4 mt-lg-5">
+                                {stepsData.map((step, index) => (
+                                    <div key={index} className="data-wrapper-2">
+                                        <img
+                                            src={step.imgSrc}
+                                            alt={step.title}
+                                            className={`img-fluid hrm-works-bg ${index % 2 === 1 ? 'df-bg' : ''}`} // Apply df-bg on even index images
+                                        />
+                                        <h4>{step.title}</h4>
+                                        <p>{step.description}</p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

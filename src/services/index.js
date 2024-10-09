@@ -21,6 +21,39 @@ import CalendarImg from '../assets/images/HRMS/Calendar.webp';
 import SalaryImg from '../assets/images/HRMS/Salary.webp';
 import GearImg from '../assets/images/HRMS/Gear.webp';
 import HandshakeImg from '../assets/images/HRMS/Handshake.webp';
+import SignUpImg from '../assets/images/HRMS/sign up.png';
+import CustomizeImg from '../assets/images/HRMS/customize.png';
+import IntegrateImg from '../assets/images/HRMS/integrate.png';
+import DeployImg from '../assets/images/HRMS/deploy.png';
+import OptimizeImg from '../assets/images/HRMS/optimize.png';
+
+export const stepsData = [
+  {
+      imgSrc: SignUpImg,
+      title: 'Sign Up',
+      description: 'Protect sensitive HR data with role-based access controls.'
+  },
+  {
+      imgSrc: CustomizeImg,
+      title: 'Customize',
+      description: 'Tailor the software to match your company’s HR processes.'
+  },
+  {
+      imgSrc: IntegrateImg,
+      title: 'Integrate',
+      description: 'Connect with your existing tools for a seamless experience.'
+  },
+  {
+      imgSrc: DeployImg,
+      title: 'Deploy',
+      description: 'Roll out the software to your team with our easy onboarding process.'
+  },
+  {
+      imgSrc: OptimizeImg,
+      title: 'Optimize',
+      description: 'Use real-time analytics and reporting to continuously improve your HR strategies.'
+  },
+];
 
 export const logoData = [
   { src: CVImg, alt: 'HRIS-logo', label: 'HRIS' },
