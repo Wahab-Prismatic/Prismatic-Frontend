@@ -366,6 +366,13 @@ h6 {
     border-radius: 25px;
 }
 
+.client-view {
+    background-color: var(--testimonial-bg);
+    margin: 50px 48px;
+    border-radius: 50px;
+    position: relative;
+}
+
 .client-view h1, .demo-btn {
     color: var(--pris-primary-color);
 }
@@ -390,6 +397,39 @@ h6 {
     width: auto;
     height: 100%;
 }
+
+.client-view p {
+    color: var(--text-color);
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.875rem;
+    padding: 0 63px;
+}
+
+.pris-clients-vid {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.pris-clients-vid video {
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+}
+
+.test-vid-btn {
+    width: 60px;
+    background: linear-gradient(0deg, rgb(211 159 121) 0, rgba(87, 84, 87, .6811099439775911) 50%);
+    border: 2px solid #fff;
+    border-radius: 15px;
+    position: absolute;
+    padding: 14px;
+    bottom: 39%;
+    right: 47%;
+    cursor: pointer;
+}
+
 
 @media (min-width: 1400px) {
     .container {
@@ -497,6 +537,25 @@ h6 {
         margin-top: 50px;
         width: 400px;
     }
+
+    .client-view h1, .pri-main-h {
+        font-size: 32px;
+        line-height: 40px;
+    }
+
+    .client-view p {
+        color: var(--text-color);
+        font-weight: 500;
+        font-size: 1.2rem;
+        text-align: center;
+        line-height: 1.875rem;
+        padding: 0 15px;
+        margin-bottom: 41px;
+    }
+
+    .pris-clients-vid {
+        width: 650px;
+    }
 }
 
 @media (max-width: 768px) {
@@ -598,6 +657,34 @@ h6 {
     .hrm-get-started img {
         position: unset !important;
         padding-top: 22px;
+    }
+
+    .client-view h1 {
+        font-size: 28px;
+        line-height: 38px;
+        margin-bottom: 20px;
+        text-align: center !important;
+    }
+
+    .client-view p {
+        text-align: justify;
+        padding: 0;
+        margin-bottom: 35px;
+    }
+
+    .client-view p, .testimonial-para {
+        font-size: 1.1rem;
+    }
+
+    .pris-clients-vid {
+        width: 560px;
+        margin: 0 auto;
+    }
+
+    .test-vid-btn {
+        width: 40px;
+        bottom: 39%;
+        right: 47%;
     }
 }
 
@@ -738,5 +825,30 @@ h6 {
     .hrm-get-started img, .pri-bt-border::after, .timesheet-img {
         display: none;
     }
+    .client-view h1 {
+        font-size: 20px !important;
+        text-align: left !important;
+        line-height: 28px;
+        margin-bottom: 10px;
+    }
 
+    .client-view p {
+        font-size: 1rem;
+        line-height: 1.875rem;
+        padding: 0;
+        text-align: justify;
+    }
+
+    .pris-clients-vid {
+        width: 275px;
+        margin: 0 auto;
+    }
+
+    .test-vid-btn {
+        width: 38px;
+        border-radius: 13px;
+        padding: 14px;
+        bottom: 40%;
+        right: 45%;
+    }
 }

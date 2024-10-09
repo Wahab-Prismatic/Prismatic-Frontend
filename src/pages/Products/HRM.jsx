@@ -13,14 +13,28 @@ import checkBtn from '../../assets/images/HRMS/check-btn.png';
 import HRBgimg from '../../assets/images/HRMS/hr-bg-img.png';
 import HRImg from '../../assets/images/HRMS/hr-img.webp';
 import PriHrmImg from '../../assets/images/HRMS/Pri-hrm.webp';
+import HRMTestVideo from '../../assets/images/HRMS/HRM Testimonial video.mp4';
+import VideoPlayBtn from '../../assets/images/HRMS/video-ply-btn.webp';
 import '../../assets/css/HRM.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
 import 'swiper/css/free-mode';
 import 'swiper/css';
 import { logoData, stepsData } from '../../services';
+import { useRef, useState } from 'react';
 
 const HRM = () => {
+    const [isPlaying, setIsPlaying] = useState(false);
+    const videoRef = useRef(null);
+
+    const togglePlay = () => {
+        if (isPlaying) {
+            videoRef.current.pause();
+        } else {
+            videoRef.current.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
     const clientLogos = [
         { src: dunkinDonutLogo, alt: "Dunkin-donuts" },
         { src: alFatahLogo, alt: "Al-fateh" },
@@ -57,6 +71,14 @@ const HRM = () => {
         buttonLink: "https://prismatic-technologies.com/contact-us?service=hrm-software",
         imageSrc: PriHrmImg,
         imageAlt: "HRM-Dashboard"
+    };
+
+    const clientData = {
+        title: "What Our Clients Say",
+        description: "HRM software is a digital solution designed to automate and streamline the core functions of human resource management, including recruitment, employee onboarding, payroll, performance management, and compliance tracking. By centralizing employee data and processes, HRM systems improve workforce productivity, enhance employee engagement, and enable HR teams to focus on strategic initiatives, ensuring smooth operations and fostering organizational growth.",
+        videoSrc: HRMTestVideo,
+        playIconSrc: VideoPlayBtn,
+        videoAlt: "video-play-button"
     };
 
     return (
@@ -320,7 +342,37 @@ const HRM = () => {
                 </div>
             </div>
             {/* <!-- Get Started section end--> */}
-
+            {/* <!-- client's views  section start--> */}
+            <div className="client-view section" id="client">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-md-12">
+                            <h1 className="pri-main-h text-center pri-bt-border mb-3">{clientData.title}</h1>
+                            <p className="mb-lg-5">{clientData.description}</p>
+                            <div className="pris-clients-vid text-center position-relative">
+                                <video
+                                    id="aboutVideo"
+                                    src={clientData.videoSrc}
+                                    ref={videoRef}
+                                    playsInline
+                                    className="video"
+                                    onClick={togglePlay}
+                                />
+                                {!isPlaying && (
+                                    <div className="play-icon-about" id="playIcon" onClick={togglePlay}>
+                                        <img
+                                            src={clientData.playIconSrc}
+                                            alt={clientData.videoAlt}
+                                            className="test-vid-btn"
+                                        />
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- client's views section end --> */}
         </>
     )
 }
