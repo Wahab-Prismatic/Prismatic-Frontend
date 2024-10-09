@@ -333,6 +333,64 @@ h6 {
     margin-top: 10px;
 }
 
+.hrm-get-started {
+    background-color: var(--pris-primary-color);
+    position: relative;
+    overflow: visible;
+}
+
+.hrm-get-started h1 {
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 50px;
+}
+
+.hrm-get-started h1, .hrm-get-started p {
+    font-family: Montserrat, sans-serif;
+    color: var(--background-color);
+}
+
+.hrm-get-started p {
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 26px;
+}
+
+.demo-btn {
+    background-color: var(--background-color);
+    font-size: 16px;
+    line-height: 29px;
+    font-weight: 400;
+    font-family: Inter, sans-serif;
+    padding: 10.43px, 4.17px;
+    border-radius: 25px;
+}
+
+.client-view h1, .demo-btn {
+    color: var(--pris-primary-color);
+}
+
+.demo-btn:hover, a.btn.pris-contact-btn:hover {
+    background-color: var(--accent-color);
+    border: 1px solid var(--accent-color);
+    color: var(--background-color) !important;
+}
+
+.HRM-get__startedSec {
+    position: absolute;
+    right: 5%;
+    top: 0;
+    margin-top: -40px;
+    height: 100%;
+    text-align: end;
+    margin-right: auto;
+}
+
+.hrm-get-started img {
+    width: auto;
+    height: 100%;
+}
+
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
@@ -373,6 +431,19 @@ h6 {
         text-align: center;
         font-size: 16px;
     }
+
+    .hrm-get-started {
+        padding-bottom: 70px !important;
+    }
+
+    .hrm-get-started h1 {
+        font-size: 33px;
+        line-height: 50px;
+    }
+
+    .hrm-get-started img {
+        position: unset;
+    }
 }
 
 @media (max-width: 991px) {
@@ -409,6 +480,22 @@ h6 {
     .data-wrapper-2 {
         width: 42%;
         padding: 20px;
+    }
+
+    .HRM-get__startedSec {
+        position: relative;
+        right: 0;
+        top: 0;
+        margin-top: 0;
+        height: 100%;
+        text-align: center;
+        margin-right: auto;
+    }
+
+    .hrm-get-started img {
+        position: unset;
+        margin-top: 50px;
+        width: 400px;
     }
 }
 
@@ -501,6 +588,16 @@ h6 {
 
     .features h4, .hrm-works p {
         text-align: center;
+    }
+
+    .hrm-get-started h1, .hrm-hero h1 {
+        font-size: 34px;
+        line-height: 45px;
+    }
+
+    .hrm-get-started img {
+        position: unset !important;
+        padding-top: 22px;
     }
 }
 
@@ -617,4 +714,29 @@ h6 {
         font-size: 14px;
         line-height: 22px;
     }
+
+    .hrm-get-started {
+        padding: 25px 16px 32px !important;
+    }
+
+    .hrm-get-started h1 {
+        font-size: 20px;
+        line-height: 28px;
+    }
+
+    .hrm-get-started p {
+        font-size: 14px;
+        line-height: 24px;
+    }
+
+    .demo-btn {
+        font-size: 14px;
+        line-height: 25px;
+        border-radius: 30px;
+    }
+
+    .hrm-get-started img, .pri-bt-border::after, .timesheet-img {
+        display: none;
+    }
+
 }

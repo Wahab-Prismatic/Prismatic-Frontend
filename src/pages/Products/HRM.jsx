@@ -12,6 +12,7 @@ import growingBusinessImg from '../../assets/images/HRMS/growing-business.webp';
 import checkBtn from '../../assets/images/HRMS/check-btn.png';
 import HRBgimg from '../../assets/images/HRMS/hr-bg-img.png';
 import HRImg from '../../assets/images/HRMS/hr-img.webp';
+import PriHrmImg from '../../assets/images/HRMS/Pri-hrm.webp';
 import '../../assets/css/HRM.css';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
@@ -48,6 +49,15 @@ const HRM = () => {
         { text: 'Quickly locate employee records and generate reports with powerful search and filtering tool.' },
         { text: 'Protect sensitive HR data with role-based access controls.' },
     ];
+
+    const getStartedData = {
+        title: "Get started with Pris-HRM",
+        description: "Take your first step towards bringing happiness in your HR! Our customer team will guide you.",
+        buttonText: "Request a demo",
+        buttonLink: "https://prismatic-technologies.com/contact-us?service=hrm-software",
+        imageSrc: PriHrmImg,
+        imageAlt: "HRM-Dashboard"
+    };
 
     return (
         <>
@@ -259,7 +269,7 @@ const HRM = () => {
                 </div>
             </div>
             {/* <!-- One Software section end --> */}
-
+            {/* <!-- How it works start --> */}
             <div className="hrm-works section" id="how-it-works">
                 <div className="container">
                     <div className="row">
@@ -273,7 +283,8 @@ const HRM = () => {
                                         <img
                                             src={step.imgSrc}
                                             alt={step.title}
-                                            className={`img-fluid hrm-works-bg ${index % 2 === 1 ? 'df-bg' : ''}`} // Apply df-bg on even index images
+                                            className={`img-fluid hrm-works-bg ${index % 2 === 1 ? 'df-bg' : ''}`}
+                                            draggable={false}
                                         />
                                         <h4>{step.title}</h4>
                                         <p>{step.description}</p>
@@ -284,6 +295,32 @@ const HRM = () => {
                     </div>
                 </div>
             </div>
+            {/* <!-- How it works ended --> */}
+            {/* <!-- Get Started section start--> */}
+            <div className="hrm-get-started section">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-6 col-md-12">
+                            <h1>{getStartedData.title}</h1>
+                            <p className="mt-3">{getStartedData.description}</p>
+                            <a href={getStartedData.buttonLink} className="btn demo-btn mt-3">{getStartedData.buttonText}</a>
+                        </div>
+                        <div className="col-lg-6 col-md-12 HRM-get__startedSec">
+                            <img
+                                src={getStartedData.imageSrc}
+                                alt={getStartedData.imageAlt}
+                                width="500"
+                                height="600"
+                                className="img-fluid"
+                                loading="lazy"
+                                draggable={false}
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- Get Started section end--> */}
+
         </>
     )
 }
