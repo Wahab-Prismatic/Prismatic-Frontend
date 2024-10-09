@@ -113,13 +113,13 @@ const Footer = () => {
                         <div className="col-lg-3 col-md-4 footer-item">
                             <h4>Products</h4>
                             <ul className="menu-list" style={{ listStyle: 'square' }}>
-                                <li><Link to="/erp-software-in-pakistan">ERP Software</Link></li>
-                                <li><Link to="/prismatic-crm-services">Real Estate CRM</Link></li>
-                                <li><Link to="/learning-management-system">LMS Software</Link></li>
-                                <li><Link to="/mobile-app-development">Mobile App</Link></li>
-                                <li><Link to="/e-commerce-service">E-Commerce Website</Link></li>
-                                <li><Link to="/pos-software-services">POS Software</Link></li>
-                                <li><Link to="/Hrm-software-services">HRM Software</Link></li>
+                                <li><Link to="/products/erp-software-in-pakistan" onClick={() => window.scrollTo(0, 0)}>ERP Software</Link></li>
+                                <li><Link to="https://crmprismatic.com/" target='_blank' onClick={() => window.scrollTo(0, 0)}>Real Estate CRM</Link></li>
+                                <li><Link to="/products/learning-management-system" onClick={() => window.scrollTo(0, 0)}>LMS Software</Link></li>
+                                <li><Link to="/mobile-app-development">Mobile App onClick={() => window.scrollTo(0, 0)}</Link></li>
+                                <li><Link to="/services/e-commerce-service" onClick={() => window.scrollTo(0, 0)}>E-Commerce Website</Link></li>
+                                <li><Link to="/products/pos-software-services" onClick={() => window.scrollTo(0, 0)}>POS Software</Link></li>
+                                <li><Link to="/products/hrm-software-services" onClick={() => window.scrollTo(0, 0)}>HRM Software</Link></li>
                             </ul>
                         </div>
 

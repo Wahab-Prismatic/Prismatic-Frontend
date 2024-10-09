@@ -17,6 +17,7 @@ const ERP = lazy(() => import('./pages/Products/ERP'));
 const LMS = lazy(() => import('./pages/Products/LMS'));
 const POS = lazy(() => import('./pages/Products/POS.jsx'));
 const HRM = lazy(() => import('./pages/Products/HRM.jsx'));
+const Portfolio = lazy(() => import('./pages/Portfolio.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 
@@ -40,6 +41,7 @@ function App() {
               <Route path='/products/erp-software-in-pakistan' element={<ERP />} />
               <Route path='/products/learning-management-system' element={<LMS />} />
               <Route path='/products/pos-software-services' element={<POS />} />
+              <Route path='/prismatic-portfolio' element={<Portfolio />} />
               <Route path='/products/hrm-software-services' element={<HRM />}/>
               <Route path='*' element={<NotFound />} />
               <Route />

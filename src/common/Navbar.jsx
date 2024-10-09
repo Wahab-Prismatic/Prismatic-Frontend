@@ -103,7 +103,7 @@ const Navbar = () => {
                                 </div>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/prismatic-portfolio">Portfolio</a>
+                                <Link className="nav-link" to="/prismatic-portfolio" onClick={() => window.scrollTo(0, 0)}>Portfolio</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/career">Career</a>
