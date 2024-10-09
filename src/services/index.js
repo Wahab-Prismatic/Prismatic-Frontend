@@ -26,6 +26,25 @@ import CustomizeImg from '../assets/images/HRMS/customize.png';
 import IntegrateImg from '../assets/images/HRMS/integrate.png';
 import DeployImg from '../assets/images/HRMS/deploy.png';
 import OptimizeImg from '../assets/images/HRMS/optimize.png';
+import DunkinImg from '../assets/portfolio-images/website-portfolio/dunkin.jpg';
+import WinbidImg from '../assets/portfolio-images/website-portfolio/winbid.jpg';
+import TopFixImg from '../assets/portfolio-images/website-portfolio/topfix.jpg';
+import TimeCrimeImg from '../assets/portfolio-images/website-portfolio/timesCrimes.jpg';
+import TechzImg from '../assets/portfolio-images/website-portfolio/techzology.jpg';
+import PetanduImg from '../assets/portfolio-images/website-portfolio/petandu.jpg';
+import JfosterImg from '../assets/portfolio-images/website-portfolio/jfoster.jpg';
+import AamcImg from '../assets/portfolio-images/website-portfolio/aamc.jpg';
+
+export const portfolioImages = [
+  { id: 1, src: DunkinImg, alt: "Dunkin" },
+  { id: 2, src: WinbidImg, alt: "WinBid" },
+  { id: 3, src: TopFixImg, alt: "TopFix" },
+  { id: 4, src: TimeCrimeImg, alt: "Times Crimes" },
+  { id: 5, src: TechzImg, alt: "Techzology" },
+  { id: 6, src: PetanduImg, alt: "PetAndu" },
+  { id: 7, src: JfosterImg, alt: "JFoster" },
+  { id: 8, src: AamcImg, alt: "AAMC" }
+];
 
 export const stepsData = [
   {
