@@ -1,0 +1,30 @@
+.products-header-wrapper {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.products-header-wrapper img {
+    width: 100%;
+    height: auto;
+}
+
+.text-content {
+    text-align: left;
+    width: 46%;
+    position: absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+}
+
+.P-header-text h4 {
+    margin-bottom: 30px;
+    text-transform: none;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #fff;
+    /* overflow: hidden; */
+    animation: fadeInLeft 1s both 1.5s;
+}

@@ -19,6 +19,8 @@ const LMS = lazy(() => import('./pages/Products/LMS'));
 const POS = lazy(() => import('./pages/Products/POS.jsx'));
 const HRM = lazy(() => import('./pages/Products/HRM.jsx'));
 const Portfolio = lazy(() => import('./pages/Portfolio.jsx'));
+const Career = lazy(() => import('./pages/Career.jsx')); 
+const Blogs = lazy(() => import('./pages/Blogs.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 
@@ -46,6 +48,8 @@ function App() {
               <Route path='/products/pos-software-services' element={<POS />} />
               <Route path='/prismatic-portfolio' element={<Portfolio />} />
               <Route path='/products/hrm-software-services' element={<HRM />}/>
+              <Route path='/career' element={<Career />} />
+              <Route path='/blogs' element={<Blogs />} />
               <Route path='*' element={<NotFound />} />
               <Route />
             </Routes>

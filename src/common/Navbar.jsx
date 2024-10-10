@@ -106,10 +106,10 @@ const Navbar = () => {
                                 <Link className="nav-link" to="/prismatic-portfolio" onClick={() => window.scrollTo(0, 0)}>Portfolio</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/career">Career</a>
+                                <Link className="nav-link" to="/career">Career</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/blogs">Blogs</a>
+                                <Link className="nav-link" to="/blogs">Blogs</Link>
                             </li>
                             <li className="nav-item">
                                 <a className="nav-link" href="/contact-us">Contact Us</a>

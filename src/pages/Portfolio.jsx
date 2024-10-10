@@ -143,6 +143,7 @@ const Portfolio = () => {
                                                     loading="lazy"
                                                     src={src}
                                                     alt={`${category} Portfolio`}
+                                                    draggable={false}
                                                 />
                                             </a>
                                         </div>
