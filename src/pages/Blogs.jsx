@@ -66,7 +66,7 @@ const Blogs = () => {
                                     <p>Loading...</p>
                                 ) : blogs.length > 0 ? (
                                     blogs.map((blog) => (
-                                        <div className="col-lg-4 col-md-6 mb-30" key={blog.id}>
+                                        <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{marginBottom: '40px'}}>
                                             <div className="single-blog-item blog-grid">
                                                 <div className="post-feature blog-thumbnail">
                                                     <Link to={`/blogs/${blog.slug}`}>
