@@ -99,13 +99,13 @@ const Footer = () => {
                         <div className="col-lg-3 col-md-4 footer-item">
                             <h4>Useful Links</h4>
                             <ul className="menu-list" style={{ listStyle: 'square' }}>
-                                <li><Link to="/">Home</Link></li>
-                                <li><Link to="/about-us">About Us</Link></li>
-                                <li><Link to="/erp-software-in-pakistan">Services</Link></li>
-                                <li><Link to="/prismatic-portfolio">Portfolio</Link></li>
-                                <li><Link to="/blogs">Blogs</Link></li>
-                                <li><Link to="/contact-us">Contact Us</Link></li>
-                                <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+                                <li><Link to="/" onClick={() => window.scrollTo(0, 0)}>Home</Link></li>
+                                <li><Link to="/about-us" onClick={() => window.scrollTo(0, 0)}>About Us</Link></li>
+                                <li><Link to="/services/premier-advertising-agency-chicago" onClick={() => window.scrollTo(0, 0)}>Services</Link></li>
+                                <li><Link to="/prismatic-portfolio" onClick={() => window.scrollTo(0, 0)}>Portfolio</Link></li>
+                                <li><Link to="/blogs" onClick={() => window.scrollTo(0, 0)}>Blogs</Link></li>
+                                <li><Link to="/contact-us" onClick={() => window.scrollTo(0, 0)}>Contact Us</Link></li>
+                                <li><Link to="/privacy-policy" onClick={() => window.scrollTo(0, 0)}>Privacy Policy</Link></li>
                             </ul>
                         </div>
 
