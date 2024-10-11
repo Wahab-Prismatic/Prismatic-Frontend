@@ -37,6 +37,7 @@ function App() {
             <Routes>
               <Route path='/' element={<Home />} />
               {/* <Route path="/blogs" element={<BlogsSection />} /> */}
+              <Route path='/blogs' element={<Blogs />} />
               <Route path='/blogs/:slug' element={<BlogsDetail />} />
               <Route path='/about-us' element={<About />} />
               <Route path='/prismatic-activity' element={<PrismaticLife />} />
@@ -49,7 +50,6 @@ function App() {
               <Route path='/prismatic-portfolio' element={<Portfolio />} />
               <Route path='/products/hrm-software-services' element={<HRM />}/>
               <Route path='/career' element={<Career />} />
-              <Route path='/blogs' element={<Blogs />} />
               <Route path='*' element={<NotFound />} />
               <Route />
             </Routes>

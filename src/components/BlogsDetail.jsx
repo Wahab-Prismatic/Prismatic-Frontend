@@ -5,30 +5,24 @@ import { Link, useParams } from 'react-router-dom';
 
 const BlogsDetail = () => {
     const { slug } = useParams();
-    const [blog, setBlog] = useState(null);
     const [recentBlogs, setRecentBlogs] = useState([]);
     useEffect(() => {
-        axios.get(`/blogs/${slug}`)
-            .then(response => {
-                console.log('Blog Data: ', response.data);
-                setBlog(response.data);
-            })
-            .catch(error => {
-                console.error('Error fetching the blogs:', error);
-            });
 
         axios.get(`/blogs`)
             .then(response => {
                 console.log('Recent Blogs Data: ', response.data);
-                setRecentBlogs(response.data.data);  // Assuming response.data.data is an array
+                setRecentBlogs(response.data.data); 
             })
             .catch(error => {
                 console.error('Error fetching recent blogs:', error);
             });
     }, [slug]);
 
+    // Find the specific blog based on the slug parameter
+    const blog = recentBlogs.find(b => b.slug === slug);
+
     // If blog data is not available yet or is empty, display a fallback message
-    if (!blog || blog.length === 0) {
+    if (!recentBlogs || recentBlogs.length === 0) {
         return <p>No record found</p>;
     };
 
@@ -59,7 +53,7 @@ const BlogsDetail = () => {
                                     {/* Blog Title and Meta */}
                                     <div className="article-title">
                                         <>
-                                            <h2>{blog[0].title}</h2>
+                                            <h2>{blog.title}</h2>
                                             <div className="media">
                                                 <div className="avatar">
                                                     <img
@@ -71,12 +65,12 @@ const BlogsDetail = () => {
                                                 <div className="media-body">
                                                     <label>Admin</label>
                                                     <span>
-                                                        {new Date(blog[0].created_at).toLocaleDateString('en-GB', {
+                                                        {new Date(blog.created_at).toLocaleDateString('en-GB', {
                                                             year: 'numeric',
                                                             month: '2-digit',
                                                             day: '2-digit'
                                                         })}{" "}
-                                                        {new Date(blog[0].created_at).toLocaleTimeString('en-GB', {
+                                                        {new Date(blog.created_at).toLocaleTimeString('en-GB', {
                                                             hour: '2-digit',
                                                             minute: '2-digit',
                                                             second: '2-digit'
@@ -91,7 +85,7 @@ const BlogsDetail = () => {
                                     <div className="article-content">
                                         <>
                                             <p>{blog.short_desc}</p>
-                                            <p dangerouslySetInnerHTML={{ __html: blog[0].long_desc }}></p>
+                                            <p dangerouslySetInnerHTML={{ __html: blog.long_desc }}></p>
                                         </>
                                     </div>
                                 </article>

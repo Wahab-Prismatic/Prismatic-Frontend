@@ -69,7 +69,7 @@ const Blogs = () => {
                                         <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{marginBottom: '40px'}}>
                                             <div className="single-blog-item blog-grid">
                                                 <div className="post-feature blog-thumbnail">
-                                                    <Link to={`/blogs/${blog.slug}`}>
+                                                    <Link to={`/blogs/${blog.slug}`} >
                                                         <img
                                                             className="img-fluid"
                                                             src={`src/assets/blogs-images/${blog.blog_image}`}
