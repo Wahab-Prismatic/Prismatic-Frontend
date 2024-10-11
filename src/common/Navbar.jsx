@@ -112,7 +112,7 @@ const Navbar = () => {
                                 <Link className="nav-link" to="/blogs">Blogs</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="/contact-us">Contact Us</a>
+                                <Link className="nav-link" to="/contact-us">Contact Us</Link>
                             </li>
                         </ul>
                     </div>

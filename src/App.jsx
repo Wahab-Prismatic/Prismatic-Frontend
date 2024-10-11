@@ -21,6 +21,7 @@ const HRM = lazy(() => import('./pages/Products/HRM.jsx'));
 const Portfolio = lazy(() => import('./pages/Portfolio.jsx'));
 const Career = lazy(() => import('./pages/Career.jsx')); 
 const Blogs = lazy(() => import('./pages/Blogs.jsx'));
+const ContactUs = lazy(() => import('./pages/ContactUs.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
 
@@ -50,6 +51,7 @@ function App() {
               <Route path='/prismatic-portfolio' element={<Portfolio />} />
               <Route path='/products/hrm-software-services' element={<HRM />}/>
               <Route path='/career' element={<Career />} />
+              <Route path='/contact-us' element={<ContactUs />} />
               <Route path='*' element={<NotFound />} />
               <Route />
             </Routes>
