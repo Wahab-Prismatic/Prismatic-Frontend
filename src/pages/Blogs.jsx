@@ -69,7 +69,7 @@ const Blogs = () => {
                                         <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{marginBottom: '40px'}}>
                                             <div className="single-blog-item blog-grid">
                                                 <div className="post-feature blog-thumbnail">
-                                                    <Link to={`/blogs/${blog.slug}`} >
+                                                    <Link to={`/blogs/${blog.slug}`}  onClick={() => window.scrollTo(0, 0)}>
                                                         <img
                                                             className="img-fluid"
                                                             src={`src/assets/blogs-images/${blog.blog_image}`}
@@ -80,7 +80,7 @@ const Blogs = () => {
                                                 </div>
                                                 <div className="post-info lg-blog-post-info">
                                                     <h5 className="post-title font-weight--bold">
-                                                        <Link to={`/blogs/${blog.slug}`} style={{ overflowWrap: "break-word" }}>
+                                                        <Link to={`/blogs/${blog.slug}`} style={{ overflowWrap: "break-word" }} onClick={() => window.scrollTo(0, 0)}>
                                                             {blog.title}
                                                         </Link>
                                                     </h5>
@@ -96,7 +96,7 @@ const Blogs = () => {
                                                         <p style={{ overflowWrap: "break-word" }}>{blog.short_desc}</p>
                                                     </div>
                                                     <div className="btn-text">
-                                                        <Link to={`/blogs/${blog.slug}`}>
+                                                        <Link to={`/blogs/${blog.slug}`} onClick={() => window.scrollTo(0, 0)}>
                                                             Read more <i className="ml-1 button-icon fa fa-long-arrow-right"></i>
                                                         </Link>
                                                     </div>
@@ -105,7 +105,7 @@ const Blogs = () => {
                                         </div>
                                     ))
                                 ) : (
-                                    <p>No Record Found</p>
+                                    <p>No Record Found...</p>
                                 )}
                             </div>
                         </div>

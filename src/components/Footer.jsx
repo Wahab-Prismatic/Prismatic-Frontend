@@ -24,74 +24,74 @@ const Footer = () => {
                             <p>Bringing your vision to life, we build and manage a world-class team of developers.</p>
                             <ul className="social-icons" style={{ padding: '0px' }}>
                                 <li>
-                                    <a
+                                    <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="facebook"
-                                        href="https://web.facebook.com/prismatictechnologieslimited/"
+                                        to="https://web.facebook.com/prismatictechnologieslimited/"
                                     >
                                         <i className="fa fa-facebook-f"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="instagram"
-                                        href="https://www.instagram.com/prismatictechnologieslimited"
+                                        to="https://www.instagram.com/prismatictechnologieslimited"
                                     >
                                         <i className="fa fa-instagram"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="Linkedin"
-                                        href="https://www.linkedin.com/company/13072092/admin/"
+                                        to="https://www.linkedin.com/company/13072092/admin/"
                                     >
                                         <i className="fa fa-linkedin"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="Twitter"
-                                        href="https://twitter.com/prismatictechn"
+                                        to="https://twitter.com/prismatictechn"
                                     >
                                         <i className="fa fa-twitter"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li>
-                                    <a
+                                    <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="Youtube"
-                                        href="https://www.youtube.com/channel/UCDcutFeu2vYa5g7fR_jIIIg"
+                                        to="https://www.youtube.com/channel/UCDcutFeu2vYa5g7fR_jIIIg"
                                     >
                                         <i className="fa fa-youtube"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li style={{ marginTop: '6px' }}>
-                                    <a
+                                    <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="Pinterest"
-                                        href="https://www.pinterest.com/prismatictechnologieslimited/_created/"
+                                        to="https://www.pinterest.com/prismatictechnologieslimited/_created/"
                                     >
                                         <i className="fa fa-pinterest"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                                 <li style={{ marginTop: '6px' }}>
-                                    <a
+                                    <Link
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         aria-label="tiktok"
-                                        href="https://www.tiktok.com/@prismatictechnologies"
+                                        to="https://www.tiktok.com/@prismatictechnologies"
                                     >
                                         <i className="fa-brands fa-tiktok"></i>
-                                    </a>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

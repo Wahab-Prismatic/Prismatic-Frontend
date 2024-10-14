@@ -3,7 +3,7 @@ import ContactImg from '../assets/images/Contact Us.jpg';
 import axios from 'axios';
 import ReCAPTCHA from 'react-google-recaptcha';
 import '../assets/css/ContactUs.css';
-import { locations } from '../services';
+import { locations, mapPath } from '../services';
 import { Link } from 'react-router-dom';
 
 axios.defaults.baseURL = 'http://localhost:8000/api';
@@ -11,7 +11,6 @@ const ContactUs = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [errors, setErrors] = useState([]);
-    const [recaptchaToken, setRecaptchaToken] = useState('');
     const [captchaValue, setCaptchaValue] = useState(null);
     const [formData, setFormData] = useState({
         name: '',
@@ -117,7 +116,7 @@ const ContactUs = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                <img src={ContactImg} alt="contact-us" title="contact-us" />
+                <img src={ContactImg} alt="contact-us" title="contact-us" draggable={false} />
                 <div className="P-header-text text-content">
                     <h6>Contact Us</h6>
                     <h4>feel free to send us a message now!</h4>
@@ -258,7 +257,7 @@ const ContactUs = () => {
                         <div className="col-md-4 pr-0">
                             <div id="map_canvas" style={{ border: '2px solid #3872ac' }}>
                                 <iframe
-                                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4964.705173448318!2d74.33773501337656!3d31.505074701447967!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190520e18b8a9b%3A0xb742d6f26c475776!2sPrismatic%20Technologies%20Limited!5e0!3m2!1sen!2s!4v1724412105254!5m2!1sen!2s"
+                                    src={mapPath}
                                     width="100%"
                                     height="100%"
                                     style={{ border: '0' }}

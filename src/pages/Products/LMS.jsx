@@ -308,7 +308,7 @@ const LMS = () => {
                                         </a>
                                     </div>
                                 </div>
-                                <a href="/contact-us" className="btn lms-register  lms-explore-btn">Book a demo</a>
+                                <Link to="/contact-us" className="btn lms-register  lms-explore-btn">Book a demo</Link>
                             </div>
                         </div>
                     </div>

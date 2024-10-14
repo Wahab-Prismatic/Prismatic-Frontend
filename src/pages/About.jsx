@@ -10,6 +10,7 @@ import TeamImg from '../assets/images/Team-new.webp';
 import OurClientsSection from '../components/OurClientsSection';
 import  {teamData}  from '../services';
 import Aos from 'aos';
+import { Link } from 'react-router-dom';
 
 
 const About = () => {
@@ -65,9 +66,9 @@ const About = () => {
                                 </div>
                             </div>
 
-                            <a href="/contact-us" className="p-read-more btn1">
+                            <Link to="/contact-us" className="p-read-more btn1">
                                 <button className="contact-us-bt" style={{ marginTop: '36px' }}>Contact us</button>
-                            </a>
+                            </Link>
 
                             <div className="terms mt-5">
                                 <p><span style={{ color: 'green' }}>&#10004;</span> Innovation</p>

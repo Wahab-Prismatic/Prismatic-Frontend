@@ -68,7 +68,7 @@ const HRM = () => {
         title: "Get started with Pris-HRM",
         description: "Take your first step towards bringing happiness in your HR! Our customer team will guide you.",
         buttonText: "Request a demo",
-        buttonLink: "https://prismatic-technologies.com/contact-us?service=hrm-software",
+        buttonLink: "/contact-us",
         imageSrc: PriHrmImg,
         imageAlt: "HRM-Dashboard"
     };
@@ -93,10 +93,10 @@ const HRM = () => {
                                 <p>Efficient, Scalable, and User-Friendly HR Solutions</p>
                                 <div className="d-flex gap-4 request__btn">
                                     <Link
-                                        to="https://prismatic-technologies.com/contact-us?service=hrm-software"
+                                        to="/contact-us"
                                         className="btn hrm-register"
-                                        target="_blank"
                                         rel="noopener noreferrer"
+                                        onClick={() => window.scrollTo(0, 0 )}
                                     >
                                         Request a demo
                                     </Link>
@@ -257,8 +257,9 @@ const HRM = () => {
                                         </div>
                                     ))}
                                     <Link
-                                        to="https://prismatic-technologies.com/contact-us?service=hrm-software"
+                                        to="/contact-us"
                                         className="btn hrm-register"
+                                        onClick={() => window.scrollTo(0, 0)}
                                     >
                                         Request a demo
                                     </Link>
@@ -325,7 +326,7 @@ const HRM = () => {
                         <div className="col-lg-6 col-md-12">
                             <h1>{getStartedData.title}</h1>
                             <p className="mt-3">{getStartedData.description}</p>
-                            <a href={getStartedData.buttonLink} className="btn demo-btn mt-3">{getStartedData.buttonText}</a>
+                            <Link to={getStartedData.buttonLink} className="btn demo-btn mt-3" onClick={() => window.scrollTo(0, 0)}>{getStartedData.buttonText}</Link>
                         </div>
                         <div className="col-lg-6 col-md-12 HRM-get__startedSec">
                             <img

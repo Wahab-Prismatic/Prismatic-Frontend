@@ -198,10 +198,10 @@ const ERP = () => {
                   about ERP software system – it can always be modified to fit what your business requires. <br />
                   Prismatic’s best accounting software in Pakistan does not come with a one-size fits all approach.
                 </p>
-                <a href="/contact-us" className="btn pri-demo-btn">
+                <Link to="/contact-us" className="btn pri-demo-btn" onClick={() => window.scrollTo(0,0)}>
                   Inquire Now
                   <img src={DemoImg} draggable={false} alt="" className="demo-img" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>
@@ -260,7 +260,7 @@ const ERP = () => {
               Connect with our experienced and proficient Tech Experts today to explore how Prismatic can take your
               technology, business, and operations to subsequent levels.
             </p>
-            <Link to="/contact-us" className="btn pris-inquire-btn">
+            <Link to="/contact-us" className="btn pris-inquire-btn" onClick={() => window.scrollTo(0, 0)}>
               Inquire Now
               <img src={DemoImg} alt="" className="demo-img" />
             </Link>
@@ -351,9 +351,10 @@ const ERP = () => {
         <div className="container">
           <div className="col-md-12 text-center">
             <h1 className="mb-2">Make ERP adoption a lever driving your unstoppable business growth</h1>
-            <a href="/contact-us" className="btn pris-inquire-btn">Inquire Now
+            <Link to="/contact-us" className="btn pris-inquire-btn">
+              Inquire Now
               <img src={DemoImg} alt="" className="demo-img" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>

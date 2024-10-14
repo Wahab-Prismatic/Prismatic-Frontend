@@ -56,6 +56,8 @@ export const locations = [
   }
 ];
 
+export const mapPath = "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d4964.705173448318!2d74.33773501337656!3d31.505074701447967!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39190520e18b8a9b%3A0xb742d6f26c475776!2sPrismatic%20Technologies%20Limited!5e0!3m2!1sen!2s!4v1724412105254!5m2!1sen!2s"
+
 export const portfolioImages = [
   { id: 1, src: DunkinImg, alt: "Dunkin" },
   { id: 2, src: WinbidImg, alt: "WinBid" },

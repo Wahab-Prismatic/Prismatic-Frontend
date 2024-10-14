@@ -170,6 +170,12 @@ ul {
     color: #fff !important;
 }
 
+.dropdown-item:hover {
+    color: #333 !important;
+    text-decoration: none;
+    background-color: #f8f9fa;
+}
+
 .navbar .navbar-toggler-icon:after {
     content: '\f0c9';
     color: #0274b8;
