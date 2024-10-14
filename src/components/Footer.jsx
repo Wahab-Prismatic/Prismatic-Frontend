@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import '../assets/css/Footer.css';
 import primaticLogo from '../assets/icons/prismatic_logo.png';
 
-const Footer = ({ phoneNumber }) => {
+const Footer = () => {
+    const phoneNumber = "923078881432";
     const formattedPhone = `https://api.whatsapp.com/send?phone=${phoneNumber}`
     const currentYear = new Date().getFullYear();
     return (

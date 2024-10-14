@@ -57,7 +57,7 @@ function App() {
             </Routes>
           </Suspense>
         </ErrorBoundary>
-        <Footer phoneNumber="923078881432" />
+        <Footer />
       </div>
     </>
   )
