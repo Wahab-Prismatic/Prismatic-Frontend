@@ -26,7 +26,7 @@ const Blogs = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                <img src={BlogImg} alt="blogs" title="blogs" />
+                <img src={BlogImg} alt="blogs" title="blogs" draggable={false} />
                 <div className="P-header-text text-content">
                     <h6>Blogs</h6>
                     <h4>We have over 3 years of experience</h4>
@@ -132,7 +132,7 @@ const Blogs = () => {
                                 </Link>
                                 <Link to="/about-us" className="btn btn--secondary btn-two" onClick={() => window.scrollTo(0, 0)}>
                                     <span className="btn-icon mr-2">
-                                        <i className="far fa-info-circle"></i>
+                                        <i className="fa fa-info-circle" aria-hidden="true"></i>
                                     </span>
                                     Get info
                                 </Link>
