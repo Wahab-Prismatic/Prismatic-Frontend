@@ -35,6 +35,27 @@ import PetanduImg from '../assets/portfolio-images/website-portfolio/petandu.jpg
 import JfosterImg from '../assets/portfolio-images/website-portfolio/jfoster.jpg';
 import AamcImg from '../assets/portfolio-images/website-portfolio/aamc.jpg';
 
+export const locations = [
+  {
+      country: "Pakistan",
+      address: "71 C, 3, Block C3 Block C 3 Gulberg III, Lahore, Punjab 54660, Pakistan",
+      phone: "+923078881432",
+      email: "info@prismatic-technologies.com"
+  },
+  {
+      country: "United States",
+      address: "124 Broadkill Rd #797 Milton, DE 19968-1008, US",
+      phone: "+12513732570",
+      email: "info@prismatic-technologies.com"
+  },
+  {
+      country: "Saudi Arabia",
+      address: "RFKA8374, 8374 Salman Al Farisi, 4251 Al Khaleej Dist, 13223 Riyadh, Kingdom of Saudi Arabia",
+      phone: "+923078881432",
+      email: "info@prismatic-technologies.com"
+  }
+];
+
 export const portfolioImages = [
   { id: 1, src: DunkinImg, alt: "Dunkin" },
   { id: 2, src: WinbidImg, alt: "WinBid" },

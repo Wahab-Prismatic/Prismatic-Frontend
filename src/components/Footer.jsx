@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom';
 import '../assets/css/Footer.css';
 import primaticLogo from '../assets/icons/prismatic_logo.png';
 
-const Footer = () => {
-
+const Footer = ({ phoneNumber }) => {
+    const formattedPhone = `https://api.whatsapp.com/send?phone=${phoneNumber}`
     const currentYear = new Date().getFullYear();
     return (
         <>
@@ -133,6 +133,21 @@ const Footer = () => {
                                 <p>71-C3 Gulberg III Lahore, Pakistan</p>
                                 <h5>Saudi Arabia</h5>
                                 <p>RFKA8374, 8374 Salman Al Farisi, 4251 Al Khaleej Dist, 13223 Riyadh, Kingdom of Saudi Arabia</p>
+                            </div>
+                        </div>
+                        <div className="rs-video whatsapp-fixed">
+                            <div className="animate-border">
+                                <a
+                                    alt="Whatsapp"
+                                    className="video-vemo-icon btn-whatsapp"
+                                    aria-label="WhatsApp"
+                                    href={formattedPhone}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i className="fa fa-whatsapp"></i>
+                                    <div className="sm-red-dot"></div>
+                                </a>
                             </div>
                         </div>
                     </div>

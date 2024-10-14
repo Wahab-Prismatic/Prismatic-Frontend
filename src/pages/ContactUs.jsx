@@ -1,18 +1,26 @@
 import { useState } from 'react';
 import ContactImg from '../assets/images/Contact Us.jpg';
 import axios from 'axios';
+import ReCAPTCHA from 'react-google-recaptcha';
+import '../assets/css/ContactUs.css';
+import { locations } from '../services';
+import { Link } from 'react-router-dom';
+
 axios.defaults.baseURL = 'http://localhost:8000/api';
 const ContactUs = () => {
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
     const [errors, setErrors] = useState([]);
+    const [recaptchaToken, setRecaptchaToken] = useState('');
+    const [captchaValue, setCaptchaValue] = useState(null);
     const [formData, setFormData] = useState({
-        fullname: '',
+        name: '',
         email: '',
         phone: '',
         companyName: '',
-        wantToPurchase: '',
+        subject: '',
         message: '',
+        'g-recaptcha-response': ''
     });
 
     const services = {
@@ -38,16 +46,26 @@ const ContactUs = () => {
         }));
     };
 
+    // Handle reCAPTCHA change
+    const onCaptchaChange = (value) => {
+        setCaptchaValue(value);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (!captchaValue) {
+            alert('Please verify the reCAPTCHA');
+            return;
+        }
+
         // Perform form validation
         let validationErrors = [];
-        if (!formData.fullname) validationErrors.push("Full Name is required");
+        if (!formData.name) validationErrors.push("Full Name is required");
         if (!formData.email) validationErrors.push("Email is required");
         if (!formData.phone) validationErrors.push("Phone Number is required");
         if (!formData.companyName) validationErrors.push("Company Name is required");
-        if (!formData.wantToPurchase) validationErrors.push("Please select a service");
+        if (!formData.subject) validationErrors.push("Please select a subject");
         if (!formData.message) validationErrors.push("Message is required");
 
         if (validationErrors.length > 0) {
@@ -55,17 +73,23 @@ const ContactUs = () => {
             return;
         }
 
+        const dataToSend = {
+            ...formData,
+            'g-recaptcha-response': ''
+        };
+
         try {
-            const response = await axios.post('/contact-form', formData);
+            const response = await axios.post('/contact-form', dataToSend);
             console.log("Form Data:", response);
             setSuccessMessage(response.data.message);
             setFormData({
-                fullname: '',
+                name: '',
                 email: '',
                 phone: '',
                 companyName: '',
-                wantToPurchase: '',
+                subject: '',
                 message: '',
+                'g-recaptcha-response': ''
             });
             setSuccessMessage("Message sent Successfully!");
             setErrors([]);
@@ -80,12 +104,13 @@ const ContactUs = () => {
 
         // Reset the form
         setFormData({
-            fullName: '',
+            name: '',
             email: '',
             phone: '',
             companyName: '',
-            wantToPurchase: '',
-            message: ''
+            subject: '',
+            message: '',
+            'g-recaptcha-response': ''
         });
     };
 
@@ -115,9 +140,9 @@ const ContactUs = () => {
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        name="fullname"
+                                                        name="name"
                                                         placeholder="Full Name"
-                                                        value={formData.fullname}
+                                                        value={formData.name}
                                                         onChange={handleChange}
                                                         required
                                                     />
@@ -183,8 +208,8 @@ const ContactUs = () => {
                                                     <select
                                                         className="form-control"
                                                         id="wantToPurchase"
-                                                        name="wantToPurchase"
-                                                        value={formData.wantToPurchase}
+                                                        name="subject"
+                                                        value={formData.subject}
                                                         onChange={handleChange}
                                                         required
                                                     >
@@ -206,19 +231,23 @@ const ContactUs = () => {
                                                     rows="5"
                                                     name="message"
                                                     id="message"
-                                                    style={{ resize: 'none' }}
+                                                    style={{ resize: 'none', borderRadius: '10px' }}
                                                     value={formData.message}
                                                     onChange={handleChange}
                                                     required
                                                 />
                                             </div>
                                         </div>
-                                        {/* <div className="col-lg-12 form-group">
-                      <NoCaptcha
-                        sitekey="YOUR_SITE_KEY" // Add your site key here
-                        onChange={handleRecaptcha}
-                      />
-                    </div> */}
+                                        <div className="col-lg-12 col-md-12">
+                                            <div className="form-group recaptcha-container">
+                                                <ReCAPTCHA
+                                                    name="g-recaptcha-response"
+                                                    value={formData['g-recaptcha-response']}
+                                                    sitekey='6LcuCLUcAAAAAOEjErKv3Uoj5foxMOSC5l-YL5b2'
+                                                    onChange={onCaptchaChange}
+                                                />
+                                            </div>
+                                        </div>
                                     </div>
                                     <fieldset className="csm-form-info">
                                         <button type="submit" id="form-submit" className="filled-button">Send Message</button>
@@ -239,6 +268,32 @@ const ContactUs = () => {
                                 ></iframe>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+
+            <div className="contact-information">
+                <div className="container">
+                    <div className="row">
+                        {locations.map((location, index) => (
+                            <div className="col-md-4 mb-3" key={index}>
+                                <div className="contact-item">
+                                    <h4>{location.country}</h4>
+                                    <p>
+                                        <i className="fa fa-map-marker"></i>
+                                        <Link to="#mapcheck">{location.address}</Link>
+                                    </p>
+                                    <p>
+                                        <i className="fa fa-phone"></i>
+                                        <Link to={`tel:${location.phone.replace(/\s/g, '')}`}> {location.phone}</Link>
+                                    </p>
+                                    <p>
+                                        <i className="fa fa-envelope"></i>
+                                        <Link to={`mailto:${location.email}`}>{location.email}</Link>
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </div>

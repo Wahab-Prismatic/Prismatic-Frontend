@@ -108,6 +108,166 @@ footer ul.menu-list li a {
     letter-spacing: 0.5px;
 }
 
+.whatsapp-fixed {
+    position: fixed;
+    bottom: 40px;
+    right: 62px;
+    z-index: 9;
+}
+
+.btn-whatsapp {
+    background-color: #30bf39;
+    color: #fff;
+    border-radius: 100%;
+    float: inline-end;
+    transition: background-color .5s;
+    width: 60px !important;
+    height: 60px !important;
+    line-height: 70px;
+    position: relative !important;
+    display: block;
+    transform: none !important;
+    z-index: 9;
+    text-align: center;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.07), 0 4px 8px rgba(0, 0, 0, 0.07), 0 8px 16px rgba(0, 0, 0, 0.07), 0 16px 32px rgba(0, 0, 0, 0.07), 0 32px 64px rgba(0, 0, 0, 0.07);
+}
+
+.btn-whatsapp:hover {
+    background-color: #53ca5b;
+}
+
+.btn-whatsapp:after, .btn-whatsapp:before {
+    border: 2px solid #30bf39 !important;
+    width: 130px !important;
+    height: 130px !important;
+}
+
+.rs-video .animate-border .video-vemo-icon:before {
+    content: "";
+    border: 2px solid #fff;
+    position: absolute;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    animation: zoomBig 3.25s linear infinite;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+}
+
+@keyframes sm-shake-animation {
+    0% {
+        transform: rotate(0) scale(1) skew(0.017rad);
+    }
+
+    25% {
+        transform: rotate(0) scale(1) skew(0.017rad);
+    }
+
+    35% {
+        transform: rotate(-0.3rad) scale(1) skew(0.017rad);
+    }
+
+    45% {
+        transform: rotate(0.3rad) scale(1) skew(0.017rad);
+    }
+
+    55% {
+        transform: rotate(-0.3rad) scale(1) skew(0.017rad);
+    }
+
+    65% {
+        transform: rotate(0.3rad) scale(1) skew(0.017rad);
+    }
+    75% {
+        transform: rotate(0) scale(1) skew(0.017rad);
+    }
+
+    100% {
+        transform: rotate(0) scale(1) skew(0.017rad);
+    }
+}
+
+.whatsapp-fixed a.video-vemo-icon.btn-whatsapp i {
+    font-size: 32px;
+    color: #fff;
+    line-height: 1.8;
+    animation: sm-shake-animation linear 1.5s infinite;
+    animation-delay: 3s;
+}
+
+@keyframes notificationPoint {
+    0% {
+        transform: scale(0);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.sm-red-dot {
+    position: absolute;
+    right: 4px;
+    top: 4px;
+    width: 12px;
+    height: 12px;
+    margin: 0 auto;
+    background: red;
+    transform: scale(0);
+    border-radius: 50%;
+    animation-name: notificationPoint;
+    animation-duration: 300ms;
+    animation-fill-mode: forwards;
+    animation-delay: 3s;
+}
+
+@keyframes zoomBig {
+    0% {
+        transform: translate(-50%, -50%) scale(.5);
+        opacity: 1;
+        border-width: 3px;
+    }
+
+    40% {
+        opacity: .5;
+        border-width: 2px;
+    }
+
+    65% {
+        border-width: 1px;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0;
+        border-width: 1px;
+    }
+}
+
+.rs-video .animate-border .video-vemo-icon:after {
+    content: "";
+    border: 2px solid #fff;
+    position: absolute;
+    opacity: 0;
+    z-index: 0;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: block;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    animation: zoomBig 3.25s linear infinite;
+    -webkit-animation-delay: 3s;
+    animation-delay: 3s;
+}
+
 @media (max-width: 768px) {
     footer {
         padding: 80px 0px 20px 0px;
