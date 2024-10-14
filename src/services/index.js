@@ -170,7 +170,7 @@ export const BannerImages = [
   {
     src: TourActivityImg,
     alt: "First slide",
-    style: { height: "400px", objectFit: "cover" },
+    style: { height: "400px", objectFit: "cover",  backdropFilter: 'brightness(40%)' },
   },
   {
     src: UpdatedBannerImg,

@@ -151,33 +151,46 @@
 
 .modal-content {
     position: relative;
-    width: 80%; /* Set desired width */
-    max-width: 700px; /* Max width for the modal */
-    height: auto; /* Adjust height as necessary */
-    background-color: #fff; /* White background for the modal */
-    border-radius: 10px; /* Rounded corners */
-    padding: 20px; /* Padding inside the modal */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Shadow effect */
-    z-index: 1001; /* Ensure it sits above backdrop */
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 42%;
+    max-height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
 }
 
 .modal-image {
-    width: 100%; /* Make the image responsive */
-    border-radius: 10px; /* Rounded corners for the image */
+    width: 100%;
+    height: auto;
 }
 
-/* .modal-content img {
-    max-width: 100%;
-    max-height: 100%;
-} */
 .close-icon {
     position: absolute;
-    top: -40px;
-    right: 10px;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
     font-size: 24px;
     color: white;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 30px;
     cursor: pointer;
-    /* z-index: 1001;  */
+    color: white;
+    padding: 10px;
+}
+
+.left-arrow {
+    left: 15px;
+}
+
+.right-arrow {
+    right: 15px;
 }
 
 .slick-item {
@@ -188,9 +201,35 @@
     opacity: 1;
 }
 
+@media (max-width: 1320px) {
+    .modal-content {
+        position: relative;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 88%;
+        max-height: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+    }
+}
+
 @media(max-width:1199px) {
     .award-img {
         top: 162px;
+    }
+
+    .modal-content {
+        position: relative;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 88%;
+        max-height: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
     }
 }
 
@@ -228,6 +267,18 @@
     .award-img {
         top: 60px;
     }
+
+    .modal-content {
+        position: relative;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 88%;
+        max-height: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
+    }
 }
 
 @media (max-width: 768px) {
@@ -246,6 +297,18 @@
 
     .our-spaces {
         margin-top: 2rem;
+    }
+
+    .modal-content {
+        position: relative;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 85%;
+        max-height: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
     }
 }
 
@@ -274,9 +337,7 @@
     .award-img {
         top: 60px;
     }
-}
 
-@media (max-width: 480px) {
     img.mfp-img {
         width: auto;
         max-width: 100%;
@@ -286,5 +347,17 @@
         box-sizing: border-box;
         padding: 45px 0 40px;
         margin: 0 auto;
+    }
+
+    .modal-content {
+        position: relative;
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        max-width: 95%;
+        max-height: 85%;
+        display: flex;
+        align-items: center;
+        justify-content: center; 
     }
 }

@@ -105,6 +105,49 @@ a {
     text-decoration: none !important;
 }
 
+/* General Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* White Button */
+.btn--white {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+    margin-right: 10px;
+}
+
+.btn--white:hover {
+    background-color: #f1f1f1;
+    color: #000;
+}
+
+/* Secondary Button */
+.btn--secondary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.btn--secondary:hover {
+    background-color: #207cdd;
+    color: white;
+}
+
+/* Button Icon Styling */
+.btn-icon {
+    margin-right: 8px;
+    font-size: 18px;
+}
+
+
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
@@ -152,6 +195,17 @@ a {
         flex: 0 0 100%;
         max-width: 100%;
     }
+
+    .cta-button-group--one {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -190,5 +244,17 @@ a {
     }
     .post-excerpt {
         font-size: 0.85rem;
+    }
+
+    .btn {
+        font-size: 12px;
+        padding: 8px 16px;
+        width: 200px;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .btn-icon {
+        font-size: 16px;
     }
 }

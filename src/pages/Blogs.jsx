@@ -59,17 +59,17 @@ const Blogs = () => {
                                 </div>
                             </div>
                         </div>
-
+                        {/* Blogs area start */}
                         <div className="container">
                             <div className="row">
                                 {loading ? (
                                     <p>Loading...</p>
                                 ) : blogs.length > 0 ? (
                                     blogs.map((blog) => (
-                                        <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{marginBottom: '40px'}}>
+                                        <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{ marginBottom: '40px' }}>
                                             <div className="single-blog-item blog-grid">
                                                 <div className="post-feature blog-thumbnail">
-                                                    <Link to={`/blogs/${blog.slug}`}  onClick={() => window.scrollTo(0, 0)}>
+                                                    <Link to={`/blogs/${blog.slug}`} onClick={() => window.scrollTo(0, 0)}>
                                                         <img
                                                             className="img-fluid"
                                                             src={`src/assets/blogs-images/${blog.blog_image}`}
@@ -110,8 +110,38 @@ const Blogs = () => {
                             </div>
                         </div>
                     </div>
+                    {/* Blogs area end */}
                 </div>
             </div>
+            {/* Call to Action Area Start */}
+            <div className="cta-image-area_one section-space--ptb_80 cta-bg-image_one">
+                <div className="container">
+                    <div className="row align-items-center">
+                        <div className="col-xl-8 col-lg-7">
+                            <div className="cta-content md-text-center">
+                                {/* Additional content can be added here if needed */}
+                            </div>
+                        </div>
+                        <div className="col-xl-4 col-lg-5">
+                            <div className="cta-button-group--one text-center">
+                                <Link to="/contact-us" className="btn btn--white btn-one" onClick={() => window.scrollTo(0, 0)}>
+                                    <span className="btn-icon mr-2">
+                                        <i className="far fa-comment-alt-dots"></i>
+                                    </span>
+                                    Let's talk
+                                </Link>
+                                <Link to="/about-us" className="btn btn--secondary btn-two" onClick={() => window.scrollTo(0, 0)}>
+                                    <span className="btn-icon mr-2">
+                                        <i className="far fa-info-circle"></i>
+                                    </span>
+                                    Get info
+                                </Link>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* Call to Action Area end */}
         </>
     )
 }

@@ -9,7 +9,7 @@ const Footer = () => {
     const currentYear = new Date().getFullYear();
     return (
         <>
-            <footer>
+            <footer style={{ marginTop: '20px' }}>
                 <div className="container">
                     <div className="row">
                         {/* Logo and About Section */}

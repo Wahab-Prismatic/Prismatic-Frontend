@@ -1,4 +1,3 @@
-import React, { useState } from 'react'
 import { BannerImages } from '../services';
 // Import Swiper modules
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -28,25 +27,56 @@ import Img_9199 from '../assets/prismatic-activity-images/IMG_9199.JPG';
 import Img_9200 from '../assets/prismatic-activity-images/IMG_9200.JPG';
 import Img_9202 from '../assets/prismatic-activity-images/IMG_9202.JPG';
 import Img_9204 from '../assets/prismatic-activity-images/IMG_9204.JPG';
+import { useRef, useState } from 'react';
 
 const PrismaticLife = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
-    const [selectedImage, setSelectedImage] = useState(null);
+    const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+    const sectionRefs = useRef({});
 
+    // Scroll function to particular portfolio section
+    // const scrollToSection = (category) => {
+    //     if (sectionRefs.current[category]) {
+    //         sectionRefs.current[category].scrollIntoView({
+    //             behavior: "smooth",
+    //             block: "start",
+    //         });
+    //     }
+    // };
+
+    // Modal open for selected image
+    const handleImageClick = (index) => {
+        setSelectedImageIndex(index);
+    };
+
+    // Close modal
+    const closeModal = () => {
+        setSelectedImageIndex(null);
+    };
+
+    // Navigate to next image
+    const nextImage = () => {
+        if (selectedImageIndex !== null) {
+            setSelectedImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+        }
+    };
+
+    // Navigate to previous image
+    const prevImage = () => {
+        if (selectedImageIndex !== null) {
+            setSelectedImageIndex((prevIndex) =>
+                prevIndex === 0 ? images.length - 1 : prevIndex - 1
+            );
+        }
+    };
+
+    // Hover functions
     const handleMouseEnter = (index) => {
         setHoveredIndex(index);
     };
 
     const handleMouseLeave = () => {
         setHoveredIndex(null);
-    };
-
-    const handleImageClick = (src) => {
-        setSelectedImage(src);
-    };
-
-    const closeModal = () => {
-        setSelectedImage(null);
     };
 
     const images = [
@@ -216,19 +246,29 @@ const PrismaticLife = () => {
             </div>
 
             <div className="container">
-                <div className="row gallerys">
+                {/* Scrollable Portfolio Sections */}
+                <div className="row gallery">
                     {images.map((image, index) => (
-                        <div key={index} className="col-lg-3 col-md-4 col-sm-6 col-12 mb-3">
+                        <div
+                            key={index}
+                            className="col-lg-3 col-md-4 col-sm-6 col-12 mb-3"
+                            ref={(el) => (sectionRefs.current[index] = el)}
+                        >
                             <div
                                 className="grid-img"
                                 style={{ position: 'relative', borderRadius: '30px' }}
                                 onMouseEnter={() => handleMouseEnter(index)}
                                 onMouseLeave={handleMouseLeave}
                             >
-                                <a onClick={() => handleImageClick(image.src)}>
+                                <a href="#!" onClick={() => handleImageClick(index)}>
                                     <div className="plus-img">
                                         <div className={`overlay ${hoveredIndex === index ? 'show' : ''}`}></div>
-                                        <img src={Overlay} alt="" style={{ width: '100%', opacity: hoveredIndex === index ? 1 : 0 }} draggable={false} />
+                                        <img
+                                            src={Overlay}
+                                            alt=""
+                                            style={{ width: '100%', opacity: hoveredIndex === index ? 1 : 0 }}
+                                            draggable={false}
+                                        />
                                     </div>
                                     <img
                                         src={image.src}
@@ -243,13 +283,35 @@ const PrismaticLife = () => {
                 </div>
 
                 {/* Modal for displaying selected image */}
-                {selectedImage && (
+                {selectedImageIndex !== null && (
                     <div className="modal-backdrop" onClick={closeModal}>
                         <div className="modal-content" onClick={(e) => e.stopPropagation()}>
                             <span className="close-icon" onClick={closeModal}>
                                 <i className="fa fa-times"></i>
                             </span>
-                            <img src={selectedImage} alt="" className="modal-image" draggable={false} />
+
+                            {/* Left arrow for navigating images */}
+                            <span className="arrow left-arrow" onClick={prevImage}>
+                                <i className="fa fa-chevron-left"></i>
+                            </span>
+
+                            {/* Display selected image */}
+                            <img
+                                src={images[selectedImageIndex].src}
+                                alt="Selected"
+                                className="modal-image"
+                                draggable={false}
+                            />
+
+                            {/* Right arrow for navigating images */}
+                            <span className="arrow right-arrow" onClick={nextImage}>
+                                <i className="fa fa-chevron-right"></i>
+                            </span>
+
+                            {/* Display image number */}
+                            <div className="image-number">
+                                {selectedImageIndex + 1} / {images.length}
+                            </div>
                         </div>
                     </div>
                 )}
