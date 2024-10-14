@@ -144,6 +144,10 @@ label {
     background-color: #f7f7f7;
 }
 
+.contact-information .contact-item:hover {
+    background: #0275b81f;
+}
+
 .contact-information .contact-item h4 {
     font-size: 20px;
     font-weight: 700;
