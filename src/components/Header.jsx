@@ -2,10 +2,12 @@ import { useEffect, useState } from 'react'
 import './Header.css';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Navbar from '../common/Navbar';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     const [captchaValue, setCaptchaValue] = useState(null);
     const [isTopbarVisible, setIsTopbarVisible] = useState(true);
+    const [isTopbarHidden, setIsTopbarHidden] = useState(window.innerWidth <= 991);
     const [formData, setFormData] = useState({
         full_name: '',
         email: '',
@@ -14,6 +16,23 @@ const Header = () => {
         want_to_purchase: '',
         message: ''
     });
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsTopbarHidden(window.innerWidth <= 991);
+        };
+
+        // Attach the resize event listener
+        window.addEventListener('resize', handleResize);
+
+        // Check initial size on component mount
+        handleResize();
+
+        // Cleanup on component unmount
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -75,22 +94,22 @@ const Header = () => {
         <div>
             <header>
                 {
-                    isTopbarVisible && (
+                    isTopbarVisible && !isTopbarHidden && (
                         <div className="topbar" style={{ backgroundColor: '#0274b8' }}>
                             <div className="container">
                                 <div className="top-content">
                                     <ul className="left-info">
                                         <li className="number num1" style={{ padding: '5px 10px', fontSize: '15px', display: 'flex', justifyContent: 'start', width: '38%' }}>
-                                            <a href="mailto:info@prismatic-technologies.com" className="phone-num">
+                                            <Link to="mailto:info@prismatic-technologies.com" className="phone-num">
                                                 <i className="fa fa-envelope"></i>
                                                 <span style={{ paddingLeft: '5px' }}>info@prismatic-technologies.com</span>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li className="number" style={{ padding: '5px 10px', fontSize: '15px', display: 'flex', justifyContent: 'start', width: '50%' }}>
-                                            <a href="tel:923078881432" className="phone-num">
+                                            <Link to="tel:923078881432" className="phone-num">
                                                 <i className="fa fa-phone"></i>
                                                 <span style={{ paddingLeft: '5px' }}>+923078881432</span>
-                                            </a>
+                                            </Link>
                                         </li>
                                         <li className="nav-item wraper" style={{ display: 'flex', justifyContent: 'end', width: '50%' }}>
                                             <a
@@ -258,7 +277,7 @@ const Header = () => {
                     </div>
                 </div>
                 {/* Modal Section End */}
-                    <Navbar />
+                <Navbar />
             </header>
         </div>
     )

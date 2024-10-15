@@ -151,7 +151,7 @@ div#fb-root {
 .left-info {
     display: flex;
     width: 100%;
-    padding: 16px;
+    padding: 0px;
 }
 
 .wraper a {
@@ -408,10 +408,28 @@ h4 {
     position: relative;
     top: 0;
     width: 100%;
-    z-index: 1000; /* Ensure topbar is above other elements */
+    z-index: 1000; 
     transition: transform 0.3s ease, opacity 0.3s ease;
-    /* padding-top: 40px; */
+    height: 55px;
+    display: flex;
+    align-items: center;
+    
+}
+
+@media (max-width: 1199px) {
+    .num1 {
+        width: 48% !important;
+    }
+
+    .nav-item {
+        padding-left: 0px;
+    }
 }
 
 
+@media (max-width: 991px) {
+    .topbar {
+      display: none;
+    }
+  }
 

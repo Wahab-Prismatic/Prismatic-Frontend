@@ -132,7 +132,7 @@ const Blogs = () => {
                                 </Link>
                                 <Link to="/about-us" className="btn btn--secondary btn-two" onClick={() => window.scrollTo(0, 0)}>
                                     <span className="btn-icon mr-2">
-                                        <i className="fa fa-info-circle" aria-hidden="true"></i>
+                                        <i className="fa fa-info-circle"></i>
                                     </span>
                                     Get info
                                 </Link>
