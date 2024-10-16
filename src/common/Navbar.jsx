@@ -49,7 +49,7 @@ const Navbar = () => {
             <nav className={`navbar navbar-expand-lg ${isSticky ? 'sticky': ''}`} ref={navbarRef}>
                 <div className="container-fluid" style={{ padding: '0' }}>
                     <Link to="/">
-                        <img className="header__logo sticky-hide" src={prismaticLogo} alt="main-logo" style={{ width: '157px' }} />
+                        <img className="header__logo sticky-hide" src={prismaticLogo} alt="main-logo" style={{ width: '157px', marginLeft: '125px' }} />
                         <img className="header__logo sticky-show" src={logo2} alt="main-logo" style={{ width: '157px' }} />
                     </Link>
                     <button
