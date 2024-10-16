@@ -155,6 +155,7 @@ const CareerForm = () => {
                                                     onChange={handleInputChange}
                                                     required
                                                 >
+                                                    <option value="" disabled>Select Marital Status:</option>
                                                     <option value="Single">Single</option>
                                                     <option value="Married">Married</option>
                                                     <option value="Widowed">Widowed</option>
@@ -173,6 +174,7 @@ const CareerForm = () => {
                                                     onChange={handleInputChange}
                                                     required
                                                 >
+                                                    <option value="" disabled>Select Gender:</option>
                                                     <option value="M">Male</option>
                                                     <option value="F">Female</option>
                                                 </select>
@@ -244,6 +246,7 @@ const CareerForm = () => {
                                                     onChange={handleInputChange}
                                                     required
                                                 >
+                                                    <option value="" disabled>Select Job Type:</option>
                                                     <option value="Frontend Developer">Frontend Developer</option>
                                                     <option value=".Net Developer">.Net Developer</option>
                                                     <option value="Laravel Developer">Laravel Developer</option>
@@ -265,6 +268,7 @@ const CareerForm = () => {
                                                     onChange={handleInputChange}
                                                     required
                                                 >
+                                                    <option value="" disabled>Select Degree Status:</option>
                                                     <option value="No">No</option>
                                                     <option value="Yes">Yes</option>
                                                 </select>
@@ -280,6 +284,7 @@ const CareerForm = () => {
                                                     onChange={handleInputChange}
                                                     required
                                                 >
+                                                    <option value="" disabled>Select Degree:</option>
                                                     <option value="Non-Matriculation">Non-Matriculation</option>
                                                     <option value="Matriculation/O-Level">Matriculation/O-Level</option>
                                                     <option value="Intermediate/A-Level">Intermediate/A-Level</option>
@@ -348,7 +353,8 @@ const CareerForm = () => {
                                                     value={formData.apply_resp}
                                                     onChange={handleInputChange}
                                                     required
-                                                >
+                                                >   
+                                                    <option value="" disabled>Select company hearing status:</option>
                                                     <option value="Social Media">Social Media</option>
                                                     <option value="Word of Mouth">Word of Mouth</option>
                                                     <option value="Referral">Referral</option>
