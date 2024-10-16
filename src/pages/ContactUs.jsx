@@ -205,7 +205,7 @@ const ContactUs = () => {
                                                 <div className="input-group">
                                                     <span className="input-group-addon"><i className="fa fa-laptop"></i></span>
                                                     <select
-                                                        className="form-control"
+                                                        className="form-select"
                                                         id="wantToPurchase"
                                                         name="subject"
                                                         value={formData.subject}

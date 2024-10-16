@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import CareerImg from '../assets/images/Career.jpeg';
 import '../assets/css/CareerForm.css';
 import { Link } from 'react-router-dom';
+import Aos from 'aos';
 
 const CareerForm = () => {
     const [formData, setFormData] = useState({
@@ -29,6 +30,10 @@ const CareerForm = () => {
     });
     const [successMessage, setSuccessMessage] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    useEffect(() => {
+        Aos.init();
+    }, []);
 
     const handleInputChange = (e) => {
         const { name, value, type } = e.target;
@@ -71,7 +76,7 @@ const CareerForm = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                <img src={CareerImg} alt="Career" />
+                <img src={CareerImg} alt="Career" draggable={false} />
                 <div className="P-header-text text-content">
                     <h6></h6>
                     <h4>Career</h4>
@@ -144,7 +149,7 @@ const CareerForm = () => {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Marital Status:</label>
                                                 <select
-                                                    className="form-control"
+                                                    className="form-select"
                                                     name="apply_m_status"
                                                     value={formData.apply_m_status}
                                                     onChange={handleInputChange}
@@ -162,7 +167,7 @@ const CareerForm = () => {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Gender:</label>
                                                 <select
-                                                    className="form-control"
+                                                    className="form-select"
                                                     name="apply_gender"
                                                     value={formData.apply_gender}
                                                     onChange={handleInputChange}
@@ -233,7 +238,7 @@ const CareerForm = () => {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Job Type:</label>
                                                 <select
-                                                    className="form-control"
+                                                    className="form-select"
                                                     name="apply_job_type"
                                                     value={formData.apply_job_type}
                                                     onChange={handleInputChange}
@@ -254,7 +259,7 @@ const CareerForm = () => {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Currently Studying:</label>
                                                 <select
-                                                    className="form-control"
+                                                    className="form-select"
                                                     name="apply_study_status"
                                                     value={formData.apply_study_status}
                                                     onChange={handleInputChange}
@@ -269,7 +274,7 @@ const CareerForm = () => {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Degree:</label>
                                                 <select
-                                                    className="form-control"
+                                                    className="form-select"
                                                     name="apply_degree"
                                                     value={formData.apply_degree}
                                                     onChange={handleInputChange}
@@ -278,8 +283,8 @@ const CareerForm = () => {
                                                     <option value="Non-Matriculation">Non-Matriculation</option>
                                                     <option value="Matriculation/O-Level">Matriculation/O-Level</option>
                                                     <option value="Intermediate/A-Level">Intermediate/A-Level</option>
-                                                    <option value="Bachelor's Degree">Bachelor's Degree</option>
-                                                    <option value="Master's Degree">Master's Degree</option>
+                                                    <option value="Bachelor&apos;s Degree">Bachelor&apos;s Degree</option>
+                                                    <option value="Master&apos;s Degree">Master&apos;s Degree</option>
                                                     <option value="Doctorate">Doctorate</option>
                                                     <option value="Certificate">Certificate</option>
                                                     <option value="Diploma">Diploma</option>
@@ -338,7 +343,7 @@ const CareerForm = () => {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>How did you hear about us?:</label>
                                                 <select
-                                                    className="form-control"
+                                                    className="form-select"
                                                     name="apply_resp"
                                                     value={formData.apply_resp}
                                                     onChange={handleInputChange}

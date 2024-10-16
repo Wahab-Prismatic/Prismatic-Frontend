@@ -224,7 +224,7 @@ const Header = () => {
                                                         <i className="fa fa-laptop"></i>
                                                     </span>
                                                     <select
-                                                        className="form-control"
+                                                        className="form-select"
                                                         id="want_to_purchase"
                                                         name="want_to_purchase"
                                                         value={formData.want_to_purchase}
