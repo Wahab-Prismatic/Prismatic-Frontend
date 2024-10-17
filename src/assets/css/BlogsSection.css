@@ -16,13 +16,8 @@ h2 {
     display: flex;
     flex-direction: column;
     height: 90%;
-    justify-content: space-between; /* Ensures equal spacing inside each card */
+    justify-content: space-between; 
 }
-
-/* .blog-thumbnail img {
-    width: 100%;
-    height: auto;
-} */
 
 .section-heading h2 {
     font-size: 25px;
@@ -56,7 +51,6 @@ a {
 h5 {
     margin: 0px;
     padding-top: 14px;
-    /* color: #6d6d6d; */
     font-weight: 600;
     padding-bottom: 13px;
 }
@@ -68,4 +62,24 @@ h5 {
     display: -webkit-box;
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
+}
+
+@media (max-width: 480px) {
+    .section-heading {
+        padding-top: 1rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .section-heading h2 {
+        font-size: 16px;
+    }
+
+    .post-excerpt {
+        font-size: 15px;
+    }
+
+    .fa.fa-long-arrow-right:before {
+        content: "\f30b";
+        margin-left: 5px;
+    }
 }
