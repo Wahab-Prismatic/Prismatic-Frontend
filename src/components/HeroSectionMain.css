@@ -164,91 +164,6 @@ a {
     text-decoration: none !important;
 }
 
-@media only screen and (max-width: 800px) {
-    .hero-wrap {
-        padding: 50px 20px !important;
-    }
-
-    .services-wrap {
-        flex-direction: column;
-    }
-
-    .services-wrap .service-left {
-        width: 100%;
-    }
-
-    .service-right {
-        width: 50%;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .hero-wrap {
-        padding: 50px 10px !important;
-    }
-
-    .services-wrap .service-left h3 {
-        font-size: 24px;
-    }
-
-    .services-wrap .service-left p {
-        font-size: 12px;
-    }
-
-    .wave-background {
-        margin-top: -5px !important ;
-        /* display: none; */
-    }
-
-    .service-right {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-}
-
-@media only screen and (max-width: 800px) {
-    .hero-wrap {
-        padding: 50px 20px !important;
-    }
-
-    .services-wrap {
-        flex-direction: column;
-    }
-
-    .services-wrap .service-left {
-        width: 100%;
-    }
-
-    .service-right {
-        width: 50%;
-    }
-}
-
-@media only screen and (max-width: 480px) {
-    .hero-wrap {
-        padding: 50px 10px !important;
-    }
-
-    .services-wrap .service-left h3 {
-        font-size: 24px;
-    }
-
-    .services-wrap .service-left p {
-        font-size: 12px;
-    }
-
-    .wave-background {
-        margin-top: -5px;
-    }
-
-    .service-right {
-        width: 100%;
-        margin-top: 20px;
-    }
-
-}
-
 .wave-background {
     margin-top: -5px;
 }
@@ -311,22 +226,20 @@ a.Ser-btn button {
 
 a.p-read-more button {
     padding: 8px 20px;
-    /*border: 2px solid #fff;*/
     position: relative;
     overflow: hidden;
-    background-color:  #fff;
+    background-color: #fff;
     text-align: center;
-    /* font-size: 19px; */
-    font-weight:bold;
+    font-weight: bold;
     transition: .3s;
     z-index: 1;
     font-family: inherit;
     color: #0274b8;
     border-radius: 14px;
-    cursor:pointer;
-   }
-   
- a.p-read-more button::before {
+    cursor: pointer;
+}
+
+a.p-read-more button::before {
     content: '';
     width: 0;
     height: 345%;
@@ -334,16 +247,79 @@ a.p-read-more button {
     top: 68%;
     left: 50%;
     transform: translate(-50%, -50%) rotate(35deg);
-    background:#ffbf34;
+    background: #ffbf34;
     transition: .5s ease;
     display: block;
     z-index: -1;
-   }
-   
- a.p-read-more button:hover::before {
+}
+
+a.p-read-more button:hover::before {
     width: 100%;
-   }
-   
- a.p-read-more button:hover {
-    color:  #333;
-   }
+}
+
+a.p-read-more button:hover {
+    color: #333;
+}
+
+@media (max-width: 1199px) {
+    h3 {
+        font-size: calc(1rem + .6vw);
+    }
+}
+
+@media (max-width: 991px) {
+    h3 {
+        font-size: calc(0.5rem + .6vw);
+    }
+
+    .p-read-more {
+        display: inline-block !important;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .hero-wrap {
+        padding: 50px 20px !important;
+    }
+
+    .services-wrap {
+        flex-direction: column;
+    }
+
+    .services-wrap .service-left {
+        width: 100%;
+    }
+
+    .service-right {
+        width: 50%;
+    }
+
+}
+
+@media only screen and (max-width: 480px) {
+    .hero-wrap {
+        padding: 50px 10px !important;
+    }
+
+    .services-wrap .service-left h3 {
+        font-size: 24px;
+    }
+
+    .services-wrap .service-left p {
+        font-size: 12px;
+    }
+
+    .wave-background {
+        margin-top: -5px !important;
+    }
+
+    .service-right {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    a.p-read-more button {
+        font-size: 10px !important;
+    }
+
+}
