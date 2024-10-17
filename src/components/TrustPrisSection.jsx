@@ -35,7 +35,7 @@ const TrustPrisSection = () => {
                       <div className="col-md-6 col-sm-6">
                           <div className="count-area-content">
                               <div className="count-wrap">
-                                  <div className="count-digit">100</div><span style={{ margin: '5px 0px', color: '#ffbf34', fontWeight: 700, fontSize: '36px' }}>%</span>
+                                  <div className="count-digit">100</div><span style={{ margin: '5px 0px', color: '#ffbf34', fontWeight: 700, fontSize: '25px' }}>%</span>
 
                               </div>
                               <div className="count-title">Satisfaction Rate</div>

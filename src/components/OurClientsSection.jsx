@@ -27,6 +27,16 @@ const OurClientsSection = () => {
                                 loop={true}
                                 effect="fade"
                                 speed={700}
+                                breakpoints={{
+                                    250: { slidesPerView: 1 },
+                                    320: { slidesPerView: 2 },
+                                    480: { slidesPerView: 2 },
+                                    576: { slidesPerView: 3 },
+                                    768: { slidesPerView: 3 },
+                                    1024: { slidesPerView: 4 },
+                                    1280: { slidesPerView: 5 },
+                                    1440: { slidesPerView: 6 },
+                                }}
                             >
                                 {
                                     clientsData.map((client, index) => (

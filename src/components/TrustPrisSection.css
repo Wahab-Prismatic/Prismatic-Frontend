@@ -91,3 +91,45 @@ a.p-read-more button::before {
     justify-content: center;
     align-items: center;
 }
+
+@media (max-width: 991px) {
+    .p-read-more {
+        display: inline-block !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .fun-facts .left-content {
+        margin-right: 0px;
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .row > .col-lg-6 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    a.p-read-more button {
+        font-size: 10px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .fun-facts h2 {
+        font-size: 23px !important;
+    }
+
+    .fun-facts p {
+        font-size: 12px;
+    }
+
+    .count-digit {
+        font-size: 25px !important;
+    }
+
+    .count-title {
+        font-size: 15px !important;
+    }
+}
