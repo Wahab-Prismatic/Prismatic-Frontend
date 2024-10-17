@@ -8,18 +8,7 @@
     -webkit-animation: spin 20s linear infinite;
     -moz-animation: spin 20s linear infinite;
     animation: spin 20s linear infinite;
-}
-
-@-moz-keyframes spin {
-    100% {
-        -moz-transform: rotate(360deg);
-    }
-}
-
-@-webkit-keyframes spin {
-    100% {
-        -webkit-transform: rotate(360deg);
-    }
+    z-index: -1;
 }
 
 @keyframes spin {
@@ -56,10 +45,6 @@
     position: relative;
 }
 
-/* .about-us-wrapper img {*/
-/*	width: 100%;*/
-/*	height: auto;*/
-/*}*/
 .about-text {
     display: flex;
     flex-direction: column;
@@ -443,33 +428,265 @@ a {
     .team .member {
         padding: 38px;
     }
-}
 
-@media (max-width: 1199px) {
     .team .member .pic {
         width: 102px;
     }
-}
 
-@media (max-width: 1199px) {
+    .middle .front .content {
+        padding-left: 31px;
+    }
+
+    h3 {
+        font-size: calc(1rem + .6vw);
+    }
+
     .middle .front .content {
         padding-left: 31px;
     }
 }
 
-@media (max-width: 1199px) {
+@media (max-width: 991px) {
+    .about-text h1 {
+        font-size: 31px !important;
+    }
+
+    .about-text p {
+        font-size: 14px !important;
+    }
+
+    .mt-5 {
+        margin-top: 2rem !important;
+        font-size: 13px;
+    }
+
+    .about-me {
+        margin-top: -100px;
+        width: 227px;
+        height: 166px;
+        font-size: 11px;
+    }
+
+    .about-me p {
+        margin-bottom: 0rem;
+    }
+
+    .content h5 {
+        font-size: 25px;
+    }
+
+    .content h2 {
+        font-size: 27px;
+        padding-top: 5px;
+    }
+
+    .wrapper {
+        margin-top: 21px;
+    }
+
+    .wrapper .p1 {
+        padding: 7px 27px;
+        font-size: 17px;
+    }
+
+    .mt-5 {
+        margin-top: 2rem !important;
+        font-size: 13px;
+    }
+
     h3 {
+        font-size: calc(1rem + .6vw);
+    }
+
+    .resources p {
+        font-size: 12px;
+    }
+
+    .team .container .row .col-lg-4 {
+        width: 48.3%;
+    }
+
+    .team .middle {
+        height: 165px;
+    }
+
+    .team .member {
+        padding: 38px;
+    }
+
+    .team .member .pic {
+        width: 102px;
+    }
+
+    .team .middle h3 {
         font-size: calc(1rem + .6vw);
     }
 }
 
-/* .fa {
-    display: inline-block;
-    font: normal normal normal 14px / 1 FontAwesome;
-    font-size: inherit;
-    text-rendering: auto;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    transform: translate(0, 0);
-} */
-/*about-us new banner End  */
+@media (max-width: 767px) {
+    .about-text h1 {
+        font-size: 24px !important;
+    }
+
+    .about-text p {
+        font-size: 10px !important;
+    }
+
+    .row > .col-lg-6 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .icon-target {
+        width: 25%;
+    }
+
+    .team .container .row .col-lg-4 {
+        width: 47.3%;
+    }
+
+    .team .member {
+        padding: 37px 17px;
+    }
+
+    .team .member .pic {
+        width: 93px;
+    }
+
+    .middle .front .content {
+        padding-left: 28px;
+    }
+
+    .middle .front .content h3 {
+        font-size: 16px;
+    }
+
+    .team .member span {
+        font-size: 13px;
+    }
+
+    .team .member p {
+        font-size: 11px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .icon-target {
+        width: 25%;
+    }
+
+    .team .container .row .col-lg-4 {
+        width: 45.3%;
+    }
+
+    .middle .front .col-md-7 {
+        max-width: 60%;
+    }
+
+    .middle .front .content h3 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 539px) {
+    .team .container .row {
+        justify-content: center;
+        align-items: center;
+        --bs-gutter-x: 0rem;
+    }
+
+    .col-lg-4.col-md-6.col-sm-12.my-card {
+        margin-right: 40px;
+    }
+
+    .team .container .row .col-lg-4 {
+        width: 71.3%;
+    }
+
+    .team .member {
+        padding-right: 17px;
+        padding-left: 17px;
+        padding-top: 38px;
+        padding-bottom: 38px;
+    }
+
+    .team .container .row {
+        justify-content: center;
+        align-items: center;
+        --bs-gutter-x: 0rem;
+    }
+
+    .middle .front .col-md-5 {
+        max-width: 40%;
+    }
+}
+
+@media (max-width: 480px) {
+    .about-us-wrapper img {
+        height: 160px !important;
+    }
+
+    .about-text h1 {
+        font-size: 22px !important;
+    }
+
+    .about-text p {
+        font-size: 9px !important;
+    }
+
+    .wrapper .p1 {
+        font-size: 12px;
+    }
+
+    a.p-read-more button {
+        font-size: 10px !important;
+    }
+
+    .btn1 {
+        margin-top: 21px !important;
+    }
+
+    .terms.mt-5 {
+        margin-top: 6px !important;
+    }
+
+    .resources {
+        padding: 19px 0px;
+    }
+    .icon-target {
+        width: 25%;
+    }
+
+    .section-title h2 {
+        font-size: 29px;
+    }
+
+    .col-lg-4.col-md-6.col-sm-12.my-card {
+        margin-right: 40px;
+    }
+    .team .member {
+        padding-right: 17px;
+        padding-left: 17px;
+        padding-top: 38px;
+        padding-bottom: 38px;
+    }
+}
+
+@media (max-width: 376px) {
+    .resources {
+        padding: 1px 0px;
+    }
+
+    .icon-target {
+        width: 25%;
+    }
+
+    .section-title h2 {
+        font-size: 25px;
+    }
+
+    .team .container .row .col-lg-4 {
+        width: 93.3%;
+        margin-left: 40px;
+    }
+}

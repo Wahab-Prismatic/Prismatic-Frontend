@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
 import '../assets/css/About.css';
 import AboutCOverImg from '../assets/images/About-cover-new1.webp';
-// import SpinCircleImg from '../assets/images/spin-circle.png';
+import SpinCircleImg from '../assets/images/spin-circle.png';
 import AboutLeftImg from '../assets/images/about-left.webp';
 import GoalImg from '../assets/images/goal.webp';
 import ValueImg from '../assets/images/value-new.webp';
@@ -11,6 +10,7 @@ import OurClientsSection from '../components/OurClientsSection';
 import  {teamData}  from '../services';
 import Aos from 'aos';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 
 const About = () => {
@@ -27,7 +27,7 @@ const About = () => {
                 </div>
             </div>
             <div className="more-info about-info">
-                {/* <img src={SpinCircleImg} alt="spin-circle" title="spin-circle" /> */}
+                <img className='image' src={SpinCircleImg} alt="spin-circle" title="spin-circle" />
                 <div className="container">
                     <div className="row">
                         <div className="col-lg-6 col-md-12 col-sm-12 mt-5 mb-5 left">
