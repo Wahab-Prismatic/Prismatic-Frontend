@@ -97,3 +97,9 @@
         width: 100%;
     }
 }
+
+@media screen and (max-width: 575px){
+    .tech-Heading h3 {
+        text-align: center;
+    }
+}
