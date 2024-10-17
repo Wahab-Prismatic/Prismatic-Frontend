@@ -98,7 +98,7 @@ const CareerForm = () => {
                         <div className="row">
                             <div className="col-md-12 apply-form">
                                 <form onSubmit={handleSubmit} encType="multipart/form-data">
-                                    <h4 style={{ textAlign: 'left', fontSize: '16px', marginTop: '20px' }}>Account Information:</h4>
+                                    <h4 style={{ textAlign: 'left', fontSize: '16px', marginTop: '20px' }}>Account Information</h4>
                                     <div className="row">
                                         <div className="col-md-6">
                                             <div className="form-group">
