@@ -1,8 +1,9 @@
+import { Link } from 'react-router-dom';
 import './BusinessSolsSection.css';
 
 const BusinessSolsSection = () => {
     return (
-        <div className="more-info" data-aos="fade-up" data-aos-duration="3000">
+        <div className="more-info" data-aos-duration="3000">
           <div className="container">
             <div className="row">
               <div className="col-md-12">
@@ -31,25 +32,25 @@ const BusinessSolsSection = () => {
                           <ul className="video-side-content" style={{ listStyle: 'square', paddingLeft: '20px' }}>
                             <li>
                               <em style={{ color: 'black' }}>
-                                <a href="https://www.prismatic-technologies.com/learning-management-system">Learning Management System</a>
+                                <Link to="/products/learning-management-system" onClick={() => window.scrollTo(0, 0)}>Learning Management System</Link>
                               </em>{' '}
                               catered according to your institution
                             </li>
                             <li>
                               <em style={{ color: 'black' }}>
-                                <a href="https://www.prismatic-technologies.com/prismatic-crm-services">Customer Relationship Management Software</a>
+                                <Link to="https://www.prismatic-technologies.com/prismatic-crm-services" target='_blank' onClick={() => window.scrollTo(0, 0)}>Customer Relationship Management Software</Link>
                               </em>{' '}
                               for your unique customer portfolio
                             </li>
                             <li>
                               <em style={{ color: 'black' }}>
-                                <a href="https://www.prismatic-technologies.com/erp-software-in-pakistan">Enterprise Resource Planning Software</a>
+                                <Link to="/products/erp-software-in-pakistan" onClick={() => window.scrollTo(0, 0)}>Enterprise Resource Planning Software</Link>
                               </em>{' '}
                               customized for your requirements
                             </li>
                             <li>
                               <em style={{ color: 'black' }}>
-                                <a href="https://www.prismatic-technologies.com/e-commerce-service">Website Development</a>
+                                <Link to="/services/e-commerce-service" onClick={() => window.scrollTo(0, 0)}>Website Development</Link>
                               </em>{' '}
                               so you can grow your business
                             </li>
@@ -58,9 +59,13 @@ const BusinessSolsSection = () => {
                             </li>
                           </ul>
                         </p>
-                        <a href="/about-us" className="p-read-more">
+                        <Link 
+                          to="/about-us" 
+                          className="p-read-more"
+                          onClick={() => window.scrollTo(0, 0)}
+                        >
                           <button>Read More</button>
-                        </a>
+                        </Link>
                       </div>
                     </div>
                   </div>

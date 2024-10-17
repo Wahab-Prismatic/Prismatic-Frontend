@@ -41,7 +41,6 @@
 
 .more-info .right-content {
     padding: 41px 45px 41px 30px;
-    /*padding: 45px 45px 45px 30px;*/
     background-color: #f7f7f7;
 }
 
@@ -85,7 +84,6 @@ a {
 
 a.p-read-more button {
     padding: 8px 20px;
-    /* border: 2px solid #0274b8; */
     position: relative;
     overflow: hidden;
     background-color: #0274b8;
@@ -120,7 +118,6 @@ a.p-read-more button::before {
 .embed-responsive iframe,
 .embed-responsive object,
 .embed-responsive video {
-    /* position: absolute; */
     top: 0;
     bottom: 0;
     left: 0;
@@ -130,7 +127,6 @@ a.p-read-more button::before {
 }
 
 @media (max-width: 991px) {
-
     .embed-responsive .embed-responsive-item,
     .embed-responsive embed,
     .embed-responsive iframe,
@@ -138,5 +134,44 @@ a.p-read-more button::before {
     .embed-responsive video {
         position: relative;
         height: 360px;
+    }
+
+    .more-info .right-content {
+        padding: 30px;
+        background-color: #f7f7f7;
+    }
+
+    .p-read-more {
+        display: inline-block !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .row > .col-lg-6 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .more-info .right-content {
+        padding: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .v-heading {
+        font-size: 23px !important;
+        margin-bottom: 14px;
+    }
+
+    .more-info .right-content p {
+        font-size: 10px;
+    }
+
+    .video-side-content li {
+        font-size: 12px !important;
+    }
+
+    a.p-read-more button {
+        font-size: 10px !important;
     }
 }
