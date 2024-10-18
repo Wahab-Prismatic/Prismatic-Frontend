@@ -1,4 +1,3 @@
-import React from 'react';
 import '../../assets/css/MobAppDev.css';
 import MobAppImg from '../../assets/images/mobile-app-2-01.jpg';
 import MobAppImg1 from '../../assets/images/Mobile-App1.jpg';

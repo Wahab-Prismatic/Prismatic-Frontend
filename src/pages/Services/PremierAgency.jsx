@@ -1,4 +1,3 @@
-import React from 'react';
 import ChicagoImg from '../../assets/images/chicago-banner.jpg';
 import BusinessGrowthImg from '../../assets/images/e376a297ad.jpg';
 import ProoductCollabIcon from '../../assets/icons/productive-collaboration.png';
@@ -10,7 +9,6 @@ import GeneralLedgerIcon from '../../assets/icons/General-Ledger.png';
 import InventoryManagementIcon from '../../assets/icons/Inventory-Management-System.png';
 import HRMIcon from '../../assets/icons/HRM.png';
 import '../../assets/css/PremierAgency.css';
-
 
 const PremierAgency = () => {
     return (

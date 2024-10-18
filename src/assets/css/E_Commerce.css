@@ -1,0 +1,253 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-hero-section {
+    background-image: url('../images/ecommerce/pri-shopify-h-bg.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+}
+
+h1.shopify-h {
+    font-size: 34px;
+    line-height: 50px;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-family: "Kanit", sans-serif;
+}
+
+span.shopify-h-2 {
+    font-weight: 600;
+    color: #286A97;
+    font-family: "Kanit", sans-serif;
+}
+
+.hero-sec-text p {
+    font-size: 22px;
+    font-weight: 300;
+    margin-top: 15px;
+    line-height: 30px;
+    width: 100%;
+    max-width: 340px;
+    margin-right: auto;
+    margin-bottom: 40px;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-cntct-btn {
+    padding: 8px 52px;
+    border: 1px solid #000000;
+    border-radius: 20px;
+    margin-right: auto;
+    font-size: 15px;
+    text-decoration: none !important;
+    line-height: 20px;
+    text-align: center;
+    font-weight: 400;
+    color: #000;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-cntct-btn:hover {
+    background-color: #286A97;
+    color: #fff;
+    border: 1px solid transparent;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-features {
+    padding: 50px;
+    font-family: "Kanit", sans-serif;
+}
+
+.features-2 p {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 30px;
+    width: 100%;
+    max-width: 340px;
+    margin-right: auto;
+    margin-bottom: 20px;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-store-1 {
+    background-color: #CCF3F9;
+    border-radius: 30px;
+    padding: 0px 30px;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-store-data p {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-store-img img {
+    max-height: 300px;
+    font-family: "Kanit", sans-serif;
+}
+
+.theme-seo-sec {
+    margin: 20px 0px;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-theme {
+    background-color: #DDE5FF;
+    border-radius: 30px;
+    padding: 25px 30px 0px 30px;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-heading {
+    font-size: 34px;
+    line-height: 40px;
+    font-weight: 600;
+    width: 100%;
+    max-width: 304px;
+    color: #286A97;
+    text-transform: uppercase;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-para {
+    font-size: 20px;
+    font-weight: 300;
+    line-height: 30px;
+    margin-bottom: 20px;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-theme img.img-fluid {
+    width: 358px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    font-family: "Kanit", sans-serif;
+}
+
+.shopify-Seo {
+    background-color: #FFFBD0 !important;
+    font-family: "Kanit", sans-serif !important;
+}
+
+.shopify-para-img {
+    width: 248px !important;
+    font-family: "Kanit", sans-serif;
+}
+
+.Our-developement {
+    max-width: unset !important;
+    text-align: center !important;
+    margin: 25px 0px;
+    font-family: "Kanit", sans-serif;
+}
+
+.our-services-bg {
+    background-color: #286A97;
+    padding: 30px 0px;
+    font-family: "Kanit", sans-serif;
+}
+
+  
+.slider {
+    height: 50px;
+    overflow: hidden;
+    position: relative;
+    width: 1260px;
+    display: flex;
+    justify-content: center;
+}
+
+.slider::before,
+.slider::after {
+    content: "";
+    height: 150px;
+    position: absolute;
+    width: 200px;
+    z-index: 2;
+}
+
+.slider::after {
+    right: 0;
+    top: 0;
+    -webkit-transform: rotateZ(180deg);
+    transform: rotateZ(180deg);
+}
+
+.slider::before {
+    left: 0;
+    top: 0;
+}
+
+.slider .slide-track {
+    -webkit-animation: scroll 30s linear infinite;
+    animation: scroll 30s linear infinite;
+    display: flex;
+    gap: 20px;
+}
+
+.slider:hover .slide-track {
+    -webkit-animation-play-state: paused; /* Pause animation on hover */
+    animation-play-state: paused;         /* Pause animation on hover */
+}
+
+.slider .slide {
+    background: #fff;
+    border-radius: 8px;
+    height: 50px;
+    width: 200px;
+    display: flex;
+    padding-left: 70px;
+    padding-right: 70px;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.slider .slide img {
+    max-width: 140%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.slider .slide:hover {
+    transform: scale(1.05); /* Scale the slide when hovered */
+}
+
+/* Keyframe animation for scrolling effect */
+@-webkit-keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(calc(-250px * 7)); /* Adjust this based on the number of slides */
+        transform: translateX(calc(-250px * 7));
+    }
+}
+
+@keyframes scroll {
+    0% {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+    }
+    100% {
+        -webkit-transform: translateX(calc(-250px * 7)); /* Same as above */
+        transform: translateX(calc(-250px * 7));
+    }
+}
+
+
+@media (min-width: 1400px) {
+    .container {
+        max-width: 1320px;
+    }
+}
