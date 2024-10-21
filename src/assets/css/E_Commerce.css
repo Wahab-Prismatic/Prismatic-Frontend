@@ -351,6 +351,47 @@ span.shopify-h-2 {
     font-family: "Kanit", sans-serif;
 }
 
+.testimonial-section {
+    background-color: #DFE7ED;
+    border-radius: 0px;
+    padding: 25px;
+    font-family: "Kanit", sans-serif;
+}
+
+.slide-content .testimonial-wrap {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* .testimonial-wrap .testimonial_img {
+    height: 200px !important;
+    width: 200px !important;
+} */
+
+.testimonial-para {
+    width: 100%;
+    max-width: 613px;
+    font-size: 18px;
+    font-weight: 300;
+    line-height: 29px;
+    font-family: "Kanit", sans-serif;
+}
+
+.testimonial-h {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 600;
+    font-family: "Kanit", sans-serif;
+}
+
+.testimonial-h-2 {
+    font-size: 18px;
+    line-height: 28px;
+    font-weight: 400;
+    font-family: "Kanit", sans-serif;
+}
+
 /* Keyframe animation for continuous scrolling effect */
 @-webkit-keyframes scroll {
     0% {

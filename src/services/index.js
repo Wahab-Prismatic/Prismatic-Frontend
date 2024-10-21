@@ -38,6 +38,25 @@ import ExpertTeamImg from '../assets/images/ecommerce/expert-team.webp';
 import SolutionsImg from '../assets/images/ecommerce/solutions.webp';
 import resultDrivenImg from '../assets/images/ecommerce/results-driven-img.webp';
 import CustomerSatisImg from '../assets/images/ecommerce/customer-satisfaction.webp';
+import TestImg from '../assets/images/ecommerce/testimonial-img.webp';
+import clientTestImg from '../assets/images/ecommerce/client-testimonial.webp';
+
+export const testimonialsData = [
+  {
+    imgSrc: TestImg,
+    alt: "avatar",
+    text: "I recently worked with PRISMATIC Technologies Limited and was thoroughly impressed. Their team's creativity, expertise, and responsiveness ensured our project met our goals. Highly recommend!",
+    name: "Benjamin",
+    position: "Manager"
+  },
+  {
+    imgSrc: clientTestImg,
+    alt: "avatar",
+    text: "Prismatic Technology made building our Shopify store easy and stress-free. They listened to our needs and created a beautiful, easy-to-use website. The team was helpful and quick to respond, even after the site went live. Highly recommend them for anyone looking to build or improve their Shopify store!",
+    name: "Alex Carter",
+    position: "Manager"
+  }
+];
 
 export const cardData = [
   {

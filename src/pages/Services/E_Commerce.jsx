@@ -19,7 +19,11 @@ import netLogo from '../../assets/images/ecommerce/net-logo.webp';
 import BlokeWipe from '../../assets/images/ecommerce/Bloke-Wipes.webp';
 import WindinfPortfolioImg from '../../assets/images/ecommerce/winbid-portfolio.webp';
 import RafayleImg from '../../assets/images/ecommerce/rafayle-portfolio.webp';
-import { cardData } from '../../services';
+
+import { cardData, testimonialsData } from '../../services';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
 
 const E_Commerce = () => {
 
@@ -357,8 +361,8 @@ const E_Commerce = () => {
                         <div className="contact-us-sec text-center">
                             <h3>Thinking about creating a new eCommerce site or migrating to Shopify?</h3>
                             <p>We’d love to learn more about your project!</p>
-                            <Link 
-                                to="/contact-us" 
+                            <Link
+                                to="/contact-us"
                                 className="shopify-cntct-btn contact-btn mx-auto"
                             >
                                 Contact us
@@ -367,6 +371,49 @@ const E_Commerce = () => {
                     </div>
                 </div>
             </div>
+            {/* <!-- Testimonial Section Start --> */}
+            <div className="testimonial-section mb-4" id="testimonials">
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-12">
+                            <Swiper
+                                pagination={{ clickable: true }}
+                                navigation={true}
+                                modules={[Pagination, Navigation]}
+                                loop={true}
+                                className="responsive"
+                            >
+                                {testimonialsData.map((testimonial, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div className="slide-content">
+                                            <div className="testimonial-wrap">
+                                                <div className="testimonial_img">
+                                                    <img
+                                                        className="rounded-circle shadow-1-strong mb-2"
+                                                        src={testimonial.imgSrc}
+                                                        alt={testimonial.alt}
+                                                        loading="lazy"
+                                                        style={{ width: '200px', height: '200px', border: '1px solid black', objectFit: 'cover'}}
+                                                    />
+                                                </div>
+                                                <div className="d-flex justify-content-center flex-wrap flex-column testimonial-data">
+                                                    <p className="testimonial-para">
+                                                        {testimonial.text}
+                                                    </p>
+                                                    <h4 className="testimonial-h">
+                                                        {testimonial.name} - <span className="testimonial-h-2">{testimonial.position}</span>
+                                                    </h4>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* <!-- Testimonial Section Start --> */}
         </>
     )
 }
