@@ -349,6 +349,24 @@ const E_Commerce = () => {
                 </div>
             </div>
             {/* Our Portfolio Section End */}
+
+            {/* <!-- contact-us start --> */}
+            <div className="container">
+                <div className="row m-0">
+                    <div className="col-lg-12">
+                        <div className="contact-us-sec text-center">
+                            <h3>Thinking about creating a new eCommerce site or migrating to Shopify?</h3>
+                            <p>We’d love to learn more about your project!</p>
+                            <Link 
+                                to="/contact-us" 
+                                className="shopify-cntct-btn contact-btn mx-auto"
+                            >
+                                Contact us
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     )
 }

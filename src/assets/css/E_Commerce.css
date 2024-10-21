@@ -314,6 +314,43 @@ span.shopify-h-2 {
     font-family: "Kanit", sans-serif;
 }
 
+.contact-us-sec {
+    background-color: #286A97;
+    padding: 50px 20px;
+    margin: 50px 0px;
+    border-radius: 20px;
+    font-family: "Kanit", sans-serif;
+}
+
+.contact-us-sec h3 {
+    color: #fff;
+    font-size: 26px;
+    text-align: center;
+    width: 100%;
+    text-transform: uppercase;
+    max-width: 629px;
+    line-height: 31px;
+    margin: 0 auto;
+    font-family: "Kanit", sans-serif;
+}
+
+.contact-us-sec p {
+    color: #fff;
+    text-align: center;
+    font-size: 17px;
+    line-height: 36px;
+    font-weight: 300;
+    font-family: "Kanit", sans-serif;
+}
+
+.contact-btn {
+    color: #286A97 !important;
+    border: none !important;
+    background-color: #fff !important;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+}
+
 /* Keyframe animation for continuous scrolling effect */
 @-webkit-keyframes scroll {
     0% {
