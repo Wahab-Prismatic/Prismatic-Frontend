@@ -34,6 +34,41 @@ import TechzImg from '../assets/portfolio-images/website-portfolio/techzology.jp
 import PetanduImg from '../assets/portfolio-images/website-portfolio/petandu.jpg';
 import JfosterImg from '../assets/portfolio-images/website-portfolio/jfoster.jpg';
 import AamcImg from '../assets/portfolio-images/website-portfolio/aamc.jpg';
+import ExpertTeamImg from '../assets/images/ecommerce/expert-team.webp';
+import SolutionsImg from '../assets/images/ecommerce/solutions.webp';
+import resultDrivenImg from '../assets/images/ecommerce/results-driven-img.webp';
+import CustomerSatisImg from '../assets/images/ecommerce/customer-satisfaction.webp';
+
+export const cardData = [
+  {
+    imageSrc: ExpertTeamImg,
+    altText: "expert-team",
+    title: "Expert Team",
+    description: "We offer the best services to ensure high value to our clients.",
+    additionalClass: ""
+  },
+  {
+    imageSrc: SolutionsImg,
+    altText: "Tailored-Solutions",
+    title: "Tailored Solutions",
+    description: "We customize our services to fit your specific business needs.",
+    additionalClass: "d-xxxl-flex d-xxl-flex d-xl-flex d-lg-flex d-md-block align-items-end"
+  },
+  {
+    imageSrc: resultDrivenImg,
+    altText: "results-driven",
+    title: "Results Driven",
+    description: "We focus on strategies that deliver measurable results.",
+    additionalClass: "d-xxxl-flex d-xxl-flex d-xl-flex d-lg-flex d-md-block align-items-end"
+  },
+  {
+    imageSrc: CustomerSatisImg,
+    altText: "customer-satisfaction",
+    title: "Customer Satisfaction",
+    description: "Your success is our priority—100% satisfaction guaranteed!",
+    additionalClass: ""
+  }
+];
 
 export const locations = [
   {

@@ -16,44 +16,21 @@ import laravelImg from '../../assets/images/ecommerce/laravel-img.webp';
 import bigCommerceImg from '../../assets/images/ecommerce/bigcommerce.webp';
 import wordpressImg from '../../assets/images/ecommerce/wordpress-img.webp';
 import netLogo from '../../assets/images/ecommerce/net-logo.webp';
+import { cardData } from '../../services';
 
 const E_Commerce = () => {
 
-    // Slick slider settings
-    const settings = {
-        dots: true,
-        infinite: true,
-        arrows: false,
-        speed: 300,
-        autoplay: false,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        responsive: [
-            {
-                breakpoint: 1024,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    dots: true,
-                },
-            },
-            {
-                breakpoint: 600,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-            {
-                breakpoint: 480,
-                settings: {
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                },
-            },
-        ],
-    };
+    const sliderData = [
+        { src: shopifyLogo, alt: "shopify-logo" },
+        { src: laravelImg, alt: "laravel-logo" },
+        { src: bigCommerceImg, alt: "bigcommerce-logo" },
+        { src: wordpressImg, alt: "wordpress-logo" },
+        { src: netLogo, alt: "net-logo" },
+        // Repeat for continuous effect
+        { src: shopifyLogo, alt: "shopify-logo" },
+        { src: laravelImg, alt: "laravel-logo" },
+        { src: bigCommerceImg, alt: "bigcommerce-logo" },
+    ];
 
     return (
         <>
@@ -274,78 +251,46 @@ const E_Commerce = () => {
                 <div className="row m-0">
                     <div className="container slider">
                         <div className="slide-track">
-                            {/* Slide 1 */}
-                            <div className="slide">
-                                <img
-                                    src={shopifyLogo}
-                                    alt="shopify-logo"
-                                    className="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                            {/* Slide 2 */}
-                            <div className="slide">
-                                <img
-                                    src={laravelImg}
-                                    alt="laravel-logo"
-                                    className="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                            {/* Slide 3 */}
-                            <div className="slide">
-                                <img
-                                    src={bigCommerceImg}
-                                    alt="bigcommerce-logo"
-                                    className="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                            {/* Slide 4 */}
-                            <div className="slide">
-                                <img
-                                    src={wordpressImg}
-                                    alt="wordpress-logo"
-                                    className="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                            {/* Slide 5 */}
-                            <div className="slide">
-                                <img
-                                    src={netLogo}
-                                    alt="net-logo"
-                                    className="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                            {/* Repeat slides for a continuous effect */}
-                            <div className="slide">
-                                <img
-                                    src={shopifyLogo}
-                                    alt="shopify-logo"
-                                    className="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="slide">
-                                <img
-                                    src={laravelImg}
-                                    alt="laravel-logo"
-                                    className="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
-                            <div className="slide">
-                                <img
-                                    src={bigCommerceImg}
-                                    alt="bigcommerce-logo"
-                                    className="img-fluid"
-                                    loading="lazy"
-                                />
-                            </div>
+                            {sliderData.map((slide, index) => (
+                                <div className="slide" key={index}>
+                                    <img
+                                        src={slide.src}
+                                        alt={slide.alt}
+                                        className="img-fluid"
+                                        loading="lazy"
+                                        draggable={false}
+                                    />
+                                </div>
+                            ))}
                         </div>
                     </div>
+                </div>
+            </div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-12">
+                        <div className="why-choose-us">
+                            <h1 className="shopify-heading choose-us-heading">Why Choose Us?</h1>
+                            <p className="why-para">
+                                We offer the best services to ensure high value to our clients.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div className="row">
+                    {
+                        cardData.map((card, index) => (
+                            <div className={`col-lg-3 col-md-6 mb-3 ${card.additionalClass}`} key={index}>
+                                <div className={`team-cards justify-content-center text-center ${card.title.includes('Tailored') || card.title.includes('Results') ? 'team-cards-2' : ''}`}>
+                                    <div className="team-card-img mb-4">
+                                        <img src={card.imageSrc} alt={card.imgAlt} className="img-fluid" loading="lazy" draggable={false} />
+                                    </div>
+                                    <h2 dangerouslySetInnerHTML={{ __html: card.title }}></h2>
+                                    <p>{card.description}</p>
+                                </div>
+                            </div>
+                        ))
+                    }
                 </div>
             </div>
         </>

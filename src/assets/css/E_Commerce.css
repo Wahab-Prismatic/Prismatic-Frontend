@@ -1,8 +1,5 @@
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: "Kanit", sans-serif;
+.teamSection {
+    font-family: 'Kanit', sans-serif;
 }
 
 .shopify-hero-section {
@@ -17,13 +14,13 @@ h1.shopify-h {
     line-height: 50px;
     font-weight: 400;
     text-transform: uppercase;
-    font-family: "Kanit", sans-serif;
+    /* font-family: "Kanit", sans-serif; */
 }
 
 span.shopify-h-2 {
     font-weight: 600;
     color: #286A97;
-    font-family: "Kanit", sans-serif;
+    /* font-family: "Kanit", sans-serif; */
 }
 
 .hero-sec-text p {
@@ -156,7 +153,7 @@ span.shopify-h-2 {
     font-family: "Kanit", sans-serif;
 }
 
-  
+  /* SLider css start */
 .slider {
     height: 50px;
     overflow: hidden;
@@ -219,6 +216,61 @@ span.shopify-h-2 {
 
 .slider .slide:hover {
     transform: scale(1.05); 
+}
+
+/* Slider Css end */
+
+.why-choose-us {
+    padding: 88px 0px 50px 0px;
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+}
+
+.choose-us-heading {
+    margin: 0 auto;
+    font-family: "Kanit", sans-serif;
+}
+
+.why-para {
+    font-size: 22px;
+    font-weight: 300;
+    line-height: 30px;
+    width: 100%;
+    max-width: 478px;
+    margin: 0 auto;
+    font-family: "Kanit", sans-serif;
+}
+
+.team-cards {
+    background-color: #DDE5FF;
+    padding: 20px 15px;
+    border-radius: 28px;
+    font-family: "Kanit", sans-serif;
+}
+
+.team-cards img {
+    text-align: center;
+    font-family: "Kanit", sans-serif;
+}
+
+.team-cards h2 {
+    font-size: 20px;
+    line-height: 25px;
+    text-align: center;
+    font-weight: 600;
+    text-transform: uppercase;
+    height: 50px;
+    font-family: "Kanit", sans-serif;
+}
+
+.team-cards p {
+    font-size: 16px;
+    line-height: 25px;
+    text-align: center;
+    margin-bottom: 0px;
+    min-height: 75px;
+    max-height: 100%;
+    font-family: "Kanit", sans-serif;
 }
 
 /* Keyframe animation for continuous scrolling effect */
