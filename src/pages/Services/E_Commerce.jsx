@@ -16,6 +16,9 @@ import laravelImg from '../../assets/images/ecommerce/laravel-img.webp';
 import bigCommerceImg from '../../assets/images/ecommerce/bigcommerce.webp';
 import wordpressImg from '../../assets/images/ecommerce/wordpress-img.webp';
 import netLogo from '../../assets/images/ecommerce/net-logo.webp';
+import BlokeWipe from '../../assets/images/ecommerce/Bloke-Wipes.webp';
+import WindinfPortfolioImg from '../../assets/images/ecommerce/winbid-portfolio.webp';
+import RafayleImg from '../../assets/images/ecommerce/rafayle-portfolio.webp';
 import { cardData } from '../../services';
 
 const E_Commerce = () => {
@@ -236,7 +239,6 @@ const E_Commerce = () => {
                     </div>
                 </div>
             </div>
-
             {/* <!--Our developement --> */}
             <div className="container">
                 <div className="row">
@@ -246,7 +248,7 @@ const E_Commerce = () => {
                 </div>
             </div>
             {/* <!--Our developement end--> */}
-
+            {/* Slider Section Start */}
             <div className="container-fluid our-services-bg">
                 <div className="row m-0">
                     <div className="container slider">
@@ -266,6 +268,8 @@ const E_Commerce = () => {
                     </div>
                 </div>
             </div>
+            {/* Slider section end */}
+            {/* <!-- Why choose us start --> */}
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12">
@@ -293,6 +297,58 @@ const E_Commerce = () => {
                     }
                 </div>
             </div>
+            {/* <!-- Why choose us end --> */}
+            {/* Our Portfolio Section Start */}
+            <div className="our-portfolio">
+                <div className="container">
+                    <div className="row m-0">
+                        <div className="col-lg-12">
+                            <h1 className="shopify-heading choose-us-heading text-center">our portfolio</h1>
+                            <p className="why-para text-center">
+                                We offer the best services to ensure high value to our clients.
+                            </p>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="portfolio mt-5">
+                                <h1 className="shopify-heading portfolio-heading">
+                                    bloke wipes shopify store
+                                </h1>
+                                <img
+                                    src={BlokeWipe}
+                                    alt="Bloke-Wipes"
+                                    className="img-fluid"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                        <div className="col-lg-6">
+                            <div className="winbid-sec portfolio mt-xxxl-5 mt-xxl-5 mt-xl-5 mt-lg-5 mt-md-2 mt-2">
+                                <h1 className="shopify-heading portfolio-heading mb-0">
+                                    winbid web <br /> application
+                                </h1>
+                                <img
+                                    src={WindinfPortfolioImg}
+                                    alt="winbid-portfolio"
+                                    className="img-fluid"
+                                    loading="lazy"
+                                />
+                            </div>
+                            <div className="Rafayel-web-sec portfolio mt-2">
+                                <h1 className="shopify-heading portfolio-heading mb-0">
+                                    Rafayel web <br /> application
+                                </h1>
+                                <img
+                                    src={RafayleImg}
+                                    alt="rafayle-portfolio"
+                                    className="img-fluid"
+                                    loading="lazy"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {/* Our Portfolio Section End */}
         </>
     )
 }

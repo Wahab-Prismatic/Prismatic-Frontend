@@ -273,6 +273,47 @@ span.shopify-h-2 {
     font-family: "Kanit", sans-serif;
 }
 
+.portfolio {
+    background-color: #78D9CE;
+    padding: 30px 15px;
+    border-radius: 30px;
+    height: 529px;
+    font-family: "Kanit", sans-serif;
+}
+
+.our-portfolio {
+    background-color: #F6F6F6;
+    padding: 60px 50px;
+    margin: 40px 0px 0px 0px;
+    font-family: "Kanit", sans-serif;
+}
+
+.portfolio-heading {
+    color: #fff !important;
+    margin-bottom: 50px;
+    font-family: "Kanit", sans-serif;
+}
+
+.portfolio img {
+    width: 560px;
+    height: auto;
+    font-family: "Kanit", sans-serif;
+}
+
+.winbid-sec {
+    background-color: #FF837B !important;
+    height: 340px;
+    overflow: hidden;
+    font-family: "Kanit", sans-serif;
+}
+
+.Rafayel-web-sec {
+    background-color: #78D9CE;
+    overflow: hidden;
+    height: 303px;
+    font-family: "Kanit", sans-serif;
+}
+
 /* Keyframe animation for continuous scrolling effect */
 @-webkit-keyframes scroll {
     0% {
@@ -280,8 +321,8 @@ span.shopify-h-2 {
         transform: translateX(0);
     }
     100% {
-        -webkit-transform: translateX(calc(-250px * 4)); /* Loop seamlessly */
-        transform: translateX(calc(-250px * 4)); /* Total width of 4 slides */
+        -webkit-transform: translateX(calc(-250px * 4)); 
+        transform: translateX(calc(-250px * 4)); 
     }
 }
 
@@ -291,15 +332,33 @@ span.shopify-h-2 {
         transform: translateX(0);
     }
     100% {
-        -webkit-transform: translateX(calc(-250px * 4)); /* Same as above */
-        transform: translateX(calc(-250px * 4)); /* Total width of 4 slides */
+        -webkit-transform: translateX(calc(-250px * 4)); 
+        transform: translateX(calc(-250px * 4)); 
     }
 }
-
-
 
 @media (min-width: 1400px) {
     .container {
         max-width: 1320px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .portfolio {
+        background-color: #78D9CE;
+        padding: 30px 15px;
+        border-radius: 30px;
+        height: 612px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .winbid-sec {
+        height: 302px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .Rafayel-web-sec {
+        height: 302px;
+        font-family: "Kanit", sans-serif;
     }
 }
