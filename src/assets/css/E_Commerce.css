@@ -158,7 +158,7 @@ span.shopify-h-2 {
     height: 50px;
     overflow: hidden;
     position: relative;
-    width: 1260px;
+    width: 100%;
     display: flex;
     justify-content: center;
 }
@@ -273,6 +273,10 @@ span.shopify-h-2 {
     font-family: "Kanit", sans-serif;
 }
 
+.firstCard {
+    height: 100%;
+}
+
 .portfolio {
     background-color: #78D9CE;
     padding: 30px 15px;
@@ -364,11 +368,6 @@ span.shopify-h-2 {
     gap: 20px;
 }
 
-/* .testimonial-wrap .testimonial_img {
-    height: 200px !important;
-    width: 200px !important;
-} */
-
 .testimonial-para {
     width: 100%;
     max-width: 613px;
@@ -438,5 +437,338 @@ span.shopify-h-2 {
     .Rafayel-web-sec {
         height: 302px;
         font-family: "Kanit", sans-serif;
+    }
+}
+
+@media (max-width: 991.98px) {
+    h1.shopify-h {
+        font-size: 28px;
+        line-height: 40px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .slider {
+        height: 55px;
+    }
+    
+    .slider .slide-track {
+        width: calc(250px * 9);
+    }
+
+    .slider .slide {
+        width: 250px; 
+    }
+
+    .slider .slide img {
+        max-width: 50%;
+    }
+
+    .team-cards {
+        background-color: #DDE5FF;
+        padding: 20px 15px;
+        border-radius: 28px;
+        margin-bottom: 20px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .team-cards .team-card-img {
+        height: 142px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .team-cards .team-card-img img {
+        height: auto;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .portfolio {
+        background-color: #78D9CE;
+        padding: 30px 15px;
+        border-radius: 30px;
+        height: auto;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .testimonial-wrap {
+        flex-direction: column; /* Stack image and text vertically */
+        text-align: center; /* Center-align the content */
+    }
+
+    .testimonial_img img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .testimonial-para {
+        font-size: 16px;
+        line-height: 26px;
+        max-width: 100%; /* Allow full width */
+    }
+
+    .testimonial-h {
+        font-size: 18px;
+        line-height: 28px;
+    }
+
+    .testimonial-h-2 {
+        font-size: 16px;
+        line-height: 26px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    h1.shopify-h {
+        font-size: 28px;
+        line-height: 36px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .hero-sec-text p {
+        font-size: 20px;
+        line-height: 30px;
+        width: 100%;
+        max-width: unset !important;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-cntct-btn {
+        font-size: 14px;
+        line-height: 20px;
+        margin-bottom: 30px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-features {
+        padding: 35px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .row > .col-lg-6 {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .features-2 p {
+        font-size: 16px;
+        line-height: 25px;
+        max-width: unset;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-store-1 {
+        background-color: #CCF3F9;
+        border-radius: 30px;
+        padding: 20px 30px 0px 30px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-store-data p {
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 26px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-theme {
+        margin-bottom: 20px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-heading {
+        font-size: 22px;
+        line-height: 30px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .slider {
+        height: 55px;
+    }
+    
+    .slider .slide-track {
+        width: calc(250px * 9); /* Adjust track width */
+    }
+
+    .slider .slide {
+        width: 220px; /* Adjust slide width */
+    }
+
+    .slider .slide img {
+        max-width: 55%;
+    }
+
+    .team-cards .team-card-img {
+        height: auto;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .testimonial_img img {
+        width: 160px;
+        height: 160px;
+    }
+
+    .testimonial-para {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+    .testimonial-h {
+        font-size: 17px;
+        line-height: 27px;
+    }
+
+    .testimonial-h-2 {
+        font-size: 15px;
+        line-height: 24px;
+    }
+
+}
+
+@media (max-width: 575.98px) {
+    h1.shopify-h {
+        font-size: 22px;
+        line-height: 32px;
+        font-family: "Kanit", sans-serif;
+    }
+    
+    .hero-sec-text p {
+        font-size: 18px;
+        font-weight: 300;
+        line-height: 28px;
+        max-width: 310px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-cntct-btn {
+        font-size: 14px;
+        margin-bottom: 45px;
+        padding: 6px 25px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-features {
+        padding: 25px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .features-2 p {
+        font-size: 16px;
+        line-height: 25px;
+        font-family: "Kanit", sans-serif;
+    }
+
+        .shopify-store-1 {
+        border-radius: 20px;
+        padding: 20px 20px 0px 20px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-store-data p {
+        font-size: 16px;
+        line-height: 25px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-store-img {
+        text-align: center;
+    }
+
+    .shopify-theme {
+        border-radius: 20px;
+        margin-bottom: 20px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-heading {
+        font-size: 22px;
+        line-height: 30px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-para {
+        font-size: 16px;
+        line-height: 25px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .shopify-theme img.img-fluid {
+        margin-top: 0px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .slider {
+        height: 55px;
+    }
+    
+    .slider .slide-track {
+        width: calc(200px * 9); 
+        gap: 15px;
+    }
+
+    .slider .slide {
+        width: 200px;
+    }
+
+    .slider .slide img {
+        max-width: 40%;
+    }
+
+    .our-portfolio {
+        background-color: #F6F6F6;
+        padding: 60px 15px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .why-choose-us {
+        padding: 16px 0px;
+        text-align: center;
+        margin-top: 20px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .why-para {
+        font-size: 16px;
+        line-height: 25px;
+        max-width: 280px;
+        margin: 0 auto;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .team-cards {
+        background-color: #DDE5FF;
+        padding: 20px 40px;
+        border-radius: 28px;
+        margin-bottom: 20px;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .winbid-sec {
+        background-color: #FF837B !important;
+        height: auto;
+        overflow: hidden;
+        font-family: "Kanit", sans-serif;
+    }
+
+    .testimonial_img img {
+        width: 140px;
+        height: 140px;
+    }
+
+    .testimonial-para {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .testimonial-h {
+        font-size: 16px;
+        line-height: 26px;
+    }
+
+    .testimonial-h-2 {
+        font-size: 14px;
+        line-height: 22px;
+    }
+
+    .testimonial-wrap {
+        gap: 10px;
     }
 }

@@ -288,7 +288,7 @@ const E_Commerce = () => {
                 <div className="row">
                     {
                         cardData.map((card, index) => (
-                            <div className={`col-lg-3 col-md-6 mb-3 ${card.additionalClass}`} key={index}>
+                            <div className={`col-lg-3 col-md-6 mb-3 ${card.additionalClass} ${index === 0 ? 'firstCard' : ''}`} key={index}>
                                 <div className={`team-cards justify-content-center text-center ${card.title.includes('Tailored') || card.title.includes('Results') ? 'team-cards-2' : ''}`}>
                                     <div className="team-card-img mb-4">
                                         <img src={card.imageSrc} alt={card.imgAlt} className="img-fluid" loading="lazy" draggable={false} />
@@ -393,6 +393,7 @@ const E_Commerce = () => {
                                                         src={testimonial.imgSrc}
                                                         alt={testimonial.alt}
                                                         loading="lazy"
+                                                        draggable={false}
                                                         style={{ width: '200px', height: '200px', border: '1px solid black', objectFit: 'cover'}}
                                                     />
                                                 </div>
@@ -413,7 +414,7 @@ const E_Commerce = () => {
                     </div>
                 </div>
             </div>
-            {/* <!-- Testimonial Section Start --> */}
+            {/* <!-- Testimonial Section End --> */}
         </>
     )
 }
