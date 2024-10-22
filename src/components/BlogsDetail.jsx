@@ -90,7 +90,7 @@ const BlogsDetail = () => {
                         </div>
 
                         {/* Sidebar */}
-                        <div className="col-lg-4 m-15px-tb blog-aside">
+                        <div className="col-lg-4 m-15px-tb blog-aside sticky-top">
                             <div className="widget widget-latest-post">
                                 <div className="widget-title">
                                     <h3>Latest Post</h3>
@@ -107,8 +107,8 @@ const BlogsDetail = () => {
                                                     </h5>
                                                 </div>
                                                 <div className="lpa-meta">
-                                                    <p className="name">admin</p>
-                                                    <p className="date">
+                                                    <Link to={`/blogs/${b.slug}`} className="name">admin</Link>
+                                                    <Link to={`/blogs/${b.slug}`} className="date">
                                                         {new Date(b.created_at).toLocaleDateString('en-GB', {
                                                             year: 'numeric',
                                                             month: '2-digit',
@@ -119,7 +119,7 @@ const BlogsDetail = () => {
                                                             minute: '2-digit',
                                                             second: '2-digit'
                                                         })}
-                                                    </p>
+                                                    </Link>
                                                 </div>
                                             </div>
                                             <div className="lpa-right">
