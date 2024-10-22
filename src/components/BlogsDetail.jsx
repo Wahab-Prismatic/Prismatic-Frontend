@@ -1,39 +1,28 @@
-import axios from 'axios';
-import { useEffect, useState } from 'react';
-import '../assets/css/BlogsDetail.css';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
+import { fetchBlogs } from '../redux/slices/blogSlice';
+import '../assets/css/BlogsDetail.css';
+import Loader from '../common/Loader';
 
-axios.defaults.baseURL = 'http://localhost:8000/api';
 const BlogsDetail = () => {
     const { slug } = useParams();
-    const [recentBlogs, setRecentBlogs] = useState([]);
-    const [isLoading, setIsLoading] = useState(true); // for loading state
+    const dispatch = useDispatch();
+    const { blogs: recentBlogs, loading: isLoading, error } = useSelector((state) => state.blogs);
 
     useEffect(() => {
-        axios.get(`/blogs`, {
-            headers: {
-                'Cache-Control': 'no-cache',
-                'Pragma': 'no-cache',
-                'Expires': '0'
-            }
-        })
-            .then(response => {
-                console.log('Recent Blogs Data: ', response.data);
-                setRecentBlogs(response.data.data || []); // Ensure recentBlogs is an array
-            })
-            .catch(error => {
-                console.error('Error fetching recent blogs:', error);
-            })
-            .finally(() => {
-                setIsLoading(false); // end loading state after response
-            });
-    }, [slug]);
+        dispatch(fetchBlogs());
+    }, [dispatch]);
 
     // Find the specific blog based on the slug parameter
     const blog = recentBlogs.find(b => b.slug === slug);
 
     if (isLoading) {
-        return <p>Loading...</p>;
+        return <Loader />;
+    }
+
+    if (error) {
+        return <p>Error fetching blogs: {error}</p>;
     }
 
     // If no blogs are found or the specific blog is not found

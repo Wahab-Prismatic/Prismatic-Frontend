@@ -1,28 +1,18 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react'
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchBlogs } from '../redux/slices/blogSlice';
 import '../assets/css/Blogs.css';
 import BlogImg from '../assets/images/Blogs.jpg';
+import Loader from '../common/Loader';
 
-axios.defaults.baseURL = 'http://localhost:8000/api';
 const Blogs = () => {
-    const [blogs, setBlogs] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
+    const { blogs, loading, error } = useSelector((state) => state.blogs);
 
     useEffect(() => {
-        const fetchBlogs = async () => {
-            try {
-                const response = await axios.get('/blogs');
-                setBlogs(response.data.data);
-                setLoading(false)
-                console.log("Response", response.data.data);
-            } catch (error) {
-                console.error('Error fetching the blogs:', error);
-                setLoading(false);
-            }
-        }
-        fetchBlogs();
-    }, []);
+        dispatch(fetchBlogs());
+    }, [dispatch]);
     return (
         <>
             <div className="products-header-wrapper">
@@ -62,9 +52,9 @@ const Blogs = () => {
                         {/* Blogs area start */}
                         <div className="container">
                             <div className="row">
-                                {loading ? (
-                                    <p>Loading...</p>
-                                ) : blogs.length > 0 ? (
+                                {loading && <Loader/>} {/* Display loader */}
+                                {error && <p>Error fetching blogs: {error}</p>} {/* Handle errors */}
+                                {!loading && blogs.length > 0 ? (
                                     blogs.map((blog) => (
                                         <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{ marginBottom: '40px' }}>
                                             <div className="single-blog-item blog-grid">

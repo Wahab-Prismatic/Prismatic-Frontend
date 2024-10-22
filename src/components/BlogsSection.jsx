@@ -1,24 +1,16 @@
-// import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { fetchBlogs } from '../redux/slices/blogSlice';
 import '../assets/css/BlogsSection.css';
-import { useState, useEffect } from 'react';
-import axios from 'axios';
-
-axios.defaults.baseURL = 'http://localhost:8000/api';
+import Loader from '../common/Loader';
 
 const BlogsSection = () => {
-    const [blogs, setBlogs] = useState([]);
-
+    const dispatch = useDispatch();
+    const { blogs, loading, error } = useSelector((state) => state.blogs);
     useEffect(() => {
-        axios.get('/blogs')
-            .then(response => {
-                console.log('Data: ', response.data.data);
-                setBlogs(response.data.data);
-            })
-            .catch(error => {
-                console.error('Error fetching the blogs:', error);
-            });
-    }, []);
+       dispatch(fetchBlogs());
+    }, [dispatch]);
 
     return (
         <div className="blog-pages-wrapper section-space--ptb_100" data-aos="fade-up" data-aos-duration="3000">
@@ -36,7 +28,12 @@ const BlogsSection = () => {
 
             <div className="container">
                 <div className="row blogs-card-row">
-                    {blogs.length > 0 ? (
+                    {/* Display loading, error, or blog content */}
+                    {loading ? (
+                        <Loader />
+                    ) : error ? (
+                        <p>Error fetching blogs: {error}</p>
+                    ) : blogs.length > 0 ? (
                         blogs.slice(0, 3).map((blog) => (
                             <div className="col-lg-4 col-md-6 mb-30 wow move-up" key={blog.id}>
                                 {/* Single Blog Item */}
