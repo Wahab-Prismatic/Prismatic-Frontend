@@ -90,7 +90,7 @@ const BlogsDetail = () => {
                         </div>
 
                         {/* Sidebar */}
-                        <div className="col-lg-4 m-15px-tb blog-aside sticky-top">
+                        <div className="col-lg-4 m-15px-tb blog-aside">
                             <div className="widget widget-latest-post">
                                 <div className="widget-title">
                                     <h3>Latest Post</h3>
