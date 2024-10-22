@@ -205,12 +205,44 @@ ul {
     background-image: none;
 }
 
+.pris-header-m .container-fluid {
+    padding: 0px 0px !important;
+}
+
+.navbar-toggler:focus {
+
+    box-shadow: none !important;
+}
+
+img.header__logo.sticky-hide {
+    padding-left: 10px;
+}
+
+@media (min-width: 1400px) {
+
+    .pris-header-m .container-fluid {
+        max-width: 1320px !important;
+    }
+}
+
+@media (min-width: 1200px)and (max-width: 1400px) {
+
+    .pris-header-m .container-fluid {
+        max-width: 1140px !important;
+    }
+
+}
+
 
 @media (min-width: 992px) {
     .collapse.navbar-collapse {
         display: flex !important;
         opacity: 1 !important;
         transform: translateY(0) !important;
+    }
+
+    .pris-header-m .container-fluid {
+        max-width: 960px;
     }
 }
 
@@ -260,6 +292,7 @@ ul {
         margin: 0px;
         z-index: 99999;
     }
+
     .navbar.sticky .nav-link {
         color: black !important;
     }
