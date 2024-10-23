@@ -72,69 +72,6 @@ const ContactUs = () => {
         dispatch(submitContactForm(formData));
     }
 
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-
-    //     if (!captchaValue) {
-    //         alert('Please verify the reCAPTCHA');
-    //         return;
-    //     }
-
-    //     // Perform form validation
-    //     let validationErrors = [];
-    //     if (!formData.name) validationErrors.push("Full Name is required");
-    //     if (!formData.email) validationErrors.push("Email is required");
-    //     if (!formData.phone) validationErrors.push("Phone Number is required");
-    //     if (!formData.companyName) validationErrors.push("Company Name is required");
-    //     if (!formData.subject) validationErrors.push("Please select a subject");
-    //     if (!formData.message) validationErrors.push("Message is required");
-
-    //     if (validationErrors.length > 0) {
-    //         setErrors(validationErrors);
-    //         return;
-    //     }
-
-    //     const dataToSend = {
-    //         ...formData,
-    //         'g-recaptcha-response': ''
-    //     };
-
-    //     try {
-    //         const response = await axios.post('/contact-form', dataToSend);
-    //         console.log("Form Data:", response);
-    //         setSuccessMessage(response.data.message);
-    //         setFormData({
-    //             name: '',
-    //             email: '',
-    //             phone: '',
-    //             companyName: '',
-    //             subject: '',
-    //             message: '',
-    //             'g-recaptcha-response': ''
-    //         });
-    //         setSuccessMessage("Message sent Successfully!");
-    //         setErrors([]);
-    //     }
-    //     catch (error) {
-    //         if (error.response) {
-    //             setErrors(error.response.data.message);
-    //         } else {
-    //             setErrors("An error occured while submitting the form.");
-    //         }
-    //     }
-
-    //     // Reset the form
-    //     setFormData({
-    //         name: '',
-    //         email: '',
-    //         phone: '',
-    //         companyName: '',
-    //         subject: '',
-    //         message: '',
-    //         'g-recaptcha-response': ''
-    //     });
-    // };
-
     return (
         <>
             <div className="products-header-wrapper">
