@@ -1,16 +1,18 @@
-import { useState } from 'react';
-import ContactImg from '../assets/images/Contact Us.jpg';
-import axios from 'axios';
+import { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { submitContactForm, clearMessages } from '../redux/slices/contactFormSlice';
 import ReCAPTCHA from 'react-google-recaptcha';
-import '../assets/css/ContactUs.css';
 import { locations, mapPath } from '../services';
 import { Link } from 'react-router-dom';
+import '../assets/css/ContactUs.css';
 
-axios.defaults.baseURL = 'http://localhost:8000/api';
+import ContactImg from '../assets/images/Contact Us.jpg';
+
+
 const ContactUs = () => {
-    const [successMessage, setSuccessMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
-    const [errors, setErrors] = useState([]);
+    const dispatch = useDispatch();
+    const { loading, successMessage, errorMessage, errors } = useSelector((state) => state.contactForm);
+
     const [captchaValue, setCaptchaValue] = useState(null);
     const [formData, setFormData] = useState({
         name: '',
@@ -19,7 +21,7 @@ const ContactUs = () => {
         companyName: '',
         subject: '',
         message: '',
-        'g-recaptcha-response': ''
+        'g-recaptcha-response': '6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
     });
 
     const services = {
@@ -37,6 +39,10 @@ const ContactUs = () => {
         "wordpress": "WordPress"
     };
 
+    useEffect(() => {
+        dispatch(clearMessages());
+    }, [dispatch]);
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({
@@ -48,70 +54,86 @@ const ContactUs = () => {
     // Handle reCAPTCHA change
     const onCaptchaChange = (value) => {
         setCaptchaValue(value);
-    }
+        setFormData((prevData) =>({
+            ...prevData,
+            'g-recaptcha-response': value,
+        }));
+    };
 
-    const handleSubmit = async (e) => {
+    const handleSubmit = (e) => {
         e.preventDefault();
 
-        if (!captchaValue) {
-            alert('Please verify the reCAPTCHA');
-            return;
-        }
+        // if(!captchaValue) {
+        //     alert('Please verify the reCAPTCHA');
+        //     return
+        // }
 
-        // Perform form validation
-        let validationErrors = [];
-        if (!formData.name) validationErrors.push("Full Name is required");
-        if (!formData.email) validationErrors.push("Email is required");
-        if (!formData.phone) validationErrors.push("Phone Number is required");
-        if (!formData.companyName) validationErrors.push("Company Name is required");
-        if (!formData.subject) validationErrors.push("Please select a subject");
-        if (!formData.message) validationErrors.push("Message is required");
+        // Dispatch the form submission action
+        dispatch(submitContactForm(formData));
+    }
 
-        if (validationErrors.length > 0) {
-            setErrors(validationErrors);
-            return;
-        }
+    // const handleSubmit = async (e) => {
+    //     e.preventDefault();
 
-        const dataToSend = {
-            ...formData,
-            'g-recaptcha-response': ''
-        };
+    //     if (!captchaValue) {
+    //         alert('Please verify the reCAPTCHA');
+    //         return;
+    //     }
 
-        try {
-            const response = await axios.post('/contact-form', dataToSend);
-            console.log("Form Data:", response);
-            setSuccessMessage(response.data.message);
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                companyName: '',
-                subject: '',
-                message: '',
-                'g-recaptcha-response': ''
-            });
-            setSuccessMessage("Message sent Successfully!");
-            setErrors([]);
-        }
-        catch (error) {
-            if (error.response) {
-                setErrors(error.response.data.message);
-            } else {
-                setErrors("An error occured while submitting the form.");
-            }
-        }
+    //     // Perform form validation
+    //     let validationErrors = [];
+    //     if (!formData.name) validationErrors.push("Full Name is required");
+    //     if (!formData.email) validationErrors.push("Email is required");
+    //     if (!formData.phone) validationErrors.push("Phone Number is required");
+    //     if (!formData.companyName) validationErrors.push("Company Name is required");
+    //     if (!formData.subject) validationErrors.push("Please select a subject");
+    //     if (!formData.message) validationErrors.push("Message is required");
 
-        // Reset the form
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            companyName: '',
-            subject: '',
-            message: '',
-            'g-recaptcha-response': ''
-        });
-    };
+    //     if (validationErrors.length > 0) {
+    //         setErrors(validationErrors);
+    //         return;
+    //     }
+
+    //     const dataToSend = {
+    //         ...formData,
+    //         'g-recaptcha-response': ''
+    //     };
+
+    //     try {
+    //         const response = await axios.post('/contact-form', dataToSend);
+    //         console.log("Form Data:", response);
+    //         setSuccessMessage(response.data.message);
+    //         setFormData({
+    //             name: '',
+    //             email: '',
+    //             phone: '',
+    //             companyName: '',
+    //             subject: '',
+    //             message: '',
+    //             'g-recaptcha-response': ''
+    //         });
+    //         setSuccessMessage("Message sent Successfully!");
+    //         setErrors([]);
+    //     }
+    //     catch (error) {
+    //         if (error.response) {
+    //             setErrors(error.response.data.message);
+    //         } else {
+    //             setErrors("An error occured while submitting the form.");
+    //         }
+    //     }
+
+    //     // Reset the form
+    //     setFormData({
+    //         name: '',
+    //         email: '',
+    //         phone: '',
+    //         companyName: '',
+    //         subject: '',
+    //         message: '',
+    //         'g-recaptcha-response': ''
+    //     });
+    // };
 
     return (
         <>
@@ -129,6 +151,8 @@ const ContactUs = () => {
                         <div className="col-md-8 pt-4 pb-4">
                             {successMessage && <div className="alert alert-success success_alert" role="alert">{successMessage}</div>}
                             {errorMessage && <div className="alert alert-danger danger_alert" role="alert">{errorMessage}</div>}
+                            {/* {errors.length > 0 && errors.map((error, index) => <div key={index} className='alert alert-danger'>{error}</div>)} */}
+
                             <div className="contact-form formchange" id="Contact">
                                 <form onSubmit={handleSubmit} encType="multipart/form-data">
                                     <div className="row">
@@ -242,14 +266,16 @@ const ContactUs = () => {
                                                 <ReCAPTCHA
                                                     name="g-recaptcha-response"
                                                     value={formData['g-recaptcha-response']}
-                                                    sitekey='6LcuCLUcAAAAAOEjErKv3Uoj5foxMOSC5l-YL5b2'
+                                                    sitekey='6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
                                                     onChange={onCaptchaChange}
                                                 />
                                             </div>
                                         </div>
                                     </div>
                                     <fieldset className="csm-form-info">
-                                        <button type="submit" id="form-submit" className="filled-button">Send Message</button>
+                                        <button type="submit" id="form-submit" className="filled-button" disabled={loading}>
+                                            { loading ? 'Sending...' : 'Send Message' }
+                                        </button>
                                     </fieldset>
                                 </form>
                             </div>

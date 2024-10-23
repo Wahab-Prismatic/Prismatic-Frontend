@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchBlogs } from '../redux/slices/blogSlice';
+import { ShimmerDiv } from 'shimmer-effects-react'; 
 import '../assets/css/BlogsDetail.css';
-import Loader from '../common/Loader';
 
 const BlogsDetail = () => {
     const { slug } = useParams();
@@ -18,7 +18,15 @@ const BlogsDetail = () => {
     const blog = recentBlogs.find(b => b.slug === slug);
 
     if (isLoading) {
-        return <Loader />;
+        return (
+            <div>
+                <ShimmerDiv
+                    mode="light" 
+                    height={600} 
+                    width='100%'
+                />
+            </div>
+        );
     }
 
     if (error) {

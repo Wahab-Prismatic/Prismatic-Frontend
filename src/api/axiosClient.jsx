@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const axiosClinet = axios.create({
+const axiosClient = axios.create({
     baseURL: 'http://localhost:8000/api',
     headers: {
         'Content-Type': 'application/json',
@@ -8,16 +8,18 @@ const axiosClinet = axios.create({
 });
 
 //Add request and response interceptors
-axiosClinet.interceptors.request.use((config) => {
+axiosClient.interceptors.request.use((config) => {
     return config;
-}, (error) => {
+}, 
+    (error) => {
     return Promise.reject(error);
 });
 
-axiosClinet.interceptors.response.use((response) => {
+axiosClient.interceptors.response.use((response) => {
     return response;
-}, (error) => {
+}, 
+    (error) => {
     return Promise.reject(error);
 });
 
-export default axiosClinet;
+export default axiosClient;

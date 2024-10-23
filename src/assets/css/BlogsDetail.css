@@ -8,6 +8,12 @@
   color: #fff;
 }
 
+.text-header {
+  width: 100%;
+  height: auto;
+  position: relative;
+}
+
 .page-heading h1 {
   text-transform: capitalize;
   font-size: 36px;
@@ -118,12 +124,15 @@ img {
 
 .latest-post-aside {
   display: flex;
-  align-items: center; /* Vertically center content */
-  justify-content: space-between; /* Evenly space out content */
+  align-items: center;
+  /* Vertically center content */
+  justify-content: space-between;
+  /* Evenly space out content */
 }
 
 .lpa-left {
-  flex-grow: 1; /* Allow the title section to take up remaining space */
+  flex-grow: 1;
+  /* Allow the title section to take up remaining space */
   padding-right: 15px;
 }
 
