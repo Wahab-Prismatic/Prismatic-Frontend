@@ -364,6 +364,7 @@ const E_Commerce = () => {
                             <Link
                                 to="/contact-us"
                                 className="shopify-cntct-btn contact-btn mx-auto"
+                                onClick={() => window.scrollTo(0, 0)}
                             >
                                 Contact us
                             </Link>
@@ -379,7 +380,6 @@ const E_Commerce = () => {
                             <Swiper
                                 pagination={{ clickable: true }}
                                 navigation={true}
-                                modules={[Pagination, Navigation]}
                                 loop={true}
                                 className="responsive"
                             >
