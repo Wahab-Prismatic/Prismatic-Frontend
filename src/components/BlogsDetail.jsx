@@ -22,7 +22,7 @@ const BlogsDetail = () => {
             <div>
                 <ShimmerDiv
                     mode="light" 
-                    height={600} 
+                    height={300} 
                     width='100%'
                 />
             </div>

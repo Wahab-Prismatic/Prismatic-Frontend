@@ -261,6 +261,7 @@ a.p-read-more button:hover {
     color: #333;
 }
 
+
 @media (max-width: 1199px) {
     h3 {
         font-size: calc(1rem + .6vw);

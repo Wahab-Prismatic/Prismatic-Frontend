@@ -24,7 +24,7 @@ const Footer = () => {
                 isLoading ? (
                     <ShimmerDiv
                         mode='light'
-                        height={600}
+                        height={500}
                         width='100%'
                     />
                 ) : (

@@ -22,7 +22,6 @@ import RafayleImg from '../../assets/images/ecommerce/rafayle-portfolio.webp';
 
 import { cardData, testimonialsData } from '../../services';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 
 const E_Commerce = () => {

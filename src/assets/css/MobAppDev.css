@@ -1,0 +1,156 @@
+.products-header-wrapper {
+    position: relative;
+    width: 100%;
+    height: 60vh;
+  }
+  
+  .products-header-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .P-header-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+  }
+  
+  .P-header-text h4 {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  /* Section Headings */
+  .section-heading h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .section-heading h3 {
+    text-align: center;
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  .erp {
+    padding: 50px 0;
+  }
+  
+  .down-content-sub h6 {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  .down-content-sub p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Image Styling */
+  .service-item img {
+    width: 100%;
+    border-radius: 20px;
+    object-fit: cover;
+   
+  }
+  
+  .matters-icon img {
+    width: 50px;
+    height: 50px;
+  }
+  
+  /* Flexbox to align content */
+  .flexsys {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 20px;
+  }
+  
+  .matters-desc {
+    padding-left: 15px;
+  }
+  
+  .matters-desc h6 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  
+  .matters-desc p {
+    font-size: 1rem;
+    color: #666;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .P-header-text h4 {
+      font-size: 1.5rem;
+    }
+  
+    .section-heading h2 {
+      font-size: 2rem;
+    }
+  
+    .service-item img {
+      width: 100%;
+    }
+  
+    .flexsys {
+      flex-direction: column;
+      text-align: left;
+    }
+  
+    .matters-icon {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+  
+    .matters-desc {
+      padding-left: 0;
+    }
+  
+    .down-content-sub h6 {
+      font-size: 1rem;
+    }
+  
+    .down-content-sub p {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .P-header-text h4 {
+      font-size: 1.2rem;
+    }
+  
+    .section-heading h2 {
+      font-size: 1.8rem;
+    }
+  
+    .service-item img {
+      width: 100%;
+    }
+  
+    .flexsys {
+      flex-direction: column;
+      text-align: left;
+    }
+  
+    .matters-icon img {
+      width: 40px;
+      height: 40px;
+    }
+  
+    .matters-desc h6 {
+      font-size: 1rem;
+    }
+  
+    .matters-desc p {
+      font-size: 0.8rem;
+    }
+  }
+
