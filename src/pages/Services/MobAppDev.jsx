@@ -11,7 +11,7 @@ const MobAppDev = () => {
         <>
             <div className="products-header-wrapper">
                 <img src={MobAppImg} title="mobile-app" />
-                <div className="P-header-text text-content" style={{width: '100%', margin: '20px'}}>
+                <div className="P-header-text text-content">
                     <h6 className='my-2' style={{color: '#ffbf34', fontWeight: 'bold'}}>Expand your business potential</h6>
                     <h4>Create the perfect mobile app according to your needs!</h4>
                 </div>
@@ -32,7 +32,7 @@ const MobAppDev = () => {
 
                         <div className="col-md-6">
                             <div className="service-item">
-                                <img src={MobAppImg1} alt="Mobile-App" title="Mobile-App" />
+                                <img src={MobAppImg1} alt="Mobile-App" title="Mobile-App" style={{ width: '100%', borderRadius: '20px' }} />
                             </div>
                         </div>
 
@@ -44,8 +44,8 @@ const MobAppDev = () => {
                                     </div>
                                     <div className="col-lg-10 col-md-9 matters-desc">
                                         <div className="down-content-sub">
-                                            <h6>iOS, Android, Html5 App Development</h6>
-                                            <p>Develop a mobile website based on HTML5 or to use cross-platform development. Developing a platform-specific app or a generic HTML 5 solution differs per case.</p>
+                                            <h6 style={{ fontWeight: 'bold' }}>iOS, Android, Html5 App Development</h6>
+                                            <p style={{ fontSize: '13px' }}>Develop a mobile website based on HTML5 or to use cross-platform development. Developing a platform-specific app or a generic HTML 5 solution differs per case.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -56,8 +56,8 @@ const MobAppDev = () => {
                                     </div>
                                     <div className="col-lg-10 col-md-9 matters-desc">
                                         <div className="down-content-sub">
-                                            <h6>Smart UI/UX</h6>
-                                            <p>The basis for all app development is a healthy balance between technology and design. We offer solutions that add value for your product/service.</p>
+                                            <h6 style={{ fontWeight: 'bold' }}>Smart UI/UX</h6>
+                                            <p style={{ fontSize: '13px' }}>The basis for all app development is a healthy balance between technology and design. We offer solutions that add value for your product/service.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -68,8 +68,8 @@ const MobAppDev = () => {
                                     </div>
                                     <div className="col-lg-10 col-md-9 matters-desc">
                                         <div className="down-content-sub">
-                                            <h6>Smart APIs</h6>
-                                            <p>Due to the rapid development of the mobile market, a good link between external systems or your existing applications with a mobile app is especially important. Reach out to us for the finest app creation services.</p>
+                                            <h6 style={{ fontWeight: 'bold' }}>Smart APIs</h6>
+                                            <p style={{ fontSize: '13px' }}>Due to the rapid development of the mobile market, a good link between external systems or your existing applications with a mobile app is especially important. Reach out to us for the finest app creation services.</p>
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +91,7 @@ const MobAppDev = () => {
 
                             <div className="col-md-6">
                                 <div className="service-item">
-                                    <img src={MObAppImg2} alt="mobile-app" title="mobile-app" />
+                                    <img src={MObAppImg2} alt="mobile-app" title="mobile-app" style={{ width: '100%', borderRadius: '20px' }} />
                                 </div>
                             </div>
 
@@ -102,7 +102,9 @@ const MobAppDev = () => {
                                     <h6>Laravel Back End</h6>
                                     <h6>MySQL Database</h6>
                                     <h6>Apache Server</h6>
-                                    <p>Create your successful mobile application today! We also cater to tailor-made mobile app development software requests based on your specific requirements.</p>
+                                    <p style={{ fontSize: '18px', color: '#333', marginTop: '20px' }}>
+                                        Create your successful mobile application today! We also cater to tailor-made mobile app development software requests based on your specific requirements.
+                                    </p>
                                 </div>
                             </div>
                         </div>

@@ -1,156 +1,253 @@
 .products-header-wrapper {
+    width: 100%;
+    height: auto;
     position: relative;
+}
+
+.products-header-wrapper img {
     width: 100%;
-    height: 60vh;
-  }
-  
-  .products-header-wrapper img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .P-header-text {
+    height: auto;
+}
+
+.text-content {
+    text-align: left;
+    width: 46%;
     position: absolute;
     top: 50%;
-    left: 50%;
+    left: 30%;
     transform: translate(-50%, -50%);
-    text-align: center;
-    color: #fff;
-  }
-  
-  .P-header-text h4 {
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  
-  /* Section Headings */
-  .section-heading h2 {
-    font-size: 2.5rem;
-    text-align: center;
-    margin-bottom: 20px;
-  }
-  
-  .section-heading h3 {
-    text-align: center;
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  .erp {
-    padding: 50px 0;
-  }
-  
-  .down-content-sub h6 {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  .down-content-sub p {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  /* Image Styling */
-  .service-item img {
-    width: 100%;
-    border-radius: 20px;
-    object-fit: cover;
-   
-  }
-  
-  .matters-icon img {
-    width: 50px;
-    height: 50px;
-  }
-  
-  /* Flexbox to align content */
-  .flexsys {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 20px;
-  }
-  
-  .matters-desc {
-    padding-left: 15px;
-  }
-  
-  .matters-desc h6 {
-    font-size: 1.2rem;
-    font-weight: 600;
-  }
-  
-  .matters-desc p {
-    font-size: 1rem;
-    color: #666;
-  }
-  
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .P-header-text h4 {
-      font-size: 1.5rem;
-    }
-  
-    .section-heading h2 {
-      font-size: 2rem;
-    }
-  
-    .service-item img {
-      width: 100%;
-    }
-  
-    .flexsys {
-      flex-direction: column;
-      text-align: left;
-    }
-  
-    .matters-icon {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-  
-    .matters-desc {
-      padding-left: 0;
-    }
-  
-    .down-content-sub h6 {
-      font-size: 1rem;
-    }
-  
-    .down-content-sub p {
-      font-size: 0.9rem;
-    }
-  }
-  
-  @media (max-width: 576px) {
-    .P-header-text h4 {
-      font-size: 1.2rem;
-    }
-  
-    .section-heading h2 {
-      font-size: 1.8rem;
-    }
-  
-    .service-item img {
-      width: 100%;
-    }
-  
-    .flexsys {
-      flex-direction: column;
-      text-align: left;
-    }
-  
-    .matters-icon img {
-      width: 40px;
-      height: 40px;
-    }
-  
-    .matters-desc h6 {
-      font-size: 1rem;
-    }
-  
-    .matters-desc p {
-      font-size: 0.8rem;
-    }
-  }
+}
 
+.P-header-text h6 {
+    margin-bottom: 15px;
+    font-size: 19px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #ffbf34;
+    animation: fadeOutRight 1s both;
+}
+
+.P-header-text h4 {
+    margin-bottom: 30px;
+    text-transform: none;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    color: #FFF;
+    /* overflow: hidden; */
+    animation: fadeInLeft 1s both 1.5s;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-heading h2 {
+    font-size: 25px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.section-heading em {
+    font-style: normal;
+    color: #0274B8;
+}
+
+.section-heading span {
+    display: block;
+    margin-top: 15px;
+    text-transform: capitalize;
+    font-size: 15px;
+    color: rgb(102, 101, 101);
+    letter-spacing: 1px;
+}
+
+.service-item .down-content {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.flexsys {
+    display: flex;
+}
+
+.app-icon img {
+    width: 60px !important;
+}
+
+h1, h2, h3, h4, h6 {
+    margin: 0px;
+}
+
+.title-heading {
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.make-unique p {
+    font-size: 14px;
+    margin: 0;
+}
+
+@media (max-width: 991px) {
+    .P-header-text h6 {
+        margin-bottom: 11px !important;
+        font-size: 17px !important;
+    }
+
+    .P-header-text h4 {
+        font-size: 21px !important;
+        margin-bottom: 0px !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .products-header-wrapper img {
+        height: 200px !important;
+    }
+
+    .text-content {
+        text-align: left !important;
+        width: 90% !important;
+        left: 10% !important;
+        top: 20% !important;
+    }
+
+    .P-header-text h6 {
+        font-size: 14px !important;
+    }
+
+    .P-header-text h4 {
+        font-size: 14px !important;
+    }
+
+    .matters-icon {
+        text-align: left;
+        width: 15%;
+    }
+
+    .matters-icon img {
+        height: 60px;
+        width: 60px;
+        margin-top: 20px;
+    }
+
+    .matters-desc {
+        width: 85% !important;
+        text-align: left;
+    }
+
+    .service-item .down-content-sub {
+        text-align: left;
+    }
+
+    .mobile-app h6 {
+        margin-top: 20px;
+        font-size: 15px !important;
+    }
+
+    .mobile-app p {
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .products-header-wrapper img {
+        height: 160px !important;
+    }
+
+    .text-content {
+        text-align: left !important;
+        width: 70% !important;
+        left: 10% !important;
+        top: 15% !important;
+    }
+
+    .P-header-text h6 {
+        margin-bottom: 4px !important;
+        font-size: 12px !important;
+    }
+
+    .P-header-text h4 {
+        margin-bottom: 10px !important;
+        font-size: 12px !important;
+        letter-spacing: 0px !important;
+    }
+
+    .erp.pt-5 {
+        padding-top: 10px !important;
+    }
+    
+    .section-heading {
+        padding-top: 1rem !important;
+    }
+
+    .section-heading h2 {
+        font-size: 16px;
+    }
+
+    .section-heading span {
+        font-size: 10px !important;
+        padding: 0px 17px;
+    }
+
+    .service-item .down-content {
+        padding-top: 30px;
+        padding-bottom: 0 !important;
+    }
+
+    .row {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+
+    .flexsys {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .matters-icon {
+        text-align: center;
+        width: 100% !important;
+        margin-bottom: 25px;
+    }
+
+    .service-item .down-content-sub h6 {
+        padding-bottom: 10px;
+        text-align: center !important;
+    }
+
+    .service-item .down-content-sub p {
+        text-align: center;
+    }
+
+    .section-heading {
+        margin-bottom: 10px !important;
+    }
+
+    .mobile-app h6 {
+        margin-top: 20px;
+        font-size: 12px !important;
+    }
+
+    .mobile-app p {
+        font-size: 12px !important;
+    }
+
+    .title-heading {
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+
+    .erp-detail p {
+        font-size: 12px !important;
+        text-align: center;
+    }
+
+    .list-resp li {
+        font-size: 14px;
+    }
+}
