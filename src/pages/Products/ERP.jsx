@@ -292,6 +292,9 @@ const ERP = () => {
                 loop={true}
                 autoplay={{ delay: 3000 }}
                 breakpoints={{
+                  250: {
+                    slidesPerView: 1,
+                  },
                   350: {
                     slidesPerView: 1,
                   },

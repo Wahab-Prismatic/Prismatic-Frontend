@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import HeroSectionMain from '../components/HeroSectionMain';
 import BusinessProbCard from '../components/BusinessProbCard';
 import BusinessSolsSection from '../components/BusinessSolsSection';

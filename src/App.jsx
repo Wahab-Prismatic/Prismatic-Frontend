@@ -1,6 +1,5 @@
 
 import './App.css'
-// import BlogsSection from './components/BlogsSection';
 import { Suspense, lazy } from 'react';
 import ErrorBoundary from './services/ErrorBoundry.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -24,7 +23,6 @@ const CareerForm = lazy(() => import('./pages/CareerForm.jsx'));
 const Blogs = lazy(() => import('./pages/Blogs.jsx'));
 const ContactUs = lazy(() => import('./pages/ContactUs.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound'));
-
 
 function App() {
 
