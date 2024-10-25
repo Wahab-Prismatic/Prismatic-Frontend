@@ -1,18 +1,42 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchBlogs } from '../redux/slices/blogSlice';
 import '../assets/css/Blogs.css';
 import BlogImg from '../assets/images/Blogs.jpg';
-import Loader from '../common/Loader';
+import { ShimmerPostList } from 'react-shimmer-effects';
 
 const Blogs = () => {
+    const [columns, setColumns] = useState(3); // Default column lenght is '3'
     const dispatch = useDispatch();
     const { blogs, loading, error } = useSelector((state) => state.blogs);
 
     useEffect(() => {
         dispatch(fetchBlogs());
+
+        // Function to update columns based on window width
+        const updateColumns = () => {
+            const width = window.innerWidth;
+            if (width <= 576) {
+                setColumns(1); // For Mobile Devices 
+            } else if (width <= 768) {
+                setColumns(2); // For Tablet Devices
+            } else {
+                setColumns(3); // For Desktop Devices
+            }
+        };
+
+        // Set initial columns based on screen size
+        updateColumns();
+
+        // Add resize event listener
+        window.addEventListener('resize', updateColumns);
+
+        // Cleanup the event listener on component unmount
+        return () => window.removeEventListener('resize', updateColumns);
     }, [dispatch]);
+
+
     return (
         <>
             <div className="products-header-wrapper">
@@ -52,10 +76,19 @@ const Blogs = () => {
                         {/* Blogs area start */}
                         <div className="container">
                             <div className="row">
-                                {loading && <Loader/>} {/* Display loader */}
-                                {error && <p>Error fetching blogs: {error}</p>} {/* Handle errors */}
-                                {!loading && blogs.length > 0 ? (
-                                    blogs.map((blog) => (
+                                {loading && blogs.length > 0 ?
+                                    <>
+                                        {Array.from({ length: 6 }).map((index) => (
+                                            <ShimmerPostList 
+                                                postStyle="STYLE_FOUR" 
+                                                col={columns}  // Dynamic set columns based on screens size
+                                                row={2} 
+                                                gap={30} 
+                                                key={index} 
+                                            />
+                                        ))}
+                                    </>
+                                    : blogs?.map((blog) => (
                                         <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{ marginBottom: '40px' }}>
                                             <div className="single-blog-item blog-grid">
                                                 <div className="post-feature blog-thumbnail">
@@ -94,9 +127,7 @@ const Blogs = () => {
                                             </div>
                                         </div>
                                     ))
-                                ) : (
-                                    <p>No Record Found...</p>
-                                )}
+                                }
                             </div>
                         </div>
                     </div>

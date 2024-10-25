@@ -111,8 +111,8 @@ h1, h2, h3, h4, h6 {
     .text-content {
         text-align: left !important;
         width: 90% !important;
-        left: 10% !important;
-        top: 20% !important;
+        left: 50% !important;
+        top: 46% !important;
     }
 
     .P-header-text h6 {
@@ -161,8 +161,8 @@ h1, h2, h3, h4, h6 {
     .text-content {
         text-align: left !important;
         width: 70% !important;
-        left: 10% !important;
-        top: 15% !important;
+        left: 40% !important;
+        top: 48% !important;
     }
 
     .P-header-text h6 {
