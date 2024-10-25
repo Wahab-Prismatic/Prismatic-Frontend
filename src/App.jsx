@@ -1,6 +1,6 @@
 
 import './App.css'
-import { Suspense, lazy } from 'react';
+import { Suspense, lazy, useState } from 'react';
 import ErrorBoundary from './services/ErrorBoundry.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Spinner from './common/Spinner.jsx';
@@ -24,10 +24,8 @@ const Blogs = lazy(() => import('./pages/Blogs.jsx'));
 const ContactUs = lazy(() => import('./pages/ContactUs.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
-function App() {
-
+function App() {  
   const Loader = () => <Spinner isCentered={true} />
-
   return (
     <>
       <div>

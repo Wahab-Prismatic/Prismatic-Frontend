@@ -4,30 +4,10 @@ import PolgoneImg from '../../assets/images/erp/polgone.png';
 import PrisHeroImg from '../../assets/images/erp/pris-hero-img.png';
 import PolygoneImg from '../../assets/images/erp/polygon.png';
 import EllipseImg from '../../assets/images/erp/Ellipse 2.png'
-import CardImg from '../../assets/images/erp/card-img-1.png';
 import HealthCareImg from '../../assets/images/erp/Healthcare.png';
 import ManufacturingImg from '../../assets/images/erp/Manufacturing-industry.png';
 import BankingImg from '../../assets/images/erp/Banking.png';
 import RetailImg from '../../assets/images/erp/Retail.png';
-import Logo24Img from '../../assets/images/erp/our-clients/Logos-24.png';
-import Logo13Img from '../../assets/images/erp/our-clients/Logos-13.png';
-import Logo20Img from '../../assets/images/erp/our-clients/Logos-20.png';
-import Logo18Img from '../../assets/images/erp/our-clients/Logos-18.png';
-import Logo08Img from '../../assets/images/erp/our-clients/Logos-08.png';
-import Logo10Img from '../../assets/images/erp/our-clients/Logos-10.png';
-import Logo05Img from '../../assets/images/erp/our-clients/Logos-05.png';
-import Logo07Img from '../../assets/images/erp/our-clients/Logos-07.png';
-import Logo11Img from '../../assets/images/erp/our-clients/Logos-11.png';
-import Logo12Img from '../../assets/images/erp/our-clients/Logos-12.png';
-import Logo19Img from '../../assets/images/erp/our-clients/Logos-19.png';
-import Logo03Img from '../../assets/images/erp/our-clients/Logos-03.png';
-import Logo01Img from '../../assets/images/erp/our-clients/Logos-01.png';
-import Logo02Img from '../../assets/images/erp/our-clients/Logos-02.png';
-import Logo14Img from '../../assets/images/erp/our-clients/Logos-14.png';
-import Logo15Img from '../../assets/images/erp/our-clients/Logos-15.png';
-import Logo16Img from '../../assets/images/erp/our-clients/Logos-16.png';
-import Logo22Img from '../../assets/images/erp/our-clients/Logos-22.png';
-import Logo23Img from '../../assets/images/erp/our-clients/Logos-23.png';
 import VideoPlayBtn from '../../assets/images/erp/video-ply-btn.webp';
 import VideoPostureImg from '../../assets/images/erp/ERP-video-posture.png';
 import ClientVideo from '../../assets/images/erp/ERP-Testimonial-video.mp4';
@@ -35,29 +15,12 @@ import '../../assets/css/ERP.css';
 import { useEffect, useRef } from 'react';
 import Aos from 'aos';
 import { Swiper, SwiperSlide } from 'swiper/react';
+// Import Swiper CSS modules
+import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
+import { clientLogos, featuresData } from '../../services';
 
-const clientLogos = [
-  { src: Logo24Img, alt: "client-logo-24" },
-  { src: Logo13Img, alt: "client-logo-13" },
-  { src: Logo20Img, alt: "client-logo-20" },
-  { src: Logo18Img, alt: "client-logo-18" },
-  { src: Logo08Img, alt: "client-logo-8" },
-  { src: Logo10Img, alt: "client-logo-10" },
-  { src: Logo05Img, alt: "client-logo-5" },
-  { src: Logo07Img, alt: "client-logo-7" },
-  { src: Logo11Img, alt: "client-logo-11" },
-  { src: Logo12Img, alt: "client-logo-12" },
-  { src: Logo19Img, alt: "client-logo-19" },
-  { src: Logo03Img, alt: "client-logo-3" },
-  { src: Logo01Img, alt: "client-logo-1" },
-  { src: Logo02Img, alt: "client-logo-2" },
-  { src: Logo14Img, alt: "client-logo-14" },
-  { src: Logo15Img, alt: "client-logo-15" },
-  { src: Logo16Img, alt: "client-logo-16" },
-  { src: Logo22Img, alt: "client-logo-22" },
-  { src: Logo23Img, alt: "client-logo-23" },
-];
+
 
 const ERP = () => {
   const videoRef = useRef(null);
@@ -76,41 +39,6 @@ const ERP = () => {
   useEffect(() => {
     Aos.init();
   }, []);
-
-  const featuresData = [
-    {
-      image: CardImg,
-      title: 'Productive Collaboration',
-      description:
-        'Our ERP software provides an effortless workflow, so data can be shared across departments. Better Communication = Better Decisions',
-      aosDuration: 1000,
-      customMarginClass: '',
-    },
-    {
-      image: CardImg,
-      title: 'Handles Costs and Finances',
-      description:
-        'Our ERP platform does all the financial work for you. From data automation to richly detailed financial reports, your business finances will be in check!',
-      aosDuration: 2000,
-      customMarginClass: 'mt-70',
-    },
-    {
-      image: CardImg,
-      title: 'Best Customer Experience',
-      description:
-        'Our software simplifies interaction with customers by monitoring their data and buying trends, so you can ALWAYS stay in the loop.',
-      aosDuration: 3000,
-      customMarginClass: 'mt-140',
-    },
-    {
-      image: CardImg,
-      title: 'Inventory Management',
-      description:
-        'Our ERP system tracks stock levels, automates reorders, and ensures you never run out of essential items. Keep your supply chain smooth and efficient!',
-      aosDuration: 3000,
-      customMarginClass: 'mt-210',
-    },
-  ];
 
   return (
     <>
@@ -198,7 +126,7 @@ const ERP = () => {
                   about ERP software system – it can always be modified to fit what your business requires. <br />
                   Prismatic’s best accounting software in Pakistan does not come with a one-size fits all approach.
                 </p>
-                <Link to="/contact-us" className="btn pri-demo-btn" onClick={() => window.scrollTo(0,0)}>
+                <Link to="/contact-us" className="btn pri-demo-btn" onClick={() => window.scrollTo(0, 0)}>
                   Inquire Now
                   <img src={DemoImg} draggable={false} alt="" className="demo-img" />
                 </Link>
@@ -286,62 +214,64 @@ const ERP = () => {
               </div>
             </div>
             <div className="col-md-12">
-              <Swiper
-                modules={[Autoplay]}
-                slidesPerView={4}
-                loop={true}
-                autoplay={{ delay: 3000 }}
-                breakpoints={{
-                  250: {
-                    slidesPerView: 1,
-                  },
-                  350: {
-                    slidesPerView: 1,
-                  },
-                  400: {
-                    slidesPerView: 1,
-                  },
-                  576: {
-                    slidesPerView: 2, // 1 slide on small devices (mobile)
-                  },
-                  768: {
-                    slidesPerView: 2, // 2 slides on medium devices (tablets)
-                  },
-                  992: {
-                    slidesPerView: 3, // 3 slides on large devices (small desktops)
-                  },
-                  1200: {
-                    slidesPerView: 4, // 4 slides on extra-large devices (large desktops)
-                  },
-                }}
-                className="mySwiper justify-content-center"
-              >
-                <SwiperSlide>
-                  <div className="slide-content">
-                    <img src={HealthCareImg} alt="Healthcare" className="img-fluid" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide >
-                  <div className="slide-content">
-                    <img src={ManufacturingImg} alt="Manufacturing" className="img-fluid" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="slide-content">
-                    <img src={BankingImg} alt="Banking" className="img-fluid" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="slide-content">
-                    <img src={RetailImg} alt="Retail" className="img-fluid" />
-                  </div>
-                </SwiperSlide>
-                <SwiperSlide>
-                  <div className="slide-content">
-                    <img src={ManufacturingImg} alt="Manufacturing" className="img-fluid" />
-                  </div>
-                </SwiperSlide>
-              </Swiper>
+              <div className="swiper-container">
+                <Swiper
+                  modules={[Autoplay]}
+                  slidesPerView={4}
+                  loop={true}
+                  autoplay={{ delay: 3000 }}
+                  breakpoints={{
+                    250: {
+                      slidesPerView: 1,
+                    },
+                    350: {
+                      slidesPerView: 1,
+                    },
+                    400: {
+                      slidesPerView: 1,
+                    },
+                    576: {
+                      slidesPerView: 2, // 1 slide on small devices (mobile)
+                    },
+                    768: {
+                      slidesPerView: 2, // 2 slides on medium devices (tablets)
+                    },
+                    992: {
+                      slidesPerView: 3, // 3 slides on large devices (small desktops)
+                    },
+                    1200: {
+                      slidesPerView: 4, // 4 slides on extra-large devices (large desktops)
+                    },
+                  }}
+                  className="mySwiper justify-content-center"
+                >
+                  <SwiperSlide>
+                    <div className="slide-content">
+                      <img src={HealthCareImg} alt="Healthcare" className="img-fluid" />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide >
+                    <div className="slide-content">
+                      <img src={ManufacturingImg} alt="Manufacturing" className="img-fluid" />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="slide-content">
+                      <img src={BankingImg} alt="Banking" className="img-fluid" />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="slide-content">
+                      <img src={RetailImg} alt="Retail" className="img-fluid" />
+                    </div>
+                  </SwiperSlide>
+                  <SwiperSlide>
+                    <div className="slide-content">
+                      <img src={ManufacturingImg} alt="Manufacturing" className="img-fluid" />
+                    </div>
+                  </SwiperSlide>
+                </Swiper>
+              </div>
               <div className="swiper-pagination"></div>
             </div>
           </div>
