@@ -1,4 +1,4 @@
-import './OurLocations.css';
+import '../assets/css/OurLocations.css';
 import pakImage from '../assets/images/locations/pak.svg';
 import USImage from '../assets/images/locations/usa.svg';
 import KSAImage from '../assets/images/locations/saudi.svg';

@@ -1,4 +1,4 @@
-import './BusinessProbCard.css';
+import '../assets/css/BusinessProbCard.css';
 import LMSImage from '../assets/icons/homepage-icons/color-icon/LMS.png';
 import CRMImage from '../assets/icons/homepage-icons/color-icon/CRM.png';
 import ERPIMage from '../assets/icons/homepage-icons/color-icon/Event-Management-Software.png';

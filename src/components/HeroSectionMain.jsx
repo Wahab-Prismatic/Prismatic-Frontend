@@ -1,4 +1,4 @@
-import './HeroSectionMain.css'
+import '../assets/css/HeroSectionMain.css';
 import Aos from 'aos';
 import servicesData from '../services/HeroSectionService';
 // Import Swiper modules

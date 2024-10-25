@@ -1,44 +1,5 @@
-import React from 'react';
-import './OurTechSection.css';
-import frameworkImage from '../assets/images/frame-work-icon.png';
-import cmsImage from '../assets/images/cms-icon.jpg';
-import eCommImage from '../assets/images/ecommerce-icon.jpg';
-import MobDevelopImage from '../assets/images/mobile-develempment-icon.png';
-import designingImage from '../assets/images/desgining-icon.png';
-import IntegrationImage from '../assets/images/integration.png';
-
-const techData = [
-  {
-    image: frameworkImage,
-    title: 'Frameworks',
-    description: 'We work on cutting-edge technologies like ASP.Net, AngularJs, ReactJs, VueJs, React Native, Node.Js, latest html techniques for more attractive user interface.',
-  },
-  {
-    image: cmsImage,
-    title: 'CMS',
-    description: 'We provide complete solutions for content management using the latest technology-based CMS (Umbraco, Kentico, WordPress).',
-  },
-  {
-    image: eCommImage,
-    title: 'Ecommerce Solution',
-    description: 'WordPress/WooCommerce is popular for Ecommerce solutions, but we also offer Umbraco solutions as well.',
-  },
-  {
-    image: MobDevelopImage,
-    title: 'Mobile Development',
-    description: 'Our expert mobile development team creates innovative mobile apps, delivering unique and advanced solutions for business growth.',
-  },
-  {
-    image: designingImage,
-    title: 'Design Work',
-    description: 'Our team creates intuitive user experiences wrapped in beautiful designs, leveraging the latest technologies according to specifications.',
-  },
-  {
-    image: IntegrationImage,
-    title: 'Integrations',
-    description: 'Our team ensures seamless connectivity and collaboration across various components, enabling software to operate at its full potential.',
-  },
-];
+import '../assets/css/OurTechSection.css';
+import { techData } from '../services';
 
 const OurTechSection = () => {
   return (

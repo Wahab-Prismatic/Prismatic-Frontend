@@ -1,5 +1,4 @@
-import React from 'react'
-import './TrustPrisSection.css';
+import '../assets/css/TrustPrisSection.css';
 
 const TrustPrisSection = () => {
   return (

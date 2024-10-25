@@ -1,5 +1,4 @@
-import React from 'react'
-import './WhyChooseCardSection.css';
+import '../assets/css/WhyChooseCardSection.css';
 import { ChooseUsData } from '../services/WhyChooseCardService';
 
 const WhyChooseCardSection = () => {

@@ -1,4 +1,4 @@
-import './TestimonialSection.css';
+import '../assets/css/TestimonialSection.css';
 import winBidImage from '../assets/icons/winbid1.png';
 import stairwayImage from '../assets/icons/stairways.png';
 import ceramicsImage from '../assets/icons/timeceramics.png';

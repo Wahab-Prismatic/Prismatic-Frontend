@@ -1,7 +1,7 @@
 // Import Swiper Modules
 import { Swiper, SwiperSlide } from "swiper/react";
 import clientsData from "../services/OurClientsService";
-import './OurClientsSection.css';
+import '../assets/css/OurClientsSection.css';
 import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
 // Import Swiper CSS modules
 import 'swiper/css';

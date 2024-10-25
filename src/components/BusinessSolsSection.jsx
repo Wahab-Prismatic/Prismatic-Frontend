@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './BusinessSolsSection.css';
+import '../assets/css/BusinessSolsSection.css';
 
 const BusinessSolsSection = () => {
     return (
