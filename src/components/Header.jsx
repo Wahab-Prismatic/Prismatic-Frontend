@@ -106,6 +106,16 @@ const Header = () => {
 
         // Dispatch the form submission action
         dispatch(submitContactForm(formData));
+        setFormData({
+            name: '',
+            email: '',
+            phone: '',
+            companyName: '',
+            subject: '',
+            message: '',
+            'g-recaptcha-response': ''
+        });
+        setCaptchaValue(null);
     };
 
     return (
