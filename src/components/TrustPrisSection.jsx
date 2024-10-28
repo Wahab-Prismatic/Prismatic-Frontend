@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import '../assets/css/TrustPrisSection.css';
 
 const TrustPrisSection = () => {
@@ -14,7 +15,7 @@ const TrustPrisSection = () => {
                           <br/><br/>
                           Get in touch with us today for quick business management solutions at market-competitive prices.
                       </p>
-                      <a href="about-us" className="p-read-more"><button>Read More</button></a>
+                      <Link to="/about-us" onClick={() => window.scrollTo(0, 0)} className="p-read-more"><button>Read More</button></Link>
                   </div>
               </div>
               <div className="col-lg-6 col-md-12 align-self-center">

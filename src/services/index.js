@@ -67,6 +67,51 @@ import MobDevelopImage from '../assets/images/mobile-develempment-icon.png';
 import designingImage from '../assets/images/desgining-icon.png';
 import IntegrationImage from '../assets/images/integration.png';
 
+export const portfolios = {
+  websites: [
+      "../assets/portfolio-images/website-portfolio/dunkin.jpg",
+      "../assets/portfolio-images/website-portfolio/winbid.jpg",
+      "../assets/portfolio-images/website-portfolio/topfix.jpg",
+      "../assets/portfolio-images/website-portfolio/timesCrimes.jpg",
+      "../assets/portfolio-images/website-portfolio/techzology.jpg",
+      "../assets/portfolio-images/website-portfolio/petandu.jpg",
+      "../assets/portfolio-images/website-portfolio/jfoster.jpg",
+      "../assets/portfolio-images/website-portfolio/aamc.jpg",
+  ],
+  digitalMarketing: [
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-1.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-4.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-14.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-12.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-5.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-6.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-8.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-9.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-10.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-11.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-13.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-2.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-7.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-3.jpg",
+
+
+
+      // add more images here as needed
+  ],
+  learningManagementSystem: [
+      "../assets/portfolio-images/lms-portfolio/aamc-lms.jpg",
+      "../assets/portfolio-images/lms-portfolio/pny-lms.jpg",
+      "../assets/portfolio-images/lms-portfolio/pris-lms.jpg",
+  ],
+  erpSoftware: [
+      "../assets/portfolio-images/ERP-portfolio/Al-ALEEM-MEDICAL-COLLEGE.webp",
+      "../assets/portfolio-images/ERP-portfolio/Dunkin-Donuts.webp",
+      "../assets/portfolio-images/ERP-portfolio/PNY.webp",
+      "../assets/portfolio-images/ERP-portfolio/Prismatic.webp",
+      "../assets/portfolio-images/ERP-portfolio/Zubeer.webp"
+  ],
+};
+
 export const techData = [
   {
     image: frameworkImage,

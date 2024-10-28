@@ -10,7 +10,7 @@ const MobAppDev = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                <img src={MobAppImg} title="mobile-app" />
+                <img src={MobAppImg} title="mobile-app" draggable={false} />
                 <div className="P-header-text text-content">
                     <h6 className='my-2' style={{color: '#ffbf34', fontWeight: 'bold'}}>Expand your business potential</h6>
                     <h4>Create the perfect mobile app according to your needs!</h4>
@@ -32,7 +32,7 @@ const MobAppDev = () => {
 
                         <div className="col-md-6">
                             <div className="service-item">
-                                <img src={MobAppImg1} alt="Mobile-App" title="Mobile-App" style={{ width: '100%', borderRadius: '20px' }} />
+                                <img src={MobAppImg1} alt="Mobile-App" title="Mobile-App" style={{ width: '100%', borderRadius: '20px' }} draggable={false} />
                             </div>
                         </div>
 
@@ -40,7 +40,7 @@ const MobAppDev = () => {
                             <div className="row">
                                 <div className="service-item flexsys row">
                                     <div className="col-lg-2 col-md-3 matters-icon app-icon mob">
-                                        <img src={AppDevImg} alt="App-development" title="App-development" />
+                                        <img src={AppDevImg} style={{ marginLeft: '10px' }} alt="App-development" title="App-development" draggable={false} />
                                     </div>
                                     <div className="col-lg-10 col-md-9 matters-desc">
                                         <div className="down-content-sub">
@@ -52,7 +52,7 @@ const MobAppDev = () => {
 
                                 <div className="service-item flexsys row m-0">
                                     <div className="col-lg-2 col-md-3 matters-icon app-icon">
-                                        <img src={UIUX_Icon} alt="smart-UIUX" title="smart-UIUX" />
+                                        <img src={UIUX_Icon} alt="smart-UIUX" title="smart-UIUX" draggable={false} />
                                     </div>
                                     <div className="col-lg-10 col-md-9 matters-desc">
                                         <div className="down-content-sub">
@@ -64,7 +64,7 @@ const MobAppDev = () => {
 
                                 <div className="service-item flexsys row m-0">
                                     <div className="col-lg-2 col-md-3 matters-icon app-icon">
-                                        <img src={APiIcon} alt="API" title="API" />
+                                        <img src={APiIcon} alt="API" title="API" draggable={false} />
                                     </div>
                                     <div className="col-lg-10 col-md-9 matters-desc">
                                         <div className="down-content-sub">
@@ -91,7 +91,7 @@ const MobAppDev = () => {
 
                             <div className="col-md-6">
                                 <div className="service-item">
-                                    <img src={MObAppImg2} alt="mobile-app" title="mobile-app" style={{ width: '100%', borderRadius: '20px' }} />
+                                    <img src={MObAppImg2} alt="mobile-app" title="mobile-app" style={{ width: '100%', borderRadius: '20px' }} draggable={false} />
                                 </div>
                             </div>
 

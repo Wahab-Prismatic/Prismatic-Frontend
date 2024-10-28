@@ -1,4 +1,3 @@
-import React from 'react';
 // Images
 import questLogo from '../assets/images/clients/quest-logo.webp';
 import gulabdeviLogo from '../assets/images/clients/gulabdevi.webp';

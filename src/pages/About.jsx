@@ -66,7 +66,7 @@ const About = () => {
                                 </div>
                             </div>
 
-                            <Link to="/contact-us" className="p-read-more btn1">
+                            <Link to="/contact-us" onClick={() => window.scrollTo(0, 0)} className="p-read-more btn1">
                                 <button className="contact-us-bt" style={{ marginTop: '36px' }}>Contact us</button>
                             </Link>
 

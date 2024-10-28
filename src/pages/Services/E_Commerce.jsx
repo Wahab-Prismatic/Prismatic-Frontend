@@ -377,8 +377,6 @@ const E_Commerce = () => {
                     <div className="row">
                         <div className="col-lg-12">
                             <Swiper
-                                pagination={{ clickable: true }}
-                                navigation={true}
                                 loop={true}
                                 className="responsive"
                             >
