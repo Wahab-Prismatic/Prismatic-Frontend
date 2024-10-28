@@ -1,23 +1,47 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
+import { submitContactForm, clearMessages } from '../redux/slices/contactFormSlice';
 import '../assets/css/Header.css';
 import ReCAPTCHA from 'react-google-recaptcha';
 import Navbar from '../common/Navbar';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Header = () => {
+    const dispatch = useDispatch();
+    const { loading, successMessage, errorMessage, errors } = useSelector((state) => state.contactForm);
+
     const [captchaValue, setCaptchaValue] = useState(null);
     const [isTopbarVisible, setIsTopbarVisible] = useState(true);
     const [isTopbarHidden, setIsTopbarHidden] = useState(window.innerWidth <= 991);
     const [formData, setFormData] = useState({
-        full_name: '',
+        name: '',
         email: '',
         phone: '',
-        Company_name: '',
-        want_to_purchase: '',
-        message: ''
+        companyName: '',
+        subject: '',
+        message: '',
+        'g-recaptcha-response': '6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
     });
 
+    const services = {
+        "erp-software": "ERP Software",
+        "crm-software": "CRM Software",
+        "lms-software": "LMS Software",
+        "hrm-software": "HRM Software",
+        "e-commerce-website": "E-Commerce Website",
+        "mobile-application-development": "Mobile Application Development",
+        "pos-system": "POS System",
+        "digital-marketing": "Digital Marketing",
+        "website-development": "Website Development",
+        "customized-software-solutions": "Customized Software Solutions",
+        "shopify": "Shopify",
+        "wordpress": "WordPress"
+    };
+
+
     useEffect(() => {
+        dispatch(clearMessages());
+
         const handleResize = () => {
             setIsTopbarHidden(window.innerWidth <= 991);
         };
@@ -32,7 +56,7 @@ const Header = () => {
         return () => {
             window.removeEventListener('resize', handleResize);
         };
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -56,38 +80,32 @@ const Header = () => {
 
     // Handle change input
     const handleChange = (e) => {
-        setFormData({
-            ...formData,
-            [e.target.name]: e.target.value
-        });
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
     };
 
     // Handle reCAPTCHA change
     const onCaptchaChange = (value) => {
         setCaptchaValue(value);
+        setFormData((prevData) => ({
+            ...prevData,
+            'g-recaptcha-response': value,
+        }))
     }
 
     // Handle from submit
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (!captchaValue) {
-            alert('Please verify the reCAPTCHA');
-            return;
-        }
+        // if(!captchaValue) {
+        //     alert('Please verify the reCAPTCHA');
+        //     return;
+        // }
 
-        console.log('Form data:', formData);
-        console.log('reCAPTCHA value:', captchaValue);
-
-        // Clear form fields
-        setFormData({
-            full_name: '',
-            email: '',
-            phone: '',
-            Company_name: '',
-            want_to_purchase: '',
-            message: ''
-        });
-        setCaptchaValue(null);
+        // Dispatch the form submission action
+        dispatch(submitContactForm(formData));
     };
 
     return (
@@ -116,6 +134,7 @@ const Header = () => {
                                                 className="nav-link book-demo"
                                                 data-bs-target="#registerModal1"
                                                 data-bs-toggle="modal"
+                                                // to="/contact-us"
                                                 style={{ fontSize: '16px', backgroundColor: '#fff', color: '#0274b8', padding: '5px 23px', display: 'flex', alignItems: 'center', fontWeight: 600, cursor: 'pointer' }}
                                             >
                                                 <span>Get a demo</span>
@@ -141,6 +160,8 @@ const Header = () => {
                             <div className="modal-body">
                                 <form action="/post-inquiry-information" method="POST" encType="multipart/form-data" onSubmit={handleSubmit}>
                                     <div className="row">
+                                    {successMessage && <div className="alert alert-success success_alert" role="alert">{successMessage}</div>}
+                                    {errorMessage && <div className="alert alert-danger danger_alert" role="alert">{errorMessage}</div>}
                                         <div className="col-lg-6 col-md-6">
                                             <div className="form-group">
                                                 <div className="input-group">
@@ -150,9 +171,9 @@ const Header = () => {
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        name="full_name"
+                                                        name="name"
                                                         placeholder="Full Name"
-                                                        value={formData.full_name}
+                                                        value={formData.name}
                                                         onChange={handleChange}
                                                         required
                                                     />
@@ -206,9 +227,9 @@ const Header = () => {
                                                     <input
                                                         type="text"
                                                         className="form-control"
-                                                        name="Company_name"
+                                                        name="companyName"
                                                         placeholder="Company Name"
-                                                        value={formData.Company_name}
+                                                        value={formData.companyName}
                                                         onChange={handleChange}
                                                         required
                                                     />
@@ -226,28 +247,24 @@ const Header = () => {
                                                     <select
                                                         className="form-select"
                                                         id="want_to_purchase"
-                                                        name="want_to_purchase"
-                                                        value={formData.want_to_purchase}
+                                                        name="subject"
+                                                        value={formData.subject}
                                                         onChange={handleChange}
                                                         required
                                                     >
-                                                        <option value="">Software Required</option>
-                                                        <option value="ERP Software">ERP Software</option>
-                                                        <option value="CRM Software">CRM Software</option>
-                                                        <option value="LMS Software">LMS Software</option>
-                                                        <option value="E-Commerce Website">E-Commerce Website</option>
-                                                        <option value="Mobile Application Development">Mobile Application Development</option>
-                                                        <option value="POS System">POS System</option>
-                                                        <option value="Digital Marketing">Digital Marketing</option>
-                                                        <option value="Website Development">Website Development</option>
-                                                        <option value="Customized Software Solutions">Customized Software Solutions</option>
+                                                        <option value="" disabled>Select a Service</option>
+                                                        {Object.entries(services).map(([key, service]) => (
+                                                            <option key={key} value={service}>
+                                                                {service}
+                                                            </option>
+                                                        ))}
                                                     </select>
                                                 </div>
                                             </div>
                                         </div>
                                         <div className="col-lg-12 col-md-12">
                                             <div className="form-group">
-                                                <label htmlFor="comment">Your Message:</label>
+                                                <label htmlFor="message">Your Message:</label>
                                                 <textarea
                                                     className="form-control"
                                                     rows="5"
@@ -256,14 +273,19 @@ const Header = () => {
                                                     value={formData.message}
                                                     onChange={handleChange}
                                                     style={{ resize: 'none' }}
-                                                ></textarea>
+                                                    required
+                                                />
                                             </div>
                                         </div>
                                         <div className="col-lg-12 form-group">
-                                            <ReCAPTCHA
-                                                sitekey='6LcuCLUcAAAAAOEjErKv3Uoj5foxMOSC5l-YL5b2'
-                                                onChange={onCaptchaChange}
-                                            />
+                                            <div className="form-group recaptcha-container">
+                                                <ReCAPTCHA
+                                                name="g-recaptcha-response"
+                                                value={formData['g-recaptcha-response']}
+                                                    sitekey='6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
+                                                    onChange={onCaptchaChange}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                     <div className="form-group text-center">

@@ -1,3 +1,15 @@
+/* Topbar styling */
+.topbar {
+    position: relative;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    height: 55px;
+    display: flex;
+    align-items: center;
+}
+
 #myModalDef {
     display: none;
     position: fixed;
@@ -36,27 +48,6 @@ body.modal-open {
     width: 55px;
     height: auto;
     border: 2px solid #fff;
-}
-
-@media (min-width: 767px) {
-    #contact-form {
-        padding: 60px !important;
-    }
-}
-
-@media only screen and (max-width: 767px) {
-
-    .header__logo {
-        -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
-    }
-}
-
-@media only screen and (max-width: 988px) {
-    .header__logo {
-        -ms-flex-preferred-size: 50%;
-        flex-basis: 50%;
-    }
 }
 
 .jxPOhn a {
@@ -230,6 +221,8 @@ div#fb-root {
     position: absolute;
     right: 12px;
     top: 5px;
+    padding: 0;
+    background-color: white;
 }
 
 .modal-style-1 .close:focus,
@@ -240,6 +233,10 @@ div#fb-root {
 
 .modal-style-1 .modal-login a {
     text-decoration: none;
+}
+
+.form-group {
+    margin-bottom: 1rem;
 }
 
 .modal-style-1 .modal-login form {
@@ -269,9 +266,7 @@ div#fb-root {
 }
 
 .modal-style-1 select.form-control {
-
     font-size: 13px;
-
 }
 
 .modal-style-1 .btn-signin {
@@ -317,21 +312,6 @@ div#fb-root {
     color: #777 !important;
 }
 
-@media only screen and (max-width: 360px) {
-    .modal-style-1 .modal-login {
-        width: 100%;
-        margin: 5px;
-    }
-
-    .modal-style-1 .modal-login form {
-        width: 100%;
-    }
-
-    .modal-style-1 .btn-signin {
-        width: 40%;
-    }
-}
-
 .modal-style-1 input.form-control select.form-control {
     font-size: 13px;
 }
@@ -354,9 +334,13 @@ h4 {
 }
 
 .close {
-    position: absolute;
-    right: 12px;
-    top: 5px;
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
 }
 
 .input-group-addon {
@@ -365,24 +349,13 @@ h4 {
     font-size: 1rem;
     font-weight: 400;
     line-height: 1.25;
-    color: #464a4c;
+    color: #fff;
     text-align: center;
-    background-color: #eceeef;
+    background-color: #0274B8;
     border: 1px solid rgba(0, 0, 0, .15);
     border-radius: .25rem;
-}
-
-.input-group-addon {
-    padding: .5rem .75rem;
-    margin-bottom: 0;
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.25;
-    color: #464a4c;
-    text-align: center;
-    background-color: #eceeef;
-    border: 1px solid rgba(0, 0, 0, .15);
-    border-radius: .25rem;
+    width: 50px;
+    height: 45px;
 }
 
 .input-group .form-control,
@@ -403,19 +376,6 @@ h4 {
     justify-content: center;
 }
 
-/* Topbar styling */
-.topbar {
-    position: relative;
-    top: 0;
-    width: 100%;
-    z-index: 1000; 
-    transition: transform 0.3s ease, opacity 0.3s ease;
-    height: 55px;
-    display: flex;
-    align-items: center;
-    
-}
-
 @media (max-width: 1199px) {
     .num1 {
         width: 48% !important;
@@ -426,6 +386,12 @@ h4 {
     }
 }
 
+@media (max-width: 988px) {
+    .header__logo {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    }
+}
 
 @media (max-width: 991px) {
     .topbar {
@@ -433,3 +399,31 @@ h4 {
     }
   }
 
+@media (min-width: 767px) {
+    #contact-form {
+        padding: 60px !important;
+    }
+}
+
+@media (max-width: 767px) {
+
+    .header__logo {
+        -ms-flex-preferred-size: 50%;
+        flex-basis: 50%;
+    }
+}
+
+@media (max-width: 360px) {
+    .modal-style-1 .modal-login {
+        width: 100%;
+        margin: 5px;
+    }
+
+    .modal-style-1 .modal-login form {
+        width: 100%;
+    }
+
+    .modal-style-1 .btn-signin {
+        width: 40%;
+    }
+}
