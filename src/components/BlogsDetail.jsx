@@ -109,13 +109,13 @@ const BlogsDetail = () => {
                                             <div className="lpa-left media-body">
                                                 <div className="lpa-title">
                                                     <h5>
-                                                        <Link to={`/blogs/${b.slug}`}>
+                                                        <Link to={`/blogs/${b.slug}`} onClick={window.scrollTo(0, 0)}>
                                                             {b.title}
                                                         </Link>
                                                     </h5>
                                                 </div>
                                                 <div className="lpa-meta">
-                                                    <Link to={`/blogs/${b.slug}`} className="name">admin</Link>
+                                                    <Link to={`/blogs/${b.slug}`} className="name" onClick={window.scrollTo(0, 0)}>admin</Link>
                                                     <Link to={`/blogs/${b.slug}`} className="date">
                                                         {new Date(b.created_at).toLocaleDateString('en-GB', {
                                                             year: 'numeric',

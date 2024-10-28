@@ -142,7 +142,10 @@ const Portfolio = () => {
                 {isLoading ? (
                     // Render shimmer effect while loading
                     Array.from({ length: 6 }).map((_, index) => (
-                        <ShimmerSimpleGallery key={index} card={true} />
+                        <ShimmerSimpleGallery 
+                            key={index} 
+                            card={true} 
+                        />
                     ))
                 ) : (
                     Object.entries(portfolios).map(([category, images], categoryIndex) => (
