@@ -36,6 +36,18 @@ const Blogs = () => {
         return () => window.removeEventListener('resize', updateColumns);
     }, [dispatch]);
 
+    const renderErrorMessage = () => {
+        if (!error) return null;
+
+        const message = error.message || 'An enexpected error occurred. Please check you request endpoint.'
+        const statusMessage = error.status ? `Error ${error.status}:` : '';
+
+        return (
+            <div className="alert alert-danger text-center" role="alert">
+                {statusMessage}{message}
+            </div>
+        );
+    }
 
     return (
         <>
@@ -48,6 +60,7 @@ const Blogs = () => {
             </div>
             <div id="main-wrapper">
                 <div className="site-wrapper-reveal">
+                    {renderErrorMessage()}
                     <div className="about-banner-wrap banner-space processing-hero-bg">
                         <div className="container">
                             <div className="row">
@@ -79,12 +92,12 @@ const Blogs = () => {
                                 {loading && blogs.length > 0 ?
                                     <>
                                         {Array.from({ length: 6 }).map((index) => (
-                                            <ShimmerPostList 
-                                                postStyle="STYLE_FOUR" 
+                                            <ShimmerPostList
+                                                postStyle="STYLE_FOUR"
                                                 col={columns}  // Dynamic set columns based on screens size
-                                                row={2} 
-                                                gap={30} 
-                                                key={index} 
+                                                row={2}
+                                                gap={30}
+                                                key={index}
                                             />
                                         ))}
                                     </>

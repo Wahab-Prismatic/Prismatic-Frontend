@@ -12,7 +12,10 @@ export const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async (_, {reject
   
         // If there is an error response, return a rejection with the error data
         if (error.response) {
-          return rejectWithValue(error.response.data);
+          return rejectWithValue({
+            message: error.response?.data?.message || 'Something went wrong...',
+            status: error.response?.status || 500
+          });
         } else {
           // If there is no specific error response, return a generic error message
           return rejectWithValue('An error occurred while fetching blogs.');
@@ -33,6 +36,7 @@ const blogSlice = createSlice({
     extraReducers: (builder) => {
         builder.addCase(fetchBlogs.pending, (state) => {
             state.loading = true;
+            state.error = null;
         })
         .addCase(fetchBlogs.fulfilled, (state, action) => {
             state.loading = false;

@@ -1,77 +1,41 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CareerImg from '../assets/images/Career.jpeg';
 import '../assets/css/CareerForm.css';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
+import { useDispatch, useSelector } from 'react-redux';
+import { clearForm, submitCareerForm, updateField } from '../redux/slices/careerFormSlice';
 
 const CareerForm = () => {
-    const [formData, setFormData] = useState({
-        // job_title: '',
-        // job_desc: '',
-        // years_of_experiance: '',
-        // job_resp: '',
-        apply_email: '',
-        apply_name: '',
-        apply_dob: '',
-        apply_m_status: '',
-        apply_gender: '',
-        apply_cellno: '',
-        apply_p_address: '',
-        apply_c_address: '',
-        apply_job_type: '',
-        apply_cnic: '',
-        apply_degree: '',
-        apply_study_status: '',
-        apply_institute: '',
-        apply_work_exp: '',
-        apply_exp_salary: '',
-        apply_resp: '',
-        cv_pdf: null
-    });
-    const [successMessage, setSuccessMessage] = useState('');
-    const [errorMessage, setErrorMessage] = useState('');
+    const dispatch = useDispatch();
+    const { formData = {}, loading, successMessage, errorMessage }  = useSelector((state) => state.careerForm || {});
 
     useEffect(() => {
         Aos.init();
     }, []);
 
     const handleInputChange = (e) => {
-        const { name, value, type } = e.target;
-        setFormData({
-            ...formData,
-            [name]: type === 'file' ? e.target.files[0] : value
-        });
+        const { name, value, type, files } = e.target;
+            if(type === 'file') {
+                dispatch(updateField({ name, value: files[0] }))
+            } else {
+                dispatch(updateField({name, value }));
+            }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
-        // Prepare form data
-        const data = new FormData();
-        Object.keys(formData).forEach(key => {
-            data.append(key, formData[key]);
-        });
-
-        try {
-            const response = await fetch('/api/post-career', {
-                method: 'POST',
-                body: data
-            });
-
-            if (response.ok) {
-                const result = await response.json();
-                console.log('Post Data', result);
-                setSuccessMessage('Your record has been added successfully..!');
-                setErrorMessage('');
+        // Convert form data to FormData to handle file uploads
+        const formDataToSend = new FormData();
+        Object.keys(formData).forEach((key) => {
+            if(key === 'cv_pdf' && formData.cv_pdf) {
+                formDataToSend.append(key, formData.cv_pdf)
             } else {
-                setErrorMessage('Failed to add your record. Please try again.');
-                setSuccessMessage('');
+                formDataToSend.append(key, formData[key])
             }
-        } catch (error) {
-            console.error('Error submitting form:', error);
-            setErrorMessage('An error occurred. Please try again.');
-            setSuccessMessage('');
-        }
+        });
+        dispatch(submitCareerForm(formDataToSend));
+        dispatch(clearForm())
     };
     return (
         <>
@@ -241,8 +205,8 @@ const CareerForm = () => {
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Job Type:</label>
                                                 <select
                                                     className="form-select"
-                                                    name="apply_job_type"
-                                                    value={formData.apply_job_type}
+                                                    name="apply_resp"
+                                                    value={formData.apply_resp}
                                                     onChange={handleInputChange}
                                                     required
                                                 >
@@ -320,8 +284,8 @@ const CareerForm = () => {
                                                 <textarea
                                                     className="form-control"
                                                     rows="3"
-                                                    name="apply_work_exp"
-                                                    value={formData.apply_work_exp}
+                                                    name="apply_experience"
+                                                    value={formData.apply_experience}
                                                     onChange={handleInputChange}
                                                     required
                                                 />
@@ -378,7 +342,11 @@ const CareerForm = () => {
                                     </div>
 
                                     <div className="modal-footer">
-                                        <button type="submit" className="btn form-sub">Submit</button>
+                                        <button type="submit" className="btn form-sub" disabled={loading}>
+                                            {
+                                                loading ? 'Submitting...' : 'Submit'
+                                            }
+                                        </button>
                                         <Link to="/career" className="btn form-sub">Back</Link>
                                     </div>
                                 </form>
