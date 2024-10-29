@@ -1,40 +1,23 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import CareerImg from '../assets/images/Career.jpg';
 import '../assets/css/Career.css';
-import axios from 'axios';
 import plusIcon from '../assets/images/plus.png';
 import minusIcon from '../assets/images/minus.png';
 import { Link } from 'react-router-dom';
 import Aos from 'aos';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchCareers } from '../redux/slices/CareerSlice';
 
-axios.defaults.baseURL = 'http://localhost:8000/api';
+
 const Career = () => {
-    const [careers, setCareers] = useState([]);
-    const [loading, setLoading] = useState(true);
+    const dispatch = useDispatch();
+    const { careers = [], loading, error } = useSelector((state) => state.career);
     const [openIndex, setOpenIndex] = useState(null);
-    const [error, setError] = useState(null);
 
     useEffect(() => {
         Aos.init();
-        // Function to fetch carrers listing data
-        const fetchCareersListing = async () => {
-            try {
-                const response = await axios.get('/admin/career-list', {
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'Accept': 'application/json'
-                    }
-                });
-                console.log('Career Data:', response.data);
-                setCareers(response.data);
-                setLoading(false);
-            } catch (error) {
-                setError(error.message);
-                setLoading(false);
-            }
-        }
-        fetchCareersListing();
-    }, []);
+        dispatch(fetchCareers());
+    }, [dispatch]);
 
     const toggleAccordion = (index) => {
         setOpenIndex(openIndex === index ? null : index);
@@ -63,9 +46,17 @@ const Career = () => {
                     <p></p>
                 </div>
 
+                {/* Loading indicator */}
+                {loading && (
+                <div className="loading-container">
+                    <div className="spinner"></div>
+                    <p>Loading positions...</p>
+                </div>
+            )}
+
                 {/* Career List */}
                 <div className="row" style={{ marginBottom: '50px' }}>
-                    {careers.length > 0 ? (
+                    {!loading && !error && (careers.length > 0 ? (
                         careers.map((career, index) => (
                             <div className="col-lg-6 col-md-6" key={index}>
                                 <div className="FAQBox mb-2">
@@ -80,28 +71,24 @@ const Career = () => {
                                             />
                                         </span>
                                     </h3>
-                                    {
-                                        openIndex === index && (
-                                            <div
-                                                className="FaqParagraph"
-                                                style={{
-                                                    maxHeight: openIndex === index ? '900px' : '0',
-                                                    overflowY: 'auto',
-                                                    transition: 'max-height 0.3s ease-out',
-                                                    // display: 'none'
-                                                }}
-                                            >
-                                                <div dangerouslySetInnerHTML={{ __html: career.job_description }} />
-
-                                            </div>
-                                        )
-                                    }
+                                    {openIndex === index && (
+                                        <div
+                                            className="FaqParagraph"
+                                            style={{
+                                                maxHeight: openIndex === index ? '900px' : '0',
+                                                overflowY: 'auto',
+                                                transition: 'max-height 0.3s ease-out',
+                                            }}
+                                        >
+                                            <div dangerouslySetInnerHTML={{ __html: career.job_description }} />
+                                        </div>
+                                    )}
                                 </div>
                             </div>
                         ))
                     ) : (
-                        <p>No open positions available at the moment.</p>
-                    )}
+                        <p className="no-positions">No open positions available at the moment.</p>
+                    ))}
 
                     {/* Apply Button */}
                     <div
