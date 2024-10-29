@@ -161,7 +161,7 @@ a.p-read-more button:hover {
     color: #333;
 }
 
-a.p-read-more button::before {
+/* a.p-read-more button::before {
     content: '';
     width: 0;
     height: 317%;
@@ -173,6 +173,26 @@ a.p-read-more button::before {
     transition: .5s ease;
     display: block;
     z-index: -1;
+} */
+
+.p-read-more .active-button::before {
+    content: '';
+    width: 0;
+    height: 317%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(35deg);
+    background: #ffbf34;
+    transition: .5s ease;
+    display: block;
+    z-index: -1;
+}
+
+a.p-read-more button:disabled {
+    background-color: #ccc;
+    color: grey;
+    cursor: not-allowed;
 }
 
 .no-positions {

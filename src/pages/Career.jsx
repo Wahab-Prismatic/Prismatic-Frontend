@@ -11,7 +11,7 @@ import { fetchCareers } from '../redux/slices/CareerSlice';
 
 const Career = () => {
     const dispatch = useDispatch();
-    const { careers = [], loading, error } = useSelector((state) => state.career);
+    const { careers = [], loading } = useSelector((state) => state.career);
     const [openIndex, setOpenIndex] = useState(null);
 
     useEffect(() => {
@@ -56,7 +56,7 @@ const Career = () => {
 
                 {/* Career List */}
                 <div className="row" style={{ marginBottom: '50px' }}>
-                    {!loading && !error && (careers.length > 0 ? (
+                    {!loading && (careers.length > 0 ? (
                         careers.map((career, index) => (
                             <div className="col-lg-6 col-md-6" key={index}>
                                 <div className="FAQBox mb-2">
@@ -96,7 +96,13 @@ const Career = () => {
                         style={{ justifyContent: 'center', display: 'flex', marginTop: '35px' }}
                     >
                         <Link to="/career-form" className="p-read-more">
-                            <button style={{ padding: '12px 26px', fontSize: '18px' }}>Apply Now</button>
+                            <button 
+                                style={{ padding: '12px 26px', fontSize: '18px' }} 
+                                disabled={careers.length === 0} // Disable when no positions are available
+                                className={careers.length > 0 ? 'active-button' : 'disabled-button'} 
+                            >
+                                Apply Now
+                            </button>
                         </Link>
                     </div>
                 </div>
