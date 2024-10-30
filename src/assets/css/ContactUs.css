@@ -68,13 +68,11 @@
     line-height: 40px;
     display: inline-block;
     padding: 0px 15px;
-    color: #0274b8 !important;
-    font-size: 13px;
+    font-size: 15px;
     text-transform: none;
     box-shadow: none;
     border: 1px solid #ccc !important;
     margin-bottom: inherit;
-    /* border-radius: 20px; */
 }
 
 .input-group-addon {
