@@ -5,7 +5,7 @@ import axiosClient from "../../api/axiosClient";
 
 export const fetchCareers = createAsyncThunk('career/fetchCareers', async (_, { rejectWithValue }) => {
     try {
-        const response = await axiosClient.get('/admin/career-lists', {
+        const response = await axiosClient.get('/admin/career-list', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',

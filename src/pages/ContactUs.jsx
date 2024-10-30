@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitContactForm, clearMessages } from '../redux/slices/contactFormSlice';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { locations, mapPath } from '../services';
 import { Link } from 'react-router-dom';
@@ -8,21 +10,43 @@ import '../assets/css/ContactUs.css';
 
 import ContactImg from '../assets/images/Contact Us.jpg';
 
-
 const ContactUs = () => {
     const dispatch = useDispatch();
-    const { loading, successMessage, errorMessage, errors } = useSelector((state) => state.contactForm);
+    const { loading, successMessage, errorMessage } = useSelector((state) => state.contactForm);
 
-    const [captchaValue, setCaptchaValue] = useState(null);
-    const [formData, setFormData] = useState({
+    // Validation schema using Yup
+    const validationSchema = Yup.object().shape({
+        name: Yup.string().required('Full Name is required'),
+        email: Yup.string().email('Invalid email address').required('Email is required'),
+        phone: Yup.string().required('Phone Number is required'),
+        companyName: Yup.string().required('Company Name is required'),
+        subject: Yup.string().required('Please select a service'),
+        message: Yup.string().required('Message is required'),
+        'g-recaptcha-response': Yup.string().required('Please complete the reCAPTCHA'),
+    });
+
+    // Formik initial values
+    const initialValues = {
         name: '',
         email: '',
         phone: '',
         companyName: '',
         subject: '',
         message: '',
-        'g-recaptcha-response': '6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
-    });
+        'g-recaptcha-response': '',
+    };
+
+    useEffect(() => {
+        dispatch(clearMessages());
+    }, [dispatch]);
+
+    const onCaptchaChange = (value, setFieldValue) => {
+        setFieldValue('g-recaptcha-response', value);
+    };
+
+    const handleSubmit = (values) => {
+        dispatch(submitContactForm(values));
+    };
 
     const services = {
         "erp-software": "ERP Software",
@@ -38,39 +62,6 @@ const ContactUs = () => {
         "shopify": "Shopify",
         "wordpress": "WordPress"
     };
-
-    useEffect(() => {
-        dispatch(clearMessages());
-    }, [dispatch]);
-
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
-    };
-
-    // Handle reCAPTCHA change
-    const onCaptchaChange = (value) => {
-        setCaptchaValue(value);
-        setFormData((prevData) =>({
-            ...prevData,
-            'g-recaptcha-response': value,
-        }));
-    };
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        // if(!captchaValue) {
-        //     alert('Please verify the reCAPTCHA');
-        //     return
-        // }
-
-        // Dispatch the form submission action
-        dispatch(submitContactForm(formData));
-    }
 
     return (
         <>
@@ -88,133 +79,109 @@ const ContactUs = () => {
                         <div className="col-md-8 pt-4 pb-4">
                             {successMessage && <div className="alert alert-success success_alert" role="alert">{successMessage}</div>}
                             {errorMessage && <div className="alert alert-danger danger_alert" role="alert">{errorMessage}</div>}
-                            {/* {errors.length > 0 && errors.map((error, index) => <div key={index} className='alert alert-danger'>{error}</div>)} */}
 
                             <div className="contact-form formchange" id="Contact">
-                                <form onSubmit={handleSubmit} encType="multipart/form-data">
-                                    <div className="row">
-                                        <div className="col-lg-6 col-md-6">
-                                            <div className="form-group">
-                                                <div className="input-group">
-                                                    <span className="input-group-addon"><i className="fa fa-user"></i></span>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        name="name"
-                                                        placeholder="Full Name"
-                                                        value={formData.name}
-                                                        onChange={handleChange}
-                                                        required
-                                                    />
+                                <Formik
+                                    initialValues={initialValues}
+                                    validationSchema={validationSchema}
+                                    onSubmit={handleSubmit}
+                                >
+                                    {({ setFieldValue, errors, touched }) => (
+                                        <Form>
+                                            <div className="row">
+                                                <div className="col-lg-6 col-md-6">
+                                                    <div className="form-group">
+                                                        <Field
+                                                            type="text"
+                                                            className={ `form-control ${errors.email && touched.email ? 'is-invalid' : ''}`}
+                                                            name="name"
+                                                            placeholder="Full Name"
+                                                        />
+                                                        <ErrorMessage name="name" component="div" className="text-danger" />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-6 col-md-6">
+                                                    <div className="form-group">
+                                                        <Field
+                                                            type="email"
+                                                            className={ `form-control ${errors.email && touched.email ? 'is-invalid' : ''}`}
+                                                            name="email"
+                                                            placeholder="Email Address"
+                                                        />
+                                                        <ErrorMessage name="email" component="div" className="text-danger" />
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="col-lg-6 col-md-6">
-                                            <div className="form-group">
-                                                <div className="input-group">
-                                                    <span className="input-group-addon"><i className="fa fa-envelope"></i></span>
-                                                    <input
-                                                        type="email"
-                                                        className="form-control"
-                                                        name="email"
-                                                        placeholder="Email Address"
-                                                        value={formData.email}
-                                                        onChange={handleChange}
-                                                        required
-                                                    />
+                                            <div className="row">
+                                                <div className="col-lg-6 col-md-6">
+                                                    <div className="form-group">
+                                                        <Field
+                                                            type="text"
+                                                            className={ `form-control ${errors.phone && touched.phone ? 'is-invalid' : ''}`}
+                                                            name="phone"
+                                                            placeholder="Phone Number"
+                                                        />
+                                                        <ErrorMessage name="phone" component="div" className="text-danger" />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-6 col-md-6">
+                                                    <div className="form-group">
+                                                        <Field
+                                                            type="text"
+                                                            className={ `form-control ${errors.companyName && touched.companyName  ? 'is-invalid ' : ''}`}
+                                                            name="companyName"
+                                                            placeholder="Company Name"
+                                                        />
+                                                        <ErrorMessage name="companyName" component="div" className="text-danger" />
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-6 col-md-6">
-                                            <div className="form-group">
-                                                <div className="input-group">
-                                                    <span className="input-group-addon"><i className="fa fa-phone"></i></span>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        name="phone"
-                                                        placeholder="Phone Number"
-                                                        value={formData.phone}
-                                                        onChange={handleChange}
-                                                        required
-                                                    />
+                                            <div className="row">
+                                                <div className="col-lg-12 col-md-12">
+                                                    <div className="form-group">
+                                                        <Field as="select" className={ `form-select ${errors.subject && touched.subject ? 'is-invalid' : ''}`} name="subject">
+                                                            <option value="" disabled>Select a Service</option>
+                                                            {Object.entries(services).map(([key, service]) => (
+                                                                <option key={key} value={service}>
+                                                                    {service}
+                                                                </option>
+                                                            ))}
+                                                        </Field>
+                                                        <ErrorMessage name="subject" component="div" style={{ marginTop: '15px' }} className="text-danger" />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-12 col-md-12">
+                                                    <div className="form-group" style={{ textAlign: 'start' }}>
+                                                        <label htmlFor="message">Your Message:</label>
+                                                        <Field as="textarea"
+                                                            className={`form-control ${errors.message && touched.message ? 'is-invalid' : ''}`}
+                                                            rows="5"
+                                                            name="message"
+                                                            id="message"
+                                                            style={{ resize: 'none', borderRadius: '10px' }}
+                                                        />
+                                                        <ErrorMessage name="message" component="div" style={{ marginTop: '15px' }} className="text-danger" />
+                                                    </div>
+                                                </div>
+                                                <div className="col-lg-12 col-md-12">
+                                                    <div className="form-group recaptcha-container">
+                                                        <ReCAPTCHA
+                                                            name="g-recaptcha-response"
+                                                            sitekey='6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
+                                                            onChange={(value) => onCaptchaChange(value, setFieldValue)}
+                                                        />
+                                                        <ErrorMessage name="g-recaptcha-response" component="div" className="text-danger" />
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div className="col-lg-6 col-md-6">
-                                            <div className="form-group">
-                                                <div className="input-group">
-                                                    <span className="input-group-addon"><i className="fa fa-building"></i></span>
-                                                    <input
-                                                        type="text"
-                                                        className="form-control"
-                                                        name="companyName"
-                                                        placeholder="Company Name"
-                                                        value={formData.companyName}
-                                                        onChange={handleChange}
-                                                        required
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="row">
-                                        <div className="col-lg-12 col-md-12">
-                                            <div className="form-group">
-                                                <div className="input-group">
-                                                    <span className="input-group-addon"><i className="fa fa-laptop"></i></span>
-                                                    <select
-                                                        className="form-select"
-                                                        id="wantToPurchase"
-                                                        name="subject"
-                                                        value={formData.subject}
-                                                        onChange={handleChange}
-                                                        required
-                                                    >
-                                                        <option value="" disabled>Select a Service</option>
-                                                        {Object.entries(services).map(([key, service]) => (
-                                                            <option key={key} value={service}>
-                                                                {service}
-                                                            </option>
-                                                        ))}
-                                                    </select>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-12 col-md-12">
-                                            <div className="form-group" style={{ textAlign: 'start' }}>
-                                                <label htmlFor="message">Your Message:</label>
-                                                <textarea
-                                                    className="form-control"
-                                                    rows="5"
-                                                    name="message"
-                                                    id="message"
-                                                    style={{ resize: 'none', borderRadius: '10px' }}
-                                                    value={formData.message}
-                                                    onChange={handleChange}
-                                                    required
-                                                />
-                                            </div>
-                                        </div>
-                                        <div className="col-lg-12 col-md-12">
-                                            <div className="form-group recaptcha-container">
-                                                <ReCAPTCHA
-                                                    name="g-recaptcha-response"
-                                                    value={formData['g-recaptcha-response']}
-                                                    sitekey='6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
-                                                    onChange={onCaptchaChange}
-                                                />
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <fieldset className="csm-form-info">
-                                        <button type="submit" id="form-submit" className="filled-button" disabled={loading}>
-                                            { loading ? 'Sending...' : 'Send Message' }
-                                        </button>
-                                    </fieldset>
-                                </form>
+                                            <fieldset className="csm-form-info">
+                                                <button type="submit" id="form-submit" className="filled-button" disabled={loading}>
+                                                    {loading ? 'Sending...' : 'Send Message'}
+                                                </button>
+                                            </fieldset>
+                                        </Form>
+                                    )}
+                                </Formik>
                             </div>
                         </div>
                         <div className="col-md-4 pr-0">
@@ -260,7 +227,7 @@ const ContactUs = () => {
                 </div>
             </div>
         </>
-    )
-}
+    );
+};
 
-export default ContactUs
+export default ContactUs;
