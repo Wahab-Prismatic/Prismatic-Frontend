@@ -8,13 +8,14 @@ import POSImage from '../assets/icons/homepage-icons/color-icon/POS.png';
 import HRMImage from '../assets/icons/homepage-icons/color-icon/HRM.png';
 import ECOMImage from '../assets/icons/homepage-icons/color-icon/Ecomras-Website.png';
 import DMImage from '../assets/icons/homepage-icons/color-icon/Digital-Marketing.png';
+import { Link } from 'react-router-dom';
 
 const businessCards = [
     {
         title: 'LMS Software',
         description: 'Empower your education and training system with our modern LMS software.',
         imgSrc: LMSImage,
-        link: '/learning-management-system',
+        link: '/products/learning-management-system',
     },
     {
         title: 'Real Estate CRM',
@@ -26,13 +27,13 @@ const businessCards = [
         title: 'ERP Software',
         description: "Maximize your business operational efficiency with Prismatic's ERP software.",
         imgSrc: ERPIMage,
-        link: '/erp-software-in-pakistan',
+        link: '/products/erp-software-in-pakistan',
     },
     {
         title: 'Mobile App',
         description: 'Elevating your ease and connectivity through our revolutionary mobile app!',
         imgSrc: MobAppImage,
-        link: '/mobile-app-development',
+        link: '/services/mobile-app-development',
     },
     {
         title: 'Event Management Software',
@@ -44,7 +45,7 @@ const businessCards = [
         title: 'POS Software',
         description: 'Equip your business with in-depth transaction tracking and management via our POS.',
         imgSrc: POSImage,
-        link: '/pos-software-services',
+        link: '/products/pos-software-services',
     },
     {
         title: 'HRM Software',
@@ -56,7 +57,7 @@ const businessCards = [
         title: 'Ecommerce Website',
         description: 'Revolutionize your online business with our proficient e-commerce website development.',
         imgSrc: ECOMImage,
-        link: '/e-commerce-service',
+        link: '/services/e-commerce-service',
     },
     {
         title: 'Digital Marketing',
@@ -84,7 +85,7 @@ const BusinessProbCard = () => {
                     {
                         businessCards.map((card, index) => (
                             <div className="col-lg-4 col-md-6" key={index}>
-                                <a href="/learning-management-system" className="sp-box">
+                                <Link to={card.link} className="sp-box">
                                     <div className="sp-inbox">
                                         <img
                                             src={card.imgSrc}
@@ -105,7 +106,7 @@ const BusinessProbCard = () => {
                                             { card.description }
                                         </p>
                                     </div>
-                                </a>
+                                </Link>
                             </div>
                         ))
                     }

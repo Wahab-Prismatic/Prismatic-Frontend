@@ -33,7 +33,8 @@ const careerApplicationSlice = createSlice({
         apply_institute: '',
         apply_experience: '',
         apply_exp_salary: '',
-        cv_pdf: null,
+        // hearing_source: '',
+        // cv_pdf: null,
       },
       loading: false,
       successMessage: '',
@@ -61,6 +62,7 @@ const careerApplicationSlice = createSlice({
           apply_institute: '',
           apply_experience: '',
           apply_exp_salary: '',
+          // hearing_source: '',
           cv_pdf: null
         };
         state.successMessage = '';

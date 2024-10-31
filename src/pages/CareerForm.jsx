@@ -8,7 +8,8 @@ import { clearForm, submitCareerForm, updateField } from '../redux/slices/career
 
 const CareerForm = () => {
     const dispatch = useDispatch();
-    const { formData = {}, loading, successMessage, errorMessage }  = useSelector((state) => state.careerForm || {});
+    const [cvFile, setCvFile] = useState(null);
+    const { formData = {}, loading, successMessage, errorMessage } = useSelector((state) => state.careerForm || {});
 
     useEffect(() => {
         Aos.init();
@@ -16,11 +17,12 @@ const CareerForm = () => {
 
     const handleInputChange = (e) => {
         const { name, value, type, files } = e.target;
-            if(type === 'file') {
-                dispatch(updateField({ name, value: files[0] }))
-            } else {
-                dispatch(updateField({name, value }));
-            }
+        if (type === 'file') {
+            setCvFile(files[0]);
+            // dispatch(updateField({ name, value: files[0] }))
+        } else {
+            dispatch(updateField({ name, value }));
+        }
     };
 
     const handleSubmit = async (e) => {
@@ -28,14 +30,29 @@ const CareerForm = () => {
         // Convert form data to FormData to handle file uploads
         const formDataToSend = new FormData();
         Object.keys(formData).forEach((key) => {
-            if(key === 'cv_pdf' && formData.cv_pdf) {
-                formDataToSend.append(key, formData.cv_pdf)
-            } else {
-                formDataToSend.append(key, formData[key])
-            }
+            formDataToSend.append(key, formData[key])
+            // if(key === 'cv_pdf' && formData.cv_pdf) {
+            //     formDataToSend.append(key, formData.cv_pdf)
+            // } else {
+            //     formDataToSend.append(key, formData[key])
+            // }
         });
+
+        // Append the cv file from local state to the formData
+        if (cvFile) {
+            formDataToSend.append('cv_pdf', cvFile, cvFile.name);
+        } else {
+            console.error('No CV file attached...')
+        }
+
+        // Log formDataToSend contents to ensure the file is included
+        for (let [key, value] of formDataToSend.entries()) {
+            console.log(key,":", value);
+        }
+
         dispatch(submitCareerForm(formDataToSend));
-        dispatch(clearForm())
+        dispatch(clearForm());
+        setCvFile(null);
     };
     return (
         <>
@@ -317,7 +334,7 @@ const CareerForm = () => {
                                                     value={formData.apply_resp}
                                                     onChange={handleInputChange}
                                                     required
-                                                >   
+                                                >
                                                     <option value="" disabled>Select company hearing status:</option>
                                                     <option value="Social Media">Social Media</option>
                                                     <option value="Word of Mouth">Word of Mouth</option>
