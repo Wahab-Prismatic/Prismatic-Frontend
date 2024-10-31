@@ -19,6 +19,7 @@ const CareerForm = () => {
         const { name, value, type, files } = e.target;
         if (type === 'file') {
             setCvFile(files[0]);
+            console.log("File selected From handle Input Change:", files[0]);
             // dispatch(updateField({ name, value: files[0] }))
         } else {
             dispatch(updateField({ name, value }));
@@ -39,15 +40,20 @@ const CareerForm = () => {
         });
 
         // Append the cv file from local state to the formData
-        if (cvFile) {
+        if (cvFile && cvFile instanceof File) {
             formDataToSend.append('cv_pdf', cvFile, cvFile.name);
+            console.log("File attached to FormData From if Condition :", cvFile.name);
         } else {
             console.error('No CV file attached...')
         }
 
-        // Log formDataToSend contents to ensure the file is included
-        for (let [key, value] of formDataToSend.entries()) {
-            console.log(key,":", value);
+          // Log each entry in formDataToSend to confirm cv_pdf is included
+          for (let [key, value] of formDataToSend.entries()) {
+            if (value instanceof File) {
+                console.log(`${key}: ${value.name}, Size: ${value.size}, Type: ${value.type}`);
+            } else {
+                console.log(`${key}: ${value}`);
+            }
         }
 
         dispatch(submitCareerForm(formDataToSend));
