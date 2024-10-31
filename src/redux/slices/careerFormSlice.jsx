@@ -5,7 +5,7 @@ export const submitCareerForm = createAsyncThunk('careerForm/submitCareerForm', 
     try {
         const response = await axiosClient.post('/career-form', formData, {
             headers: {
-                "Content-Type": 'application/json'
+                "Content-Type": 'multipart/form-data'
             }
         });
         return response.data;
