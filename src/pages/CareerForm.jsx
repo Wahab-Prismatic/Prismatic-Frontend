@@ -11,6 +11,8 @@ import { clearForm, submitCareerForm, updateField } from '../redux/slices/career
 const CareerForm = () => {
     const dispatch = useDispatch();
     const [cvFile, setCvFile] = useState(null);
+    const [isPhoneDisabled, setIsPhoneDisabled] = useState(false);
+    const [isCnicDisabled, setIsCnicDisabled] = useState(false);
     const { formData = {}, loading, successMessage, errorMessage } = useSelector((state) => state.careerForm || {});
 
     useEffect(() => {
@@ -30,13 +32,13 @@ function isValidCNIC(value) {
         apply_dob: Yup.date().max(new Date(), "Date cannot be in future.").required('Date of birth is required.'),
         apply_m_status: Yup.string().required('Marital status is required.'),
         apply_gender: Yup.string().required('Gender is required.'),
-        apply_cellno: Yup.string().matches(/^[0-9]{11}$/, 'Phone number must be 11 digits.').required('Phone number is required.'),
+        apply_cellno: Yup.string().matches(/^\d{4}-\d{7}$/, 'Phone number must be in the format 0301-0000000.').required('Phone number is required.'),
         apply_p_address: Yup.string().min(10, 'Address must be at least 10 characters.').required('Permanent address is required.'),
         apply_c_address: Yup.string().min(10, 'Address must be at least 10 characters.').required('Current address is required.'),
         apply_cnic: Yup.string()
         .test(
             'is-valid-cnic',
-            'CNIC must be exactly 15 characters in the format 12345-1234567-1',
+            'CNIC must be in the format 12345-1234567-1.',
             isValidCNIC
         )
         .required('CNIC is required.'),
@@ -59,6 +61,33 @@ function isValidCNIC(value) {
 
     const handleInputChange = (e) => {
         const { name, value, type, files } = e.target;
+        // Phone pattern "####-#######"
+        const phonePattern = /^\d{4}-\d{7}$/;
+        // CNIC pattern "#####-#######-#"
+        const cnicPattern = /^\d{5}-\d{7}-\d{1}$/;
+                if(name === 'apply_cnic') {
+            // Allow input while length is less than 15 characters
+            if(value.length <= 15) {
+                formik.setFieldValue(name, value);
+            }
+            // Disable field if CNIC pattern matches
+            if(cnicPattern.test(value)) {
+                setIsCnicDisabled(true);
+            } else {
+                setIsCnicDisabled(false);
+            }
+        }
+        // Allow input while length is less than 12 characters and not matched with the pattern
+        if(name === 'apply_cellno' && value.length <= 12) {
+            formik.setFieldValue(name, value); 
+            // Disable field if pattern matches
+            if(phonePattern.test(value)) {
+                setIsPhoneDisabled(true); // Disable input field when pattern matches
+            } else {
+                setIsPhoneDisabled(false); // Enable input field if pattern does not match
+            }
+        }
+
         if (type === 'file') {
             setCvFile(files[0]);
             console.log("File selected From handle Input Change:", files[0]);
@@ -272,10 +301,11 @@ function isValidCNIC(value) {
                                                 <input
                                                     type="tel"
                                                     className={`form-control ${formik.touched.apply_cellno && formik.errors.apply_cellno ? 'is-invalid' : ''}`}
-                                                    placeholder="03010000000"
+                                                    placeholder="0301-0000000"
                                                     name="apply_cellno"
                                                     value={formData.apply_cellno}
                                                     onChange={handleInputChange}
+                                                    disabled={isPhoneDisabled}
                                                     { ...formik.getFieldProps('apply_cellno') }
                                                 />
                                                 {
@@ -333,6 +363,7 @@ function isValidCNIC(value) {
                                                     name="apply_cnic"
                                                     value={formData.apply_cnic}
                                                     onChange={handleInputChange}
+                                                    disabled={isCnicDisabled}
                                                     { ...formik.getFieldProps('apply_cnic') }
                                                 />
                                                 {
