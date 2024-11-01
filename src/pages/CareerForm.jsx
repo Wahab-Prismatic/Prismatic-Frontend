@@ -17,10 +17,11 @@ const CareerForm = () => {
         Aos.init();
     }, []);
 
-    const isValidCNIC = (value) => {
-        const cnicPattern = /^\d{5}-\d{7}-\d{1}$/;
-        return cnicPattern.test(value);
-    }
+   // Custom validation function for CNIC format
+function isValidCNIC(value) {
+    const cnicPattern = /^\d{5}-\d{7}-\d{1}$/; // Format: 5 digits, hyphen, 7 digits, hyphen, 1 digit
+    return cnicPattern.test(value) && value.length === 15;
+}
 
     // Form Valication Schema
     const validationSchema = Yup.object({
@@ -32,7 +33,13 @@ const CareerForm = () => {
         apply_cellno: Yup.string().matches(/^[0-9]{11}$/, 'Phone number must be 11 digits.').required('Phone number is required.'),
         apply_p_address: Yup.string().min(10, 'Address must be at least 10 characters.').required('Permanent address is required.'),
         apply_c_address: Yup.string().min(10, 'Address must be at least 10 characters.').required('Current address is required.'),
-        apply_cnic: Yup.string().test('is-valid-cnic', 'CNIC must be 15 Alphanumeric character.', isValidCNIC).required('CNIC is required.'),
+        apply_cnic: Yup.string()
+        .test(
+            'is-valid-cnic',
+            'CNIC must be exactly 15 characters in the format 12345-1234567-1',
+            isValidCNIC
+        )
+        .required('CNIC is required.'),
         apply_resp: Yup.string().required('Job type is required.'),
         apply_study_status: Yup.string().required('Study status is required.'),
         apply_degree: Yup.string().required('Degree is required.'),
@@ -320,7 +327,7 @@ const CareerForm = () => {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>CNIC:</label>
                                                 <input
-                                                    type="number"
+                                                    type="text"
                                                     className={`form-control ${formik.touched.apply_cnic && formik.errors.apply_cnic ? 'is-invalid' : ''}`}
                                                     placeholder="00000-0000000-0"
                                                     name="apply_cnic"
