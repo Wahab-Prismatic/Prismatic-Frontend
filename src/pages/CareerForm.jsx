@@ -136,6 +136,16 @@ function isValidCNIC(value) {
         }
     })
 
+     // Function to determine if field has error
+     const hasError = (fieldName) => {
+        return formik.errors[fieldName] !== undefined;
+    };
+
+    // Function to get error message
+    const getErrorMessage = (fieldName) => {
+        return formik.errors[fieldName];
+    };
+
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
     //     // Convert form data to FormData to handle file uploads
@@ -556,7 +566,7 @@ function isValidCNIC(value) {
                                     </div>
 
                                     <div className="modal-footer">
-                                        <button type="submit" className="btn form-sub" disabled={loading || !formik.isValid || !formik.dirty}>
+                                        <button type="submit" className="btn form-sub" disabled={loading}>
                                             {
                                                 loading ? 'Submitting...' : 'Submit'
                                             }
