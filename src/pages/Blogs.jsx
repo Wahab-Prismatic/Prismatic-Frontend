@@ -5,9 +5,12 @@ import { fetchBlogs } from '../redux/slices/blogSlice';
 import '../assets/css/Blogs.css';
 import BlogImg from '../assets/images/Blogs.jpg';
 import { ShimmerPostList } from 'react-shimmer-effects';
+import ReactPaginate from 'react-paginate';
 
 const Blogs = () => {
     const [columns, setColumns] = useState(3); // Default column lenght is '3'
+    const [currentPage, setCurrentPage] = useState(0);
+    const itemsPerPage = 3;
     const dispatch = useDispatch();
     const { blogs, loading, error } = useSelector((state) => state.blogs);
 
@@ -35,6 +38,15 @@ const Blogs = () => {
         // Cleanup the event listener on component unmount
         return () => window.removeEventListener('resize', updateColumns);
     }, [dispatch]);
+
+    // Calculate the offset and paginated blogs
+    const offset = currentPage * itemsPerPage;
+    const currentBlogs = blogs.slice(offset, offset + itemsPerPage);
+    const pageCount = Math.ceil(blogs.length / itemsPerPage);
+
+    const handlePageClick = ({selected}) => {
+        setCurrentPage(selected);
+    }
 
     const renderErrorMessage = () => {
         if (!error) return null;
@@ -101,7 +113,7 @@ const Blogs = () => {
                                             />
                                         ))}
                                     </>
-                                    : blogs?.map((blog) => (
+                                    : currentBlogs?.map((blog) => (
                                         <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{ marginBottom: '40px' }}>
                                             <div className="single-blog-item blog-grid">
                                                 <div className="post-feature blog-thumbnail">
@@ -142,6 +154,23 @@ const Blogs = () => {
                                     ))
                                 }
                             </div>
+                            {
+                                blogs.length > itemsPerPage && (
+                                    <ReactPaginate 
+                                        previousLabel = {'Previous'}
+                                        nextLabel = {'Next'}
+                                        breakLabel={'...'}
+                                        pageCount={pageCount}
+                                        marginPagesDisplayed={2}
+                                        pageRangeDisplayed={3}
+                                        onPageChange={handlePageClick}
+                                        containerClassName={'pagination'}
+                                        activeClassName={'active'}
+                                        previousClassName={currentPage === 0 ? 'disabled' : ''}
+                                        nextClassName={currentPage === pageCount - 1 ? 'disabled' : ''}
+                                    />
+                                )
+                            }
                         </div>
                     </div>
                     {/* Blogs area end */}

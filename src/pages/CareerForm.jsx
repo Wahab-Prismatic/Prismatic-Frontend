@@ -156,6 +156,8 @@ const CareerForm = () => {
             cv_pdf: null
         },
         validationSchema,
+        validateOnChange: true,
+        validateOnBlur: true,
         onSubmit: async (values, { resetForm }) => {
             const formData = new FormData();
 

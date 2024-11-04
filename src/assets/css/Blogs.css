@@ -147,6 +147,24 @@ a {
     font-size: 18px;
 }
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+}
+.pagination li {
+    margin: 0 5px;
+    cursor: pointer;
+}
+.pagination .active {
+    font-weight: bold;
+}
+.pagination .disabled {
+    pointer-events: none;
+    opacity: 0.5;
+}
+
 
 @media (min-width: 1400px) {
     .container {
