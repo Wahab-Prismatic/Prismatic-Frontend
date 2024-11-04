@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import CareerImg from '../assets/images/Career.jpeg';
 import '../assets/css/CareerForm.css';
 import { Link } from 'react-router-dom';
@@ -15,15 +15,51 @@ const CareerForm = () => {
     const [isCnicDisabled, setIsCnicDisabled] = useState(false);
     const { formData = {}, loading, successMessage, errorMessage } = useSelector((state) => state.careerForm || {});
 
-    useEffect(() => {
-        Aos.init();
-    }, []);
+    // Custom validation function for CNIC format
+    function isValidCNIC(value) {
+        const cnicPattern = /^\d{5}-\d{7}-\d{1}$/; // Format: 5 digits, hyphen, 7 digits, hyphen, 1 digit
+        return cnicPattern.test(value) && value.length === 15;
+    }
 
-   // Custom validation function for CNIC format
-function isValidCNIC(value) {
-    const cnicPattern = /^\d{5}-\d{7}-\d{1}$/; // Format: 5 digits, hyphen, 7 digits, hyphen, 1 digit
-    return cnicPattern.test(value) && value.length === 15;
-}
+    const scrollToError = (errors) => {
+        // Get the first field with an error
+        const firstErrorField = Object.keys(errors)[0];
+        
+        // Get the ref for the field
+        const errorRef = formRefs[firstErrorField];
+        
+        if (errorRef && errorRef.current) {
+            // Scroll the error field into view with smooth behavior
+            errorRef.current.scrollIntoView({
+                behavior: 'smooth',
+                block: 'center'
+            });
+            
+            // Optional: Add focus to the field
+            errorRef.current.focus();
+        }
+    }
+
+    //Create refs for form Section
+
+    const formRefs = {
+        apply_email: useRef(null),
+        apply_name: useRef(null),
+        apply_dob: useRef(null),
+        apply_m_status: useRef(null),
+        apply_gender: useRef(null),
+        apply_cellno: useRef(null),
+        apply_p_address: useRef(null),
+        apply_c_address: useRef(null),
+        apply_cnic: useRef(null),
+        apply_resp: useRef(null),
+        apply_study_status: useRef(null),
+        apply_degree: useRef(null),
+        apply_institute: useRef(null),
+        apply_experience: useRef(null),
+        apply_exp_salary: useRef(null),
+        cv_pdf: useRef(null)
+    }
 
     // Form Valication Schema
     const validationSchema = Yup.object({
@@ -36,12 +72,12 @@ function isValidCNIC(value) {
         apply_p_address: Yup.string().min(10, 'Address must be at least 10 characters.').required('Permanent address is required.'),
         apply_c_address: Yup.string().min(10, 'Address must be at least 10 characters.').required('Current address is required.'),
         apply_cnic: Yup.string()
-        .test(
-            'is-valid-cnic',
-            'CNIC must be in the format 12345-1234567-1.',
-            isValidCNIC
-        )
-        .required('CNIC is required.'),
+            .test(
+                'is-valid-cnic',
+                'CNIC must be in the format 12345-1234567-1.',
+                isValidCNIC
+            )
+            .required('CNIC is required.'),
         apply_resp: Yup.string().required('Job type is required.'),
         apply_study_status: Yup.string().required('Study status is required.'),
         apply_degree: Yup.string().required('Degree is required.'),
@@ -51,7 +87,7 @@ function isValidCNIC(value) {
         // hearing_source: Yup.string().required('Hearing source status is required'),
         cv_pdf: Yup.mixed().required('CV is required.')
             .test('fileFormat', 'OnlyPDF files are allowed', (value) => {
-                if(!value) return false;
+                if (!value) return false;
                 return value && ['application/pdf'].includes(value.type);
             })
             .test('fileSize', 'FIle size must be less than 5MB', (value) => {
@@ -65,23 +101,23 @@ function isValidCNIC(value) {
         const phonePattern = /^\d{4}-\d{7}$/;
         // CNIC pattern "#####-#######-#"
         const cnicPattern = /^\d{5}-\d{7}-\d{1}$/;
-                if(name === 'apply_cnic') {
+        if (name === 'apply_cnic') {
             // Allow input while length is less than 15 characters
-            if(value.length <= 15) {
+            if (value.length <= 15) {
                 formik.setFieldValue(name, value);
             }
             // Disable field if CNIC pattern matches
-            if(cnicPattern.test(value)) {
+            if (cnicPattern.test(value)) {
                 setIsCnicDisabled(true);
             } else {
                 setIsCnicDisabled(false);
             }
         }
         // Allow input while length is less than 12 characters and not matched with the pattern
-        if(name === 'apply_cellno' && value.length <= 12) {
-            formik.setFieldValue(name, value); 
+        if (name === 'apply_cellno' && value.length <= 12) {
+            formik.setFieldValue(name, value);
             // Disable field if pattern matches
-            if(phonePattern.test(value)) {
+            if (phonePattern.test(value)) {
                 setIsPhoneDisabled(true); // Disable input field when pattern matches
             } else {
                 setIsPhoneDisabled(false); // Enable input field if pattern does not match
@@ -90,12 +126,14 @@ function isValidCNIC(value) {
 
         if (type === 'file') {
             setCvFile(files[0]);
+            formik.setFieldValue(name, [files[0]]);
             console.log("File selected From handle Input Change:", files[0]);
             // dispatch(updateField({ name, value: files[0] }))
         } else {
             dispatch(updateField({ name, value }));
         }
     };
+
 
     const formik = useFormik({
         initialValues: {
@@ -136,16 +174,6 @@ function isValidCNIC(value) {
         }
     })
 
-     // Function to determine if field has error
-     const hasError = (fieldName) => {
-        return formik.errors[fieldName] !== undefined;
-    };
-
-    // Function to get error message
-    const getErrorMessage = (fieldName) => {
-        return formik.errors[fieldName];
-    };
-
     // const handleSubmit = async (e) => {
     //     e.preventDefault();
     //     // Convert form data to FormData to handle file uploads
@@ -175,6 +203,13 @@ function isValidCNIC(value) {
     //     dispatch(clearForm());
     //     setCvFile(null);
     // };
+
+    useEffect(() => {
+        Aos.init();
+        if(Object.keys(formik.errors).length > 0 && formik.submitCount > 0) {
+            scrollToError(formik.errors);
+        }
+    }, [formik.submitCount, formik.errors]);
     return (
         <>
             <div className="products-header-wrapper">
@@ -206,13 +241,14 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Email:</label>
                                                 <input
+                                                    ref={formRefs.apply_email}
                                                     type="email"
                                                     className={`form-control ${formik.touched.apply_email && formik.errors.apply_email ? 'is-invalid' : ''}`}
                                                     placeholder="email@email.com"
                                                     name="apply_email"
                                                     value={formData.apply_email}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_email') }
+                                                    {...formik.getFieldProps('apply_email')}
                                                 />
                                                 {formik.touched.apply_email && formik.errors.apply_email && (
                                                     <div className="invalid-feedback">{formik.errors.apply_email}</div>
@@ -223,17 +259,18 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Name:</label>
                                                 <input
+                                                    ref={formRefs.apply_name}
                                                     type="text"
                                                     className={`form-control ${formik.touched.apply_name && formik.errors.apply_name ? 'is-invalid' : ''}`}
                                                     placeholder="John Brian"
                                                     name="apply_name"
                                                     value={formData.apply_name}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_name') }
+                                                    {...formik.getFieldProps('apply_name')}
                                                 />
                                                 {
                                                     formik.touched.apply_name && formik.errors.apply_name && (
-                                                        <div className="invalid-feedback">{ formik.errors.apply_name }</div>
+                                                        <div className="invalid-feedback">{formik.errors.apply_name}</div>
                                                     )
                                                 }
                                             </div>
@@ -246,12 +283,13 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Date Of Birth:</label>
                                                 <input
+                                                    ref={formRefs.apply_dob}
                                                     type="date"
                                                     className={`form-control ${formik.touched.apply_dob && formik.errors.apply_dob ? 'is-invalid' : ''}`}
                                                     name="apply_dob"
                                                     value={formData.apply_dob}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_dob') }
+                                                    {...formik.getFieldProps('apply_dob')}
                                                 />
                                                 {
                                                     formik.touched.apply_dob && formik.errors.apply_dob && (
@@ -264,11 +302,12 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Marital Status:</label>
                                                 <select
+                                                    ref={formRefs.apply_m_status}
                                                     className={`form-select ${formik.touched.apply_m_status && formik.errors.apply_m_status ? 'is-invalid' : ''}`}
                                                     name="apply_m_status"
                                                     value={formData.apply_m_status}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_m_status') }
+                                                    {...formik.getFieldProps('apply_m_status')}
                                                 >
                                                     <option value="" disabled>Select Marital Status:</option>
                                                     <option value="Single">Single</option>
@@ -288,11 +327,12 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Gender:</label>
                                                 <select
+                                                    ref={formRefs.apply_gender}
                                                     className={`form-select ${formik.touched.apply_gender && formik.errors.apply_gender ? 'is-invalid' : ''}`}
                                                     name="apply_gender"
                                                     value={formData.apply_gender}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_gender') }
+                                                    {...formik.getFieldProps('apply_gender')}
                                                 >
                                                     <option value="" disabled>Select Gender:</option>
                                                     <option value="M">Male</option>
@@ -309,6 +349,7 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Phone#:</label>
                                                 <input
+                                                    ref={formRefs.apply_cellno}
                                                     type="tel"
                                                     className={`form-control ${formik.touched.apply_cellno && formik.errors.apply_cellno ? 'is-invalid' : ''}`}
                                                     placeholder="0301-0000000"
@@ -316,7 +357,7 @@ function isValidCNIC(value) {
                                                     value={formData.apply_cellno}
                                                     onChange={handleInputChange}
                                                     disabled={isPhoneDisabled}
-                                                    { ...formik.getFieldProps('apply_cellno') }
+                                                    {...formik.getFieldProps('apply_cellno')}
                                                 />
                                                 {
                                                     formik.touched.apply_cellno && formik.errors.apply_cellno && (
@@ -329,13 +370,14 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Permanent Address:</label>
                                                 <input
+                                                    ref={formRefs.apply_p_address}
                                                     type="text"
                                                     className={`form-control ${formik.touched.apply_p_address && formik.errors.apply_p_address ? 'is-invalid' : ''}`}
                                                     placeholder="1446 Beatty Ave, Cambrige OH 43725"
                                                     name="apply_p_address"
                                                     value={formData.apply_p_address}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_p_address') }
+                                                    {...formik.getFieldProps('apply_p_address')}
                                                 />
                                                 {
                                                     formik.touched.apply_p_address && formik.errors.apply_p_address && (
@@ -348,13 +390,14 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Current Address:</label>
                                                 <input
+                                                    ref={formRefs.apply_c_address}
                                                     type="text"
                                                     className={`form-control ${formik.touched.apply_c_address && formik.errors.apply_c_address ? 'is-invalid' : ''}`}
                                                     placeholder="1446 Beatty Ave, Cambrige OH 43725"
                                                     name="apply_c_address"
                                                     value={formData.apply_c_address}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_c_address') }
+                                                    {...formik.getFieldProps('apply_c_address')}
                                                 />
                                                 {
                                                     formik.touched.apply_c_address && formik.errors.apply_c_address && (
@@ -367,6 +410,7 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>CNIC:</label>
                                                 <input
+                                                    ref={formRefs.apply_cnic}
                                                     type="text"
                                                     className={`form-control ${formik.touched.apply_cnic && formik.errors.apply_cnic ? 'is-invalid' : ''}`}
                                                     placeholder="00000-0000000-0"
@@ -374,7 +418,7 @@ function isValidCNIC(value) {
                                                     value={formData.apply_cnic}
                                                     onChange={handleInputChange}
                                                     disabled={isCnicDisabled}
-                                                    { ...formik.getFieldProps('apply_cnic') }
+                                                    {...formik.getFieldProps('apply_cnic')}
                                                 />
                                                 {
                                                     formik.touched.apply_cnic && formik.errors.apply_cnic && (
@@ -387,11 +431,12 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Job Type:</label>
                                                 <select
+                                                     ref={formRefs.apply_resp}
                                                     className={`form-select ${formik.touched.apply_resp && formik.errors.apply_resp ? 'is-invalid' : ''}`}
                                                     name="apply_resp"
                                                     value={formData.apply_resp}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_resp') }
+                                                    {...formik.getFieldProps('apply_resp')}
                                                 >
                                                     <option value="" disabled>Select Job Type:</option>
                                                     <option value="Frontend Developer">Frontend Developer</option>
@@ -414,11 +459,12 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Currently Studying:</label>
                                                 <select
-                                                    className={`form-select ${formik.touched.apply_study_status && formik.errors.apply_study_status ? 'is-invalid': ''}`}
+                                                    ref={formRefs.apply_study_status}
+                                                    className={`form-select ${formik.touched.apply_study_status && formik.errors.apply_study_status ? 'is-invalid' : ''}`}
                                                     name="apply_study_status"
                                                     value={formData.apply_study_status}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_study_status') }
+                                                    {...formik.getFieldProps('apply_study_status')}
                                                 >
                                                     <option value="" disabled>Select Degree Status:</option>
                                                     <option value="No">No</option>
@@ -435,11 +481,12 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Degree:</label>
                                                 <select
+                                                    ref={formRefs.apply_degree}
                                                     className={`form-select ${formik.touched.apply_degree && formik.errors.apply_degree ? 'is-invalid' : ''}`}
                                                     name="apply_degree"
                                                     value={formData.apply_degree}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_degree') }
+                                                    {...formik.getFieldProps('apply_degree')}
                                                 >
                                                     <option value="" disabled>Select Degree:</option>
                                                     <option value="Non-Matriculation">Non-Matriculation</option>
@@ -462,13 +509,14 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Institution:</label>
                                                 <input
+                                                    ref={formRefs.apply_institute}
                                                     type="text"
                                                     className={`form-control ${formik.touched.apply_institute && formik.errors.apply_institute ? 'is-invalid' : ''}`}
                                                     placeholder="Institute"
                                                     name="apply_institute"
                                                     value={formData.apply_institute}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_institute') }
+                                                    {...formik.getFieldProps('apply_institute')}
                                                 />
                                                 {
                                                     formik.touched.apply_institute && formik.errors.apply_institute && (
@@ -485,12 +533,13 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Work Experience:</label>
                                                 <textarea
+                                                    ref={formRefs.apply_experience}
                                                     className={`form-control ${formik.touched.apply_experience && formik.errors.apply_experience ? 'is-invalid' : ''}`}
                                                     rows="3"
                                                     name="apply_experience"
                                                     value={formData.apply_experience}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_experience') }
+                                                    {...formik.getFieldProps('apply_experience')}
                                                 />
                                                 {
                                                     formik.touched.apply_experience && formik.errors.apply_experience && (
@@ -507,12 +556,13 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Expected Salary:</label>
                                                 <input
+                                                    ref={formRefs.apply_exp_salary}
                                                     type="text"
                                                     className={`form-control ${formik.touched.apply_exp_salary && formik.errors.apply_exp_salary ? 'is-invalid' : ''}`}
                                                     name="apply_exp_salary"
                                                     value={formData.apply_exp_salary}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_exp_salary') }
+                                                    {...formik.getFieldProps('apply_exp_salary')}
                                                 />
                                                 {
                                                     formik.touched.apply_exp_salary && formik.errors.apply_exp_salary && (
@@ -525,11 +575,12 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>How did you hear about us?:</label>
                                                 <select
+                                                    ref={formRefs.apply_resp}
                                                     className={`form-select ${formik.touched.apply_resp && formik.errors.apply_resp ? 'is-invalid' : ''}`}
                                                     name="apply_resp"
                                                     value={formData.apply_resp}
                                                     onChange={handleInputChange}
-                                                    { ...formik.getFieldProps('apply_resp') }
+                                                    {...formik.getFieldProps('apply_resp')}
                                                 >
                                                     <option value="" disabled>Select company hearing status:</option>
                                                     <option value="Social Media">Social Media</option>
@@ -549,6 +600,7 @@ function isValidCNIC(value) {
                                             <div className="form-group">
                                                 <label className="col-form-label required" style={{ fontSize: '14px' }}>Upload CV:</label>
                                                 <input
+                                                    ref={formRefs.cv_pdf}
                                                     type="file"
                                                     className={`form-control-file ${formik.touched.cv_pdf && formik.errors.cv_pdf ? 'is-invalid' : ''}`}
                                                     name="cv_pdf"

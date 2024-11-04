@@ -17,7 +17,7 @@ const Home = () => {
         Aos.init();
     }, []);
     return (
-        <div>
+        <>
             <HeroSectionMain />
             <BusinessProbCard />
             <BusinessSolsSection />
@@ -29,8 +29,7 @@ const Home = () => {
             <OurLocations />
             <StrategicPartner />
             <BlogsSection />
-
-        </div>
+        </>
     )
 }
 

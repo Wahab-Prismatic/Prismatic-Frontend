@@ -27,7 +27,7 @@ const HeroSectionMain = () => {
                 isLoading ? (
                     <ShimmerDiv
                         mode="light"
-                        height={500}
+                        height={400}
                         width="100%"
                     />
                 ) : (
