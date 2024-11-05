@@ -1,4 +1,3 @@
-
 import './App.css'
 import { Suspense, lazy, useState } from 'react';
 import ErrorBoundary from './services/ErrorBoundry.jsx';
@@ -70,4 +69,3 @@ function App() {
 }
 
 export default App;
-
