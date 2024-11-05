@@ -4,6 +4,9 @@ import { Suspense, lazy, useState } from 'react';
 import ErrorBoundary from './services/ErrorBoundry.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Spinner from './common/Spinner.jsx';
+import PrivateRoute from './components/PrivateRoute.jsx';
+import LoginForm from './pages/Dashboard/auth/LoginForm.jsx';
+import Dashboard from './components/Dashboard/Dashboard.jsx';
 const BlogsDetail = lazy(() => import('./components/BlogsDetail'));
 const About = lazy(() => import('./pages/About'));
 const Home = lazy(() => import('./pages/Home'));
@@ -23,6 +26,7 @@ const CareerForm = lazy(() => import('./pages/CareerForm.jsx'));
 const Blogs = lazy(() => import('./pages/Blogs.jsx'));
 const ContactUs = lazy(() => import('./pages/ContactUs.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+
 
 function App() {  
   const Loader = () => <Spinner isCentered={true} />
@@ -50,8 +54,12 @@ function App() {
               <Route path='/career' element={<Career />} />
               <Route path='/career-form' element={<CareerForm />} />
               <Route path='/contact-us' element={<ContactUs />} />
+              <Route path='/login' element={<LoginForm />}/>
+              {/* Protect the dashboard route with PrivateRoute */}
+              <Route element={<PrivateRoute/>}>
+                <Route path='/dashboard' element={<Dashboard />}/>
+              </Route>
               <Route path='*' element={<NotFound />} />
-              <Route />
             </Routes>
           </Suspense>
         </ErrorBoundary>
@@ -61,4 +69,5 @@ function App() {
   )
 }
 
-export default App
+export default App;
+
