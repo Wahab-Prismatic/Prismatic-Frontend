@@ -8,52 +8,88 @@ import 'slick-carousel/slick/slick-theme.css';
 import { ShimmerSimpleGallery } from 'react-shimmer-effects';
 import { useQuery } from '@tanstack/react-query';
 
+const getImagePath = (imageName) => {
+    try {
+        const imageUrl = new URL(
+            `/src/assets/portfolio-images/${imageName}`,
+            import.meta.url
+        ).href;
+        return imageUrl;
+    } catch (error) {
+        return `/portfolio-images/${imageName}`;
+    }
+}
+
 const fetchPortfolios = async () => {
     return new Promise((resolve) => {
         setTimeout(() => {
             const data = {
                 websites: [
-                    "../../src/assets/portfolio-images/website-portfolio/dunkin.jpg",
-                    "../../src/assets/portfolio-images/website-portfolio/winbid.jpg",
-                    "../../src/assets/portfolio-images/website-portfolio/topfix.jpg",
-                    "../../src/assets/portfolio-images/website-portfolio/timesCrimes.jpg",
-                    "../../src/assets/portfolio-images/website-portfolio/techzology.jpg",
-                    "../../src/assets/portfolio-images/website-portfolio/petandu.jpg",
-                    "../../src/assets/portfolio-images/website-portfolio/jfoster.jpg",
-                    "../../src/assets/portfolio-images/website-portfolio/aamc.jpg",
+                    'website-portfolio/dunkin.jpg',
+                    'website-portfolio/winbid.jpg',
+                    'website-portfolio/topfix.jpg',
+                    'website-portfolio/timesCrimes.jpg',
+                    'website-portfolio/techzology.jpg',
+                    'website-portfolio/petandu.jpg',
+                    'website-portfolio/jfoster.jpg',
+                    'website-portfolio/aamc.jpg',
                 ],
                 digitalMarketing: [
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-1.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-4.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-14.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-12.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-5.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-6.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-8.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-9.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-10.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-11.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-13.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-2.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-7.jpg",
-                    "../../src/assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-3.jpg",
+                    'Digital-marketing-portfolio/digital-marketing-1.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-4.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-14.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-12.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-5.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-6.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-8.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-9.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-10.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-11.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-13.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-2.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-7.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-3.jpg',
                 ],
                 learningManagementSystem: [
-                    "../../src/assets/portfolio-images/lms-portfolio/aamc-lms.jpg",
-                    "../../src/assets/portfolio-images/lms-portfolio/pny-lms.jpg",
-                    "../../src/assets/portfolio-images/lms-portfolio/pris-lms.jpg",
+                    'lms-portfolio/aamc-lms.jpg',
+                    'lms-portfolio/pny-lms.jpg',
+                    'lms-portfolio/pris-lms.jpg',
                 ],
                 erpSoftware: [
-                    "../../src/assets/portfolio-images/ERP-portfolio/Al-ALEEM-MEDICAL-COLLEGE.webp",
-                    "../../src/assets/portfolio-images/ERP-portfolio/Dunkin-Donuts.webp",
-                    "../../src/assets/portfolio-images/ERP-portfolio/PNY.webp",
-                    "../../src/assets/portfolio-images/ERP-portfolio/Prismatic.webp",
-                    "../../src/assets/portfolio-images/ERP-portfolio/Zubeer.webp"
+                    'ERP-portfolio/Al-ALEEM-MEDICAL-COLLEGE.webp',
+                    'ERP-portfolio/Dunkin-Donuts.webp',
+                    'ERP-portfolio/PNY.webp',
+                    'ERP-portfolio/Prismatic.webp',
+                    'ERP-portfolio/Zubeer.webp'
                 ],
             };
             resolve(data);
         }, 2000);
     });
+};
+
+// Image component with error handling
+const PortfolioImage = ({ src, alt, onClick }) => {
+    const [error, setError] = useState(false);
+    const imagePath = getImagePath(src);
+
+    return error ? (
+        <div className="fallback-image">
+            <div className="bg-gray-200 w-full h-48 flex items-center justify-center text-gray-500">
+                Image not available
+            </div>
+        </div>
+    ) : (
+        <img
+            className="p-image img-fluid"
+            loading="lazy"
+            src={imagePath}
+            alt={alt}
+            draggable={false}
+            onClick={onClick}
+            onError={() => setError(true)}
+        />
+    );
 };
 
 const Portfolio = () => {
@@ -161,12 +197,18 @@ const Portfolio = () => {
                                         <div className="p-card">
                                             <div className="image-icon" style={{ position: "relative" }}>
                                                 <a href="#!" onClick={(e) => { e.preventDefault(); handleImageClick(index, images); }}>
-                                                    <img
+                                                    {/* <img
                                                         className="p-image img-fluid"
                                                         loading="lazy"
                                                         src={src}
                                                         alt={`${category} Portfolio`}
                                                         draggable={false}
+                                                    /> */}
+                                                    <PortfolioImage
+                                                        className="p-image img-fluid"
+                                                        src={src}
+                                                        alt={`${category} Portfolio`}
+                                                        onClick={() => handleImageClick(index, images)}
                                                     />
                                                 </a>
                                             </div>
@@ -187,7 +229,12 @@ const Portfolio = () => {
                             <span className="arrow left-arrow" onClick={prevImage}>
                                 <i className="fa fa-chevron-left"></i>
                             </span>
-                            <img src={selectedImages[selectedImageIndex]} alt="" className="modal-image" draggable={false} />
+                            {/* <img src={selectedImages[selectedImageIndex]} alt="" className="modal-image" draggable={false} /> */}
+                            <PortfolioImage
+                                 className="modal-image"
+                                src={selectedImages[selectedImageIndex]}
+                                alt="Selected portfolio item"
+                            />
                             <span className="arrow right-arrow" onClick={nextImage}>
                                 <i className="fa fa-chevron-right"></i>
                             </span>
