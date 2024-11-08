@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { submitContactForm, clearMessages } from '../redux/slices/contactFormSlice';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
@@ -9,10 +9,19 @@ import { Link } from 'react-router-dom';
 import '../assets/css/ContactUs.css';
 
 import ContactImg from '../assets/images/Contact Us.jpg';
+import { ShimmerDiv } from 'shimmer-effects-react';
 
 const ContactUs = () => {
+    const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
     const { loading, successMessage, errorMessage } = useSelector((state) => state.contactForm);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+        return () => clearTimeout(timer);
+    }, [])
 
     // Validation schema using Yup
     const validationSchema = Yup.object().shape({
@@ -66,11 +75,23 @@ const ContactUs = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                <img src={ContactImg} alt="contact-us" title="contact-us" draggable={false} />
-                <div className="P-header-text text-content">
-                    <h6>Contact Us</h6>
-                    <h4>feel free to send us a message now!</h4>
-                </div>
+                {
+                    isLoading ? (
+                        <ShimmerDiv
+                            mode='light'
+                            height={350}
+                            width="100%"
+                        />
+                    ) : (
+                        <>
+                            <img src={ContactImg} alt="contact-us" title="contact-us" draggable={false} />
+                            <div className="P-header-text text-content">
+                                <h6>Contact Us</h6>
+                                <h4>feel free to send us a message now!</h4>
+                            </div>
+                        </>
+                    )
+                }
             </div>
 
             <div className="callback-form contact-us" id="mapcheck" style={{ background: '#fff' }}>
@@ -93,7 +114,7 @@ const ContactUs = () => {
                                                     <div className="form-group">
                                                         <Field
                                                             type="text"
-                                                            className={ `form-control ${errors.email && touched.email ? 'is-invalid' : ''}`}
+                                                            className={`form-control ${errors.email && touched.email ? 'is-invalid' : ''}`}
                                                             name="name"
                                                             placeholder="Full Name"
                                                         />
@@ -104,7 +125,7 @@ const ContactUs = () => {
                                                     <div className="form-group">
                                                         <Field
                                                             type="email"
-                                                            className={ `form-control ${errors.email && touched.email ? 'is-invalid' : ''}`}
+                                                            className={`form-control ${errors.email && touched.email ? 'is-invalid' : ''}`}
                                                             name="email"
                                                             placeholder="Email Address"
                                                         />
@@ -117,7 +138,7 @@ const ContactUs = () => {
                                                     <div className="form-group">
                                                         <Field
                                                             type="text"
-                                                            className={ `form-control ${errors.phone && touched.phone ? 'is-invalid' : ''}`}
+                                                            className={`form-control ${errors.phone && touched.phone ? 'is-invalid' : ''}`}
                                                             name="phone"
                                                             placeholder="Phone Number"
                                                         />
@@ -128,7 +149,7 @@ const ContactUs = () => {
                                                     <div className="form-group">
                                                         <Field
                                                             type="text"
-                                                            className={ `form-control ${errors.companyName && touched.companyName  ? 'is-invalid ' : ''}`}
+                                                            className={`form-control ${errors.companyName && touched.companyName ? 'is-invalid ' : ''}`}
                                                             name="companyName"
                                                             placeholder="Company Name"
                                                         />
@@ -139,7 +160,7 @@ const ContactUs = () => {
                                             <div className="row">
                                                 <div className="col-lg-12 col-md-12">
                                                     <div className="form-group">
-                                                        <Field as="select" className={ `form-select ${errors.subject && touched.subject ? 'is-invalid' : ''}`} name="subject">
+                                                        <Field as="select" className={`form-select ${errors.subject && touched.subject ? 'is-invalid' : ''}`} name="subject">
                                                             <option value="" disabled>Select a Service</option>
                                                             {Object.entries(services).map(([key, service]) => (
                                                                 <option key={key} value={service}>

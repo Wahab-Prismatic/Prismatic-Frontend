@@ -5,16 +5,36 @@ import AppDevImg from '../../assets/icons/App-development.jpg';
 import UIUX_Icon from '../../assets/icons/smart-UIUX.jpg';
 import APiIcon from '../../assets/icons/API.jpg';
 import MObAppImg2 from '../../assets/images/mobile app image 2.jpg';
+import { useEffect, useState } from 'react';
+import { ShimmerDiv } from 'shimmer-effects-react';
 
 const MobAppDev = () => {
+    const [isLoading, setIsLoading] = useState(true);
+    useEffect(() => {
+        // Simulate loading time with a timeout
+        const timer = setTimeout(() => setIsLoading(false), 2000);
+        return () => clearTimeout(timer);
+    }, []);
     return (
         <>
             <div className="products-header-wrapper">
-                <img src={MobAppImg} title="mobile-app" draggable={false} />
-                <div className="P-header-text text-content">
-                    <h6 className='my-2' style={{color: '#ffbf34', fontWeight: 'bold'}}>Expand your business potential</h6>
-                    <h4>Create the perfect mobile app according to your needs!</h4>
-                </div>
+                {
+                    isLoading ? (
+                        <ShimmerDiv
+                            mode="light"
+                            height={300}
+                            width="100%"
+                        />
+                    ) : (
+                        <>
+                            <img src={MobAppImg} title="mobile-app" draggable={false} />
+                            <div className="P-header-text text-content">
+                                <h6 className='my-2' style={{ color: '#ffbf34', fontWeight: 'bold' }}>Expand your business potential</h6>
+                                <h4>Create the perfect mobile app according to your needs!</h4>
+                            </div>
+                        </>
+                    )
+                }
             </div>
 
             {/* Banner Ends Here */}

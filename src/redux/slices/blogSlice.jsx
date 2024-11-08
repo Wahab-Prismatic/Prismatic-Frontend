@@ -4,7 +4,7 @@ import axiosClient from "../../api/axiosClient";
 //Async thunk for fetching blogs data
 export const fetchBlogs = createAsyncThunk('blogs/fetchBlogs', async (_, {rejectWithValue}) => {
     try {
-        const response = await axiosClient.get('/blogs');
+        const response = await axiosClient.get('/blogs-react');
         console.log("Blog Slice Response", response);
         return response.data.data;
       } catch (error) {

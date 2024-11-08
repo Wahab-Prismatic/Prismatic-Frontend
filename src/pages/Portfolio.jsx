@@ -5,8 +5,9 @@ import { Link } from 'react-router-dom';
 // import { portfolioImages } from '../services';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
-import { ShimmerSimpleGallery } from 'react-shimmer-effects';
+import { ShimmerSimpleGallery, ShimmerThumbnail } from 'react-shimmer-effects';
 import { useQuery } from '@tanstack/react-query';
+import { ShimmerButton, ShimmerDiv } from 'shimmer-effects-react';
 
 const getImagePath = (imageName) => {
     try {
@@ -138,7 +139,27 @@ const Portfolio = () => {
     };
 
     // Scroll function to particular portfolio
-    const scrollToSection = (category) => {
+    // const scrollToSection = (category) => {
+    //     if (sectionRefs.current[category]) {
+    //         sectionRefs.current[category].scrollIntoView({
+    //             behavior: "smooth",
+    //             block: "start"
+    //         });
+    //     }
+    // };
+
+    // Map button labels to portfolio data categories
+    const categoryMap = {
+        'E-Commerce': 'websites',
+        'LMS': 'learningManagementSystem',
+        'ERP': 'erpSoftware',
+        'Websites': 'websites',
+        'Digital Marketing': 'digitalMarketing'
+    };
+
+    // Scroll function to particular portfolio
+    const scrollToSection = (categoryLabel) => {
+        const category = categoryMap[categoryLabel];
         if (sectionRefs.current[category]) {
             sectionRefs.current[category].scrollIntoView({
                 behavior: "smooth",
@@ -148,9 +169,9 @@ const Portfolio = () => {
     };
 
     const buttonsData = [
-        { link: "#ecomerce", label: "E-Commerce" },
+        { link: "#ecommerce", label: "E-Commerce" },
         { link: "#lms", label: "LMS" },
-        { link: "#ERP", label: "ERP" },
+        { link: "#erp", label: "ERP" },
         { link: "#website", label: "Websites" },
         { link: "#digital-mark", label: "Digital Marketing" }
     ];
@@ -158,17 +179,40 @@ const Portfolio = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                <img src={PortfolioImg} loading="lazy" alt="portfolio" title="portfolio" draggable={false} />
-                <div className="P-header-text text-content"></div>
+                {
+                    isLoading ? (
+                        <ShimmerThumbnail height={250} rounded />
+                    ) : (
+                        <>
+                            <img src={PortfolioImg} loading="lazy" alt="portfolio" title="portfolio" draggable={false} />
+                            <div className="P-header-text text-content"></div>
+                        </>
+                    )
+                }
             </div>
 
             <div className="container-fluid">
                 <div className="sec-buttons">
                     {buttonsData.map((button, index) => (
                         <div className="item" key={index}>
-                            <Link to={button.link}>
-                                <button className="pg-button" onClick={() => scrollToSection(button.label)}>{button.label}</button>
-                            </Link>
+                            {
+                                isLoading ? (
+                                    <ShimmerButton
+                                        size='lg'
+                                    />
+                                ) : (
+                                    <Link to={button.link}>
+                                        <button 
+                                            className="pg-button" 
+                                            onClick={(e) => { e.preventDefault(); 
+                                            scrollToSection(button.label); 
+                                            }}
+                                        >
+                                            {button.label}
+                                        </button>
+                                    </Link>
+                                )
+                            }
                         </div>
                     ))}
                 </div>
@@ -187,7 +231,7 @@ const Portfolio = () => {
                     ))
                 ) : (
                     Object.entries(portfolios).map(([category, images], categoryIndex) => (
-                        <div key={categoryIndex} className="product-section container" ref={(el) => (sectionRefs.current[category] = el)}>
+                        <div key={categoryIndex} className="product-section container" ref={(el) => (sectionRefs.current[category] = el)} id={category.toLowerCase()}>
                             <h1 style={{ fontSize: "24px", fontWeight: "bold", padding: "25px 0" }}>
                                 {category.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase())}
                             </h1>
@@ -231,7 +275,7 @@ const Portfolio = () => {
                             </span>
                             {/* <img src={selectedImages[selectedImageIndex]} alt="" className="modal-image" draggable={false} /> */}
                             <PortfolioImage
-                                 className="modal-image"
+                                className="modal-image"
                                 src={selectedImages[selectedImageIndex]}
                                 alt="Selected portfolio item"
                             />

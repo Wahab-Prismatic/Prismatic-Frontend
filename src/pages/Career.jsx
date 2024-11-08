@@ -9,14 +9,31 @@ import { useDispatch, useSelector } from 'react-redux';
 import { fetchCareers } from '../redux/slices/CareerSlice';
 
 
+const ShimmerDiv = ({ width, height }) => (
+    <div
+        className="shimmer-div"
+        style={{
+            width,
+            height,
+        }}
+    />
+);
+
 const Career = () => {
     const dispatch = useDispatch();
     const { careers = [], loading } = useSelector((state) => state.career);
     const [openIndex, setOpenIndex] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
+        setIsLoading(true);
         Aos.init();
         dispatch(fetchCareers());
+        const timer = setTimeout(() => {
+            setIsLoading(false);
+        }, 2000);
+        return () => clearTimeout(timer);
+
     }, [dispatch]);
 
     const toggleAccordion = (index) => {
@@ -27,11 +44,22 @@ const Career = () => {
         <>
             {/* <!--Header Banner Starts Here --> */}
             <div className="products-header-wrapper">
-                <img src={CareerImg} alt="career" title="career" draggable={false} />
-                <div className="P-header-text text-content">
-                    <h6></h6>
-                    <h4>Career</h4>
-                </div>
+                {
+                    isLoading ? (
+                        <ShimmerDiv
+                            height="350px"
+                            width="100%"
+                        />
+                    ) : (
+                        <>
+                            <img src={CareerImg} alt="career" title="career" draggable={false} />
+                            <div className="P-header-text text-content">
+                                <h6></h6>
+                                <h4>Career</h4>
+                            </div>
+                        </>
+                    )
+                }
             </div>
             {/* <!--Header Banner End --> */}
 
@@ -48,11 +76,11 @@ const Career = () => {
 
                 {/* Loading indicator */}
                 {loading && (
-                <div className="loading-container">
-                    <div className="spinner"></div>
-                    <p>Loading positions...</p>
-                </div>
-            )}
+                    <div className="loading-container">
+                        <div className="spinner"></div>
+                        <p>Loading positions...</p>
+                    </div>
+                )}
 
                 {/* Career List */}
                 <div className="row" style={{ marginBottom: '50px' }}>
@@ -96,10 +124,10 @@ const Career = () => {
                         style={{ justifyContent: 'center', display: 'flex', marginTop: '35px' }}
                     >
                         <Link to="/career-form" className="p-read-more">
-                            <button 
-                                style={{ padding: '12px 26px', fontSize: '18px' }} 
+                            <button
+                                style={{ padding: '12px 26px', fontSize: '18px' }}
                                 disabled={careers.length === 0} // Disable when no positions are available
-                                className={careers.length > 0 ? 'active-button' : 'disabled-button'} 
+                                className={careers.length > 0 ? 'active-button' : 'disabled-button'}
                             >
                                 Apply Now
                             </button>

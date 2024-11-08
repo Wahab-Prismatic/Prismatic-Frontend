@@ -6,15 +6,18 @@ import '../assets/css/Blogs.css';
 import BlogImg from '../assets/images/Blogs.jpg';
 import { ShimmerPostList } from 'react-shimmer-effects';
 import ReactPaginate from 'react-paginate';
+import { ShimmerDiv } from 'shimmer-effects-react';
 
 const Blogs = () => {
     const [columns, setColumns] = useState(3); // Default column lenght is '3'
     const [currentPage, setCurrentPage] = useState(0);
+    const [isLoading, setIsLoading] = useState(true);
     const itemsPerPage = 3;
     const dispatch = useDispatch();
     const { blogs, loading, error } = useSelector((state) => state.blogs);
 
     useEffect(() => {
+        const timer = setTimeout(() => setIsLoading(false), 2000);
         dispatch(fetchBlogs());
 
         // Function to update columns based on window width
@@ -36,7 +39,10 @@ const Blogs = () => {
         window.addEventListener('resize', updateColumns);
 
         // Cleanup the event listener on component unmount
-        return () => window.removeEventListener('resize', updateColumns);
+        return () => {
+            window.removeEventListener('resize', updateColumns);
+            clearTimeout(timer);
+        }
     }, [dispatch]);
 
     // Calculate the offset and paginated blogs
@@ -44,14 +50,14 @@ const Blogs = () => {
     const currentBlogs = blogs.slice(offset, offset + itemsPerPage);
     const pageCount = Math.ceil(blogs.length / itemsPerPage);
 
-    const handlePageClick = ({selected}) => {
+    const handlePageClick = ({ selected }) => {
         setCurrentPage(selected);
     }
 
     const renderErrorMessage = () => {
         if (!error) return null;
 
-        const message = error.message || 'An enexpected error occurred. Please check you request endpoint.'
+        const message = error.message || 'An enexpected error occurred. Please try again.'
         const statusMessage = error.status ? `Error ${error.status}:` : '';
 
         return (
@@ -64,11 +70,23 @@ const Blogs = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                <img src={BlogImg} alt="blogs" title="blogs" draggable={false} />
-                <div className="P-header-text text-content">
-                    <h6>Blogs</h6>
-                    <h4>We have over 3 years of experience</h4>
-                </div>
+                {
+                    isLoading ? (
+                        <ShimmerDiv
+                        mode='light'
+                            height={350}
+                            width="100%"
+                        />
+                    ) : (
+                        <>
+                            <img src={BlogImg} alt="blogs" title="blogs" draggable={false} />
+                            <div className="P-header-text text-content">
+                                <h6>Blogs</h6>
+                                <h4>We have over 3 years of experience</h4>
+                            </div>
+                        </>
+                    )
+                }
             </div>
             <div id="main-wrapper">
                 <div className="site-wrapper-reveal">
@@ -103,7 +121,7 @@ const Blogs = () => {
                             <div className="row">
                                 {loading && blogs.length > 0 ?
                                     <>
-                                        {Array.from({ length: 6 }).map((index) => (
+                                        {Array.from({ length: 8 }).map((index) => (
                                             <ShimmerPostList
                                                 postStyle="STYLE_FOUR"
                                                 col={columns}  // Dynamic set columns based on screens size
@@ -117,10 +135,11 @@ const Blogs = () => {
                                         <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{ marginBottom: '40px' }}>
                                             <div className="single-blog-item blog-grid">
                                                 <div className="post-feature blog-thumbnail">
-                                                    <Link to={`/blogs/${blog.slug}`} onClick={() => window.scrollTo(0, 0)}>
+                                                    <Link to={`/blogs-react/${blog.slug}`} onClick={() => window.scrollTo(0, 0)}>
                                                         <img
                                                             className="img-fluid"
-                                                            src={`src/assets/blogs-images/${blog.blog_image}`}
+                                                            // src={`src/assets/blogs-images/${blog.blog_image}`}
+                                                            src={`/blogs-images/${blog.blog_image}`}
                                                             alt="Blog"
                                                             title="Blog Images"
                                                         />
@@ -156,9 +175,9 @@ const Blogs = () => {
                             </div>
                             {
                                 blogs.length > itemsPerPage && (
-                                    <ReactPaginate 
-                                        previousLabel = {'Previous'}
-                                        nextLabel = {'Next'}
+                                    <ReactPaginate
+                                        previousLabel={'Previous'}
+                                        nextLabel={'Next'}
                                         breakLabel={'...'}
                                         pageCount={pageCount}
                                         marginPagesDisplayed={2}

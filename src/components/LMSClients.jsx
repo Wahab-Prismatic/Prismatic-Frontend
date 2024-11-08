@@ -7,14 +7,28 @@ import alAleemLogo from '../assets/images/clients/Logos-20.webp';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay } from "swiper/modules";
 import 'swiper/css';
+import { useEffect, useState } from 'react';
+import { ShimmerSimpleGallery } from 'react-shimmer-effects';
 
 const LMSClients = () => {
+    const [loading, setLoading] = useState(true);
+
+    // Simulate loading effect
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 2000); // Adjust the delay as needed
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
         <div className="container previous-section">
             <div className="row">
                 <div className="col-lg-10 mx-auto">
                     <div className="hrm-clients-section">
-                        <Swiper
+                        {
+                            loading ? (
+                                <ShimmerSimpleGallery card imageHeight={150} row={1} col={4} gap={30}/>
+                            ) : (
+                                <Swiper
                             modules={[Autoplay]}
                             autoplay={{ delay: 3000, disableOnInteraction: false }}
                             slidesPerView={4}
@@ -105,6 +119,8 @@ const LMSClients = () => {
                                 </div>
                             </SwiperSlide>
                         </Swiper>
+                            )
+                        }
                     </div>
                 </div>
             </div>

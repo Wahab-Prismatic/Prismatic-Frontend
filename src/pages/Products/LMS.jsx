@@ -10,7 +10,8 @@ import AleemLogo from '../../assets/images/images/al-aleem-logo.webp';
 import setupImg from '../../assets/images/images/Setup.webp';
 import OnBoardingImg from '../../assets/images/images/Onboarding.webp';
 import TechnicalImg from '../../assets/images/images/Technical Support.webp';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { ShimmerDiv } from 'shimmer-effects-react';
 
 const faqsData = [
     {
@@ -48,8 +49,14 @@ const faqsData = [
 const LMS = () => {
     const [isPlaying, setIsPlaying] = useState(false); // State to track whether the video is playing
     const [activeIndex, setActiveIndex] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     const videoRef = useRef(null); // create a reference for the video element
+
+    useEffect(() => {
+        const timer = setTimeout(() => setIsLoading(false), 2000);
+        return () => clearTimeout(timer);
+    }, []);
 
     const handlePlayPause = () => {
         if (isPlaying) {
@@ -74,21 +81,31 @@ const LMS = () => {
         <>
             {/* <!-- LMS Hero Section --> */}
             <div className="lms-hero" id="home">
-                <div className="container">
-                    <div className="row">
-                        <div className="col-lg-5 col-md-12 col-sm-12 mt-lg-5">
-                            <div className="d-flex justify-content-center flex-wrap flex-column h-100 custom-margin-lg">
-                                <h1 className="mt-4">The <span className="lms-h-clr">best LMS</span> for personalized learning</h1>
-                                <p className="mb-lg-4">Create engaging eLearning experiences with our customizable learning management system.
-                                </p>
-                                <Link to="/contact-us" className="btn lms-register mb-lg-5">Book a demo</Link>
+                {
+                    isLoading ? (
+                        <ShimmerDiv
+                            mode="light"
+                            width="100%"
+                            height={400}
+                        />
+                    ) : (
+                        <div className="container">
+                            <div className="row">
+                                <div className="col-lg-5 col-md-12 col-sm-12 mt-lg-5">
+                                    <div className="d-flex justify-content-center flex-wrap flex-column h-100 custom-margin-lg">
+                                        <h1 className="mt-4">The <span className="lms-h-clr">best LMS</span> for personalized learning</h1>
+                                        <p className="mb-lg-4">Create engaging eLearning experiences with our customizable learning management system.
+                                        </p>
+                                        <Link to="/contact-us" className="btn lms-register mb-lg-5">Book a demo</Link>
+                                    </div>
+                                </div>
+                                <div className="col-lg-7 col-md-12 col-sm-12 ">
+                                    <img src={HeroImg} alt="LMS-img" className="img-fluid" loading="lazy" draggable={false} />
+                                </div>
                             </div>
                         </div>
-                        <div className="col-lg-7 col-md-12 col-sm-12 ">
-                            <img src={HeroImg} alt="LMS-img" className="img-fluid" loading="lazy" draggable={false} />
-                        </div>
-                    </div>
-                </div>
+                    )
+                }
             </div>
             {/* <!-- LMS Hero Section end--> */}
             <LMSClients />
@@ -407,7 +424,7 @@ const LMS = () => {
                         <div className="col-lg-12">
                             <div id="accordion">
                                 {faqsData.map((faq, index) => (
-                                    <div className="card custom-acordian-card" style={{cursor:'pointer'}} key={index} onClick={() => handleToggle(index)}>
+                                    <div className="card custom-acordian-card" style={{ cursor: 'pointer' }} key={index} onClick={() => handleToggle(index)}>
                                         <div className="card-header" id={`heading${index}`}>
                                             <h5 className="mb-0 p-0 d-flex justify-content-between align-items-center">
                                                 <button

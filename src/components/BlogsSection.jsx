@@ -33,7 +33,7 @@ const BlogsSection = () => {
                         <Loader />
                     ) : error ? (
                         <p>Error fetching blogs: {error}</p>
-                    ) : blogs.length > 0 ? (
+                    ) : Array.isArray(blogs) && blogs.length > 0 ? (
                         blogs.slice(0, 3).map((blog) => (
                             <div className="col-lg-4 col-md-6 mb-30 wow move-up" key={blog.id}>
                                 {/* Single Blog Item */}
@@ -43,8 +43,9 @@ const BlogsSection = () => {
                                         <Link to={`/blogs/${blog.slug}`}>
                                             <img
                                                 className="img-fluid"
-                                                loading="lazy"
-                                                src={`/src/assets/blogs-images/${blog.blog_image}`}
+                                                // loading="lazy"
+                                                src={`/blogs-images/${blog.blog_image}`}
+                                                // src={`/src/assets/blogs-images/${blog.blog_image}`}
                                                 alt="Blog Images"
                                                 title="Blog Images"
                                             />

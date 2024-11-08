@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import POSImg from '../../assets/icons/POS-icons/POS-Image.jpg';
 import posImage1 from '../../assets/images/POS web page image 1.jpg';
 import strengthenEfficiencyIcon from '../../assets/icons/POS-icons/Strengthen-Efficiency.png';
@@ -20,7 +20,25 @@ import commissionTrackingIcon from '../../assets/icons/POS-icons/Commission-trac
 import posImage3 from '../../assets/images/POS web page iMAGE 3.jpg';
 import '../../assets/css/POS.css';
 
+const ShimmerDiv = ({ width, height }) => (
+    <div
+        className="shimmer-div"
+        style={{
+            width,
+            height,
+        }}
+    />
+);
+
 const POS = () => {
+    const [loading, setLoading] = useState(true);
+
+    // Simulate loading effect
+    useEffect(() => {
+        const timer = setTimeout(() => setLoading(false), 2000); // Adjust the delay as needed
+        return () => clearTimeout(timer);
+    }, []);
+
     const leftFeatures = [
         { icon: directInterfaceIcon, title: 'Direct interface with General Ledger' },
         { icon: multipleCashIcon, title: 'Multiple cash registers' },
@@ -71,10 +89,22 @@ const POS = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                <img src={POSImg} alt="Point of sale" title="Point of sale" draggable={false} />
-                <div className="P-header-text text-content">
-                    <h6>User-friendly Point of Sale Software</h6>
-                    <h4 style={{ fontSize: '22px' }}>Our POS software is set up in just minutes, allows you to sell in seconds and works with every device.</h4> </div>
+                {
+                    loading ? (
+                        <ShimmerDiv
+                            width='100%'
+                            height="350px"
+                        />
+                    ) : (
+                        <>
+                            <img src={POSImg} alt="Point of sale" title="Point of sale" draggable={false} />
+                            <div className="P-header-text text-content">
+                                <h6>User-friendly Point of Sale Software</h6>
+                                <h4 style={{ fontSize: '22px' }}>Our POS software is set up in just minutes, allows you to sell in seconds and works with every device.</h4>
+                            </div>
+                        </>
+                    )
+                }
             </div>
 
             <div className="erp pt-5">

@@ -27,11 +27,13 @@ import Img_9199 from '../assets/prismatic-activity-images/IMG_9199.JPG';
 import Img_9200 from '../assets/prismatic-activity-images/IMG_9200.JPG';
 import Img_9202 from '../assets/prismatic-activity-images/IMG_9202.JPG';
 import Img_9204 from '../assets/prismatic-activity-images/IMG_9204.JPG';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { ShimmerDiv } from 'shimmer-effects-react';
 
 const PrismaticLife = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+    const [isLoading, setIsLoading] = useState(true);
     const sectionRefs = useRef({});
 
     // Scroll function to particular portfolio section
@@ -43,6 +45,11 @@ const PrismaticLife = () => {
     //         });
     //     }
     // };
+
+    useEffect(() => {
+        const timer = setTimeout(() => setIsLoading(false), 2000);
+        return () => clearTimeout(timer);
+    }, []);
 
     // Modal open for selected image
     const handleImageClick = (index) => {
@@ -90,25 +97,35 @@ const PrismaticLife = () => {
     return (
         <>
             <div className="container-fluid p-0" style={{ position: 'relative' }}>
-                <Swiper
-                    modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-                    autoplay={{ delay: 5000 }}
-                    loop={true}
-                    slidesPerView={1}
-                    className="mySwiper"
-                >
-                    {BannerImages.map((image, index) => (
-                        <SwiperSlide key={index} style={{ position: 'relative' }}>
-                            <img
-                                className="d-block w-100 images"
-                                src={image.src}
-                                alt={image.alt}
-                                style={image.style}
+                {
+                    isLoading ? (
+                        <ShimmerDiv
+                            mode="light"
+                            height={400}
+                            width="100%"
+                        />
+                    ) : (
+                        <Swiper
+                            modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+                            autoplay={{ delay: 5000 }}
+                            loop={true}
+                            slidesPerView={1}
+                            className="mySwiper"
+                        >
+                            {BannerImages.map((image, index) => (
+                                <SwiperSlide key={index} style={{ position: 'relative' }}>
+                                    <img
+                                        className="d-block w-100 images"
+                                        src={image.src}
+                                        alt={image.alt}
+                                        style={image.style}
 
-                            />
-                        </SwiperSlide>
-                    ))}
-                </Swiper>
+                                    />
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    )
+                }
                 <div className="life-activity-overlay">
                     <div className="overlay-activity"></div>
                     <h5>LIFE AT PRISMATIC</h5>

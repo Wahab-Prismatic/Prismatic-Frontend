@@ -16,6 +16,7 @@ const BlogsDetail = () => {
 
     // Find the specific blog based on the slug parameter
     const blog = recentBlogs.find(b => b.slug === slug);
+    console.log("Blogs Slug:", blog);
 
     if (isLoading) {
         return (
@@ -132,7 +133,8 @@ const BlogsDetail = () => {
                                             </div>
                                             <div className="lpa-right">
                                                 <Link to={`/blogs/${b.slug}`}>
-                                                    <img src={`/src/assets/blogs-images/${b.blog_image}`} alt={b.title} />
+                                                    {/* <img src={`/src/assets/blogs-images/${b.blog_image}`} alt={b.title} /> */}
+                                                    <img src={`/blogs-images/${b.blog_image}`} alt={b.title} />
                                                 </Link>
                                             </div>
                                         </div>

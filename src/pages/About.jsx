@@ -7,24 +7,47 @@ import ValueImg from '../assets/images/value-new.webp';
 import SupportImg from '../assets/images/support-new.webp';
 import TeamImg from '../assets/images/Team-new.webp';
 import OurClientsSection from '../components/OurClientsSection';
-import  {teamData}  from '../services';
+import { teamData } from '../services';
 import Aos from 'aos';
 import { Link } from 'react-router-dom';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { ShimmerDiv } from 'shimmer-effects-react';
 
 
 const About = () => {
+    const [isLoading, setIsLoading] = useState(true);
+
     useEffect(() => {
         Aos.init();
+        const timer = setTimeout(() => setIsLoading(false), 2000);
+        return () => clearTimeout(timer);
     }, []);
     return (
         <>
             <div className="about-us-wrapper">
-                <img className="img-fluid" src={AboutCOverImg} draggable={false} alt="About-cover" title="About-cover" />
-                <div className="about-text">
-                    <h1>About Us</h1>
-                    <p>Lean, Agile, Data-driven</p>
-                </div>
+                {
+                    isLoading ? (
+                        <ShimmerDiv
+                            mode="light"
+                            height={300}
+                            width="100%"
+                        />
+                    ) : (
+                        <>
+                            <img 
+                                className="img-fluid" 
+                                src={AboutCOverImg} 
+                                draggable={false} 
+                                alt="About-cover" 
+                                title="About-cover" 
+                            />
+                            <div className="about-text">
+                                <h1>About Us</h1>
+                                <p>Lean, Agile, Data-driven</p>
+                            </div>
+                        </>
+                    )
+                }
             </div>
             <div className="more-info about-info">
                 <img className='image' src={SpinCircleImg} alt="spin-circle" title="spin-circle" />
