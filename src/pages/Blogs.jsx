@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { fetchBlogs } from '../redux/slices/blogSlice';
 import '../assets/css/Blogs.css';
 import BlogImg from '../assets/images/Blogs.jpg';
@@ -10,15 +10,20 @@ import { ShimmerDiv } from 'shimmer-effects-react';
 
 const Blogs = () => {
     const [columns, setColumns] = useState(3); // Default column lenght is '3'
-    const [currentPage, setCurrentPage] = useState(0);
+    // const [currentPage, setCurrentPage] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
-    const itemsPerPage = 3;
+    const navigate = useNavigate();
+    const [searchParams] = useSearchParams();
+    // const itemsPerPage = 6;
     const dispatch = useDispatch();
-    const { blogs, loading, error } = useSelector((state) => state.blogs);
+    const { blogs, loading, error, currentPage, lastPage } = useSelector((state) => state.blogs);
+
+    const page = parseInt(searchParams.get('page')) || 1;
 
     useEffect(() => {
         const timer = setTimeout(() => setIsLoading(false), 2000);
-        dispatch(fetchBlogs());
+        console.log('Current page:', page, 'Last page:', lastPage)
+        dispatch(fetchBlogs(page));
 
         // Function to update columns based on window width
         const updateColumns = () => {
@@ -43,16 +48,17 @@ const Blogs = () => {
             window.removeEventListener('resize', updateColumns);
             clearTimeout(timer);
         }
-    }, [dispatch]);
+    }, [dispatch, page]);
 
     // Calculate the offset and paginated blogs
-    const offset = currentPage * itemsPerPage;
-    const currentBlogs = blogs.slice(offset, offset + itemsPerPage);
-    const pageCount = Math.ceil(blogs.length / itemsPerPage);
+    // const offset = currentPage * itemsPerPage;
+    // const currentBlogs = blogs.slice(offset, offset + itemsPerPage);
+    // const pageCount = Math.ceil(blogs.length / itemsPerPage);
 
     const handlePageClick = ({ selected }) => {
-        setCurrentPage(selected);
-    }
+        const newPage = selected + 1; // React Paginate is 0-indexed
+        navigate(`/blogs?page=${newPage}`);
+    };
 
     const renderErrorMessage = () => {
         if (!error) return null;
@@ -73,7 +79,7 @@ const Blogs = () => {
                 {
                     isLoading ? (
                         <ShimmerDiv
-                        mode='light'
+                            mode='light'
                             height={350}
                             width="100%"
                         />
@@ -119,26 +125,24 @@ const Blogs = () => {
                         {/* Blogs area start */}
                         <div className="container">
                             <div className="row">
-                                {loading && blogs.length > 0 ?
-                                    <>
-                                        {Array.from({ length: 8 }).map((index) => (
-                                            <ShimmerPostList
-                                                postStyle="STYLE_FOUR"
-                                                col={columns}  // Dynamic set columns based on screens size
-                                                row={2}
-                                                gap={30}
-                                                key={index}
-                                            />
-                                        ))}
-                                    </>
-                                    : currentBlogs?.map((blog) => (
+                                {loading && blogs.length > 0 ? (
+                                    Array.from({ length: 6 }).map((_, index) => (
+                                        <ShimmerPostList
+                                            postStyle="STYLE_FOUR"
+                                            col={columns}
+                                            row={2}
+                                            gap={30}
+                                            key={index}
+                                        />
+                                    ))
+                                ) : Array.isArray(blogs) ? (
+                                    blogs.map((blog) => (
                                         <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{ marginBottom: '40px' }}>
                                             <div className="single-blog-item blog-grid">
                                                 <div className="post-feature blog-thumbnail">
                                                     <Link to={`/blogs-react/${blog.slug}`} onClick={() => window.scrollTo(0, 0)}>
                                                         <img
                                                             className="img-fluid"
-                                                            // src={`src/assets/blogs-images/${blog.blog_image}`}
                                                             src={`/blogs-images/${blog.blog_image}`}
                                                             alt="Blog"
                                                             title="Blog Images"
@@ -171,22 +175,31 @@ const Blogs = () => {
                                             </div>
                                         </div>
                                     ))
-                                }
+                                ) : (
+                                    <p>No blogs available.</p>
+                                )}
                             </div>
                             {
-                                blogs.length > itemsPerPage && (
+                                lastPage > 1 && (
                                     <ReactPaginate
                                         previousLabel={'Previous'}
                                         nextLabel={'Next'}
                                         breakLabel={'...'}
-                                        pageCount={pageCount}
+                                        pageCount={lastPage}
                                         marginPagesDisplayed={2}
                                         pageRangeDisplayed={3}
                                         onPageChange={handlePageClick}
                                         containerClassName={'pagination'}
+                                        pageClassName={'page-item'}
+                                        pageLinkClassName={'page-link'}
+                                        previousClassName={'page-item'}
+                                        previousLinkClassName={'page-link'}
+                                        nextClassName={'page-item'}
+                                        nextLinkClassName={'page-link'}
+                                        breakClassName={'page-item'}
+                                        breakLinkClassName={'page-link'}
                                         activeClassName={'active'}
-                                        previousClassName={currentPage === 0 ? 'disabled' : ''}
-                                        nextClassName={currentPage === pageCount - 1 ? 'disabled' : ''}
+                                        forcePage={page - 1} // Adjust to zero-based indexing for selected page
                                     />
                                 )
                             }
@@ -196,12 +209,11 @@ const Blogs = () => {
                 </div>
             </div>
             {/* Call to Action Area Start */}
-            <div className="cta-image-area_one section-space--ptb_80 cta-bg-image_one">
+            {/* <div className="cta-image-area_one section-space--ptb_80 cta-bg-image_one">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-xl-8 col-lg-7">
                             <div className="cta-content md-text-center">
-                                {/* Additional content can be added here if needed */}
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-5">
@@ -222,7 +234,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> */}
             {/* Call to Action Area end */}
         </>
     )

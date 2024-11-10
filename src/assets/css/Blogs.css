@@ -150,22 +150,34 @@ a {
 .pagination {
     display: flex;
     justify-content: center;
-    list-style: none;
-    padding: 0;
+    align-items: center;
+    padding: 20px 0;
+    list-style-type: none;
 }
-.pagination li {
+
+.page-item {
     margin: 0 5px;
-    cursor: pointer;
 }
 
-.pagination .active {
-    font-weight: bold;
+.page-link {
+    display: block;
+    padding: 8px 12px;
+    background-color: #f0f0f0;
+    color: #333;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
 }
 
-.pagination .disabled {
-    pointer-events: none;
-    opacity: 0.5;
+.page-link:hover {
+    background-color: #d3d3d3;
 }
+
+.page-item.active .page-link {
+    background-color: #93be46;
+    color: white;
+}
+
 
 @media (min-width: 1400px) {
     .container {
