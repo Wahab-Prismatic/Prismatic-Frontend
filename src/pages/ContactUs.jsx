@@ -13,6 +13,7 @@ import { ShimmerDiv } from 'shimmer-effects-react';
 
 const ContactUs = () => {
     const [isLoading, setIsLoading] = useState(true);
+    const [captchaValue, setCaptchaValue] = useState(null);
     const dispatch = useDispatch();
     const { loading, successMessage, errorMessage } = useSelector((state) => state.contactForm);
 
@@ -51,6 +52,7 @@ const ContactUs = () => {
 
     const onCaptchaChange = (value, setFieldValue) => {
         setFieldValue('g-recaptcha-response', value);
+        setCaptchaValue(value);
     };
 
     const handleSubmit = (values) => {
@@ -188,7 +190,7 @@ const ContactUs = () => {
                                                     <div className="form-group recaptcha-container">
                                                         <ReCAPTCHA
                                                             name="g-recaptcha-response"
-                                                            sitekey='6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
+                                                            sitekey='6Lc1dnwqAAAAAPmTIdFUrl6CeZi9atld0XMeVl22'
                                                             onChange={(value) => onCaptchaChange(value, setFieldValue)}
                                                         />
                                                         <ErrorMessage name="g-recaptcha-response" component="div" className="text-danger" />
@@ -196,7 +198,7 @@ const ContactUs = () => {
                                                 </div>
                                             </div>
                                             <fieldset className="csm-form-info">
-                                                <button type="submit" id="form-submit" className="filled-button" disabled={loading}>
+                                                <button type="submit" id="form-submit" className="filled-button" disabled={loading || !captchaValue}>
                                                     {loading ? 'Sending...' : 'Send Message'}
                                                 </button>
                                             </fieldset>

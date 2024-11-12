@@ -46,10 +46,7 @@ const Career = () => {
             <div className="products-header-wrapper">
                 {
                     isLoading ? (
-                        <ShimmerDiv
-                            height="350px"
-                            width="100%"
-                        />
+                        <ShimmerDiv height="350px" width="100%" />
                     ) : (
                         <>
                             <img src={CareerImg} alt="career" title="career" draggable={false} />
@@ -84,7 +81,7 @@ const Career = () => {
 
                 {/* Career List */}
                 <div className="row" style={{ marginBottom: '50px' }}>
-                    {!loading && (careers.length > 0 ? (
+                    {!loading && (Array.isArray(careers) && careers.length > 0 ? (
                         careers.map((career, index) => (
                             <div className="col-lg-6 col-md-6" key={index}>
                                 <div className="FAQBox mb-2">
@@ -126,8 +123,8 @@ const Career = () => {
                         <Link to="/career-form" className="p-read-more">
                             <button
                                 style={{ padding: '12px 26px', fontSize: '18px' }}
-                                disabled={careers.length === 0} // Disable when no positions are available
-                                className={careers.length > 0 ? 'active-button' : 'disabled-button'}
+                                disabled={!Array.isArray(careers) || careers.length === 0} // Disable when no positions are available
+                                className={Array.isArray(careers) && careers.length > 0 ? 'active-button' : 'disabled-button'}
                             >
                                 Apply Now
                             </button>
@@ -136,7 +133,8 @@ const Career = () => {
                 </div>
             </div>
         </>
-    )
+    );
+
 }
 
 export default Career

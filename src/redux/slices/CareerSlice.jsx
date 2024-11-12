@@ -11,7 +11,8 @@ export const fetchCareers = createAsyncThunk('career/fetchCareers', async (_, { 
                 'Accept': 'application/json',
             }
         });
-        return response.data;
+        console.log("Career Response Data:", response.data);
+        return Array.isArray(response.data) ? response.data : [];
     } catch (error) {
         return rejectWithValue(error.message);
     }
