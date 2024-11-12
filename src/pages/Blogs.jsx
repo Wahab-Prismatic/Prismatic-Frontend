@@ -10,11 +10,9 @@ import { ShimmerDiv } from 'shimmer-effects-react';
 
 const Blogs = () => {
     const [columns, setColumns] = useState(3); // Default column lenght is '3'
-    // const [currentPage, setCurrentPage] = useState(0);
     const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
-    // const itemsPerPage = 6;
     const dispatch = useDispatch();
     const { blogs, loading, error, currentPage, lastPage } = useSelector((state) => state.blogs);
 
@@ -22,9 +20,7 @@ const Blogs = () => {
 
     useEffect(() => {
         const timer = setTimeout(() => setIsLoading(false), 2000);
-        console.log('Current page:', page, 'Last page:', lastPage)
         dispatch(fetchBlogs(page));
-
         // Function to update columns based on window width
         const updateColumns = () => {
             const width = window.innerWidth;
@@ -50,13 +46,8 @@ const Blogs = () => {
         }
     }, [dispatch, page]);
 
-    // Calculate the offset and paginated blogs
-    // const offset = currentPage * itemsPerPage;
-    // const currentBlogs = blogs.slice(offset, offset + itemsPerPage);
-    // const pageCount = Math.ceil(blogs.length / itemsPerPage);
-
     const handlePageClick = ({ selected }) => {
-        const newPage = selected + 1; // React Paginate is 0-indexed
+        const newPage = selected + 1; 
         navigate(`/blogs?page=${newPage}`);
     };
 
@@ -140,7 +131,7 @@ const Blogs = () => {
                                         <div className="col-lg-4 col-md-6 mb-30" key={blog.id} style={{ marginBottom: '40px' }}>
                                             <div className="single-blog-item blog-grid">
                                                 <div className="post-feature blog-thumbnail">
-                                                    <Link to={`/blogs-react/${blog.slug}`} onClick={() => window.scrollTo(0, 0)}>
+                                                    <Link to={`/blogs/${blog.slug}`} onClick={() => window.scrollTo(0, 0)}>
                                                         <img
                                                             className="img-fluid"
                                                             src={`/blogs-images/${blog.blog_image}`}
@@ -209,7 +200,7 @@ const Blogs = () => {
                 </div>
             </div>
             {/* Call to Action Area Start */}
-            {/* <div className="cta-image-area_one section-space--ptb_80 cta-bg-image_one">
+            <div className="cta-image-area_one section-space--ptb_80 cta-bg-image_one">
                 <div className="container">
                     <div className="row align-items-center">
                         <div className="col-xl-8 col-lg-7">
@@ -234,7 +225,7 @@ const Blogs = () => {
                         </div>
                     </div>
                 </div>
-            </div> */}
+            </div>
             {/* Call to Action Area end */}
         </>
     )

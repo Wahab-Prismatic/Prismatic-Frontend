@@ -1,29 +1,40 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
-import { fetchBlogs } from '../redux/slices/blogSlice';
-import { ShimmerDiv } from 'shimmer-effects-react'; 
+import { fetchBlogDetails, fetchBlogs } from '../redux/slices/blogSlice';
+import { ShimmerDiv } from 'shimmer-effects-react';
 import '../assets/css/BlogsDetail.css';
 
 const BlogsDetail = () => {
     const { slug } = useParams();
     const dispatch = useDispatch();
-    const { blogs: recentBlogs, loading: isLoading, error } = useSelector((state) => state.blogs);
+    const { blogs, currentBlog, loading: isLoading, error } = useSelector((state) => state.blogs);
 
+    console.log("All Blogs Data", blogs);
+
+     // Find the specific blog based on the slug parameter, or use `currentBlog` if it's loaded
+     const blog = blogs.find(b => b.slug === slug) || currentBlog;
+     console.log("Slug base Data:", blog);
+
+    // If currentBlog is not set or the blog is not part of the blogs array, fetch details again
     useEffect(() => {
-        dispatch(fetchBlogs());
-    }, [dispatch]);
+        if (slug && !currentBlog) {
+            // Fetch the details of the blog if it's not already available
+            dispatch(fetchBlogDetails(slug));
+        }
+        if (!blogs.length) {
+            // Fetch all blogs if they haven't been loaded already
+            dispatch(fetchBlogs());
+        }
+    }, [dispatch, slug, blogs.length, currentBlog]);
 
-    // Find the specific blog based on the slug parameter
-    const blog = recentBlogs.find(b => b.slug === slug);
-    console.log("Blogs Slug:", blog);
 
     if (isLoading) {
         return (
             <div>
                 <ShimmerDiv
-                    mode="light" 
-                    height={300} 
+                    mode="light"
+                    height={300}
                     width='100%'
                 />
             </div>
@@ -35,7 +46,7 @@ const BlogsDetail = () => {
     }
 
     // If no blogs are found or the specific blog is not found
-    if (recentBlogs.length === 0 || !blog) {
+    if (blogs.length === 0 || !blog) {
         return <p>No record found</p>;
     }
 
@@ -104,7 +115,7 @@ const BlogsDetail = () => {
                                 <div className="widget-title">
                                     <h3>Latest Post</h3>
                                 </div>
-                                {recentBlogs.length > 0 ? recentBlogs.map(b => (
+                                {blogs.length > 0 ? blogs.map(b => (
                                     <div className="widget-body" key={b.id}>
                                         <div className="latest-post-aside media aside-pic">
                                             <div className="lpa-left media-body">
