@@ -4,6 +4,7 @@ import { Suspense, lazy, useState } from 'react';
 import ErrorBoundary from './services/ErrorBoundry.jsx';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Spinner from './common/Spinner.jsx';
+const Blogs = lazy(() => import('./pages/Blogs.jsx'));
 const BlogsDetail = lazy(() => import('./components/BlogsDetail'));
 const About = lazy(() => import('./pages/About'));
 const Home = lazy(() => import('./pages/Home'));
@@ -20,7 +21,6 @@ const HRM = lazy(() => import('./pages/Products/HRM.jsx'));
 const Portfolio = lazy(() => import('./pages/Portfolio.jsx'));
 const Career = lazy(() => import('./pages/Career.jsx')); 
 const CareerForm = lazy(() => import('./pages/CareerForm.jsx'));
-const Blogs = lazy(() => import('./pages/Blogs.jsx'));
 const ContactUs = lazy(() => import('./pages/ContactUs.jsx'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
@@ -30,7 +30,7 @@ function App() {
     <>
       <div>
         <Header />
-        <ErrorBoundary>
+        {/* <ErrorBoundary> */}
           <Suspense fallback={<Loader />}>
             <Routes>
               <Route path='/' element={<Home />} />
@@ -54,7 +54,7 @@ function App() {
               <Route />
             </Routes>
           </Suspense>
-        </ErrorBoundary>
+        {/* </ErrorBoundary> */}
         <Footer />
       </div>
     </>

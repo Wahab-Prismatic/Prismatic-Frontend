@@ -140,15 +140,15 @@ const Header = () => {
                                             </Link>
                                         </li>
                                         <li className="nav-item wraper" style={{ display: 'flex', justifyContent: 'end', width: '50%' }}>
-                                            <a
+                                            <Link
                                                 className="nav-link book-demo"
-                                                data-bs-target="#registerModal1"
-                                                data-bs-toggle="modal"
-                                                // to="/contact-us"
+                                                // data-bs-target="#registerModal1"
+                                                // data-bs-toggle="modal"
+                                                to="/contact-us"
                                                 style={{ fontSize: '16px', backgroundColor: '#fff', color: '#0274b8', padding: '5px 23px', display: 'flex', alignItems: 'center', fontWeight: 600, cursor: 'pointer' }}
                                             >
                                                 <span>Get a demo</span>
-                                            </a>
+                                            </Link>
                                             <div className="modal" tabIndex="-1" role="dialog" id="myModal"></div>
                                         </li>
                                     </ul>
@@ -158,7 +158,7 @@ const Header = () => {
                     )
                 }
                 {/* Modal Section Start */}
-                <div id="registerModal1" className="modal-style-1 modal fade">
+                {/* <div id="registerModal1" className="modal-style-1 modal fade">
                     <div className="modal-dialog modal-lg modal-dialog-centered">
                         <div className="modal-content">
                             <div className="modal-header p-0 mb-3 mt-3">
@@ -307,7 +307,7 @@ const Header = () => {
                             </div>
                         </div>
                     </div>
-                </div>
+                </div> */}
                 {/* Modal Section End */}
                 <Navbar />
             </header>
