@@ -1,62 +1,43 @@
 import { useEffect, useState } from 'react';
-import { submitContactForm, clearMessages } from '../redux/slices/contactFormSlice';
+// import { submitContactForm, clearMessages } from '../redux/slices/contactFormSlice';
 import '../assets/css/Header.css';
-import ReCAPTCHA from 'react-google-recaptcha';
+// import ReCAPTCHA from 'react-google-recaptcha';
 import Navbar from '../common/Navbar';
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 
 const Header = () => {
-    const dispatch = useDispatch();
-    const { loading, successMessage, errorMessage, errors } = useSelector((state) => state.contactForm);
+    // const dispatch = useDispatch();
+    // const { loading, successMessage, errorMessage, errors } = useSelector((state) => state.contactForm);
 
-    const [captchaValue, setCaptchaValue] = useState(null);
+    // const [captchaValue, setCaptchaValue] = useState(null);
     const [isTopbarVisible, setIsTopbarVisible] = useState(true);
     const [isTopbarHidden, setIsTopbarHidden] = useState(window.innerWidth <= 991);
-    const [formData, setFormData] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        companyName: '',
-        subject: '',
-        message: '',
-        'g-recaptcha-response': '6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
-    });
+    // const [formData, setFormData] = useState({
+    //     name: '',
+    //     email: '',
+    //     phone: '',
+    //     companyName: '',
+    //     subject: '',
+    //     message: '',
+    //     'g-recaptcha-response': '6LdBk2kqAAAAAEOt1rERG-NjZACYjPaayoETj84x'
+    // });
 
-    const services = {
-        "erp-software": "ERP Software",
-        "crm-software": "CRM Software",
-        "lms-software": "LMS Software",
-        "hrm-software": "HRM Software",
-        "e-commerce-website": "E-Commerce Website",
-        "mobile-application-development": "Mobile Application Development",
-        "pos-system": "POS System",
-        "digital-marketing": "Digital Marketing",
-        "website-development": "Website Development",
-        "customized-software-solutions": "Customized Software Solutions",
-        "shopify": "Shopify",
-        "wordpress": "WordPress"
-    };
+    // const services = {
+    //     "erp-software": "ERP Software",
+    //     "crm-software": "CRM Software",
+    //     "lms-software": "LMS Software",
+    //     "hrm-software": "HRM Software",
+    //     "e-commerce-website": "E-Commerce Website",
+    //     "mobile-application-development": "Mobile Application Development",
+    //     "pos-system": "POS System",
+    //     "digital-marketing": "Digital Marketing",
+    //     "website-development": "Website Development",
+    //     "customized-software-solutions": "Customized Software Solutions",
+    //     "shopify": "Shopify",
+    //     "wordpress": "WordPress"
+    // };
 
-
-    useEffect(() => {
-        dispatch(clearMessages());
-
-        const handleResize = () => {
-            setIsTopbarHidden(window.innerWidth <= 991);
-        };
-
-        // Attach the resize event listener
-        window.addEventListener('resize', handleResize);
-
-        // Check initial size on component mount
-        handleResize();
-
-        // Cleanup on component unmount
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, [dispatch]);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -65,60 +46,70 @@ const Header = () => {
                 setIsTopbarVisible(false); // Hide the topbar
             } else {
                 setIsTopbarVisible(true); // Show the topbar
-
             }
         };
-
-        // Attach the scroll event listener
+    
+        const handleResize = () => {
+            setIsTopbarHidden(window.innerWidth <= 991);
+        };
+    
+        // Attach the scroll and resize event listeners
         window.addEventListener('scroll', handleScroll);
-
-        // Cleanup the event listener on component unmount
+        window.addEventListener('resize', handleResize);
+    
+        // Call handleResize initially to set initial state based on window size
+        handleResize();
+    
+        // Cleanup on component unmount
         return () => {
             window.removeEventListener('scroll', handleScroll);
+            window.removeEventListener('resize', handleResize);
         };
     }, []);
+    
 
     // Handle change input
-    const handleChange = (e) => {
-        const { name, value } = e.target;
-        setFormData((prevData) => ({
-            ...prevData,
-            [name]: value
-        }));
-    };
+    // const handleChange = (e) => {
+    //     const { name, value } = e.target;
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         [name]: value
+    //     }));
+    // };
 
     // Handle reCAPTCHA change
-    const onCaptchaChange = (value) => {
-        setCaptchaValue(value);
-        setFormData((prevData) => ({
-            ...prevData,
-            'g-recaptcha-response': value,
-        }))
-    }
+    // const onCaptchaChange = (value) => {
+    //     setCaptchaValue(value);
+    //     setFormData((prevData) => ({
+    //         ...prevData,
+    //         'g-recaptcha-response': value,
+    //     }))
+    // }
 
     // Handle from submit
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        // if(!captchaValue) {
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     // if(!captchaValue) {
         //     alert('Please verify the reCAPTCHA');
         //     return;
         // }
 
         // Dispatch the form submission action
-        dispatch(submitContactForm(formData));
-        setFormData({
-            name: '',
-            email: '',
-            phone: '',
-            companyName: '',
-            subject: '',
-            message: '',
-            'g-recaptcha-response': ''
-        });
-        setCaptchaValue(null);
-    };
+        // dispatch(submitContactForm(formData));
+        // setFormData({
+        //     name: '',
+        //     email: '',
+        //     phone: '',
+        //     companyName: '',
+        //     subject: '',
+        //     message: '',
+        //     'g-recaptcha-response': ''
+        // });
+        // setCaptchaValue(null);
+    // };
 
     return (
+        <>
         <div>
             <header>
                 {
@@ -141,7 +132,7 @@ const Header = () => {
                                         </li>
                                         <li className="nav-item wraper" style={{ display: 'flex', justifyContent: 'end', width: '50%' }}>
                                             <Link
-                                                className="nav-link book-demo"
+                                                // className="nav-link book-demo"
                                                 // data-bs-target="#registerModal1"
                                                 // data-bs-toggle="modal"
                                                 to="/contact-us"
@@ -312,6 +303,7 @@ const Header = () => {
                 <Navbar />
             </header>
         </div>
+        </>
     )
 }
 
