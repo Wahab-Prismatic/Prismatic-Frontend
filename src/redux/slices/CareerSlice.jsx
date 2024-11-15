@@ -5,14 +5,14 @@ import axiosClient from "../../api/axiosClient";
 
 export const fetchCareers = createAsyncThunk('career/fetchCareers', async (_, { rejectWithValue }) => {
     try {
-        const response = await axiosClient.get('/admin/career-list', {
+        const response = await axiosClient.get('/career-react', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
             }
         });
-        console.log("Career Response Data:", response.data);
-        return Array.isArray(response.data) ? response.data : [];
+        console.log("Career Response Data:", response.data.career);
+        return Array.isArray(response.data.career) ? response.data.career : [];
     } catch (error) {
         return rejectWithValue(error.message);
     }

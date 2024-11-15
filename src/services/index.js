@@ -5,7 +5,7 @@ import AsmaImg from '../assets/images/asma-dawood-pic.jpeg';
 import NoumanImg from '../assets/images/M.Nouman.webp';
 import RoufImg from '../assets/images/A-rouf.webp';
 import BilalImg from '../assets/images/b-javaid.webp';
-import TourActivityImg from '../assets/activity-images/tour-activity-new.jpeg';
+import TourActivityImg from '/activity-images/tour-activity-new.jpeg';
 import UpdatedBannerImg from '../assets/prismatic-activity-images/updated-banner.jpeg';
 import PictureTourImg from '../assets/prismatic-activity-images/Picture-tour.jpg';
 import PictureTourImg2 from '../assets/prismatic-activity-images/Picture-tour-2.jpg';

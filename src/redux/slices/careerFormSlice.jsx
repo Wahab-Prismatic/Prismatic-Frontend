@@ -8,6 +8,7 @@ export const submitCareerForm = createAsyncThunk('careerForm/submitCareerForm', 
                 "Content-Type": 'multipart/form-data'
             }
         });
+        console.log("Career form response data:", response.data);
         return response.data;
     } catch (error) {
         return rejectWithValue(error.response.data);
@@ -34,7 +35,7 @@ const careerApplicationSlice = createSlice({
         apply_experience: '',
         apply_exp_salary: '',
         // hearing_source: '',
-        // cv_pdf: null,
+        cv_pdf: null,
       },
       loading: false,
       successMessage: '',
@@ -76,9 +77,9 @@ const careerApplicationSlice = createSlice({
           state.errorMessage = '';
           state.successMessage = '';
         })
-        .addCase(submitCareerForm.fulfilled, (state) => {
+        .addCase(submitCareerForm.fulfilled, (state, action) => {
           state.loading = false;
-          state.successMessage = "Application submitted successfully!";
+          state.successMessage = action.payload.message ||"Application submitted successfully!";
           state.errorMessage = '';
         })
         .addCase(submitCareerForm.rejected, (state, action) => {

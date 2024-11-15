@@ -17,7 +17,7 @@ const HeroSectionMain = () => {
         Aos.init();
         const timer = setTimeout(() => {
             setIsLoading(false); // Simulate content loading
-        }, 1000); // Simulate 2 seconds loading time
+        }, 500); // Simulate 2 seconds loading time
         return () => clearTimeout(timer); // Clean up the timer
     }, []);
 

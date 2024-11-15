@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from 'react';
 import { BannerImages } from '../services';
 // Import Swiper modules
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -5,46 +6,34 @@ import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/module
 // Import Swiper CSS modules
 import 'swiper/css';
 import '../assets/css/PrismaticLife.css';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import AwardImg from '../assets/activity-images/award-activity.jpeg';
-import Img9020 from '../assets/prismatic-activity-images/IMG_9020.JPG';
-import Img9042 from '../assets/prismatic-activity-images/IMG_9042.JPG';
-import Img9046 from '../assets/prismatic-activity-images/IMG_9046.JPG';
-import Img9153 from '../assets/prismatic-activity-images/IMG_9153.JPG';
-import Img8803 from '../assets/prismatic-activity-images/IMG_8803.JPG';
-import Img8804 from '../assets/prismatic-activity-images/IMG_8804.JPG';
-import Img8889 from '../assets/prismatic-activity-images/IMG_8889.JPG';
-import Img8993 from '../assets/prismatic-activity-images/IMG_8993.JPG';
-import PicTourImg2 from '../assets/prismatic-activity-images/Picture-tour-2.jpg';
-import PicNewYear from '../assets/prismatic-activity-images/Picture-new-year.jpg';
-import PicNewYear2 from '../assets/prismatic-activity-images/Picture-new-year-2.jpg';
-import PrisBannerImg from '../assets/prismatic-activity-images/pris-banner.png';
-import Overlay from '../assets/activity-images/overlay-white-img.png';
-import Img_9206 from '../assets/prismatic-activity-images/IMG_9206.JPG';
-import Img_9196 from '../assets/prismatic-activity-images/IMG_9196.JPG';
-import Img_9199 from '../assets/prismatic-activity-images/IMG_9199.JPG';
-import Img_9200 from '../assets/prismatic-activity-images/IMG_9200.JPG';
-import Img_9202 from '../assets/prismatic-activity-images/IMG_9202.JPG';
-import Img_9204 from '../assets/prismatic-activity-images/IMG_9204.JPG';
-import { useEffect, useRef, useState } from 'react';
+import AwardImg from '/activity-images/award-activity.jpeg';
+import Img9020 from '/prismatic-activity-images/IMG_9020.JPG';
+import Img9042 from '/prismatic-activity-images/IMG_9042.JPG';
+import Img9046 from '/prismatic-activity-images/IMG_9046.JPG';
+import Img9153 from '/prismatic-activity-images/IMG_9153.JPG';
+import Img8803 from '/prismatic-activity-images/IMG_8803.JPG';
+import Img8804 from '/prismatic-activity-images/IMG_8804.JPG';
+import Img8889 from '/prismatic-activity-images/IMG_8889.JPG';
+import Img8993 from '/prismatic-activity-images/IMG_8993.JPG';
+import PicTourImg2 from '/prismatic-activity-images/Picture-tour-2.jpg';
+import PicNewYear from '/prismatic-activity-images/Picture-new-year.jpg';
+import PicNewYear2 from '/prismatic-activity-images/Picture-new-year-2.jpg';
+import PrisBannerImg from '/prismatic-activity-images/pris-banner.png';
+import Overlay from '/activity-images/overlay-white-img.png';
+import Img_9206 from '/prismatic-activity-images/IMG_9206.JPG';
+import Img_9196 from '/prismatic-activity-images/IMG_9196.JPG';
+import Img_9199 from '/prismatic-activity-images/IMG_9199.JPG';
+import Img_9200 from '/prismatic-activity-images/IMG_9200.JPG';
+import Img_9202 from '/prismatic-activity-images/IMG_9202.JPG';
+import Img_9204 from '/prismatic-activity-images/IMG_9204.JPG';
 import { ShimmerDiv } from 'shimmer-effects-react';
+import { Link } from 'react-router-dom';
 
 const PrismaticLife = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
     const [isLoading, setIsLoading] = useState(true);
     const sectionRefs = useRef({});
-
-    // Scroll function to particular portfolio section
-    // const scrollToSection = (category) => {
-    //     if (sectionRefs.current[category]) {
-    //         sectionRefs.current[category].scrollIntoView({
-    //             behavior: "smooth",
-    //             block: "start",
-    //         });
-    //     }
-    // };
 
     useEffect(() => {
         const timer = setTimeout(() => setIsLoading(false), 2000);
@@ -277,7 +266,7 @@ const PrismaticLife = () => {
                                 onMouseEnter={() => handleMouseEnter(index)}
                                 onMouseLeave={handleMouseLeave}
                             >
-                                <a href="#!" onClick={() => handleImageClick(index)}>
+                                <Link to="#" onClick={() => handleImageClick(index)}>
                                     <div className="plus-img">
                                         <div className={`overlay ${hoveredIndex === index ? 'show' : ''}`}></div>
                                         <img
@@ -293,7 +282,7 @@ const PrismaticLife = () => {
                                         style={{ width: '100%', borderRadius: '30px' }}
                                         draggable={false}
                                     />
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     ))}
