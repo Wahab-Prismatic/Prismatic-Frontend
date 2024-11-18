@@ -6,26 +6,26 @@ import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/module
 // Import Swiper CSS modules
 import 'swiper/css';
 import '../assets/css/PrismaticLife.css';
-import AwardImg from '/activity-images/award-activity.jpeg';
-import Img9020 from '/prismatic-activity-images/IMG_9020.JPG';
-import Img9042 from '/prismatic-activity-images/IMG_9042.JPG';
-import Img9046 from '/prismatic-activity-images/IMG_9046.JPG';
-import Img9153 from '/prismatic-activity-images/IMG_9153.JPG';
-import Img8803 from '/prismatic-activity-images/IMG_8803.JPG';
-import Img8804 from '/prismatic-activity-images/IMG_8804.JPG';
-import Img8889 from '/prismatic-activity-images/IMG_8889.JPG';
-import Img8993 from '/prismatic-activity-images/IMG_8993.JPG';
-import PicTourImg2 from '/prismatic-activity-images/Picture-tour-2.jpg';
-import PicNewYear from '/prismatic-activity-images/Picture-new-year.jpg';
-import PicNewYear2 from '/prismatic-activity-images/Picture-new-year-2.jpg';
-import PrisBannerImg from '/prismatic-activity-images/pris-banner.png';
+import AwardImg from '/activity-images/award-activity.webp';
+import Img9020 from '/prismatic-activity-images/IMG_9020.webp';
+import Img9042 from '/prismatic-activity-images/IMG_9042.webp';
+import Img9046 from '/prismatic-activity-images/IMG_9046.webp';
+import Img9153 from '/prismatic-activity-images/IMG_9153.webp';
+import Img8803 from '/prismatic-activity-images/IMG_8803.webp';
+import Img8804 from '/prismatic-activity-images/IMG_8804.webp';
+import Img8889 from '/prismatic-activity-images/IMG_8889.webp';
+import Img8993 from '/prismatic-activity-images/IMG_8993.webp';
+import PicTourImg2 from '/prismatic-activity-images/Picture-tour-2.webp';
+import PicNewYear from '/prismatic-activity-images/Picture-new-year.webp';
+import PicNewYear2 from '/prismatic-activity-images/Picture-new-year-2.webp';
+import PrisBannerImg from '/prismatic-activity-images/pris-banner.webp';
 import Overlay from '/activity-images/overlay-white-img.png';
-import Img_9206 from '/prismatic-activity-images/IMG_9206.JPG';
-import Img_9196 from '/prismatic-activity-images/IMG_9196.JPG';
-import Img_9199 from '/prismatic-activity-images/IMG_9199.JPG';
-import Img_9200 from '/prismatic-activity-images/IMG_9200.JPG';
-import Img_9202 from '/prismatic-activity-images/IMG_9202.JPG';
-import Img_9204 from '/prismatic-activity-images/IMG_9204.JPG';
+import Img_9206 from '/prismatic-activity-images/IMG_9206.webp';
+import Img_9196 from '/prismatic-activity-images/IMG_9196.webp';
+import Img_9199 from '/prismatic-activity-images/IMG_9199.webp';
+import Img_9200 from '/prismatic-activity-images/IMG_9200.webp';
+import Img_9202 from '/prismatic-activity-images/IMG_9202.webp';
+import Img_9204 from '/prismatic-activity-images/IMG_9204.webp';
 import { ShimmerDiv } from 'shimmer-effects-react';
 import { Link } from 'react-router-dom';
 
@@ -36,7 +36,7 @@ const PrismaticLife = () => {
     const sectionRefs = useRef({});
 
     useEffect(() => {
-        const timer = setTimeout(() => setIsLoading(false), 2000);
+        const timer = setTimeout(() => setIsLoading(false), 1000);
         return () => clearTimeout(timer);
     }, []);
 

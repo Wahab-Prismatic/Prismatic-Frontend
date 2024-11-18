@@ -1,13 +1,13 @@
 import { useRef, useState } from 'react';
 import '../assets/css/Portfolio.css';
-import PortfolioImg from '../assets/images/Portfolio.jpg';
+import PortfolioImg from '../assets/images/Portfolio.webp';
 import { Link } from 'react-router-dom';
 // import { portfolioImages } from '../services';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 import { ShimmerSimpleGallery, ShimmerThumbnail } from 'react-shimmer-effects';
 import { useQuery } from '@tanstack/react-query';
-import { ShimmerButton, ShimmerDiv } from 'shimmer-effects-react';
+import { ShimmerButton } from 'shimmer-effects-react';
 
 const getImagePath = (imageName) => {
     try {
@@ -26,35 +26,35 @@ const fetchPortfolios = async () => {
         setTimeout(() => {
             const data = {
                 websites: [
-                    'website-portfolio/dunkin.jpg',
-                    'website-portfolio/winbid.jpg',
-                    'website-portfolio/topfix.jpg',
-                    'website-portfolio/timesCrimes.jpg',
-                    'website-portfolio/techzology.jpg',
-                    'website-portfolio/petandu.jpg',
-                    'website-portfolio/jfoster.jpg',
-                    'website-portfolio/aamc.jpg',
+                    'website-portfolio/dunkin.webp',
+                    'website-portfolio/winbid.webp',
+                    'website-portfolio/topfix.webp',
+                    'website-portfolio/timesCrimes.webp',
+                    'website-portfolio/techzology.webp',
+                    'website-portfolio/petandu.webp',
+                    'website-portfolio/jfoster.webp',
+                    'website-portfolio/aamc.webp',
                 ],
                 digitalMarketing: [
-                    'Digital-marketing-portfolio/digital-marketing-1.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-4.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-14.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-12.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-5.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-6.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-8.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-9.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-10.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-11.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-13.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-2.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-7.jpg',
-                    'Digital-marketing-portfolio/digital-marketing-3.jpg',
+                    'Digital-marketing-portfolio/digital-marketing-1.webp',
+                    'Digital-marketing-portfolio/digital-marketing-4.webp',
+                    'Digital-marketing-portfolio/digital-marketing-14.webp',
+                    'Digital-marketing-portfolio/digital-marketing-12.webp',
+                    'Digital-marketing-portfolio/digital-marketing-5.webp',
+                    'Digital-marketing-portfolio/digital-marketing-6.webp',
+                    'Digital-marketing-portfolio/digital-marketing-8.webp',
+                    'Digital-marketing-portfolio/digital-marketing-9.webp',
+                    'Digital-marketing-portfolio/digital-marketing-10.webp',
+                    'Digital-marketing-portfolio/digital-marketing-11.webp',
+                    'Digital-marketing-portfolio/digital-marketing-13.webp',
+                    'Digital-marketing-portfolio/digital-marketing-2.webp',
+                    'Digital-marketing-portfolio/digital-marketing-7.webp',
+                    'Digital-marketing-portfolio/digital-marketing-3.webp',
                 ],
                 learningManagementSystem: [
-                    'lms-portfolio/aamc-lms.jpg',
-                    'lms-portfolio/pny-lms.jpg',
-                    'lms-portfolio/pris-lms.jpg',
+                    'lms-portfolio/aamc-lms.webp',
+                    'lms-portfolio/pny-lms.webp',
+                    'lms-portfolio/pris-lms.webp',
                 ],
                 erpSoftware: [
                     'ERP-portfolio/Al-ALEEM-MEDICAL-COLLEGE.webp',
@@ -137,16 +137,6 @@ const Portfolio = () => {
             );
         }
     };
-
-    // Scroll function to particular portfolio
-    // const scrollToSection = (category) => {
-    //     if (sectionRefs.current[category]) {
-    //         sectionRefs.current[category].scrollIntoView({
-    //             behavior: "smooth",
-    //             block: "start"
-    //         });
-    //     }
-    // };
 
     // Map button labels to portfolio data categories
     const categoryMap = {

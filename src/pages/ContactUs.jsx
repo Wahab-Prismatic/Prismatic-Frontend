@@ -32,7 +32,7 @@ const ContactUs = () => {
         companyName: Yup.string().required('Company Name is required'),
         subject: Yup.string().required('Please select a service'),
         message: Yup.string().required('Message is required'),
-        'g-recaptcha-response': Yup.string().required('Please complete the reCAPTCHA'),
+        'captcha': Yup.string().required('Please complete the reCAPTCHA'),
     });
 
     // Formik initial values
@@ -43,7 +43,7 @@ const ContactUs = () => {
         companyName: '',
         subject: '',
         message: '',
-        'g-recaptcha-response': '',
+        'captcha': '',
     };
 
     useEffect(() => {
@@ -51,7 +51,7 @@ const ContactUs = () => {
     }, [dispatch]);
 
     const onCaptchaChange = (value, setFieldValue) => {
-        setFieldValue('g-recaptcha-response', value);
+        setFieldValue('captcha', value);
         setCaptchaValue(value);
     };
 
@@ -189,11 +189,11 @@ const ContactUs = () => {
                                                 <div className="col-lg-12 col-md-12">
                                                     <div className="form-group recaptcha-container">
                                                         <ReCAPTCHA
-                                                            name="g-recaptcha-response"
+                                                            name="captcha"
                                                             sitekey='6Lc1dnwqAAAAAPmTIdFUrl6CeZi9atld0XMeVl22'
                                                             onChange={(value) => onCaptchaChange(value, setFieldValue)}
                                                         />
-                                                        <ErrorMessage name="g-recaptcha-response" component="div" className="text-danger" />
+                                                        <ErrorMessage name="captcha" component="div" className="text-danger" />
                                                     </div>
                                                 </div>
                                             </div>

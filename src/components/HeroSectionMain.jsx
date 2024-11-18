@@ -16,21 +16,21 @@ const HeroSectionMain = () => {
     useEffect(() => {
         Aos.init();
         const timer = setTimeout(() => {
-            setIsLoading(false); // Simulate content loading
-        }, 500); // Simulate 2 seconds loading time
+            setIsLoading(false); 
+        }, 500); 
         return () => clearTimeout(timer); // Clean up the timer
     }, []);
 
     return (
         <>
-            {
+            {/* {
                 isLoading ? (
                     <ShimmerDiv
                         mode="light"
                         height={400}
                         width="100%"
                     />
-                ) : (
+                ) : ( */}
                     <div className="HeroSEc-main">
                         <div className="hero-wrap">
                             <Swiper
@@ -50,7 +50,7 @@ const HeroSectionMain = () => {
                                                 </Link>
                                             </div>
                                             <div className="service-right">
-                                                <img src={service.imgSrc} alt={service.imgAlt} title="ERP-slide" />
+                                                <img src={service.imgSrc} alt={service.imgAlt} title="ERP-slide" loading='lazy' />
                                             </div>
                                         </div>
                                     </SwiperSlide>
@@ -79,8 +79,8 @@ const HeroSectionMain = () => {
                             </svg>
                         </div>
                     </div>
-                )
-            }
+                {/* )
+            } */}
         </>
     )
 }

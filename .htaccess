@@ -11,13 +11,37 @@ RewriteCond %{REQUEST_URI} ^/assets/
 RewriteCond %{REQUEST_FILENAME} -f
 RewriteRule ^assets/(.*)$ /assets/$1 [L]
 
-# Caching options (optional)
+# Caching options for the public directory
 <IfModule mod_expires.c>
     ExpiresActive On
+     # HTML - short caching for HTML files (adjust based on your deployment frequency)
+    ExpiresByType text/html "access plus 1 day"
+
+    # Images - long caching for images (adjust based on your content update frequency)
     ExpiresByType text/html "access 1 day"
-    ExpiresByType image/gif "access 1 month"
-    ExpiresByType image/png "access 1 month"
-    ExpiresByType image/jpeg "access 1 month"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
     ExpiresByType text/css "access 1 week"
     ExpiresByType application/javascript "access 1 week"
+
+    # CSS and JavaScript - medium caching duration for styling and scripts
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # Add Cache-Control headers to specify caching policy
+    <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+
+    # Enable CORS headers if needed
+    <FilesMatch "\.(css|js|png|jpg|jpeg|gif|svg|webp|avif|ico)$">
+        Header set Access-Control-Allow-Origin "*"
+    </FilesMatch>
 </IfModule>

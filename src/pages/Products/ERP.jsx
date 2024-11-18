@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
-import DemoImg from '../../assets/images/erp/demo.png';
-import PolgoneImg from '../../assets/images/erp/polgone.png';
-import PrisHeroImg from '../../assets/images/erp/pris-hero-img.png';
-import PolygoneImg from '../../assets/images/erp/polygon.png';
-import EllipseImg from '../../assets/images/erp/Ellipse 2.png'
-import HealthCareImg from '../../assets/images/erp/Healthcare.png';
-import ManufacturingImg from '../../assets/images/erp/Manufacturing-industry.png';
-import BankingImg from '../../assets/images/erp/Banking.png';
-import RetailImg from '../../assets/images/erp/Retail.png';
+import DemoImg from '../../assets/images/erp/demo.webp';
+import PolgoneImg from '../../assets/images/erp/polgone.webp';
+import PrisHeroImg from '../../assets/images/erp/pris-hero-img.webp';
+import PolygoneImg from '../../assets/images/erp/polygon.webp';
+import EllipseImg from '../../assets/images/erp/Ellipse 2.webp'
+import HealthCareImg from '../../assets/images/erp/Healthcare.webp';
+import ManufacturingImg from '../../assets/images/erp/Manufacturing-industry.webp';
+import BankingImg from '../../assets/images/erp/Banking.webp';
+import RetailImg from '../../assets/images/erp/Retail.webp';
 import VideoPlayBtn from '../../assets/images/erp/video-ply-btn.webp';
 import VideoPostureImg from '../../assets/images/erp/ERP-video-posture.png';
 import ClientVideo from '../../assets/images/erp/ERP-Testimonial-video.mp4';

@@ -5,10 +5,10 @@ import AsmaImg from '../assets/images/asma-dawood-pic.jpeg';
 import NoumanImg from '../assets/images/M.Nouman.webp';
 import RoufImg from '../assets/images/A-rouf.webp';
 import BilalImg from '../assets/images/b-javaid.webp';
-import TourActivityImg from '/activity-images/tour-activity-new.jpeg';
-import UpdatedBannerImg from '../assets/prismatic-activity-images/updated-banner.jpeg';
-import PictureTourImg from '../assets/prismatic-activity-images/Picture-tour.jpg';
-import PictureTourImg2 from '../assets/prismatic-activity-images/Picture-tour-2.jpg';
+import TourActivityImg from '/activity-images/tour-activity-new.webp';
+import UpdatedBannerImg from '../assets/prismatic-activity-images/updated-banner.webp';
+import PictureTourImg from '../assets/prismatic-activity-images/Picture-tour.webp';
+import PictureTourImg2 from '../assets/prismatic-activity-images/Picture-tour-2.webp';
 import questLogo from '../assets/images/clients/quest-logo.webp';
 import gulabdeviLogo from '../assets/images/clients/gulabdevi.webp';
 import PNYLogo from '../assets/images/clients/PNY Trainings.webp';
@@ -26,14 +26,14 @@ import CustomizeImg from '../assets/images/HRMS/customize.png';
 import IntegrateImg from '../assets/images/HRMS/integrate.png';
 import DeployImg from '../assets/images/HRMS/deploy.png';
 import OptimizeImg from '../assets/images/HRMS/optimize.png';
-import DunkinImg from '../assets/portfolio-images/website-portfolio/dunkin.jpg';
-import WinbidImg from '../assets/portfolio-images/website-portfolio/winbid.jpg';
-import TopFixImg from '../assets/portfolio-images/website-portfolio/topfix.jpg';
-import TimeCrimeImg from '../assets/portfolio-images/website-portfolio/timesCrimes.jpg';
-import TechzImg from '../assets/portfolio-images/website-portfolio/techzology.jpg';
-import PetanduImg from '../assets/portfolio-images/website-portfolio/petandu.jpg';
-import JfosterImg from '../assets/portfolio-images/website-portfolio/jfoster.jpg';
-import AamcImg from '../assets/portfolio-images/website-portfolio/aamc.jpg';
+import DunkinImg from '../assets/portfolio-images/website-portfolio/dunkin.webp';
+import WinbidImg from '../assets/portfolio-images/website-portfolio/winbid.webp';
+import TopFixImg from '../assets/portfolio-images/website-portfolio/topfix.webp';
+import TimeCrimeImg from '../assets/portfolio-images/website-portfolio/timesCrimes.webp';
+import TechzImg from '../assets/portfolio-images/website-portfolio/techzology.webp';
+import PetanduImg from '../assets/portfolio-images/website-portfolio/petandu.webp';
+import JfosterImg from '../assets/portfolio-images/website-portfolio/jfoster.webp';
+import AamcImg from '../assets/portfolio-images/website-portfolio/aamc.webp';
 import ExpertTeamImg from '../assets/images/ecommerce/expert-team.webp';
 import SolutionsImg from '../assets/images/ecommerce/solutions.webp';
 import resultDrivenImg from '../assets/images/ecommerce/results-driven-img.webp';
@@ -59,7 +59,7 @@ import Logo15Img from '../assets/images/erp/our-clients/Logos-15.png';
 import Logo16Img from '../assets/images/erp/our-clients/Logos-16.png';
 import Logo22Img from '../assets/images/erp/our-clients/Logos-22.png';
 import Logo23Img from '../assets/images/erp/our-clients/Logos-23.png';
-import CardImg from '../assets/images/erp/card-img-1.png';
+import CardImg from '../assets/images/erp/card-img-1.webp';
 import frameworkImage from '../assets/images/frame-work-icon.png';
 import cmsImage from '../assets/images/cms-icon.jpg';
 import eCommImage from '../assets/images/ecommerce-icon.jpg';
@@ -69,39 +69,39 @@ import IntegrationImage from '../assets/images/integration.png';
 
 export const portfolios = {
   websites: [
-      "../assets/portfolio-images/website-portfolio/dunkin.jpg",
-      "../assets/portfolio-images/website-portfolio/winbid.jpg",
-      "../assets/portfolio-images/website-portfolio/topfix.jpg",
-      "../assets/portfolio-images/website-portfolio/timesCrimes.jpg",
-      "../assets/portfolio-images/website-portfolio/techzology.jpg",
-      "../assets/portfolio-images/website-portfolio/petandu.jpg",
-      "../assets/portfolio-images/website-portfolio/jfoster.jpg",
-      "../assets/portfolio-images/website-portfolio/aamc.jpg",
+      "../assets/portfolio-images/website-portfolio/dunkin.webp",
+      "../assets/portfolio-images/website-portfolio/winbid.webp",
+      "../assets/portfolio-images/website-portfolio/topfix.webp",
+      "../assets/portfolio-images/website-portfolio/timesCrimes.webp",
+      "../assets/portfolio-images/website-portfolio/techzology.webp",
+      "../assets/portfolio-images/website-portfolio/petandu.webp",
+      "../assets/portfolio-images/website-portfolio/jfoster.webp",
+      "../assets/portfolio-images/website-portfolio/aamc.webp",
   ],
   digitalMarketing: [
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-1.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-4.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-14.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-12.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-5.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-6.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-8.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-9.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-10.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-11.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-13.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-2.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-7.jpg",
-      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-3.jpg",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-1.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-4.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-14.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-12.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-5.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-6.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-8.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-9.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-10.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-11.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-13.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-2.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-7.webp",
+      "../assets/portfolio-images/Digital-marketing-portfolio/digital-marketing-3.webp",
 
 
 
       // add more images here as needed
   ],
   learningManagementSystem: [
-      "../assets/portfolio-images/lms-portfolio/aamc-lms.jpg",
-      "../assets/portfolio-images/lms-portfolio/pny-lms.jpg",
-      "../assets/portfolio-images/lms-portfolio/pris-lms.jpg",
+      "../assets/portfolio-images/lms-portfolio/aamc-lms.webp",
+      "../assets/portfolio-images/lms-portfolio/pny-lms.webp",
+      "../assets/portfolio-images/lms-portfolio/pris-lms.webp",
   ],
   erpSoftware: [
       "../assets/portfolio-images/ERP-portfolio/Al-ALEEM-MEDICAL-COLLEGE.webp",
