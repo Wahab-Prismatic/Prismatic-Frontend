@@ -1,21 +1,19 @@
-import { useEffect } from 'react';
-import HeroSectionMain from '../components/HeroSectionMain';
-import BusinessProbCard from '../components/BusinessProbCard';
-import BusinessSolsSection from '../components/BusinessSolsSection';
-import TrustPrisSection from '../components/TrustPrisSection';
-import OurClientsSection from '../components/OurClientsSection';
-import OurTechSection from '../components/OurTechSection';
-import WhyChooseCardSection from '../components/WhyChooseCardSection';
-import TestimonialSection from '../components/TestimonialSection';
-import OurLocations from '../components/OurLocations';
-import StrategicPartner from '../components/StrategicPartner';
-import BlogsSection from '../components/BlogsSection';
-import Aos from 'aos';
+import { lazy } from 'react';
+
+// Lazy loading components
+const HeroSectionMain = lazy(() => import('../components/HeroSectionMain'));
+const BusinessProbCard = lazy(() => import('../components/BusinessProbCard'));
+const BusinessSolsSection = lazy(() => import('../components/BusinessSolsSection'));
+const TrustPrisSection = lazy(() => import('../components/TrustPrisSection'));
+const OurClientsSection = lazy(() => import('../components/OurClientsSection'));
+const OurTechSection = lazy(() => import('../components/OurTechSection'));
+const WhyChooseCardSection = lazy(() => import('../components/WhyChooseCardSection'));
+const TestimonialSection = lazy(() => import('../components/TestimonialSection'));
+const OurLocations = lazy(() => import('../components/OurLocations'));
+const StrategicPartner = lazy(() => import('../components/StrategicPartner'));
+const BlogsSection = lazy(() => import('../components/BlogsSection'));
 
 const Home = () => {
-    useEffect(() => {
-        Aos.init();
-    }, []);
     return (
         <>
             <HeroSectionMain />
@@ -30,7 +28,7 @@ const Home = () => {
             <StrategicPartner />
             <BlogsSection />
         </>
-    )
-}
+    );
+};
 
-export default Home
+export default Home;

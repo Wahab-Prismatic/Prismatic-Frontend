@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../assets/css/Footer.css';
-import primaticLogo from '../assets/icons/prismatic_logo.png';
+// import primaticLogo from '/prismatic-photos/prismatic_logo.webp';
 
 const Footer = () => {
     const phoneNumber = "923078881432";
@@ -9,7 +9,6 @@ const Footer = () => {
 
     return (
         <>
-
             <>
                 <footer style={{ marginTop: '20px' }}>
                     <div className="container">
@@ -17,10 +16,12 @@ const Footer = () => {
                             {/* Logo and About Section */}
                             <div className="col-lg-3 col-md-12 footer-item">
                                 <img
-                                    width="100%"
-                                    className="pb-5 foot5"
-                                    src={primaticLogo}
+                                    src='/prismatic-photos/prismatic_logo.webp'
                                     alt="prismatic_logo"
+                                    draggable="false"
+                                    width="200"
+                                    height="100"
+                                    className="pb-5 foot5"
                                     title="prismatic_logo"
                                 />
                                 <p>Bringing your vision to life, we build and manage a world-class team of developers.</p>

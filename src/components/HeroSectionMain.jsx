@@ -6,19 +6,13 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { A11y, Navigation, Pagination, Scrollbar, Autoplay } from 'swiper/modules';
 // Import Swiper CSS modules
 import 'swiper/css';
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { ShimmerDiv } from 'shimmer-effects-react';
 
 const HeroSectionMain = () => {
-    const [isLoading, setIsLoading] = useState(true);
-
+    
     useEffect(() => {
         Aos.init();
-        const timer = setTimeout(() => {
-            setIsLoading(false); 
-        }, 500); 
-        return () => clearTimeout(timer); // Clean up the timer
     }, []);
 
     return (
@@ -50,7 +44,7 @@ const HeroSectionMain = () => {
                                                 </Link>
                                             </div>
                                             <div className="service-right">
-                                                <img src={service.imgSrc} alt={service.imgAlt} title="ERP-slide" loading='lazy' />
+                                                <img src={service.imgSrc} alt={service.imgAlt} title="ERP-slide" loading='eager' />
                                             </div>
                                         </div>
                                     </SwiperSlide>

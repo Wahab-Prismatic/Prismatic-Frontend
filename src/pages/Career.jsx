@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import CareerImg from '../assets/images/Career.jpg';
+import CareerImg from '/images/Career.webp';
 import '../assets/css/Career.css';
 import plusIcon from '../assets/images/plus.png';
 import minusIcon from '../assets/images/minus.png';
@@ -8,32 +8,14 @@ import Aos from 'aos';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchCareers } from '../redux/slices/CareerSlice';
 
-
-const ShimmerDiv = ({ width, height }) => (
-    <div
-        className="shimmer-div"
-        style={{
-            width,
-            height,
-        }}
-    />
-);
-
 const Career = () => {
     const dispatch = useDispatch();
     const { careers = [], loading } = useSelector((state) => state.career);
     const [openIndex, setOpenIndex] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        setIsLoading(true);
         Aos.init();
         dispatch(fetchCareers());
-        const timer = setTimeout(() => {
-            setIsLoading(false);
-        }, 2000);
-        return () => clearTimeout(timer);
-
     }, [dispatch]);
 
     const toggleAccordion = (index) => {
@@ -44,19 +26,11 @@ const Career = () => {
         <>
             {/* <!--Header Banner Starts Here --> */}
             <div className="products-header-wrapper">
-                {
-                    isLoading ? (
-                        <ShimmerDiv height="350px" width="100%" />
-                    ) : (
-                        <>
-                            <img src={CareerImg} alt="career" title="career" draggable={false} />
-                            <div className="P-header-text text-content">
-                                <h6></h6>
-                                <h4>Career</h4>
-                            </div>
-                        </>
-                    )
-                }
+                <img src={CareerImg} alt="career" title="career" draggable={false} />
+                <div className="P-header-text text-content">
+                    <h6></h6>
+                    <h4>Career</h4>
+                </div>
             </div>
             {/* <!--Header Banner End --> */}
 

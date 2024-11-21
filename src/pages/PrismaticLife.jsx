@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import { BannerImages } from '../services';
 // Import Swiper modules
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -15,30 +15,14 @@ import Img8803 from '/prismatic-activity-images/IMG_8803.webp';
 import Img8804 from '/prismatic-activity-images/IMG_8804.webp';
 import Img8889 from '/prismatic-activity-images/IMG_8889.webp';
 import Img8993 from '/prismatic-activity-images/IMG_8993.webp';
-import PicTourImg2 from '/prismatic-activity-images/Picture-tour-2.webp';
-import PicNewYear from '/prismatic-activity-images/Picture-new-year.webp';
-import PicNewYear2 from '/prismatic-activity-images/Picture-new-year-2.webp';
 import PrisBannerImg from '/prismatic-activity-images/pris-banner.webp';
 import Overlay from '/activity-images/overlay-white-img.png';
-import Img_9206 from '/prismatic-activity-images/IMG_9206.webp';
-import Img_9196 from '/prismatic-activity-images/IMG_9196.webp';
-import Img_9199 from '/prismatic-activity-images/IMG_9199.webp';
-import Img_9200 from '/prismatic-activity-images/IMG_9200.webp';
-import Img_9202 from '/prismatic-activity-images/IMG_9202.webp';
-import Img_9204 from '/prismatic-activity-images/IMG_9204.webp';
-import { ShimmerDiv } from 'shimmer-effects-react';
 import { Link } from 'react-router-dom';
 
 const PrismaticLife = () => {
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const [selectedImageIndex, setSelectedImageIndex] = useState(null);
-    const [isLoading, setIsLoading] = useState(true);
     const sectionRefs = useRef({});
-
-    useEffect(() => {
-        const timer = setTimeout(() => setIsLoading(false), 1000);
-        return () => clearTimeout(timer);
-    }, []);
 
     // Modal open for selected image
     const handleImageClick = (index) => {
@@ -75,46 +59,46 @@ const PrismaticLife = () => {
         setHoveredIndex(null);
     };
 
-    const images = [
-        { src: Img_9206, href: Img_9206 },
-        { src: Img_9196, href: Img_9196 },
-        { src: Img_9199, href: Img_9199 },
-        { src: Img_9200, href: Img_9200 },
-        { src: Img_9202, href: Img_9202 },
-        { src: Img_9204, href: Img_9204 },
-    ];
+    const images = useMemo(() => [
+        { src: '/prismatic-activity-images/IMG_9206.webp', alt: 'Image 1' },
+        { src: '/prismatic-activity-images/IMG_9196.webp', alt: 'Image 2' },
+        { src: '/prismatic-activity-images/IMG_9199.webp', alt: 'Image 3' },
+        { src: '/prismatic-activity-images/IMG_9200.webp', alt: 'Image 4' },
+        { src: '/prismatic-activity-images/IMG_9202.webp', alt: 'Image 5' },
+        { src: '/prismatic-activity-images/IMG_9204.webp', alt: 'Image 6' },
+    ], []);
+
+    const images2 = useMemo(() => [
+        { src: '/prismatic-activity-images/Picture-tour-2.webp', alt: 'Picture Tour 2', colSize: '12' },
+        { src: '/prismatic-activity-images/Picture-new-year.webp', alt: 'Picture New Year', colSize: '6' },
+        { src: '/prismatic-activity-images/Picture-new-year-2.webp', alt: 'Picture New Year 2', colSize: '6' },
+    ], []);
+
     return (
         <>
             <div className="container-fluid p-0" style={{ position: 'relative' }}>
-                {
-                    isLoading ? (
-                        <ShimmerDiv
-                            mode="light"
-                            height={400}
-                            width="100%"
-                        />
-                    ) : (
-                        <Swiper
-                            modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
-                            autoplay={{ delay: 5000 }}
-                            loop={true}
-                            slidesPerView={1}
-                            className="mySwiper"
-                        >
-                            {BannerImages.map((image, index) => (
-                                <SwiperSlide key={index} style={{ position: 'relative' }}>
-                                    <img
-                                        className="d-block w-100 images"
-                                        src={image.src}
-                                        alt={image.alt}
-                                        style={image.style}
 
-                                    />
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
-                    )
-                }
+                <Swiper
+                    modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
+                    autoplay={{ delay: 5000 }}
+                    loop={true}
+                    slidesPerView={1}
+                    className="mySwiper"
+                >
+                    {BannerImages.map((image, index) => (
+                        <SwiperSlide key={index} style={{ position: 'relative' }}>
+                            <img
+                                className="d-block w-100 images"
+                                loading='eager'
+                                src={image.src}
+                                alt={image.alt}
+                                style={image.style}
+
+                            />
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
                 <div className="life-activity-overlay">
                     <div className="overlay-activity"></div>
                     <h5>LIFE AT PRISMATIC</h5>
@@ -136,16 +120,16 @@ const PrismaticLife = () => {
                             </div>
                             <div className="row short-img-wrap">
                                 <div className="col-sm-6 col-12 short-img">
-                                    <img src={Img9020} alt="" style={{ width: '100%' }} draggable={false} />
+                                    <img src={Img9020} alt="" style={{ width: '100%' }} loading='eager' draggable={false} />
                                 </div>
                                 <div className="col-sm-6 col-12 short-img">
-                                    <img src={Img9042} alt="" style={{ width: '100%' }} draggable={false} />
+                                    <img src={Img9042} alt="" style={{ width: '100%' }} loading='eager' draggable={false} />
                                 </div>
                             </div>
                         </div>
                         <div className="col-lg-6" style={{ position: 'relative' }}>
                             <div className="award-img">
-                                <img src={AwardImg} className="img-fluid" alt="" style={{ width: '100%' }} draggable={false} />
+                                <img src={AwardImg} className="img-fluid" alt="" style={{ width: '100%' }} loading='eager' draggable={false} />
                             </div>
                         </div>
                     </div>
@@ -154,30 +138,17 @@ const PrismaticLife = () => {
 
             <div className="container">
                 <div className="row">
-                    <div className="col-lg-12 mb-3">
-                        <img
-                            src={PicTourImg2}
-                            alt=""
-                            style={{ width: "100%", borderRadius: '30px' }}
-                            draggable={false}
-                        />
-                    </div>
-                    <div className="col-lg-6 mb-3">
-                        <img
-                            src={PicNewYear}
-                            alt=""
-                            style={{ width: "100%", borderRadius: '30px' }}
-                            draggable={false}
-                        />
-                    </div>
-                    <div className="col-lg-6 mb-3">
-                        <img
-                            src={PicNewYear2}
-                            alt=""
-                            style={{ width: "100%", borderRadius: '30px' }}
-                            draggable={false}
-                        />
-                    </div>
+                    {images2.map((image, index) => (
+                        <div key={index} className={`col-lg-${image.colSize} mb-3`}>
+                            <img
+                                src={image.src}
+                                alt={image.alt}
+                                style={{ width: "100%", borderRadius: '30px' }}
+                                loading='eager'
+                                draggable={false}
+                            />
+                        </div>
+                    ))}
                 </div>
             </div>
             <div className="container">
@@ -187,6 +158,7 @@ const PrismaticLife = () => {
                             src={Img9153}
                             alt=""
                             style={{ width: "100%", borderRadius: '30px' }}
+                            loading='eager'
                             draggable={false}
                         />
                     </div>
@@ -195,6 +167,7 @@ const PrismaticLife = () => {
                             src={Img8889}
                             alt=""
                             style={{ width: "100%", borderRadius: '30px' }}
+                            loading='eager'
                             draggable={false}
                         />
                     </div>
@@ -203,6 +176,7 @@ const PrismaticLife = () => {
                             src={Img8993}
                             alt=""
                             style={{ width: "100%", borderRadius: '30px' }}
+                            loading='eager'
                             draggable={false}
                         />
                     </div>
@@ -211,6 +185,7 @@ const PrismaticLife = () => {
                             src={Img9046}
                             alt=""
                             style={{ width: "100%", borderRadius: '30px' }}
+                            loading='eager'
                             draggable={false}
                         />
                     </div>
@@ -220,6 +195,7 @@ const PrismaticLife = () => {
                             src={Img8804}
                             alt=""
                             style={{ width: "100%", borderRadius: '30px' }}
+                            loading='eager'
                             draggable={false}
                         />
                     </div>
@@ -229,6 +205,7 @@ const PrismaticLife = () => {
                                 src={Img8803}
                                 alt=""
                                 style={{ width: "100%", borderRadius: '30px' }}
+                                loading='eager'
                                 draggable={false}
                             />
                         </div>
@@ -237,6 +214,7 @@ const PrismaticLife = () => {
                                 src={Img9042}
                                 alt=""
                                 style={{ width: "100%", borderRadius: '30px' }}
+                                loading='eager'
                                 draggable={false}
                             />
                         </div>
@@ -246,7 +224,7 @@ const PrismaticLife = () => {
             <div className="container">
                 <div className="row">
                     <div className="col-lg-12 mb-3">
-                        <img src={PrisBannerImg} alt="" style={{ width: '100%', borderRadius: '30px' }} draggable={false} />
+                        <img src={PrisBannerImg} alt="" style={{ width: '100%', borderRadius: '30px' }} loading='eager' draggable={false} />
                     </div>
                 </div>
             </div>
@@ -273,13 +251,15 @@ const PrismaticLife = () => {
                                             src={Overlay}
                                             alt=""
                                             style={{ width: '100%', opacity: hoveredIndex === index ? 1 : 0 }}
+                                            loading='eager'
                                             draggable={false}
                                         />
                                     </div>
                                     <img
                                         src={image.src}
-                                        alt=""
+                                        alt={image.alt}
                                         style={{ width: '100%', borderRadius: '30px' }}
+                                        loading='eager'
                                         draggable={false}
                                     />
                                 </Link>

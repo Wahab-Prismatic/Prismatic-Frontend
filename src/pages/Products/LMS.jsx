@@ -1,17 +1,16 @@
 import '../../assets/css/LMS.css';
 import { Link } from 'react-router-dom';
-import HeroImg from '../../assets/images/images/hero-img.webp';
+import HeroImg from '/images/hero-img.webp';
 import LMSClients from '../../components/LMSClients';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import TestimonialVideo from '../../assets/video/testimonial-video.mp4';
-import PlayBtn from '../../assets/images/images/video-ply-btn.webp';
-import AleemLogo from '../../assets/images/images/al-aleem-logo.webp';
-import setupImg from '../../assets/images/images/Setup.webp';
-import OnBoardingImg from '../../assets/images/images/Onboarding.webp';
-import TechnicalImg from '../../assets/images/images/Technical Support.webp';
+import PlayBtn from '/images/video-ply-btn.webp';
+import AleemLogo from '/images/al-aleem-logo.webp';
+import setupImg from '/images/Setup.webp';
+import OnBoardingImg from '/images/Onboarding.webp';
+import TechnicalImg from '/images/Technical Support.webp';
 import { useEffect, useRef, useState } from 'react';
-import { ShimmerDiv } from 'shimmer-effects-react';
 
 const faqsData = [
     {
@@ -81,31 +80,21 @@ const LMS = () => {
         <>
             {/* <!-- LMS Hero Section --> */}
             <div className="lms-hero" id="home">
-                {
-                    isLoading ? (
-                        <ShimmerDiv
-                            mode="light"
-                            width="100%"
-                            height={400}
-                        />
-                    ) : (
-                        <div className="container">
-                            <div className="row">
-                                <div className="col-lg-5 col-md-12 col-sm-12 mt-lg-5">
-                                    <div className="d-flex justify-content-center flex-wrap flex-column h-100 custom-margin-lg">
-                                        <h1 className="mt-4">The <span className="lms-h-clr">best LMS</span> for personalized learning</h1>
-                                        <p className="mb-lg-4">Create engaging eLearning experiences with our customizable learning management system.
-                                        </p>
-                                        <Link to="/contact-us" className="btn lms-register mb-lg-5">Book a demo</Link>
-                                    </div>
-                                </div>
-                                <div className="col-lg-7 col-md-12 col-sm-12 ">
-                                    <img src={HeroImg} alt="LMS-img" className="img-fluid" loading="lazy" draggable={false} />
-                                </div>
+                <div className="container">
+                    <div className="row">
+                        <div className="col-lg-5 col-md-12 col-sm-12 mt-lg-5">
+                            <div className="d-flex justify-content-center flex-wrap flex-column h-100 custom-margin-lg">
+                                <h1 className="mt-4">The <span className="lms-h-clr">best LMS</span> for personalized learning</h1>
+                                <p className="mb-lg-4">Create engaging eLearning experiences with our customizable learning management system.
+                                </p>
+                                <Link to="/contact-us" className="btn lms-register mb-lg-5">Book a demo</Link>
                             </div>
                         </div>
-                    )
-                }
+                        <div className="col-lg-7 col-md-12 col-sm-12 ">
+                            <img src={HeroImg} alt="LMS-img" className="img-fluid" loading="lazy" draggable={false} />
+                        </div>
+                    </div>
+                </div>
             </div>
             {/* <!-- LMS Hero Section end--> */}
             <LMSClients />
@@ -280,49 +269,49 @@ const LMS = () => {
                                 </p>
                                 <div className="hexa-wrap">
                                     <div className="hexagon purple">
-                                        <a href="#" className="inner-data">
+                                        <Link to="#" className="inner-data">
                                             <h2>LMS<br /> Integration</h2>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="hexagon light-purple">
-                                        <a href="#" className="inner-data">
+                                        <Link to="#" className="inner-data">
                                             <h2>Data<br />Tracking</h2>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="hexagon pink">
-                                        <a href="#" className="inner-data">
+                                        <Link to="#" className="inner-data">
                                             <h2>Course<br />Creation</h2>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="hexagon sea-green">
-                                        <a href="#" className="inner-data">
+                                        <Link to="#" className="inner-data">
                                             <h2>Video<br /> Conferencing</h2>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="hexagon light-sea-green">
-                                        <a href="#" className="inner-data">
+                                        <Link to="#" className="inner-data">
                                             <h2>Gamification</h2>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="hexagon light-sea-green">
-                                        <a href="#" className="inner-data">
+                                        <Link to="#" className="inner-data">
                                             <h2>Centralized<br /> Learning</h2>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="hexagon sea-green">
-                                        <a href="#" className="inner-data">
+                                        <Link to="#" className="inner-data">
                                             <h2>Reporting <br /> Analytics</h2>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="hexagon light-purple">
-                                        <a href="#" className="inner-data">
+                                        <Link to="#" className="inner-data">
                                             <h2>Mobile <br /> Learning</h2>
-                                        </a>
+                                        </Link>
                                     </div>
                                     <div className="hexagon pink">
-                                        <a href="#" className="inner-data">
+                                        <Link to="#" className="inner-data">
                                             <h2>Performance<br /> Management</h2>
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                                 <Link to="/contact-us" className="btn lms-register  lms-explore-btn">Book a demo</Link>

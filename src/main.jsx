@@ -7,7 +7,7 @@ import store from './redux/store.jsx'
 import App from './App.jsx'
 import './index.css'
 import 'aos/dist/aos.css';
-import 'react-tooltip/dist/react-tooltip.css'
+// import 'react-tooltip/dist/react-tooltip.css'
 
 
 // Create a new QueryClient instance

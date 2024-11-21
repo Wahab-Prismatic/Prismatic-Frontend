@@ -5,6 +5,7 @@ import '../assets/css/OurClientsSection.css';
 import { A11y, Autoplay, Navigation, Pagination, Scrollbar } from "swiper/modules";
 // Import Swiper CSS modules
 import 'swiper/css';
+import { Link } from "react-router-dom";
 
 const OurClientsSection = () => {
     return (
@@ -42,14 +43,14 @@ const OurClientsSection = () => {
                                     clientsData.map((client, index) => (
                                         <SwiperSlide key={index}>
                                             <div className="partner-item">
-                                                <a href={client.href} target="_blank" >
+                                                <Link to={client.href} target="_blank" >
                                                     <img
                                                         src={client.src}
-                                                        loading="lazy"
+                                                        loading="eager"
                                                         title={client.title}
                                                         alt={client.alt}
                                                     />
-                                                </a>
+                                                </Link>
                                             </div>
                                         </SwiperSlide>
                                     ))

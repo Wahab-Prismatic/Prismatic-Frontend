@@ -3,14 +3,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 import { fetchBlogs } from '../redux/slices/blogSlice';
 import '../assets/css/Blogs.css';
-import BlogImg from '../assets/images/Blogs.jpg';
+import BlogImg from '/images/Blogs.webp';
 import { ShimmerPostList } from 'react-shimmer-effects';
 import ReactPaginate from 'react-paginate';
-import { ShimmerDiv } from 'shimmer-effects-react';
 
 const Blogs = () => {
     const [columns, setColumns] = useState(3); // Default column lenght is '3'
-    const [isLoading, setIsLoading] = useState(true);
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const dispatch = useDispatch();
@@ -19,7 +17,6 @@ const Blogs = () => {
     const page = parseInt(searchParams.get('page')) || 1;
 
     useEffect(() => {
-        const timer = setTimeout(() => setIsLoading(false), 2000);
         dispatch(fetchBlogs(page));
         // Function to update columns based on window width
         const updateColumns = () => {
@@ -42,12 +39,11 @@ const Blogs = () => {
         // Cleanup the event listener on component unmount
         return () => {
             window.removeEventListener('resize', updateColumns);
-            clearTimeout(timer);
         }
     }, [dispatch, page]);
 
     const handlePageClick = ({ selected }) => {
-        const newPage = selected + 1; 
+        const newPage = selected + 1;
         navigate(`/blogs?page=${newPage}`);
     };
 
@@ -67,23 +63,13 @@ const Blogs = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                {
-                    isLoading ? (
-                        <ShimmerDiv
-                            mode='light'
-                            height={350}
-                            width="100%"
-                        />
-                    ) : (
-                        <>
-                            <img src={BlogImg} alt="blogs" title="blogs" draggable={false} />
-                            <div className="P-header-text text-content">
-                                <h6>Blogs</h6>
-                                <h4>We have over 3 years of experience</h4>
-                            </div>
-                        </>
-                    )
-                }
+
+                <img src={BlogImg} alt="blogs" title="blogs" draggable={false} />
+                <div className="P-header-text text-content">
+                    <h6>Blogs</h6>
+                    <h4>We have over 3 years of experience</h4>
+                </div>
+
             </div>
             <div id="main-wrapper">
                 <div className="site-wrapper-reveal">

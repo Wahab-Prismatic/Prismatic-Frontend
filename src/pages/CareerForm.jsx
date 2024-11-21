@@ -64,13 +64,13 @@ const CareerForm = () => {
     // Form Valication Schema
     const validationSchema = Yup.object({
         apply_email: Yup.string().email('Invalid email format.').required('Email is requied.'),
-        apply_name: Yup.string().min(3, "Name must be at least 3 characters.").required('Name is required.'),
+        apply_name: Yup.string().required('Name is required.'),
         apply_dob: Yup.date().max(new Date(), "Date cannot be in future.").required('Date of birth is required.'),
         apply_m_status: Yup.string().required('Marital status is required.'),
         apply_gender: Yup.string().required('Gender is required.'),
         apply_cellno: Yup.string().matches(/^\d{4}-\d{7}$/, 'Phone number must be in the format 0301-0000000.').required('Phone number is required.'),
-        apply_p_address: Yup.string().min(10, 'Address must be at least 10 characters.').required('Permanent address is required.'),
-        apply_c_address: Yup.string().min(10, 'Address must be at least 10 characters.').required('Current address is required.'),
+        apply_p_address: Yup.string().required('Permanent address is required.'),
+        apply_c_address: Yup.string().required('Current address is required.'),
         apply_cnic: Yup.string()
             .test(
                 'is-valid-cnic',
@@ -82,7 +82,7 @@ const CareerForm = () => {
         apply_study_status: Yup.string().required('Study status is required.'),
         apply_degree: Yup.string().required('Degree is required.'),
         apply_institute: Yup.string().required('Institution is required.'),
-        apply_experience: Yup.string().min(50, 'Please provide detailed work experience (min 50 characters)').required('Wrok experienceis required.'),
+        apply_experience: Yup.string().required('Wrok experienceis required.'),
         apply_exp_salary: Yup.string().required('Expected Salary is required.'),
         // hearing_source: Yup.string().required('Hearing source status is required'),
         cv_pdf: Yup.mixed().required('CV is required.')

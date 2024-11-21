@@ -1,43 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import POSImg from '../../assets/icons/POS-icons/POS-Image.jpg';
+import POSImg from '/POS-icons/POS-Image.webp';
 import posImage1 from '../../assets/images/POS web page image 1.jpg';
-import strengthenEfficiencyIcon from '../../assets/icons/POS-icons/Strengthen-Efficiency.png';
-import increaseSalesIcon from '../../assets/icons/POS-icons/Increase-Sales.png';
-import makeInformedDecisionsIcon from '../../assets/icons/POS-icons/Make-Informed-Decisions.png';
+import strengthenEfficiencyIcon from '/POS-icons/Strengthen-Efficiency.png';
+import increaseSalesIcon from '/POS-icons/Increase-Sales.png';
+import makeInformedDecisionsIcon from '/POS-icons/Make-Informed-Decisions.png';
 import posImage2 from '../../assets/images/POS web page image 2.jpg';
-import multipleCashIcon from '../../assets/icons/POS-icons/Multiple-cash.png';
-import easyInterfaceIcon from '../../assets/icons/POS-icons/Easy-to-user-interface.png';
-import endOfDayIcon from '../../assets/icons/POS-icons/End-of-day-close-out.png';
-import timeCardIcon from '../../assets/icons/POS-icons/Integrated-with-time-card.png';
-import freightIcon from '../../assets/icons/POS-icons/Freight-available.png';
-import directInterfaceIcon from '../../assets/icons/POS-icons/Direct-interface.png';
-import inventoryIcon from '../../assets/icons/POS-icons/Maintain-and-monitor-inventory-availability.png';
-import multipleStoresIcon from '../../assets/icons/POS-icons/Multiple-Stores.png';
-import cashDrawerIcon from '../../assets/icons/POS-icons/Cash-drawer-balancing.png';
-import taxOptionsIcon from '../../assets/icons/POS-icons/Multiple-tax-table-options.png';
-import serialTrackingIcon from '../../assets/icons/POS-icons/Serial-number-and-lot-tracking.png';
-import commissionTrackingIcon from '../../assets/icons/POS-icons/Commission-tracking.png';
+import multipleCashIcon from '/POS-icons/Multiple-cash.png';
+import easyInterfaceIcon from '/POS-icons/Easy-to-user-interface.png';
+import endOfDayIcon from '/POS-icons/End-of-day-close-out.png';
+import timeCardIcon from '/POS-icons/Integrated-with-time-card.png';
+import freightIcon from '/POS-icons/Freight-available.png';
+import directInterfaceIcon from '/POS-icons/Direct-interface.png';
+import inventoryIcon from '/POS-icons/Maintain-and-monitor-inventory-availability.png';
+import multipleStoresIcon from '/POS-icons/Multiple-Stores.png';
+import cashDrawerIcon from '/POS-icons/Cash-drawer-balancing.png';
+import taxOptionsIcon from '/POS-icons/Multiple-tax-table-options.png';
+import serialTrackingIcon from '/POS-icons/Serial-number-and-lot-tracking.png';
+import commissionTrackingIcon from '/POS-icons/Commission-tracking.png';
 import posImage3 from '../../assets/images/POS web page iMAGE 3.jpg';
 import '../../assets/css/POS.css';
 
-const ShimmerDiv = ({ width, height }) => (
-    <div
-        className="shimmer-div"
-        style={{
-            width,
-            height,
-        }}
-    />
-);
-
 const POS = () => {
-    const [loading, setLoading] = useState(true);
-
-    // Simulate loading effect
-    useEffect(() => {
-        const timer = setTimeout(() => setLoading(false), 2000); // Adjust the delay as needed
-        return () => clearTimeout(timer);
-    }, []);
 
     const leftFeatures = [
         { icon: directInterfaceIcon, title: 'Direct interface with General Ledger' },
@@ -89,22 +71,11 @@ const POS = () => {
     return (
         <>
             <div className="products-header-wrapper">
-                {
-                    loading ? (
-                        <ShimmerDiv
-                            width='100%'
-                            height="350px"
-                        />
-                    ) : (
-                        <>
-                            <img src={POSImg} alt="Point of sale" title="Point of sale" draggable={false} />
-                            <div className="P-header-text text-content">
-                                <h6>User-friendly Point of Sale Software</h6>
-                                <h4 style={{ fontSize: '22px' }}>Our POS software is set up in just minutes, allows you to sell in seconds and works with every device.</h4>
-                            </div>
-                        </>
-                    )
-                }
+                <img src={POSImg} alt="Point of sale" title="Point of sale" draggable={false} />
+                <div className="P-header-text text-content">
+                    <h6>User-friendly Point of Sale Software</h6>
+                    <h4 style={{ fontSize: '22px' }}>Our POS software is set up in just minutes, allows you to sell in seconds and works with every device.</h4>
+                </div>
             </div>
 
             <div className="erp pt-5">

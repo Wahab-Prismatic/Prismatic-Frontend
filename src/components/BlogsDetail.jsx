@@ -2,13 +2,12 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import { fetchBlogDetails, fetchBlogs } from '../redux/slices/blogSlice';
-import { ShimmerDiv } from 'shimmer-effects-react';
 import '../assets/css/BlogsDetail.css';
 
 const BlogsDetail = () => {
     const { slug } = useParams();
     const dispatch = useDispatch();
-    const { blogs, currentBlog, loading: isLoading, error } = useSelector((state) => state.blogs);
+    const { blogs, currentBlog, error } = useSelector((state) => state.blogs);
 
     console.log("All Blogs Data", blogs);
 
@@ -28,18 +27,6 @@ const BlogsDetail = () => {
         }
     }, [dispatch, slug, blogs.length, currentBlog]);
 
-
-    if (isLoading) {
-        return (
-            <div>
-                <ShimmerDiv
-                    mode="light"
-                    height={300}
-                    width='100%'
-                />
-            </div>
-        );
-    }
 
     if (error) {
         return <p>Error fetching blogs: {error}</p>;

@@ -10,44 +10,31 @@ import OurClientsSection from '../components/OurClientsSection';
 import { teamData } from '../services';
 import Aos from 'aos';
 import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
-import { ShimmerDiv } from 'shimmer-effects-react';
+import { useEffect } from 'react';
 
 
 const About = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    // const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         Aos.init();
-        const timer = setTimeout(() => setIsLoading(false), 2000);
-        return () => clearTimeout(timer);
     }, []);
     return (
         <>
             <div className="about-us-wrapper">
-                {
-                    isLoading ? (
-                        <ShimmerDiv
-                            mode="light"
-                            height={300}
-                            width="100%"
-                        />
-                    ) : (
-                        <>
-                            <img 
-                                className="img-fluid" 
-                                src={AboutCOverImg} 
-                                draggable={false} 
-                                alt="About-cover" 
-                                title="About-cover" 
-                            />
-                            <div className="about-text">
-                                <h1>About Us</h1>
-                                <p>Lean, Agile, Data-driven</p>
-                            </div>
-                        </>
-                    )
-                }
+                <>
+                    <img
+                        className="img-fluid"
+                        src={AboutCOverImg}
+                        draggable={false}
+                        alt="About-cover"
+                        title="About-cover"
+                    />
+                    <div className="about-text">
+                        <h1>About Us</h1>
+                        <p>Lean, Agile, Data-driven</p>
+                    </div>
+                </>
             </div>
             <div className="more-info about-info">
                 <img className='image' src={SpinCircleImg} alt="spin-circle" title="spin-circle" />

@@ -1,13 +1,13 @@
-import { useRef, useState } from 'react';
+import { useMemo, useRef, useState } from 'react';
 import '../assets/css/Portfolio.css';
-import PortfolioImg from '../assets/images/Portfolio.webp';
+import PortfolioImg from '/images/Portfolio.webp';
 import { Link } from 'react-router-dom';
 // import { portfolioImages } from '../services';
-import 'slick-carousel/slick/slick.css';
-import 'slick-carousel/slick/slick-theme.css';
-import { ShimmerSimpleGallery, ShimmerThumbnail } from 'react-shimmer-effects';
+// import 'slick-carousel/slick/slick.css';
+// import 'slick-carousel/slick/slick-theme.css';
+import { ShimmerSimpleGallery } from 'react-shimmer-effects';
 import { useQuery } from '@tanstack/react-query';
-import { ShimmerButton } from 'shimmer-effects-react';
+// import { ShimmerDiv } from 'shimmer-effects-react';
 
 const getImagePath = (imageName) => {
     try {
@@ -65,7 +65,7 @@ const fetchPortfolios = async () => {
                 ],
             };
             resolve(data);
-        }, 2000);
+        }, 1000);
     });
 };
 
@@ -83,7 +83,7 @@ const PortfolioImage = ({ src, alt, onClick }) => {
     ) : (
         <img
             className="p-image img-fluid"
-            loading="lazy"
+            loading="eager"
             src={imagePath}
             alt={alt}
             draggable={false}
@@ -98,6 +98,7 @@ const Portfolio = () => {
     const sectionRefs = useRef({});
     const [selectedImageIndex, setSelectedImageIndex] = useState(null); // Track selected image index
     const [selectedImages, setSelectedImages] = useState([]); // Track images of the currently opened category
+    // const [loadingModalImage, setLoadingModalImage] = useState(true);
 
     // Use React Query to fetch portfolio data
     const { data: portfolios, isLoading } = useQuery({
@@ -105,21 +106,26 @@ const Portfolio = () => {
         queryFn: fetchPortfolios,
     });
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         setIsLoading(false);
-    //     }, 2000);
-    // }, [])
-
     // Function to open the modal with the selected image index
     const handleImageClick = (index, images) => {
         setSelectedImageIndex(index);
         setSelectedImages(images);
+        // setLoadingModalImage(true);
+        // Display shimmer for 500ms
+        // setTimeout(() => {
+            // setLoadingModalImage(false); // After 500ms, stop shimmer effect and load image
+        // }, 1000);
     };
 
     // Function to close the modal
     const closeModal = () => {
         setSelectedImageIndex(null);
+        // setLoadingModalImage(true);
+    };
+
+    // Image loaded in the modal, hide shimmer
+    const handleImageLoad = () => {
+        // setLoadingModalImage(false); // Set to false when image is fully loaded
     };
 
     // Navigate to the next image
@@ -139,13 +145,13 @@ const Portfolio = () => {
     };
 
     // Map button labels to portfolio data categories
-    const categoryMap = {
+    const categoryMap = useMemo(() => ({
         'E-Commerce': 'websites',
         'LMS': 'learningManagementSystem',
         'ERP': 'erpSoftware',
         'Websites': 'websites',
         'Digital Marketing': 'digitalMarketing'
-    };
+    }), []);
 
     // Scroll function to particular portfolio
     const scrollToSection = (categoryLabel) => {
@@ -158,51 +164,42 @@ const Portfolio = () => {
         }
     };
 
-    const buttonsData = [
+    // Memoize the buttonsData array
+    const buttonsData = useMemo(() => [
         { link: "#ecommerce", label: "E-Commerce" },
         { link: "#lms", label: "LMS" },
         { link: "#erp", label: "ERP" },
         { link: "#website", label: "Websites" },
         { link: "#digital-mark", label: "Digital Marketing" }
-    ];
+    ], []);
+
+    // Memoize the portfolio images for optimization
+    const memoizedPortfolios = useMemo(() => portfolios || {}, [portfolios]);
 
     return (
         <>
             <div className="products-header-wrapper">
-                {
-                    isLoading ? (
-                        <ShimmerThumbnail height={250} rounded />
-                    ) : (
-                        <>
-                            <img src={PortfolioImg} loading="lazy" alt="portfolio" title="portfolio" draggable={false} />
-                            <div className="P-header-text text-content"></div>
-                        </>
-                    )
-                }
+                <img src={PortfolioImg} loading="eager" alt="portfolio" title="portfolio" draggable={false} />
+                <div className="P-header-text text-content"></div>
             </div>
 
             <div className="container-fluid">
                 <div className="sec-buttons">
                     {buttonsData.map((button, index) => (
                         <div className="item" key={index}>
-                            {
-                                isLoading ? (
-                                    <ShimmerButton
-                                        size='lg'
-                                    />
-                                ) : (
-                                    <Link to={button.link}>
-                                        <button 
-                                            className="pg-button" 
-                                            onClick={(e) => { e.preventDefault(); 
-                                            scrollToSection(button.label); 
-                                            }}
-                                        >
-                                            {button.label}
-                                        </button>
-                                    </Link>
-                                )
-                            }
+
+                            <Link to={button.link}>
+                                <button
+                                    className="pg-button"
+                                    onClick={(e) => {
+                                        e.preventDefault();
+                                        scrollToSection(button.label);
+                                    }}
+                                >
+                                    {button.label}
+                                </button>
+                            </Link>
+
                         </div>
                     ))}
                 </div>
@@ -220,7 +217,7 @@ const Portfolio = () => {
                         </>
                     ))
                 ) : (
-                    Object.entries(portfolios).map(([category, images], categoryIndex) => (
+                    Object.entries(memoizedPortfolios).map(([category, images], categoryIndex) => (
                         <div key={categoryIndex} className="product-section container" ref={(el) => (sectionRefs.current[category] = el)} id={category.toLowerCase()}>
                             <h1 style={{ fontSize: "24px", fontWeight: "bold", padding: "25px 0" }}>
                                 {category.replace(/([A-Z])/g, " $1").replace(/^./, str => str.toUpperCase())}
@@ -264,11 +261,17 @@ const Portfolio = () => {
                                 <i className="fa fa-chevron-left"></i>
                             </span>
                             {/* <img src={selectedImages[selectedImageIndex]} alt="" className="modal-image" draggable={false} /> */}
-                            <PortfolioImage
-                                className="modal-image"
-                                src={selectedImages[selectedImageIndex]}
-                                alt="Selected portfolio item"
-                            />
+                            {/* Show shimmer effect while loading image */}
+                            {/* {loadingModalImage ? (
+                                <ShimmerDiv mode="light" height={400} width={500} />
+                            ) : ( */}
+                                <PortfolioImage
+                                    className="modal-image"
+                                    src={selectedImages[selectedImageIndex]}
+                                    alt="Selected portfolio item"
+                                    onLoad={handleImageLoad} // Handle image load
+                                />
+                            {/* )} */}
                             <span className="arrow right-arrow" onClick={nextImage}>
                                 <i className="fa fa-chevron-right"></i>
                             </span>

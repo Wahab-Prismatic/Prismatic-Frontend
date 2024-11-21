@@ -35,6 +35,8 @@ footer h4 {
 
 .foot5 {
     padding: 70px 0px 24px 0px !important;
+    max-width: 100%;
+    height: auto;
 }
 
 ul {

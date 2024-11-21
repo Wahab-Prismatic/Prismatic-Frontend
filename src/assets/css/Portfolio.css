@@ -115,6 +115,12 @@ a {
     overflow: hidden;
 }
 
+.P-header-text {
+    font-size: 24px;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
 .shimmer-div {
     position: relative;
     overflow: hidden;

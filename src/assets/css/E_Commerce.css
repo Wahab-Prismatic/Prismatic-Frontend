@@ -3,7 +3,7 @@
 }
 
 .shopify-hero-section {
-    background-image: url('../images/ecommerce/pri-shopify-h-bg.webp');
+    background-image: url('/ecommerce/pri-shopify-h-bg.webp');
     background-repeat: no-repeat;
     background-size: cover;
     padding: 20px;
@@ -14,13 +14,11 @@ h1.shopify-h {
     line-height: 50px;
     font-weight: 400;
     text-transform: uppercase;
-    /* font-family: "Kanit", sans-serif; */
 }
 
 span.shopify-h-2 {
     font-weight: 600;
     color: #286A97;
-    /* font-family: "Kanit", sans-serif; */
 }
 
 .hero-sec-text p {
