@@ -6,12 +6,18 @@ import * as Yup from 'yup';
 import ReCAPTCHA from 'react-google-recaptcha';
 import { locations, mapPath } from '../services';
 import { Link } from 'react-router-dom';
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
+import 'primereact/resources/themes/saga-blue/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
 import '../assets/css/ContactUs.css';
 
 import ContactImg from '/images/Contact Us.webp';
 
 const ContactUs = () => {
     const [captchaValue, setCaptchaValue] = useState(null);
+    const [isModalVisible, setModalVisible] = useState(false);
     const dispatch = useDispatch();
     const { loading, successMessage, errorMessage } = useSelector((state) => state.contactForm);
 
@@ -41,6 +47,12 @@ const ContactUs = () => {
         dispatch(clearMessages());
     }, [dispatch]);
 
+    useEffect(() => {
+        if (successMessage) {
+            setModalVisible(true);
+        }
+    }, [successMessage]);
+
     const onCaptchaChange = (value, setFieldValue) => {
         setFieldValue('captcha', value);
         setCaptchaValue(value);
@@ -67,6 +79,35 @@ const ContactUs = () => {
 
     return (
         <>
+            <Dialog
+                header="Message Sent Successfully!"
+                visible={isModalVisible}
+                style={{ width: '50vw', maxWidth: '90vw' }}
+                breakpoints={{
+                    '1024px': '50vw', // Tablets
+                    '768px': '70vw',  // Medium devices
+                    '560px': '90vw',  // Small devices
+                }}
+                onHide={() => setModalVisible(false)}
+                closable
+                className="success-modal"
+            >
+                <div style={{ textAlign: 'center', padding: '20px' }}>
+                    <i className="pi pi-check-circle" style={{ fontSize: '3rem', color: '#28a745' }}></i>
+                    <h4 style={{ marginTop: '15px' }}>Thank you for contacting us!</h4>
+                    <p>{successMessage}</p>
+                    <Button
+                        label="Close"
+                        icon="pi pi-times"
+                        className="p-button-text"
+                        severity="info"
+                        text
+                        raised
+                        onClick={() => setModalVisible(false)}
+                    />
+                </div>
+            </Dialog>
+
             <div className="products-header-wrapper">
                 <img src={ContactImg} alt="contact-us" title="contact-us" draggable={false} />
                 <div className="P-header-text text-content">
@@ -79,7 +120,6 @@ const ContactUs = () => {
                 <div className="container">
                     <div className="row" style={{ background: '#E9EDF0' }}>
                         <div className="col-md-8 pt-4 pb-4">
-                            {successMessage && <div className="alert alert-success success_alert" role="alert">{successMessage}</div>}
                             {errorMessage && <div className="alert alert-danger danger_alert" role="alert">{errorMessage}</div>}
 
                             <div className="contact-form formchange" id="Contact">

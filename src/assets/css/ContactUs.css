@@ -182,6 +182,21 @@ label {
     margin-left: 10px;
 }
 
+.success-modal {
+    padding: 1rem;
+}
+
+.success-modal h4 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.success-modal p {
+    font-size: 1rem;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
 
 @media (max-width: 991px) {
     .P-header-text h6 {
@@ -211,6 +226,18 @@ label {
     .row > .col-lg-6 {
         width: 100%;
         max-width: 100%;
+    }
+
+    .success-modal h4 {
+        font-size: 1.2rem;
+    }
+
+    .success-modal p {
+        font-size: 0.9rem;
+    }
+
+    .success-modal .pi {
+        font-size: 2.5rem;
     }
 }
 
@@ -246,4 +273,16 @@ label {
         transform: scale(0.78);
         transform-origin: 0 0;
       }
+
+      .success-modal h4 {
+        font-size: 1rem;
+    }
+
+    .success-modal p {
+        font-size: 0.85rem;
+    }
+
+    .success-modal .pi {
+        font-size: 1rem; 
+    }
 }
